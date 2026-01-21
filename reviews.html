@@ -1,0 +1,2184 @@
+﻿<!DOCTYPE html>
+
+<html lang="uk" dir="ltr">
+
+
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Персональні комп'ютери | Digital PC</title>
+
+  <meta name="description"
+    content="Digital PC - професійні готові ПК для геймінгу та роботи. Власна збірка, гарантія якості, доставка по Україні.">
+
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+
+
+
+  <!-- Core CSS & JS -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+  <script src="https://unpkg.com/i18next@21.6.10/dist/umd/i18next.min.js"></script>
+
+
+
+  <!-- Custom Styles -->
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap&subset=cyrillic');
+
+
+
+    :root {
+
+      --primary: #00a8ff;
+
+      --secondary: #0097e6;
+
+      --accent: #00d2d3;
+
+      --dark: #2f3640;
+
+      --light: #f5f6fa;
+
+    }
+
+
+
+    body {
+
+      font-family: 'Exo 2', sans-serif;
+
+      background-color: #f8f9fa;
+
+      color: var(--dark);
+
+      overflow-x: hidden;
+
+    }
+
+
+
+    .title-font {
+
+      font-family: 'Orbitron', sans-serif;
+
+      letter-spacing: 1px;
+
+    }
+
+
+
+    .glow-text {
+
+      text-shadow: 0 0 10px rgba(0, 168, 255, 0.7);
+
+    }
+
+
+
+    /* Fix for uniform review text weight */
+    .text-gray-700.leading-relaxed {
+      font-weight: 400 !important;
+    }
+
+
+
+    .glow-box {
+
+      box-shadow: 0 0 15px rgba(0, 168, 255, 0.5);
+
+    }
+
+
+
+    .nav-link {
+
+      position: relative;
+
+    }
+
+
+
+    .nav-link:after {
+
+      content: '';
+
+      position: absolute;
+
+      width: 0;
+
+      height: 2px;
+
+      bottom: -2px;
+
+      left: 0;
+
+      background-color: var(--primary);
+
+      transition: width 0.3s ease;
+
+    }
+
+
+
+    .nav-link:hover:after {
+
+      width: 100%;
+
+    }
+
+
+
+    .hero-section {
+
+      height: 90vh;
+
+      position: relative;
+
+      overflow: hidden;
+
+    }
+
+
+
+    .vanta-bg {
+
+      position: absolute;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      z-index: -1;
+
+    }
+
+
+
+    .product-card:hover {
+
+      transform: translateY(-10px);
+
+      transition: all 0.3s ease;
+
+    }
+
+
+
+    .language-switcher {
+
+      transition: all 0.3s ease;
+
+    }
+
+
+
+    .language-switcher:hover {
+
+      transform: scale(1.1);
+
+    }
+
+
+
+    .language-switcher:hover {
+
+      transform: scale(1.1);
+
+    }
+
+
+
+    .reviews-marquee {
+
+      display: flex;
+
+      width: max-content;
+
+      animation: scroll 40s linear infinite;
+
+    }
+
+
+
+    .reviews-marquee:hover {
+
+      animation-play-state: paused;
+
+    }
+
+
+
+    @keyframes scroll {
+
+      0% {
+
+        transform: translateX(0);
+
+      }
+
+
+
+      100% {
+
+        transform: translateX(-50%);
+
+      }
+
+    }
+  </style>
+
+  <link rel="stylesheet" href="./css/lightbox.css?v=4">
+
+
+
+  <style>
+    .review-card {
+
+      transition: transform 0.2s;
+
+    }
+
+    .review-card:hover {
+
+      transform: translateY(-4px);
+
+    }
+  </style>
+
+</head>
+
+
+
+<body class="antialiased">
+
+  <!-- Clean Background -->
+
+  <!-- Navigation -->
+
+  <nav class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-sm fixed w-full z-50">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="flex justify-between h-16 items-center">
+
+        <!-- Logo -->
+
+        <div class="flex-shrink-0 flex items-center"><a href="index.html" class="flex items-center"><img
+              src="./images/logo.png?v=13" alt="Digital PC Logo" class="w-8 h-8"><span
+              class="ml-2 text-xl font-bold title-font text-gray-800">DIGITAL PC</span></a></div>
+
+        <!-- Desktop Menu -->
+
+        <!-- Desktop Menu -->
+
+        <div class="hidden md:ml-6 md:flex md:space-x-8">
+
+          <a href="index.html" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
+            data-i18n="nav_home">Головна</a>
+
+          <a href="computers.html"
+            class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
+            data-i18n="nav_catalog">Комп'ютери</a>
+
+          <a href="reviews.html"
+            class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
+            data-i18n="nav_reviews">Відгуки</a>
+
+          <a href="about.html"
+            class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
+            data-i18n="nav_about">Про нас</a>
+
+          <a href="contacts.html"
+            class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
+            data-i18n="nav_contacts">Контакти</a>
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="flex items-center">
+
+          <!-- Mobile menu button -->
+
+          <div class="-mr-2 flex items-center md:hidden"><button type="button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              aria-expanded="false" id="mobile-menu-button"><span class="sr-only">Open main menu</span><i
+                data-feather="menu" class="block h-6 w-6"></i></button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Mobile menu -->
+
+    <div class="md:hidden hidden" id="mobile-menu">
+
+      <div class="pt-2 pb-3 space-y-1"><a href="index.html"
+          class="bg-blue-50 border-blue-500 text-blue-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Головна</a><a
+          href="computers.html"
+          class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Комп'ютери</a>
+
+        <a href="reviews.html"
+          class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Відгуки</a>
+
+        <a href="about.html"
+          class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Про
+
+          нас</a><a href="contacts.html"
+          class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Контакти</a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- Page Header -->
+
+  <div id="page-header" class="bg-gray-900 pt-24 pb-16">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="flex flex-col md:flex-row justify-between items-center">
+
+        <div class="mb-6 md:mb-0">
+
+          <h1 class="text-3xl font-bold title-font text-white mb-2" data-aos="fade-right" data-i18n="nav_reviews">
+            Відгуки клієнтів</h1>
+
+          <p class="text-gray-300 mb-6" data-aos="fade-right" data-aos-delay="100">Що про нас кажуть наші
+
+            покупці
+
+          </p>
+
+          <a href="https://www.google.com/search?sca_esv=3b5cf2041e18d574&hl=ru-UA&sxsrf=AE3TifNWTXYZ-a0fob1X8rJN4pL-6PY-Iw:1766486935856&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E-QqkvP6AKLSgRH4aVp8UrAeLD9_tbo2UNtOQlvjhJP2rTTq3ldg3i4lbAZhg-hE78RbQwXLVB2glSiwuHK8XMK_GJBQ&q=Digital+PC+%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B&sa=X&ved=2ahUKEwj1o7_SxNORAxXnGxAIHZLmMGgQ0bkNegQIGxAE&biw=1536&bih=824&dpr=1.25"
+            target="_blank"
+            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-100 transition-colors"
+            data-aos="fade-up" data-aos-delay="200">
+
+            <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+
+            </svg>
+
+            Читати всі відгуки на Google Maps
+
+          </a>
+
+        </div>
+
+        <div class="flex items-center flex-col md:items-end">
+
+          <div class="flex text-yellow-500 mb-1">
+
+            <i data-feather="star" class="fill-current w-6 h-6"></i>
+
+            <i data-feather="star" class="fill-current w-6 h-6"></i>
+
+            <i data-feather="star" class="fill-current w-6 h-6"></i>
+
+            <i data-feather="star" class="fill-current w-6 h-6"></i>
+
+            <i data-feather="star" class="fill-current w-6 h-6"></i>
+
+          </div>
+
+          <span class="text-white font-bold text-xl">5.0 / 5.0</span>
+
+          <span class="text-gray-400 text-sm">35 відгуків • на основі Google Maps</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <section class="py-16 bg-gray-50">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
+
+      <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              D
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">DuMa</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Оновив свій музей до прийнятних реалій. Швидко, якісно,
+            індивідуальний підхід до клієнта. Я і мій настільний музей залишилися задоволені 🤝🤙 …</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              A
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">ani ander</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Продавець йде на контакт, на місці вирішили питання з невеликим
+            апгрейдом ПК. Продавець встановив усі драйвери і трохи поганяли по тестам цей девайс. У разі
+            виникнення будь-яких проблем, він їх усунув. Загалом рекомендую.</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              R
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Rostislav Rytikovich</h3>
+
+              <p class="text-sm text-gray-500">2 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">СУПЕР - ПУПЕР !!!
+            ПЛЮСИ: ЦІНА- ЯКІСТЬ-ОБСЛУГОВУВАННЯ.
+            Одні плюси +++
+            Якщо ви шукали і таки натрапили сюди - це те, що вам треба!
+            Далі можете не шукати.
+            Пишіть їм у телеграм і вони зчитують ваші думки та реалізовують їх краще, ніж ви собі бачите.</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              A
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Artur Turovets</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Відмінний сервіс, відповідають швидко, працюють швидко. При мені
+            показали
+            стрес-тести, налаштували, показали, розповіли. Загалом рекомендую.</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              М
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Маргарита Калашник</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Купувала материнську плату, процесор, кулер. Термопасту в подарунок
+            поклали) На все
+            пішла доба!! Написала, порадили, оплатила, надіслали, підключила! З Дніпра до Києва! Це фантастика. Все
+            нове, на пломбах, упаковано як Фаберже! Хлопцям величезна подяка. ❤️❤️❤️</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              R
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Roman Myroshnychenko</h3>
+
+              <p class="text-sm text-gray-500">месяц назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Зробили все швидко, чітко за запитом і за адекватну суму, хороші
+            майстри, допоможуть зібрати збірку або ж оновити ПК</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              М
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Марк Ермалаев</h3>
+
+              <p class="text-sm text-gray-500">5 месяцев назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Все життя користувався ноутами, ось вирішив сам зібрати комп, ходжу в
+            цей магазин
+            уточнюю всю інформацію, яка мені потрібна для збірки, завжди відповідають, дають рекомендації, корисні
+            поради щодо
+            збірки, подобається те, що працівникам ця справа подобається і коли просиш поради відповідають із
+            зацікавленістю та
+            ввічливістю, більш ніж впевнений у їхній компетентності.</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              N
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Neunter Oberherr (NOV)</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Купив відеокарту Asus Radeon RX 9070 XT Prime OC 16GB сервіс на
+            вищому рівні з доставкою додому. Рекомендую</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              Е
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Евгений Николенко</h3>
+
+              <p class="text-sm text-gray-500">месяц назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Все супер, зібрали чудовий комп за 3к$
+            Всім задоволений 🤝 …</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              Д
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Денис Дейнека</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">замовив збірку ПК, все зробили швидко красива акуратно, раджу</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              A
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Artem Yasko</h3>
+
+              <p class="text-sm text-gray-500">месяц назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Дуже сумлінне ставлення до роботи, видно, що займаються улюбленою
+            справою, я вдячний вам 5+</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              Е
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Евгений Соломин</h3>
+
+              <p class="text-sm text-gray-500">месяц назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Купував комп'ютер, все чудово, працює як годинник, ще раз дякую)
+          </p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              Н
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Николай Полищук</h3>
+
+              <p class="text-sm text-gray-500">2 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Задоволений усім, все показали, розповіли. Дуже красива збірка!</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              K
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">KostetLC Kosta</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Відмінний магазин, Купував з олх, Люди порядні, знають свою
+            справу. Рекомендую!</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              М
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Михайло Катков</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Дуже хороший сервіс, задоволений на всі 100% і навіть трохи більше
+          </p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              A
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Aji Peperov</h3>
+
+              <p class="text-sm text-gray-500">3 дня назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Щиро дякую за збірку ПК, зібрали та підібрали все як я хотів!
+          </p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              К
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Кирилл Белый</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Купував ПК через Instagram – все сподобалось! Дуже швидко відповіли.
+            Збірка якісна, працює без проблем, доставка теж була швидкою. Магазин завжди на зв'язку, все чесно
+            та прозоро. Дуже задоволений покупкою, рекомендую всім!</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              V
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Vitaliy</h3>
+
+              <p class="text-sm text-gray-500">3 недели назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Особисто задоволений якістю сервісу та зібраного ПК. Збірку зробили
+            швидко та якісно і врахували мої побажання. Однозначно рекомендую!</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              L
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">LEIK</h3>
+
+              <p class="text-sm text-gray-500">2 недели назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Звернувся за допомогою, потрібен був апгрейд ПК.
+            Обговорили бюджет та потужність, зробили все чітко, якісно та дуже швидко.
+            З часом жодних проблем не вилізло.
+            Обов'язково буду звертатися.</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              H
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Hao Lizardo</h3>
+
+              <p class="text-sm text-gray-500">месяц назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Купив у них ПК, знайшов на olx, замовив у телеграм. Оплатити можна
+            було при отриманні товару, але я довірився і заплатив відразу. Продавець не підвів, все відправив чітко,
+            добре
+            упаковано і в обумовлені терміни. Перед відправкою був наданий відеоогляд роботи ПК та його упаковки. До ПК
+            йшли всі заводські коробки від комплектуючих. ПК користуюся трохи більше місяця, якихось проблемних питань
+            не
+            помітив.</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              A
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">alisa</h3>
+
+              <p class="text-sm text-gray-500">4 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Купував тут комплект Процесор Ryzen 7700x, Материнку Asus prime
+            b650m-k? і оперативну пам'ять Crucial 6400. Ціна була дуже приємна, а також приїхало воно дуже надійно
+            упаковано.
+
+            Під час користування виникла несправність з оперативною, я написав в особисті магазину, в чаті мене
+            розпитали про ситуацію, і на моє запитання про гарантію - розповіли як це все може відбутися (була
+            можливість відправити їм на діагностику весь комплект і через 2-3 дні (швидко!), вони б вислали заміну з
+            нової поставки). Але я ще поспілкувався в чаті, мені порекомендували між іншим вимкнути EXPO твікер, і це
+            допомогло! Дуже вдячний за допомогу, ще в таку пізню годину (було близько 21:30)
+
+            Загалом, дуже приємний досвід з цим магазином, рекомендую!</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              М
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Милана</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Тільки тут вдалося знайти оригінальну і непідробну й холодну
+            Palit GTX 1050ti 4GB StormX, з пломбою, за демократичною ціною. Нібито її виробили сьогодні.
+            Швидко обробили замовлення і відправили товар поштою. Добре обслужили все і протестували. Жодних
+            артефактів відеопам'яті. Оригінальний відеочіп. Свіжа термопаста. Дуже хороша підтримка, оперативний
+            менеджмент і висококваліфіковані фахівці, які дійсно люблять свою справу. Рекомендую цей
+            сервіс тим, хто хоче зібрати дійсно потужного, протестованого і добре охолодженого ігрового монстра,
+            який не буде ні вимикатися, ні перегріватися!</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              В
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Вова Шатнов</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Купував пк дуже задоволений відправляли післяплатою швидко
+            рекомендую</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              A
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Andriy</h3>
+
+              <p class="text-sm text-gray-500">месяц назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Замовляв збірку на подарунок — спілкуванням задоволений, підібрали та
+            склали
+            досить швидко, запакували надійно.</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              В
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Вероника Лутченко</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Замовляла з олх. Дуже швидко відправили, допомогли з усіма
+            питаннями. Все на найвищому рівні, дякую</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              A
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Artem Babak</h3>
+
+              <p class="text-sm text-gray-500">5 месяцев назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Купував ПК ryzen 5 5600 rtx 4060 32gb ram і мишу Logitech g102,
+            мінімальна націнка
+            Персонал 10/10
+            Якість комплектуючих 10/10
+            Кабель менеджмент 10/10
+            Приколгосплених деталей 0
+            Все супер, користуюся вже півроку</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              D
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">dada</h3>
+
+              <p class="text-sm text-gray-500">5 месяцев назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Скористалися послугою трейд-ін та перезбирання ПК — все зробили
+            швидко та якісно. Дякую дякую збирачам та менеджерам за чудову роботу ❤️</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              Д
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Денис Промский</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Купував комплектуючі для свого першого ПК, дуже задоволений,
+            відмінний
+            сервіс.</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              С
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Слюсарчук Антон</h3>
+
+              <p class="text-sm text-gray-500">3 месяца назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Купував тут комп'ютер все неймовірно</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              О
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Олег Струтинський</h3>
+
+              <p class="text-sm text-gray-500">6 дней назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Все швидко та якісно, підібрали оптимальні та якісні
+            комплектуючі, дуже гарно пакують при доставці, надають усі гарантійні листи та коробки від
+            комплектуючих, дуже швидко відповідають на будь-які запитання.
+            Напевно, одна з найкращих компаній по збірці ПК на нашому ринку.</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              S
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Sasha Maschuk</h3>
+
+              <p class="text-sm text-gray-500">6 дней назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">(ПК дуже сподобався, все працює добре, все налаштовано, дістав з
+            коробки і відразу можна грати)</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              D
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Dmytro Siennykh (Just_dimas)</h3>
+
+              <p class="text-sm text-gray-500">6 дней назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Щиро дякую за збірку ПК
+            Протестував, усім задоволений!!!
+            Швидко зібрали та скинули відео тесту.
+            Рекомендую однозначно!!!
+            І головне ціна дуже приємна!!!</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              V
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Vadim Di Angelo</h3>
+
+              <p class="text-sm text-gray-500">6 дней назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Дуже швидко та професійно зібрали ПК. Всі забаганки врахували та
+            якісно проконсультували. Збірка крім функціональної вийшла гарною, нічого зайвого не стирчить і
+            не бовтається, все красиво та лаконічно. Після збірки провели усі тести на стабільність роботи. Можу
+            рекомендувати, сервіс просто чудовий!</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              A
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Alukard 3550</h3>
+
+              <p class="text-sm text-gray-500">6 дней назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Всім раджу цей магазин. Зібрали ПК швидко, якісно. І
+            повністю з нових комплектуючих. Одним словом чудовий магазин.</p>
+
+        </div>
+
+
+
+        <div class="review-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+
+          <div class="flex items-center mb-4">
+
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+
+              A
+
+            </div>
+
+            <div class="ml-4">
+
+              <h3 class="font-bold text-gray-900">Artem Grun</h3>
+
+              <p class="text-sm text-gray-500">неделю назад</p>
+
+            </div>
+
+          </div>
+
+          <div class="flex mb-3 text-yellow-400">
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+            <i data-feather="star" class="fill-current w-5 h-5"></i>
+
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">Дуже задоволений співпрацею з компанією. Комп'ютер отримав у
+            відмінному стані, повністю відповідає опису та очікуванням. Ціна приємно здивувала – одна з найкращих
+            пропозицій, які вдалося знайти.
+
+            Окремо хочу відзначити сервіс: все чітко, швидко та без зайвих питань. Дуже зручно, що є можливість
+            безготівкової оплати на ФОП – для мене це був важливий момент.
+            Дякую за професійний підхід та приємний досвід покупки. Однозначно можу рекомендувати!</p>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Socials Section -->
+
+  <section class="py-16 bg-gray-900 text-white">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-12">
+
+        <h2 class="text-3xl font-bold title-font mb-4">Наші платформи</h2>
+
+        <p class="text-lg text-gray-400" data-i18n="socials_subtitle">Слідкуйте за нами, щоб бути в курсі
+
+          новинок та акцій</p>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+
+        <!-- Telegram -->
+
+        <a href="https://t.me/Digital_Pc" target="_blank"
+          class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition-all group flex flex-col items-center text-center border border-gray-700">
+
+          <div
+            class="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+
+            <i data-feather="send" class="w-8 h-8 text-blue-500"></i>
+
+          </div>
+
+          <h3 class="font-bold text-xl mb-1">Telegram</h3>
+
+          <p class="text-gray-400 text-sm">@Digital_Pc</p>
+
+        </a>
+
+        <!-- Instagram -->
+
+        <a href="https://www.instagram.com/digital_pc_dnipro" target="_blank"
+          class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition-all group flex flex-col items-center text-center border border-gray-700">
+
+          <div
+            class="w-16 h-16 bg-pink-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+
+            <i data-feather="instagram" class="w-8 h-8 text-pink-500"></i>
+
+          </div>
+
+          <h3 class="font-bold text-xl mb-1">Instagram</h3>
+
+          <p class="text-gray-400 text-sm">@digital_pc_dnipro</p>
+
+        </a>
+
+        <!-- TikTok -->
+
+        <a href="https://www.tiktok.com/@digital_pc_dnipro_" target="_blank"
+          class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition-all group flex flex-col items-center text-center border border-gray-700">
+
+          <div
+            class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+
+            <svg viewBox="0 0 24 24" class="w-8 h-8 fill-current text-white" style="display:block">
+
+              <path
+                d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+
+            </svg>
+
+          </div>
+
+          <h3 class="font-bold text-xl mb-1">TikTok</h3>
+
+          <p class="text-gray-400 text-sm">@digital_pc_dnipro_</p>
+
+        </a>
+
+        <!-- Prom Store -->
+
+        <a href="https://digitalpcdnipro.prom.ua/" target="_blank"
+          class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition-all group flex flex-col items-center text-center border border-gray-700">
+
+          <div
+            class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+
+            <i data-feather="shopping-bag" class="w-8 h-8 text-purple-500"></i>
+
+          </div>
+
+          <h3 class="font-bold text-xl mb-1">Prom.ua</h3>
+
+          <p class="text-gray-400 text-sm" data-i18n="promo_prom">Магазин на Prom</p>
+
+        </a>
+
+        <!-- OLX -->
+
+        <a href="https://www.olx.ua/list/user/10oQVa/" target="_blank"
+          class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition-all group flex flex-col items-center text-center border border-gray-700">
+
+          <div
+            class="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+
+            <svg viewBox="0 0 24 24" class="w-8 h-8" fill="#3FBF7F">
+
+              <circle cx="12" cy="12" r="10" fill="#3FBF7F" />
+
+              <path
+                d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"
+                fill="white" />
+
+              <circle cx="12" cy="12" r="2.5" fill="white" />
+
+            </svg>
+
+          </div>
+
+          <h3 class="font-bold text-xl mb-1">OLX</h3>
+
+          <p class="text-gray-400 text-sm">Наші оголошення</p>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Google Maps Section -->
+
+  <section class="py-16 bg-gray-50">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h2 class="text-3xl font-bold title-font text-gray-900 mb-8 text-center">Наше розташування</h2>
+
+      <div class="w-full h-96 rounded-lg overflow-hidden border border-gray-300 shadow-lg">
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2563.8!2d35.0476395!3d48.4673734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe323e12dab59%3A0x8b1de23f729b1fa4!2sDigital%20PC!5e0!3m2!1suk!2sua!4v1734627999000!5m2!1suk!2sua"
+          width="100%" height="100%" style="border:0;" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Footer -->
+
+  <footer class="bg-gray-900 text-white pt-16 pb-8">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div>
+
+          <h3 class="text-lg font-bold title-font mb-4" data-i18n="hero_title">DIGITAL PC</h3>
+
+          <p class="text-sm text-gray-400 mb-6" data-i18n="footer_desc">Професійні готові ПК для геймінгу,
+
+            рендерингу та офісних задач. Ми створюємо машини, які надихають на перемоги.</p>
+
+
+
+          <div class="flex flex-wrap gap-4">
+
+            <a href="https://t.me/Digital_Pc" class="text-gray-400 hover:text-white" target="_blank"><i
+                data-feather="send" class="w-5 h-5"></i></a>
+
+            <a href="https://www.instagram.com/digital_pc_dnipro" class="text-gray-400 hover:text-white"
+              target="_blank"><i data-feather="instagram" class="w-5 h-5"></i></a>
+
+            <a href="https://www.tiktok.com/@digital_pc_dnipro_" class="text-gray-400 hover:text-white" target="_blank">
+
+              <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" style="display:block">
+
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+
+              </svg>
+
+            </a>
+
+            <a href="https://digitalpcdnipro.prom.ua/" class="text-gray-400 hover:text-white" target="_blank"
+              title="Prom"><i data-feather="shopping-bag" class="w-5 h-5"></i></a>
+
+            <a href="https://www.olx.ua/list/user/10oQVa/" class="text-gray-400 hover:text-white" target="_blank"
+              title="OLX">
+
+              <svg viewBox="0 0 48 48" class="w-5 h-5" fill="currentColor">
+
+                <path
+                  d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 36c-8.82 0-16-7.18-16-16S15.18 8 24 8s16 7.18 16 16-7.18 16-16 16z"
+                  fill="#3FBF7F" />
+
+                <path d="M18 18.5c0-3.31 2.69-6 6-6s6 2.69 6 6-2.69 6-6 6-6-2.69-6-6z" fill="#3FBF7F" />
+
+                <text x="24" y="32" font-family="Arial, sans-serif" font-size="10" font-weight="bold"
+                  text-anchor="middle" fill="#3FBF7F">OLX</text>
+
+              </svg>
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold mb-4" data-i18n="footer_clients">Клієнтам</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white" data-i18n="nav_home">Головна</a>
+            </li>
+            <li><a href="computers.html" class="text-gray-400 hover:text-white" data-i18n="nav_catalog">Каталог ПК</a>
+            </li>
+            <li><a href="reviews.html" class="text-gray-400 hover:text-white" data-i18n="nav_reviews">Відгуки</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white" data-i18n="nav_about">Про
+                нас</a></li>
+            <li><a href="contacts.html" class="text-gray-400 hover:text-white" data-i18n="nav_contacts">Контакти</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4" data-i18n="footer_location">Наше розташування</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start"><i data-feather="map-pin" class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0"></i><span
+                class="text-gray-400" data-i18n="contact_addr">м. Дніпро, Україна</span></li>
+            <li class="flex items-start"><i data-feather="clock" class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0"></i><span
+                class="text-gray-400" data-i18n="contact_hours">Пн-Нд: 9:00 - 20:00</span></li>
+            <li class="flex items-start"><i data-feather="phone" class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0"></i><span
+                class="text-gray-400"><a href="tel:+380993173348" class="hover:text-blue-600">+380 99 317 33
+                  48</a></span>
+            </li>
+            <li class="flex items-start"><i data-feather="mail" class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0"></i><span
+                class="text-gray-400"><a href="mailto:digital.pc.dnipro@gmail.com"
+                  class="hover:text-blue-600">digital.pc.dnipro@gmail.com</a></span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+
+        <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Digital PC. Всі права
+
+          захищені. </p>
+
+        <div class="flex space-x-6">
+
+          <a href="privacy.html" class="text-gray-400 hover:text-white text-sm" data-i18n="footer_privacy">Політика
+            конфіденційності</a>
+
+          <a href="terms.html" class="text-gray-400 hover:text-white text-sm" data-i18n="footer_terms">Умови
+
+            використання</a>
+
+          <a href="warranty.html" class="text-gray-400 hover:text-white text-sm" data-i18n="nav_warranty">Гарантія</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="socials-map"></div>
+
+  </footer>
+
+  <!-- Scripts -->
+
+  <script>
+
+    // Initialize AOS
+
+    AOS.init({
+
+      duration: 800,
+
+      easing: 'ease-in-out',
+
+      once: true
+
+    });
+
+
+
+    // Initialize Vanta.js
+
+    if (window.VANTA) {
+
+      VANTA.NET({
+
+        el: "#vanta-bg",
+
+        mouseControls: true,
+
+        touchControls: true,
+
+        gyroControls: false,
+
+        minHeight: 200.00,
+
+        minWidth: 200.00,
+
+        scale: 1.00,
+
+        scaleMobile: 1.00,
+
+        color: 0x3b82f6,
+
+        backgroundColor: 0x111827,
+
+        points: 12.00,
+
+        maxDistance: 23.00,
+
+        spacing: 15.00
+
+      });
+
+    }
+
+
+
+    // Language menu toggle
+
+    const langBtn = document.getElementById('language-menu');
+
+    if (langBtn) {
+
+      langBtn.addEventListener('click', function (e) {
+
+        e.preventDefault();
+
+        const menu = this.nextElementSibling;
+
+        if (menu && menu.classList.contains('hidden')) {
+
+          menu.classList.remove('hidden');
+
+        } else if (menu) {
+
+          menu.classList.add('hidden');
+
+        }
+
+      });
+
+    }
+
+
+
+    // Initial icon replace
+
+    if (window.feather) feather.replace();
+
+  </script>
+
+  <script>
+
+    window.PRODUCTS_JSON_URL = "./data/products.json";
+
+    window.PROM_FALLBACK_URL = "https://prom.ua/ua/c3808817-digital.html";
+
+    window.TELEGRAM_URL = "https://t.me/Digital_Pc";
+
+    window.MAPS_URL = "https://maps.app.goo.gl/3UGbwDkkfadHymnSA?g_st=com.google.maps.preview.copy";
+
+  </script>
+
+
+
+  <script src="./app.js?v=8"></script>
+
+</body>
+
+
+
+</html>
