@@ -20,7 +20,7 @@
       "psu": "Deepcool pf600 600w",
       "case": "Deepcool сс360 Argb",
       "cooling": "Tower Air Cooler (ARGB)",
-      "motherboard": "H610 Gaming",
+      "motherboard": "MSI H610m",
       "ram": "16 GB DDR4 3200 MHz"
     },
     "description": "Серія Base — це ідеальний старт для тих, хто цінує баланс між ціною та продуктивністю, не жертвуючи якістю та надійністю.",
@@ -53,9 +53,9 @@
       "storage": "Ssd m2 1 tb Corsair MP600 pro",
       "psu": "Thermalright KG-850 850W",
       "case": "Gamemax infinity plus",
-      "cooling": "Msi coreliquid a13 360 Argb",
-      "motherboard": "X670E Gaming",
-      "ram": "32 GB DDR5 6000 MHz"
+      "cooling": "Msi Coreliquid A13 360 Argb",
+      "motherboard": "MSI B850 Gaming Plus  WIFI6E White",
+      "ram": "32 GB DDR5 6000 MHz CL30"
     },
     "description": "Digital PC Apex Series — вершина продуктивності для геймерів та креативних користувачів.\nПотужні процесори, топові відеокарти та швидкі SSD забезпечують ультра-пресети в\nсучасних іграх, плавну багатозадачність і роботу з мультимедіа без компромісів.\n",
     "descPartOne": "Готовий до ігор одразу після отримання",
@@ -87,8 +87,8 @@
       "psu": "Gigabyte p650ss white 80+ Silver 650W",
       "case": "1stPlayer UV5-WH-2FC7R-W-1FC7-W",
       "cooling": "Jonsbo cr1000 Evo Argb white",
-      "motherboard": "B650 Gaming X",
-      "ram": "16 GB DDR5 5600 MHz"
+      "motherboard": "MSI B840M GAMING PLUS WIFI6E",
+      "ram": "32 GB DDR5 6000 MHz"
     },
     "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
     "descPartOne": "Готовий до ігор одразу після отримання",
