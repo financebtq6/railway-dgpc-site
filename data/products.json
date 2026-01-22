@@ -880,5 +880,104 @@
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-pulse-ryzen-5-7500f-rtx5060-IDWGS6T.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Digital-PC-Solid-Nova",
+    "title": "Digital PC Solid Nova | Core I5-14400F + RTX3070",
+    "price": 37600,
+    "image": "./images/products/Digital-PC-Solid-Nova/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Solid-Nova/1.jpg",
+      "./images/products/Digital-PC-Solid-Nova/2.jpg",
+      "./images/products/Digital-PC-Solid-Nova/3.jpg",
+      "./images/products/Digital-PC-Solid-Nova/4.jpg",
+      "./images/products/Digital-PC-Solid-Nova/5.jpg",
+      "./images/products/Digital-PC-Solid-Nova/6.jpg",
+      "./images/products/Digital-PC-Solid-Nova/7.jpg"
+    ],
+    "specs": {
+      "cpu": "Core I5-14400F",
+      "gpu": "Nvidia RTX3070 Gigabyte",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "Firstplayer 750W",
+      "case": "Gamdias Aura GC7",
+      "cooling": "Jonsbo cr1000 Evo Argb white",
+      "motherboard": "MSI H610M-E DDR4",
+      "ram": "DDR4 16GB 3200mhz"
+    },
+     "description": "Digital PC Solid Series — ваш надійний фундамент для продуктивної роботи та ігор\n, де баланс між ціною, потужністю та якістю стоїть на першому місці.",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-solid-nova-core-i5-14400f-rtx3070-IDUcQc4.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Digital-PC-Esport-Mars",
+    "title": "Digital PC Esport Mars | Ryzen 7 7700 + RTX5070",
+    "price": 73900,
+    "image": "./images/products/Digital-PC-Esport-Mars/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Esport-Mars/1.jpg",
+      "./images/products/Digital-PC-Esport-Mars/2.jpg",
+      "./images/products/Digital-PC-Esport-Mars/3.jpg",
+      "./images/products/Digital-PC-Esport-Mars/4.jpg",
+      "./images/products/Digital-PC-Esport-Mars/5.jpg",
+      "./images/products/Digital-PC-Esport-Mars/6.jpg",
+      "./images/products/Digital-PC-Esport-Mars/7.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 7 7700",
+      "gpu": "Nvidia RTX5070 Msi Ventus 2x",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "Gigabyte P650SS ICE 80+Silver 650W",
+      "case": "Qube Reef White",
+      "cooling": "ID-COOLING Space LCD SL240 White",
+      "motherboard": "Asus Prime B650M-K",
+      "ram": "DDR5 32GB 6000mhz"
+    },
+     "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-mars-ryzen-7-7700-rtx5070-IDUmxN2.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Digital-PC-Esport-Titan",
+    "title": "Digital PC Esport Titan | Ryzen 7 7700 + RTX4070",
+    "price": 66500,
+    "image": "./images/products/Digital-PC-Esport-Titan/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Esport-Titan/1.jpg",
+      "./images/products/Digital-PC-Esport-Titan/2.jpg",
+      "./images/products/Digital-PC-Esport-Titan/3.jpg",
+      "./images/products/Digital-PC-Esport-Titan/4.jpg",
+      "./images/products/Digital-PC-Esport-Titan/5.jpg",
+      "./images/products/Digital-PC-Esport-Titan/6.jpg",
+      "./images/products/Digital-PC-Esport-Titan/7.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 7 7700",
+      "gpu": "Nvidia RTX4070 Asus Dual",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "Gigabyte p650ss Gold 80+",
+      "case": "Qube Cristal",
+      "cooling": "ID-Cooling Water",
+      "motherboard": "Asus Prime B650M-R",
+      "ram": "DDR5 32GB 6000mhz"
+    },
+     "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-titan-ryzen-7-7700-rtx4070-IDXj065.html?bs=olx_pro_listing&isPreviewActive=0&sliderIndex=7"
   }
 ]
