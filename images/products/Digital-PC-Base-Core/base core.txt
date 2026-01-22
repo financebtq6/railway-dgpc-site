@@ -1,0 +1,32 @@
+{
+    "id": "Digital-PC-Base-Core",
+    "title": "Digital PC Base Core | Ryzen 5 5600 + RTX4060",
+    "price": 139900,
+    "image": "./images/products/Digital-PC-Base-Core/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Base-Core/1.jpg",
+      "./images/products/Digital-PC-Base-Core/2.jpg",
+      "./images/products/Digital-PC-Base-Core/3.jpg",
+      "./images/products/Digital-PC-Base-Core/4.jpg",
+      "./images/products/Digital-PC-Base-Core/5.jpg",
+      "./images/products/Digital-PC-Base-Core/6.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 5 5600",
+      "gpu": "Nvidia RTX4060 Gigabyte Windforce",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "Firstplayer 750W",
+      "case": "Vinga Albion",
+      "cooling": "Id-Cooling se224 Argb"
+	"Asus TUF A520M-Plus II"
+	"DDR4 16GB 3200mhz"
+    },
+    "description": "Серія Base — це ідеальний старт для тих, хто цінує баланс між ціною /nта продуктивністю, не жертвуючи якістю та надійністю.",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": ""
+  }
