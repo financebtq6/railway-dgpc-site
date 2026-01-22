@@ -685,5 +685,101 @@
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-nano-ryzen-7-7700-rtx5070-IDUGVG0.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Digital-PC-Esport-Ares",
+    "title": "Digital PC Esport Ares | Ryzen 7 7700 + RTX5070",
+    "price": 73900,
+    "image": "./images/products/Digital-PC-Esport-Ares/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Esport-Ares/1.jpg",
+      "./images/products/Digital-PC-Esport-Ares/2.jpg",
+      "./images/products/Digital-PC-Esport-Ares/3.jpg",
+      "./images/products/Digital-PC-Esport-Ares/4.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 7 7700",
+      "gpu": "Nvidia RTX5070 Msi Ventus 2x",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "Gigabyte P650SS ICE 80+Silver 650W",
+      "case": "Gamemax Infinity Plus",
+      "cooling": "ID-Cooling Water",
+      "motherboard": "Asus Prime B650M-K",
+      "ram": "DDR5 32GB 6000mhz"
+    },
+     "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-ares-ryzen-7-7700-rtx5070-IDWULCg.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Digital-PC-Midline-Mirage",
+    "title": "Digital PC Midline Mirage | Ryzen 5 7500F + RTX5060",
+    "price": 52900,
+    "image": "./images/products/Digital-PC-Midline-Mirage/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Midline-Mirage/1.jpg",
+      "./images/products/Digital-PC-Midline-Mirage/2.jpg",
+      "./images/products/Digital-PC-Midline-Mirage/3.jpg",
+      "./images/products/Digital-PC-Midline-Mirage/4.jpg",
+      "./images/products/Digital-PC-Midline-Mirage/5.jpg",
+      "./images/products/Digital-PC-Midline-Mirage/6.jpg",
+      "./images/products/Digital-PC-Midline-Mirage/7.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 5 7500F",
+      "gpu": "Nvidia RTX5060 8 gb MSI Ventus 2x White ",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "Gigabyte P650SS ICE 80+Silver 650W",
+      "case": "Qube Reef White",
+      "cooling": "Jonsbo cr1000 Evo Argb white",
+      "motherboard": "Asus Prime B650M-K",
+      "ram": "DDR5 32GB 6000mhz"
+    },
+     "description": "Digital PC Midline Series — твій баланс між потужністю, комфортом \nта бездоганним стилем, готовий до будь-яких викликів.",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-mirage-ryzen-7500f-rtx5060-IDTwlRN.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Digital-PC-Esport-Hermes",
+    "title": "Digital PC Esport Hermes | Ryzen 5 7500F + RTX5070",
+    "price": 68900,
+    "image": "./images/products/Digital-PC-Esport-Hermes/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Esport-Hermes/1.jpg",
+      "./images/products/Digital-PC-Esport-Hermes/2.jpg",
+      "./images/products/Digital-PC-Esport-Hermes/3.jpg",
+      "./images/products/Digital-PC-Esport-Hermes/4.jpg",
+      "./images/products/Digital-PC-Esport-Hermes/5.jpg",
+      "./images/products/Digital-PC-Esport-Hermes/6.jpg",
+      "./images/products/Digital-PC-Esport-Hermes/7.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 5 7500F",
+      "gpu": "Nvidia RTX5070 Asus Dual OC",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "Gigabyte P650SS ICE 80+Silver 650W",
+      "case": "Qube Reef White",
+      "cooling": "Jonsbo cr1000 Evo Argb white",
+      "motherboard": "Asus Prime B650M-R",
+      "ram": "DDR5 32GB 6000mhz"
+    },
+     "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-hermes-ryzen-5-7500f-rtx5070-IDXzGwV.html?bs=olx_pro_listing"
   }
 ]
