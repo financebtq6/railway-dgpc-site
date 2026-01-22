@@ -885,15 +885,15 @@
     "id": "Digital-PC-Solid-Nova",
     "title": "Digital PC Solid Nova | Core I5-14400F + RTX3070",
     "price": 37600,
-    "image": "./images/products/Digital-PC-Solid-Nova/1.jpg",
+    "image": "./images/products/Digital-PC-Solid-Nova/1.webp",
     "images": [
-      "./images/products/Digital-PC-Solid-Nova/1.jpg",
-      "./images/products/Digital-PC-Solid-Nova/2.jpg",
-      "./images/products/Digital-PC-Solid-Nova/3.jpg",
-      "./images/products/Digital-PC-Solid-Nova/4.jpg",
-      "./images/products/Digital-PC-Solid-Nova/5.jpg",
-      "./images/products/Digital-PC-Solid-Nova/6.jpg",
-      "./images/products/Digital-PC-Solid-Nova/7.jpg"
+      "./images/products/Digital-PC-Solid-Nova/1.webp",
+      "./images/products/Digital-PC-Solid-Nova/2.webp",
+      "./images/products/Digital-PC-Solid-Nova/3.webp",
+      "./images/products/Digital-PC-Solid-Nova/4.webp",
+      "./images/products/Digital-PC-Solid-Nova/5.webp",
+      "./images/products/Digital-PC-Solid-Nova/6.webp",
+      "./images/products/Digital-PC-Solid-Nova/7.webp"
     ],
     "specs": {
       "cpu": "Core I5-14400F",
