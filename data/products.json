@@ -781,5 +781,104 @@
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-hermes-ryzen-5-7500f-rtx5070-IDXzGwV.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Digital-PC-Esport-Poseidon",
+    "title": "Digital PC Esport Poseidon | Ryzen 7 7700 + RTX5060TI",
+    "price": 67900,
+    "image": "./images/products/Digital-PC-Esport-Poseidon/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Esport-Poseidon/1.jpg",
+      "./images/products/Digital-PC-Esport-Poseidon/2.jpg",
+      "./images/products/Digital-PC-Esport-Poseidon/3.jpg",
+      "./images/products/Digital-PC-Esport-Poseidon/4.jpg",
+      "./images/products/Digital-PC-Esport-Poseidon/5.jpg",
+      "./images/products/Digital-PC-Esport-Poseidon/6.jpg",
+      "./images/products/Digital-PC-Esport-Poseidon/7.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 7 7700",
+      "gpu": "Nvidia RTX5060TI Asus Dual OC",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "Gigabyte P650SS ICE 80+Silver 650W",
+      "case": "Qube Reef White",
+      "cooling": "Deepcool LE240 v2 white",
+      "motherboard": "Asus Prime B650M-K",
+      "ram": "DDR5 32GB 6000mhz"
+    },
+     "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-poseidon-ryzen-7-7700-rtx5060ti-IDYrpcs.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Digital-PC-Esport-Achilles",
+    "title": "Digital PC Esport Achilles | Ryzen 7 7700 + RTX5060TI",
+    "price": 65900,
+    "image": "./images/products/Digital-PC-Esport-Achilles/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Esport-Achilles/1.jpg",
+      "./images/products/Digital-PC-Esport-Achilles/2.jpg",
+      "./images/products/Digital-PC-Esport-Achilles/3.jpg",
+      "./images/products/Digital-PC-Esport-Achilles/4.jpg",
+      "./images/products/Digital-PC-Esport-Achilles/5.jpg",
+      "./images/products/Digital-PC-Esport-Achilles/6.jpg",
+      "./images/products/Digital-PC-Esport-Achilles/7.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 7 7700",
+      "gpu": "Nvidia RTX5060TI Asus Dual OC White",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "Msi Mag 650w bronze 80+",
+      "case": "Qube Reef White",
+      "cooling": "Jonsbo cr1000 Evo Argb white",
+      "motherboard": "Asus Prime B650M-K",
+      "ram": "DDR5 32GB 6000mhz"
+    },
+     "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-achilles-ryzen-7-7700-rtx5060ti-IDWGb6L.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Digital-PC-Midline-Pulse",
+    "title": "Digital PC Midline Pulse | Ryzen 5 7500F + RTX5060",
+    "price": 51400,
+    "image": "./images/products/Digital-PC-Midline-Pulse/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Midline-Pulse/1.jpg",
+      "./images/products/Digital-PC-Midline-Pulse/2.jpg",
+      "./images/products/Digital-PC-Midline-Pulse/3.jpg",
+      "./images/products/Digital-PC-Midline-Pulse/4.jpg",
+      "./images/products/Digital-PC-Midline-Pulse/5.jpg",
+      "./images/products/Digital-PC-Midline-Pulse/6.jpg",
+      "./images/products/Digital-PC-Midline-Pulse/7.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 5 7500F",
+      "gpu": "Nvidia RTX5060 8 gb MSI Ventus 2x White ",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "MSI MAG 650W Bronze 80+",
+      "case": "Gamdias Aura GC9",
+      "cooling": "Jonsbo cr1000 Evo Argb white",
+      "motherboard": "MSI A620M-B",
+      "ram": "DDR5 32GB 6000mhz"
+    },
+     "description": "Digital PC Midline Series — твій баланс між потужністю, комфортом \nта бездоганним стилем, готовий до будь-яких викликів.",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-pulse-ryzen-5-7500f-rtx5060-IDWGS6T.html?bs=olx_pro_listing"
   }
 ]
