@@ -391,5 +391,106 @@
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-ghost-ryzen-5-7500f-rtx5060ti-IDV3FPR.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Digital-PC-Esport-Veles",
+    "title": "Digital PC Esport Veles | Ryzen 7 7700 + RTX5070",
+    "price": 71900,
+    "image": "./images/products/Digital-PC-Esport-Veles/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Esport-Veles/1.jpg",
+      "./images/products/Digital-PC-Esport-Veles/2.jpg",
+      "./images/products/Digital-PC-Esport-Veles/3.jpg",
+      "./images/products/Digital-PC-Esport-Veles/4.jpg",
+      "./images/products/Digital-PC-Esport-Veles/5.jpg",
+      "./images/products/Digital-PC-Esport-Veles/6.jpg",
+      "./images/products/Digital-PC-Esport-Veles/7.jpg",
+      "./images/products/Digital-PC-Esport-Veles/8.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 7 7700",
+      "gpu": "Nvidia RTX5070 Msi Ventus 2x",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "MSI MAG 650W Bronze 80+",
+      "case": "Qube Reef White",
+      "cooling": "Jonsbo cr1000 Evo Argb white",
+      "motherboard": "Asus Prime B650M-K",
+      "ram": "DDR5 32GB 6000mhz"
+    },
+     "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-veles-ryzen-7-7700-rtx5070-IDT52Fk.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Digital-PC-Apex-Legacy",
+    "title": "Digital PC Apex Legacy | Core I7-14700KF + RTX5070",
+    "price": 80900,
+    "image": "./images/products/Digital-PC-Apex-Legacy/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Apex-Legacy/1.jpg",
+      "./images/products/Digital-PC-Apex-Legacy/2.jpg",
+      "./images/products/Digital-PC-Apex-Legacy/3.jpg",
+      "./images/products/Digital-PC-Apex-Legacy/4.jpg",
+      "./images/products/Digital-PC-Apex-Legacy/5.jpg",
+      "./images/products/Digital-PC-Apex-Legacy/6.jpg",
+      "./images/products/Digital-PC-Apex-Legacy/7.jpg"
+    ],
+    "specs": {
+      "cpu": "Core I7-14700KF",
+      "gpu": "Nvidia RTX5070 Asus Dual",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "Сhieftec Vega M White 750W 80+Gold",
+      "case": "Qube Reef White",
+      "cooling": "ID-Cooling Water",
+      "motherboard": "Asrock B760 Pro RS DDR5",
+      "ram": "DDR5 32GB 6000mhz"
+    },
+     "description": "Digital PC Apex Series — вершина продуктивності для геймерів та креативних користувачів.\nПотужні процесори, топові відеокарти та швидкі SSD забезпечують ультра-пресети в\nсучасних іграх, плавну багатозадачність і роботу з мультимедіа без компромісів.\n",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-legacy-core-i7-14700kf-rtx5070-IDYMXSd.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Digital-PC-Midline-Rift",
+    "title": "Digital PC Midline Rift | Ryzen 5 7500F + RTX4060TI",
+    "price": 54500,
+    "image": "./images/products/Digital-PC-Midline-Rift/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Midline-Rift/1.jpg",
+      "./images/products/Digital-PC-Midline-Rift/2.jpg",
+      "./images/products/Digital-PC-Midline-Rift/3.jpg",
+      "./images/products/Digital-PC-Midline-Rift/4.jpg",
+      "./images/products/Digital-PC-Midline-Rift/5.jpg",
+      "./images/products/Digital-PC-Midline-Rift/6.jpg",
+      "./images/products/Digital-PC-Midline-Rift/7.jpg",
+      "./images/products/Digital-PC-Midline-Rift/8.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 5 7500F",
+      "gpu": "Nvidia RTX4060TI MSI Ventus 2X ",
+      "storage": "Ssd m2 NVMe 512GB ",
+      "psu": "Vinga 700w Bronze 80+",
+      "case": "Gamdias Aura GC9 Black",
+      "cooling": "Id-Cooling XT214 Black",
+      "motherboard": "MSI A620M-B",
+      "ram": "DDR5 32GB 6000mhz"
+    },
+     "description": "Digital PC Midline Series — твій баланс між потужністю, комфортом \nта бездоганним стилем, готовий до будь-яких викликів.",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-rift-ryzen-5-7500f-rtx4060ti-IDYsN05.html?bs=olx_pro_listing"
   }
 ]
