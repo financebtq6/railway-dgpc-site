@@ -239,15 +239,17 @@
       "./images/products/Digital-PC-Esport-Odin/3.jpg",
       "./images/products/Digital-PC-Esport-Odin/4.jpg",
       "./images/products/Digital-PC-Esport-Odin/5.jpg",
-      "./images/products/Digital-PC-Esport-Odin/6.jpg"
+      "./images/products/Digital-PC-Esport-Odin/6.jpg",
+      "./images/products/Digital-PC-Esport-Odin/7.jpg",
+      "./images/products/Digital-PC-Esport-Odin/8.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 5 7500F",
-      "gpu": "Nvidia RTX5070 Asus Dual OC",
+      "gpu": "Nvidia RTX5070 Msi ventus 2x oc",
       "storage": "Ssd m2 NVMe 512GB ",
       "psu": "Gigabyte p650ss Gold 80+",
-      "case": "Qube Reef Black",
-      "cooling": "Jonsbo cr1000 Evo Argb white",
+      "case": "Qube Aquarium",
+      "cooling": "Jonsbo cr1000 Evo Argb",
       "motherboard": "Asus Prime B650M-K",
       "ram": "DDR5 32GB 6000mhz"
     },
@@ -258,7 +260,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-odin-ryzen-5-7500f-rtx5070-IDWZqWc.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-odin-ryzen-5-7500f-rtx5070-IDWZqWc.html"
   },
   {
     "id": "Digital-PC-Esport-Loki",
@@ -852,25 +854,26 @@
   {
     "id": "Digital-PC-Solid-Nova",
     "title": "Digital PC Solid Nova | Core I5-14400F + RTX3070",
-    "price": 39900,
-    "image": "./images/products/Digital-PC-Solid-Nova/1.webp",
+    "price": 38500,
+    "image": "./images/products/Digital-PC-Solid-Nova/1.jpg",
     "images": [
-      "./images/products/Digital-PC-Solid-Nova/1.webp",
-      "./images/products/Digital-PC-Solid-Nova/2.webp",
-      "./images/products/Digital-PC-Solid-Nova/3.webp",
-      "./images/products/Digital-PC-Solid-Nova/4.webp",
-      "./images/products/Digital-PC-Solid-Nova/5.webp",
-      "./images/products/Digital-PC-Solid-Nova/6.webp",
-      "./images/products/Digital-PC-Solid-Nova/7.webp"
+      "./images/products/Digital-PC-Solid-Nova/1.jpg",
+      "./images/products/Digital-PC-Solid-Nova/2.jpg",
+      "./images/products/Digital-PC-Solid-Nova/3.jpg",
+      "./images/products/Digital-PC-Solid-Nova/4.jpg",
+      "./images/products/Digital-PC-Solid-Nova/5.jpg",
+      "./images/products/Digital-PC-Solid-Nova/6.jpg",
+      "./images/products/Digital-PC-Solid-Nova/7.jpg",
+      "./images/products/Digital-PC-Solid-Nova/8.jpg"
     ],
     "specs": {
-      "cpu": "Core I5-14400F",
-      "gpu": "Nvidia RTX3070 Gigabyte",
+      "cpu": "Core i5-12400f",
+      "gpu": "Nvidia RTX5050 Msi",
       "storage": "Ssd m2 NVMe 512GB ",
       "psu": "Firstplayer 750W",
-      "case": "Gamdias Aura GC7",
-      "cooling": "Jonsbo cr1000 Evo Argb white",
-      "motherboard": "MSI H610M-E DDR4",
+      "case": "Vinga Executor",
+      "cooling": "Jonsbo cr1000 Evo Argb",
+      "motherboard": "Msi pro b660-a б/в",
       "ram": "DDR4 16GB 3200mhz"
     },
      "description": "Digital PC Solid Series — ваш надійний фундамент для продуктивної роботи та ігор\n, де баланс між ціною, потужністю та якістю стоїть на першому місці.",
@@ -880,7 +883,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-solid-nova-core-i5-14400f-rtx3070-IDUcQc4.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-solid-nova-core-i5-12400f-rtx5050-IDUcQc4.html"
   },
   {
     "id": "Digital-PC-Esport-Mars",
