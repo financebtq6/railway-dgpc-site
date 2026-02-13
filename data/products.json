@@ -109,15 +109,17 @@
       "./images/products/Digital-PC-Base-Atom/3.jpg",
       "./images/products/Digital-PC-Base-Atom/4.jpg",
       "./images/products/Digital-PC-Base-Atom/5.jpg",
-      "./images/products/Digital-PC-Base-Atom/6.jpg"
+      "./images/products/Digital-PC-Base-Atom/6.jpg",
+      "./images/products/Digital-PC-Base-Atom/7.jpg",
+      "./images/products/Digital-PC-Base-Atom/8.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 5 5500",
       "gpu": "Nvidia RTX3060 MSI Ventus 2X OC",
       "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "Firstplayer 750W",
-      "case": "Vinga",
-      "cooling": "Id-Cooling se224",
+      "psu": "Firstplayer 600W",
+      "case": "Qube Reef White",
+      "cooling": "Ocypus Gamma a20",
       "motherboard": "Asus Prime A520M-K",
       "ram": "DDR4 16GB 3200mhz"
     },
@@ -128,7 +130,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-base-atom-ryzen-5-5500-rtx3060-IDZDEhB.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-base-atom-ryzen-5-5500-rtx3060-IDZDEhB.html"
   },
   {
     "id": "Digital-PC-Apex-Aurora",
@@ -560,8 +562,8 @@
   },
   {
     "id": "Digital-PC-Solid-Titan",
-    "title": "Digital PC Solid Titan | Ryzen 5 5600 + RTX3070",
-    "price": 37900,
+    "title": "Digital PC Solid Titan | i5-12400f + RTX3060",
+    "price": 35900,
     "image": "./images/products/Digital-PC-Solid-Titan/1.jpg",
     "images": [
       "./images/products/Digital-PC-Solid-Titan/1.jpg",
@@ -570,16 +572,17 @@
       "./images/products/Digital-PC-Solid-Titan/4.jpg",
       "./images/products/Digital-PC-Solid-Titan/5.jpg",
       "./images/products/Digital-PC-Solid-Titan/6.jpg",
-      "./images/products/Digital-PC-Solid-Titan/7.jpg"
+      "./images/products/Digital-PC-Solid-Titan/7.jpg", 
+      "./images/products/Digital-PC-Solid-Titan/8.jpg"
     ],
     "specs": {
-      "cpu": "Ryzen 5 5600",
-      "gpu": "Nvidia RTX3070 Gigabyte Aorus LCD",
+      "cpu": "Intel core i5-12400f",
+      "gpu": "Nvidia RTX3060 12 gb Msi ventus 2x б/в",
       "storage": "Ssd m2 NVMe 512GB ",
       "psu": "Firstplayer 750W",
-      "case": "Vinga",
-      "cooling": "Id-Cooling se224",
-      "motherboard": "Asus TUF A520M-Plus II",
+      "case": "Gamdias aura gc7 white",
+      "cooling": "Jonsbo cr1000 Evo",
+      "motherboard": "Msi pro b660-a б/у",
       "ram": "DDR4 16GB 3200mhz"
     },
      "description": "Digital PC Solid Series — ваш надійний фундамент для продуктивної роботи та ігор\n, де баланс між ціною, потужністю та якістю стоїть на першому місці.",
@@ -589,7 +592,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-solid-titan-ryzen-5-5600-rtx3070-IDW4a2u.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-solid-titan-i5-12400f-rtx3060-12-gb-IDW4a2u.html"
   },
   {
     "id": "Digital-PC-Midline-Phantom",
@@ -1082,8 +1085,8 @@
   },
   {
     "id": "Digital-PC-Base-Core",
-    "title": "Digital PC Base Core | Ryzen 5 5600 + RTX5050",
-    "price": 38500,
+    "title": "Digital PC Base Core | Ryzen 5 5500 + RTX3070",
+    "price": 33900,
     "image": "./images/products/Digital-PC-Base-Core/1.jpg",
     "images": [
       "./images/products/Digital-PC-Base-Core/1.jpg",
@@ -1091,16 +1094,18 @@
       "./images/products/Digital-PC-Base-Core/3.jpg",
       "./images/products/Digital-PC-Base-Core/4.jpg",
       "./images/products/Digital-PC-Base-Core/5.jpg",
-      "./images/products/Digital-PC-Base-Core/6.jpg"
+      "./images/products/Digital-PC-Base-Core/6.jpg",
+      "./images/products/Digital-PC-Base-Core/7.jpg",
+      "./images/products/Digital-PC-Base-Core/8.jpg"
     ],
     "specs": {
-      "cpu": "Ryzen 5 5600",
-      "gpu": "Nvidia RTX5050 MSI Ventus 2X OC",
+      "cpu": "Ryzen 5 5500",
+      "gpu": "Nvidia RTX3070 8gb Gigabyte vision oc",
       "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "Firstplayer 750W",
-      "case": "Vinga",
-      "cooling": "Id-Cooling se224",
-      "motherboard": "Asus TUF A520M-Plus II",
+      "psu": "Firstplayer 600W",
+      "case": "Qube Reef White",
+      "cooling": "Ocypus Gamma a20",
+      "motherboard": "Asus Prime a520m-k",
       "ram": "DDR4 16GB 3200mhz"
     },
     "description": "Серія Base — це ідеальний старт для тих, хто цінує баланс між ціною /nта продуктивністю, не жертвуючи якістю та надійністю.",
@@ -1110,7 +1115,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-base-core-ryzen-5-5600-rtx5050-IDYX0wc.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-base-core-ryzen-5-5500-rtx3070-IDZDBsQ.html"
   },
   {
     "id": "Digital-PC-Apex-Nimb",
