@@ -701,11 +701,12 @@
       "./images/products/Digital-PC-Midline-Mirage/4.jpg",
       "./images/products/Digital-PC-Midline-Mirage/5.jpg",
       "./images/products/Digital-PC-Midline-Mirage/6.jpg",
-      "./images/products/Digital-PC-Midline-Mirage/7.jpg"
+      "./images/products/Digital-PC-Midline-Mirage/7.jpg",
+      "./images/products/Digital-PC-Midline-Mirage/8.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 5 7500F",
-      "gpu": "Nvidia RTX5060 8 gb MSI Ventus 2x White ",
+      "gpu": "Nvidia RTX5060 8 gb MSI Ventus 2x ",
       "storage": "Ssd m2 NVMe 512GB ",
       "psu": "Gigabyte P650SS ICE 80+Silver 650W",
       "case": "Qube Reef White",
@@ -720,7 +721,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-mirage-ryzen-7500f-rtx5060-IDTwlRN.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-mirage-ryzen-7500f-rtx5060-IDTwlRN.html"
   },
   {
     "id": "Digital-PC-Esport-Hermes",
@@ -790,8 +791,8 @@
   },
   {
     "id": "Digital-PC-Esport-Achilles",
-    "title": "Digital PC Esport Achilles | Ryzen 7 7700 + RTX5060TI",
-    "price": 70500,
+    "title": "Digital PC Esport Achilles | Ryzen 5 7500F + RTX5060TI",
+    "price": 67500,
     "image": "./images/products/Digital-PC-Esport-Achilles/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Achilles/1.jpg",
@@ -800,14 +801,15 @@
       "./images/products/Digital-PC-Esport-Achilles/4.jpg",
       "./images/products/Digital-PC-Esport-Achilles/5.jpg",
       "./images/products/Digital-PC-Esport-Achilles/6.jpg",
-      "./images/products/Digital-PC-Esport-Achilles/7.jpg"
+      "./images/products/Digital-PC-Esport-Achilles/7.jpg",
+      "./images/products/Digital-PC-Esport-Achilles/8.jpg"
     ],
     "specs": {
-      "cpu": "Ryzen 7 7700",
-      "gpu": "Nvidia RTX5060TI Asus Dual OC White",
+      "cpu": "Ryzen 5 7500F",
+      "gpu": "Nvidia RTX5060TI  16gb Msi ventus 2x Oc",
       "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "Msi Mag 650w bronze 80+",
-      "case": "Qube Reef White",
+      "psu": "Gigabyte p650ss ice Silver 80++",
+      "case": "1stPlayer UV5-WH-2FC7R-W-1FC7-W",
       "cooling": "Jonsbo cr1000 Evo Argb white",
       "motherboard": "Asus Prime B650M-K",
       "ram": "DDR5 32GB 6000mhz"
@@ -819,7 +821,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-achilles-ryzen-7-7700-rtx5060ti-IDWGb6L.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-achilles-ryzen-5-7500f-rtx5060ti-IDWGb6L.html"
   },
   {
     "id": "Digital-PC-Midline-Pulse",
@@ -998,14 +1000,16 @@
       "./images/products/Digital-PC-Midline-Obsidian/3.jpg",
       "./images/products/Digital-PC-Midline-Obsidian/4.jpg",
       "./images/products/Digital-PC-Midline-Obsidian/5.jpg",
-      "./images/products/Digital-PC-Midline-Obsidian/6.jpg"
+      "./images/products/Digital-PC-Midline-Obsidian/6.jpg",
+      "./images/products/Digital-PC-Midline-Obsidian/7.jpg",
+      "./images/products/Digital-PC-Midline-Obsidian/8.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 5 7500F",
-      "gpu": "Nvidia RTX3070 Gigabyte Aorus LCD",
+      "gpu": "Nvidia RTX3070 Gigabyte Vision oc б/в",
       "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "Gigabyte p650ss Gold 80+",
-      "case": "Qube Reef Black",
+      "psu": "Gigabyte p650ss 650w 80+ Silver",
+      "case": "1stPlayer UV5-WH-2FC7R-W-1FC7-W",
       "cooling": "Jonsbo cr1000 Evo Argb white",
       "motherboard": "Asus Prime B650M-K",
       "ram": "DDR5 32GB 6000mhz"
@@ -1017,7 +1021,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-obsidian-ryzen-5-7500f-rtx3070-IDTIWS4.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-obsidian-ryzen-5-7500f-rtx3070-IDTIWS4.html"
   },
   {
     "id": "Digital-PC-Apex-Immortal",
