@@ -735,7 +735,8 @@
       "./images/products/Digital-PC-Esport-Hermes/4.jpg",
       "./images/products/Digital-PC-Esport-Hermes/5.jpg",
       "./images/products/Digital-PC-Esport-Hermes/6.jpg",
-      "./images/products/Digital-PC-Esport-Hermes/7.jpg"
+      "./images/products/Digital-PC-Esport-Hermes/7.jpg",
+      "./images/products/Digital-PC-Esport-Hermes/8.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 5 7500F",
@@ -754,7 +755,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-hermes-ryzen-5-7500f-rtx5070-IDXzGwV.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-hermes-ryzen-5-7500f-rtx5070-IDXzGwV.html"
   },
   {
     "id": "Digital-PC-Esport-Poseidon",
@@ -992,7 +993,7 @@
   {
     "id": "Digital-PC-Midline-Obsidian",
     "title": "Digital PC Midline Obsidian | Ryzen 5 7500F + RTX3070",
-    "price": 49900,
+    "price": 51900,
     "image": "./images/products/Digital-PC-Midline-Obsidian/1.jpg",
     "images": [
       "./images/products/Digital-PC-Midline-Obsidian/1.jpg",
@@ -1006,7 +1007,7 @@
     ],
     "specs": {
       "cpu": "Ryzen 5 7500F",
-      "gpu": "Nvidia RTX3070 Gigabyte Vision oc б/в",
+      "gpu": "Nvidia RTX3070TI б/в",
       "storage": "Ssd m2 NVMe 512GB ",
       "psu": "Gigabyte p650ss 650w 80+ Silver",
       "case": "1stPlayer UV5-WH-2FC7R-W-1FC7-W",
@@ -1021,7 +1022,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-obsidian-ryzen-5-7500f-rtx3070-IDTIWS4.html"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/groviy-pk-ryzen-5-7500f-rtx-3070ti-8gb-32gb-ddr5-2k-ultra-IDTIWS4.html"
   },
   {
     "id": "Digital-PC-Apex-Immortal",
