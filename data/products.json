@@ -100,22 +100,19 @@
   },
   {
     "id": "Digital-PC-Base-Atom",
-    "title": "Digital PC Base Atom | Ryzen 5 5500 + RTX3060",
-    "price": 31500,
+    "title": "Digital PC Base Atom | Ryzen 5 5500 + RTX3070TI",
+    "price": 36500,
     "image": "./images/products/Digital-PC-Base-Atom/1.jpg",
     "images": [
       "./images/products/Digital-PC-Base-Atom/1.jpg",
       "./images/products/Digital-PC-Base-Atom/2.jpg",
       "./images/products/Digital-PC-Base-Atom/3.jpg",
       "./images/products/Digital-PC-Base-Atom/4.jpg",
-      "./images/products/Digital-PC-Base-Atom/5.jpg",
-      "./images/products/Digital-PC-Base-Atom/6.jpg",
-      "./images/products/Digital-PC-Base-Atom/7.jpg",
-      "./images/products/Digital-PC-Base-Atom/8.jpg"
+      "./images/products/Digital-PC-Base-Atom/5.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 5 5500",
-      "gpu": "Nvidia RTX3060 MSI Ventus 2X OC",
+      "gpu": "Nvidia RTX3070TI",
       "storage": "Ssd m2 NVMe 512GB ",
       "psu": "Firstplayer 600W",
       "case": "Qube Reef White",
@@ -130,7 +127,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-base-atom-ryzen-5-5500-rtx3060-IDZDEhB.html"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-base-atom-ryzen-5-5500-rtx3070ti-IDZDEhB.html"
   },
   {
     "id": "Digital-PC-Apex-Aurora",
@@ -367,7 +364,7 @@
   {
     "id": "Digital-PC-Esport-Veles",
     "title": "Digital PC Esport Veles | Ryzen 7 7700 + RTX5070",
-    "price": 76500,
+    "price": 77500,
     "image": "./images/products/Digital-PC-Esport-Veles/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Veles/1.jpg",
@@ -376,17 +373,16 @@
       "./images/products/Digital-PC-Esport-Veles/4.jpg",
       "./images/products/Digital-PC-Esport-Veles/5.jpg",
       "./images/products/Digital-PC-Esport-Veles/6.jpg",
-      "./images/products/Digital-PC-Esport-Veles/7.jpg",
-      "./images/products/Digital-PC-Esport-Veles/8.jpg"
+      "./images/products/Digital-PC-Esport-Veles/7.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 7 7700",
-      "gpu": "Nvidia RTX5070 Msi Ventus 2x",
+      "gpu": "Nvidia RTX5070",
       "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "MSI MAG 650W Bronze 80+",
-      "case": "Qube Reef White",
-      "cooling": "Jonsbo cr1000 Evo Argb white",
-      "motherboard": "Asus Prime B650M-K",
+      "psu": "Gigabyte 650W P650SS 80+ Silver",
+      "case": "Lian-Li Vector V100 Mini Black",
+      "cooling": "Deepcool AG400 BK ARGB",
+      "motherboard": "MSI PRO B650M-P",
       "ram": "DDR5 32GB 6000mhz"
     },
      "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
@@ -396,7 +392,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-veles-ryzen-7-7700-rtx5070-IDT52Fk.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-veles-ryzen-7-7700-rtx5070-IDT52Fk.html"
   },
   {
     "id": "Digital-PC-Apex-Legacy",
@@ -1058,8 +1054,8 @@
   },
   {
     "id": "Digital-PC-Midline-Carbon",
-    "title": "Digital PC Midline Carbon | Ryzen 5 7500F + RTX5060",
-    "price": 54500,
+    "title": "Digital PC Midline Carbon | Ryzen 5 7500F + RTX3070TI",
+    "price": 53500,
     "image": "./images/products/Digital-PC-Midline-Carbon/1.jpg",
     "images": [
       "./images/products/Digital-PC-Midline-Carbon/1.jpg",
@@ -1071,12 +1067,12 @@
     ],
     "specs": {
       "cpu": "Ryzen 5 7500F",
-      "gpu": "Nvidia RTX5060 8 gb MSI Ventus 2x",
+      "gpu": "Nvidia RTX3070TI",
       "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "Vinga 700w Bronze 80+",
-      "case": "Gamdias Aura GC9M",
-      "cooling": "Id-Cooling XT214 Black",
-      "motherboard": "MSI A620M-B",
+      "psu": "Gigabyte 650W P650SS 80+ Silver",
+      "case": "Lian-Li Vector V100 Mini Black",
+      "cooling": "Deepcool AG400 BK ARGB",
+      "motherboard": "MSI PRO B650M-P",
       "ram": "DDR5 32GB 6000mhz"
     },
      "description": "Digital PC Midline Series — твій баланс між потужністю, комфортом \nта бездоганним стилем, готовий до будь-яких викликів.",
@@ -1086,7 +1082,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-carbon-ryzen-5-7500f-rtx5060-IDTXIuu.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-carbon-ryzen-5-7500f-rtx3070ti-IDTXIuu.html"
   },
   {
     "id": "Digital-PC-Base-Core",
