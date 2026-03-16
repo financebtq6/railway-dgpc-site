@@ -1121,8 +1121,8 @@
   },
   {
     "id": "Digital-PC-Apex-Nimb",
-    "title": "Digital PC Apex Nimb | Core Ultra 7 265KF + RTX5080",
-    "price": 142500,
+    "title": "Digital PC Apex Nimb | Core Ultra 7 265KF + RTX5070",
+    "price": 99900,
     "image": "./images/products/Digital-PC-Apex-Nimb/1.jpg",
     "images": [
       "./images/products/Digital-PC-Apex-Nimb/1.jpg",
@@ -1136,13 +1136,13 @@
     ],
     "specs": {
       "cpu": "Intel Core Ultra 7 265Kf",
-      "gpu": "Nvidia RTX5080 16 gb INNO3D 3x Oc white",
+      "gpu": "Nvidia RTX5070 12 gb Gigabyte Aero Oc White",
       "storage": "Ssd m2 1 tb Corsair MP600 pro",
-      "psu": "Thermalright KG-850 850W",
-      "case": "Gamemax infinity plus",
-      "cooling": "Deepcool LM360 Argb",
+      "psu": "Gigabyte UD850GM PG5 V2 850W",
+      "case": "NZXT H6 FLOW WHITE",
+      "cooling": "Arctic Liquid Freezer III Pro 360",
       "motherboard": "Gigabyte Z890 Aorus Elite X Ice",
-      "ram": "32 GB DDR5 6000 MHz CL30"
+      "ram": "Patriot viper RGB 32 gb 7400 mhz CL36"
     },
     "description": "Digital PC Apex Series — вершина продуктивності для геймерів та креативних користувачів.\nПотужні процесори, топові відеокарти та швидкі SSD забезпечують ультра-пресети в\nсучасних іграх, плавну багатозадачність і роботу з мультимедіа без компромісів.\n",
     "descPartOne": "Готовий до ігор одразу після отримання",
@@ -1151,7 +1151,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-nimb-core-ultra-7-265kf-rtx5080-IDZPl9u.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-nimb-core-ultra-7-265kf-rtx5070-IDZPl9u.html"
   },
   {
     "id": "Digital-PC-Base-1",
