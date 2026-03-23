@@ -3,7 +3,7 @@
   {
     "id": "Digital-PC-Apex-Monarch",
     "title": "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080",
-    "price": 153500,
+    "price": 145500,
     "image": "./images/products/Digital-PC-Apex-Monarch/1.jpg",
     "images": [
       "./images/products/Digital-PC-Apex-Monarch/1.jpg",
@@ -12,12 +12,11 @@
       "./images/products/Digital-PC-Apex-Monarch/4.jpg",
       "./images/products/Digital-PC-Apex-Monarch/5.jpg",
       "./images/products/Digital-PC-Apex-Monarch/6.jpg",
-      "./images/products/Digital-PC-Apex-Monarch/7.jpg",
-      "./images/products/Digital-PC-Apex-Monarch/8.jpg"
+      "./images/products/Digital-PC-Apex-Monarch/7.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 7 9800x3d",
-      "gpu": "Nvidia RTX5080 16 gb Msi ventus 3x Oc white",
+      "gpu": "Nvidia RTX5080 16 gb Palit Gaming Pro",
       "storage": "Ssd m2 1 tb Corsair MP600 pro",
       "psu": "Thermalright KG-850 850W",
       "case": "Gamemax infinity plus",
@@ -958,7 +957,7 @@
   {
     "id": "Digital-PC-Apex-Absolute",
     "title": "Digital PC Apex Absolute | Ryzen 7 7800X3D + RTX5080",
-    "price": 143500,
+    "price": 134500,
     "image": "./images/products/Digital-PC-Apex-Absolute/1.jpg",
     "images": [
       "./images/products/Digital-PC-Apex-Absolute/1.jpg",
