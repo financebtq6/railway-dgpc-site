@@ -37,7 +37,7 @@
   {
     "id": "Digital-PC-Esport-Zeus",
     "title": "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070",
-    "price": 78500,
+    "price": 76500,
     "image": "./images/products/Digital-PC-Esport-Zeus/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Zeus/1.jpg",
@@ -70,7 +70,7 @@
   {
     "id": "Digital-PC-Apex-Nano",
     "title": "Digital PC Apex Nano | Ryzen 7 7800X3D + RTX5070",
-    "price": 92500,
+    "price": 89900,
     "image": "./images/products/Digital-PC-Apex-Nano/1.jpg",
     "images": [
       "./images/products/Digital-PC-Apex-Nano/1.jpg",
@@ -165,7 +165,7 @@
   {
     "id": "Digital-PC-Apex-Ascend",
     "title": "Digital PC Apex Ascend | Ryzen 7 7800X3D + RTX5070TI",
-    "price": 106500,
+    "price": 99900,
     "image": "./images/products/Digital-PC-Apex-Ascend/1.jpg",
     "images": [
       "./images/products/Digital-PC-Apex-Ascend/1.jpg",
@@ -179,7 +179,7 @@
     ],
     "specs": {
       "cpu": "Ryzen 7 7800X3D",
-      "gpu": "Nvidia RTX5070 Ti 16 gb MSI Ventus 3x OC",
+      "gpu": "Nvidia RTX5070Ti (Palit-MSI-Gigabyte)",
       "storage": "Ssd m2 NVMe 512GB ",
       "psu": "Chieftec Vita 850w Bronze 80+",
       "case": "Qube Reef White",
@@ -231,7 +231,7 @@
   {
     "id": "Digital-PC-Esport-Odin",
     "title": "Digital PC Esport Odin | Ryzen 5 7500F + RTX5070",
-    "price": 73500,
+    "price": 71500,
     "image": "./images/products/Digital-PC-Esport-Odin/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Odin/1.jpg",
@@ -299,7 +299,7 @@
   {
     "id": "Digital-PC-Esport-Apollo",
     "title": "Digital PC Esport Apollo | Ryzen 5 7500F + RTX5070",
-    "price": 73500,
+    "price": 71500,
     "image": "./images/products/Digital-PC-Esport-Apollo/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Apollo/1.jpg",
@@ -331,7 +331,7 @@
   {
     "id": "Digital-PC-Midline-Ghost",
     "title": "Digital PC Midline Ghost | Ryzen 5 7500F + RTX5060TI",
-    "price": 65500,
+    "price": 63500,
     "image": "./images/products/Digital-PC-Midline-Ghost/1.jpg",
     "images": [
       "./images/products/Digital-PC-Midline-Ghost/1.jpg",
@@ -365,7 +365,7 @@
   {
     "id": "Digital-PC-Esport-Veles",
     "title": "Digital PC Esport Veles | Ryzen 7 7700 + RTX5070",
-    "price": 77500,
+    "price": 74500,
     "image": "./images/products/Digital-PC-Esport-Veles/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Veles/1.jpg",
@@ -432,7 +432,7 @@
   {
     "id": "Digital-PC-Midline-Rift",
     "title": "Digital PC Midline Rift | Ryzen 5 7500F + RTX4060TI",
-    "price": 62500,
+    "price": 59500,
     "image": "./images/products/Digital-PC-Midline-Rift/1.jpg",
     "images": [
       "./images/products/Digital-PC-Midline-Rift/1.jpg",
@@ -496,7 +496,7 @@
   {
     "id": "Digital-PC-Midline-Halo",
     "title": "Digital PC Midline Halo | Ryzen 5 7500F + RTX3080",
-    "price": 56500,
+    "price": 55500,
     "image": "./images/products/Digital-PC-Midline-Halo/1.jpg",
     "images": [
       "./images/products/Digital-PC-Midline-Halo/1.jpg",
@@ -630,7 +630,7 @@
   {
     "id": "Digital-PC-Esport-Nano",
     "title": "Digital PC Esport Nano | Ryzen 7 7700 + RTX5070",
-    "price": 80500,
+    "price": 78500,
     "image": "./images/products/Digital-PC-Esport-Nano/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Nano/1.jpg",
@@ -692,7 +692,7 @@
   {
     "id": "Digital-PC-Midline-Mirage",
     "title": "Digital PC Midline Mirage | Ryzen 5 7500F + RTX5060",
-    "price": 57900,
+    "price": 55900,
     "image": "./images/products/Digital-PC-Midline-Mirage/1.jpg",
     "images": [
       "./images/products/Digital-PC-Midline-Mirage/1.jpg",
@@ -726,7 +726,7 @@
   {
     "id": "Digital-PC-Esport-Hermes",
     "title": "Digital PC Esport Hermes | Ryzen 5 7500F + RTX5070",
-    "price": 73500,
+    "price": 71500,
     "image": "./images/products/Digital-PC-Esport-Hermes/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Hermes/1.jpg",
@@ -760,7 +760,7 @@
   {
     "id": "Digital-PC-Esport-Poseidon",
     "title": "Digital PC Esport Poseidon | Ryzen 7 7700 + RTX5060TI",
-    "price": 72500,
+    "price": 70500,
     "image": "./images/products/Digital-PC-Esport-Poseidon/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Poseidon/1.jpg",
@@ -793,7 +793,7 @@
   {
     "id": "Digital-PC-Esport-Achilles",
     "title": "Digital PC Esport Achilles | Ryzen 5 7500F + RTX5060TI",
-    "price": 67500,
+    "price": 65500,
     "image": "./images/products/Digital-PC-Esport-Achilles/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Achilles/1.jpg",
@@ -893,7 +893,7 @@
   {
     "id": "Digital-PC-Esport-Mars",
     "title": "Digital PC Esport Mars | Ryzen 7 7700 + RTX5070",
-    "price": 79500,
+    "price": 77500,
     "image": "./images/products/Digital-PC-Esport-Mars/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Mars/1.jpg",
@@ -925,13 +925,12 @@
   },
   {
     "id": "Digital-PC-Esport-Titan",
-    "title": "Digital PC Esport Titan | Ryzen 7 7700 + RTX4070",
-    "price": 74900,
+    "title": "Digital PC Esport Titan | Ryzen 7 7700 + RTX5070",
+    "price": 76500,
     "image": "./images/products/Digital-PC-Esport-Titan/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Titan/1.jpg",
       "./images/products/Digital-PC-Esport-Titan/2.jpg",
-      "./images/products/Digital-PC-Esport-Titan/3.jpg",
       "./images/products/Digital-PC-Esport-Titan/4.jpg",
       "./images/products/Digital-PC-Esport-Titan/5.jpg",
       "./images/products/Digital-PC-Esport-Titan/6.jpg",
@@ -939,7 +938,7 @@
     ],
     "specs": {
       "cpu": "Ryzen 7 7700",
-      "gpu": "Nvidia RTX4070 Asus Dual",
+      "gpu": "Nvidia RTX5070 Asus Dual",
       "storage": "Ssd m2 NVMe 512GB ",
       "psu": "Gigabyte p650ss Gold 80+",
       "case": "Qube Cristal",
@@ -992,7 +991,7 @@
   {
     "id": "Digital-PC-Midline-Obsidian",
     "title": "Digital PC Midline Obsidian | Ryzen 5 7500F + RTX3070TI",
-    "price": 53500,
+    "price": 52500,
     "image": "./images/products/Digital-PC-Midline-Obsidian/1.jpg",
     "images": [
       "./images/products/Digital-PC-Midline-Obsidian/1.jpg",
@@ -1058,7 +1057,7 @@
   {
     "id": "Digital-PC-Midline-Carbon",
     "title": "Digital PC Midline Carbon | Ryzen 5 7500F + RTX3070TI",
-    "price": 54500,
+    "price": 52500,
     "image": "./images/products/Digital-PC-Midline-Carbon/1.jpg",
     "images": [
       "./images/products/Digital-PC-Midline-Carbon/1.jpg",
