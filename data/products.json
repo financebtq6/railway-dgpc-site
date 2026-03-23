@@ -108,7 +108,8 @@
       "./images/products/Digital-PC-Base-Atom/2.jpg",
       "./images/products/Digital-PC-Base-Atom/3.jpg",
       "./images/products/Digital-PC-Base-Atom/4.jpg",
-      "./images/products/Digital-PC-Base-Atom/5.jpg"
+      "./images/products/Digital-PC-Base-Atom/5.jpg",
+      "./images/products/Digital-PC-Base-Atom/6.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 5 5500",
@@ -373,7 +374,8 @@
       "./images/products/Digital-PC-Esport-Veles/4.jpg",
       "./images/products/Digital-PC-Esport-Veles/5.jpg",
       "./images/products/Digital-PC-Esport-Veles/6.jpg",
-      "./images/products/Digital-PC-Esport-Veles/7.jpg"
+      "./images/products/Digital-PC-Esport-Veles/7.jpg",
+      "./images/products/Digital-PC-Esport-Veles/8.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 7 7700",
@@ -1064,7 +1066,8 @@
       "./images/products/Digital-PC-Midline-Carbon/3.jpg",
       "./images/products/Digital-PC-Midline-Carbon/4.jpg",
       "./images/products/Digital-PC-Midline-Carbon/5.jpg",
-      "./images/products/Digital-PC-Midline-Carbon/6.jpg"
+      "./images/products/Digital-PC-Midline-Carbon/6.jpg",
+      "./images/products/Digital-PC-Midline-Carbon/7.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 5 7500F",
