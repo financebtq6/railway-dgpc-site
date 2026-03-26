@@ -526,40 +526,6 @@
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-halo-ryzen-5-7500f-rtx3080-IDUpY56.html?bs=olx_pro_listing"
   },
   {
-    "id": "Digital-PC-Solid-Eclipse",
-    "title": "Digital PC Solid Eclipse | Ryzen 5 3600 + RTX3070TI",
-    "price": 32500,
-    "image": "./images/products/Digital-PC-Solid-Eclipse/1.jpg",
-    "images": [
-      "./images/products/Digital-PC-Solid-Eclipse/1.jpg",
-      "./images/products/Digital-PC-Solid-Eclipse/2.jpg",
-      "./images/products/Digital-PC-Solid-Eclipse/3.jpg",
-      "./images/products/Digital-PC-Solid-Eclipse/4.jpg",
-      "./images/products/Digital-PC-Solid-Eclipse/5.jpg",
-      "./images/products/Digital-PC-Solid-Eclipse/6.jpg",
-      "./images/products/Digital-PC-Solid-Eclipse/7.jpg",
-      "./images/products/Digital-PC-Solid-Eclipse/8.jpg"
-    ],
-    "specs": {
-      "cpu": "Ryzen 5 3600",
-      "gpu": "Nvidia RTX3070TI",
-      "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "700w 80+ bronze Qube",
-      "case": "Gamemax + 4 кулера",
-      "cooling": "Qube 120mm Argb",
-      "motherboard": "Gigabyte B550M DS3H",
-      "ram": "DDR4 16GB 3200mhz"
-    },
-     "description": "Digital PC Solid Series — ваш надійний фундамент для продуктивної роботи та ігор\n, де баланс між ціною, потужністю та якістю стоїть на першому місці.",
-    "descPartOne": "Готовий до ігор одразу після отримання",
-    "descPartTwo": "Реальна гарантія та підтримка після покупки",
-    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
-    "descPartFour": "Ручна збірка під клієнта",
-    "descPartFive": "Стрес-тест + відео перед відправкою",
-    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-solid-eclipse-ryzen-5-3600-rtx3070ti-IDUsPN9.html"
-  },
-  {
     "id": "Digital-PC-Solid-Titan",
     "title": "Digital PC Solid Titan | RTX3070TI + RYZEN 5 5600",
     "price": 39900,
@@ -855,39 +821,6 @@
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-pulse-ryzen-5-7500f-rtx5060-IDWGS6T.html?bs=olx_pro_listing"
-  },
-  {
-    "id": "Digital-PC-Solid-Nova",
-    "title": "Digital PC Solid Nova | Ryzen 5 3600 + RTX3060TI",
-    "price": 29900,
-    "image": "./images/products/Digital-PC-Solid-Nova/1.jpg",
-    "images": [
-      "./images/products/Digital-PC-Solid-Nova/1.jpg",
-      "./images/products/Digital-PC-Solid-Nova/2.jpg",
-      "./images/products/Digital-PC-Solid-Nova/3.jpg",
-      "./images/products/Digital-PC-Solid-Nova/4.jpg",
-      "./images/products/Digital-PC-Solid-Nova/5.jpg",
-      "./images/products/Digital-PC-Solid-Nova/6.jpg",
-      "./images/products/Digital-PC-Solid-Nova/7.jpg"
-    ],
-    "specs": {
-      "cpu": "Ryzen 5 3600",
-      "gpu": "Nvidia RTX3060TI",
-      "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "700w 80+ bronze Qube",
-      "case": "Gamemax + 4 кулера",
-      "cooling": "Jonsbo cr",
-      "motherboard": "Gigabyte B550M DS3H",
-      "ram": "DDR4 16GB 3200mhz"
-    },
-     "description": "Digital PC Solid Series — ваш надійний фундамент для продуктивної роботи та ігор\n, де баланс між ціною, потужністю та якістю стоїть на першому місці.",
-    "descPartOne": "Готовий до ігор одразу після отримання",
-    "descPartTwo": "Реальна гарантія та підтримка після покупки",
-    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
-    "descPartFour": "Ручна збірка під клієнта",
-    "descPartFive": "Стрес-тест + відео перед відправкою",
-    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-solid-nova-rtx3060ti-ryzen-5-3600-IDUcQc4.html"
   },
   {
     "id": "Digital-PC-Esport-Mars",
