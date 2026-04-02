@@ -463,7 +463,7 @@
   {
     "id": "Digital-PC-Esport-Thor",
     "title": "Digital PC Esport Thor | Ryzen 7 7700 + RX9070XT",
-    "price": 82900,
+    "price": 79500,
     "image": "./images/products/Digital-PC-Esport-Thor/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Thor/1.jpg",
@@ -627,7 +627,7 @@
   },
   {
     "id": "Digital-PC-Esport-Ares",
-    "title": "Digital PC Esport Ares | Ryzen 7 7700 + RTX5070",
+    "title": "Digital PC Esport Ares | Ryzen 7 7800X3D + RTX5080",
     "price": 115500,
     "image": "./images/products/Digital-PC-Esport-Ares/1.jpg",
     "images": [
@@ -893,7 +893,7 @@
   },
   {
     "id": "Digital-PC-Apex-Absolute",
-    "title": "Digital PC Apex Absolute | Ryzen 7 7800X3D + RTX5080",
+    "title": "Digital PC Apex Absolute | Ryzen 7 7800X3D + RTX5070TI",
     "price": 97500,
     "image": "./images/products/Digital-PC-Apex-Absolute/1.jpg",
     "images": [
@@ -907,7 +907,7 @@
     ],
     "specs": {
       "cpu": "Ryzen 7 7800X3D",
-      "gpu": "RTX5080 16 GB Palit Gaming Pro",
+      "gpu": "RTX5070TI",
       "storage": "SSD m2 NVMe 1TB ",
       "psu": "Gigabyte UD850GM PG5 V2",
       "case": "Lian-Li Vector V100 Mini",
@@ -1024,40 +1024,6 @@
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-carbon-ryzen-5-7500f-rtx3070ti-IDTXIuu.html"
   },
   {
-    "id": "Digital-PC-Base-Core",
-    "title": "Digital PC Base Core | Ryzen 5 3600 + RTX3060Ti",
-    "price": 23500,
-    "image": "./images/products/Digital-PC-Base-Core/1.jpg",
-    "images": [
-      "./images/products/Digital-PC-Base-Core/1.jpg",
-      "./images/products/Digital-PC-Base-Core/2.jpg",
-      "./images/products/Digital-PC-Base-Core/3.jpg",
-      "./images/products/Digital-PC-Base-Core/4.jpg",
-      "./images/products/Digital-PC-Base-Core/5.jpg",
-      "./images/products/Digital-PC-Base-Core/6.jpg",
-      "./images/products/Digital-PC-Base-Core/7.jpg",
-      "./images/products/Digital-PC-Base-Core/8.jpg"
-    ],
-    "specs": {
-      "cpu": "Ryzen 5 3600",
-      "gpu": "Nvidia RTX3060Ti",
-      "storage": "Samsung 512GB Sata",
-      "psu": "600w Deepcool DE",
-      "case": "Artline + 4 кулерa",
-      "cooling": "BOX AMD",
-      "motherboard": "Asus Prime b450m-a II",
-      "ram": "DDR4 16GB 3200mhz"
-    },
-    "description": "Серія Base — це ідеальний старт для тих, хто цінує баланс між ціною /nта продуктивністю, не жертвуючи якістю та надійністю.",
-    "descPartOne": "Готовий до ігор одразу після отримання",
-    "descPartTwo": "Реальна гарантія та підтримка після покупки",
-    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
-    "descPartFour": "Ручна збірка під клієнта",
-    "descPartFive": "Стрес-тест + відео перед відправкою",
-    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-base-core-ryzen-5-3600-rtx3060ti-IDZDBsQ.html"
-  },
-  {
     "id": "Digital-PC-Apex-Nimb",
     "title": "Digital PC Apex Nimb | Core Ultra 7 265KF + RTX5070",
     "price": 99900,
@@ -1154,38 +1120,5 @@
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/groviy-pk-1660super-i3-9100f-16-gb-ozu-ssd-ID101c0t.html"
-  },
-  {
-    "id": "Digital-PC-Base-3",
-    "title": "Digital PC Base | Ryzen 5 3600 + GTX1660S",
-    "price": 17500,
-    "image": "./images/products/Digital-PC-Base-3/1.jpg",
-    "images": [
-      "./images/products/Digital-PC-Base-3/1.jpg",
-      "./images/products/Digital-PC-Base-3/2.jpg",
-      "./images/products/Digital-PC-Base-3/3.jpg",
-      "./images/products/Digital-PC-Base-3/4.jpg",
-      "./images/products/Digital-PC-Base-3/5.jpg",
-      "./images/products/Digital-PC-Base-3/6.jpg",
-      "./images/products/Digital-PC-Base-3/7.jpg"
-    ],
-    "specs": {
-      "cpu": "Ryzen 5 3600",
-      "gpu": "GTX 1660 Super",
-      "storage": "Samsung 512GB Sata",
-      "psu": "600w Deepcool DE",
-      "case": "Artline + 4 кулерa",
-      "cooling": "BOX AMD",
-      "motherboard": "Asus Prime b450m-a II",
-      "ram": "DDR4 16GB 3200mhz"
-    },
-    "description": "Серія Base — це ідеальний старт для тих, хто цінує баланс між ціною /nта продуктивністю, не жертвуючи якістю та надійністю.",
-    "descPartOne": "Готовий до ігор одразу після отримання",
-    "descPartTwo": "Реальна гарантія та підтримка після покупки",
-    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
-    "descPartFour": "Ручна збірка під клієнта",
-    "descPartFive": "Стрес-тест + відео перед відправкою",
-    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/groviy-pk-base-ryzen-5-3600-gtx1660super-ID105Rn3.html"
   }
 ]
