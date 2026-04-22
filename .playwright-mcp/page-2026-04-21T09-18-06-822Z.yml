@@ -1,0 +1,138 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "Digital PC Logo DIGITAL PC" [ref=e6] [cursor=pointer]:
+        - /url: index.html
+        - img "Digital PC Logo" [ref=e7]
+        - generic [ref=e8]: DIGITAL PC
+      - generic [ref=e9]:
+        - link "Головна" [ref=e10] [cursor=pointer]:
+          - /url: index.html
+        - link "Комп'ютери" [ref=e11] [cursor=pointer]:
+          - /url: computers.html
+        - link "Периферія" [ref=e12] [cursor=pointer]:
+          - /url: periphery.html
+        - link "Відгуки" [ref=e13] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Про нас" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+        - link "Контакти" [ref=e15] [cursor=pointer]:
+          - /url: contacts.html
+  - generic [ref=e17]:
+    - link "Назад до каталогу" [ref=e19] [cursor=pointer]:
+      - /url: periphery.html
+      - img [ref=e20]
+      - text: Назад до каталогу
+    - generic [ref=e23]:
+      - img "Механічна клавіатура Corsair K70 RGB Pro | Cherry MX Red" [ref=e26] [cursor=pointer]
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]: In Stock
+          - heading "Механічна клавіатура Corsair K70 RGB Pro | Cherry MX Red" [level=1] [ref=e30]
+          - generic [ref=e31]: 2 500 ₴
+        - generic [ref=e33]:
+          - heading "Інформація про товар:" [level=4] [ref=e34]
+          - generic [ref=e35]: Професійна механічна клавіатура з Cherry MX червоними перемикачами та RGB підсвіткою. Ідеальна для геймерів та програмістів. Алюмінієвий корпус з прогумованими ніжками для стабільності.
+          - list [ref=e36]:
+            - listitem [ref=e37]:
+              - img [ref=e38]
+              - text: Механічні Cherry MX Red перемикачі
+            - listitem [ref=e40]:
+              - img [ref=e41]
+              - text: Per-Key RGB підсвітка
+            - listitem [ref=e43]:
+              - img [ref=e44]
+              - text: Прямотрав передача наказу до 8ms
+            - listitem [ref=e46]:
+              - img [ref=e47]
+              - text: Алюмінієвий корпус
+            - listitem [ref=e49]:
+              - img [ref=e50]
+              - text: USB-C з'єднання
+            - listitem [ref=e52]:
+              - img [ref=e53]
+              - text: Завантажити макроси та налаштування
+        - generic [ref=e55]:
+          - button "Замовити" [ref=e56] [cursor=pointer]:
+            - img [ref=e57]
+            - text: Замовити
+          - generic [ref=e59]:
+            - link "Купити на Prom.ua" [ref=e60] [cursor=pointer]:
+              - /url: https://prom.ua/ua/c3808817-digital.html
+            - link "Купити на OLX" [ref=e61] [cursor=pointer]:
+              - /url: https://www.olx.ua
+  - generic [ref=e63]:
+    - generic [ref=e64]:
+      - heading "Наші платформи" [level=2] [ref=e65]
+      - paragraph [ref=e66]: Слідкуйте за нами, щоб бути в курсі новинок та акцій
+    - generic [ref=e67]:
+      - link "Telegram @Digital_Pc" [ref=e68] [cursor=pointer]:
+        - /url: https://t.me/Digital_Pc
+        - img [ref=e70]
+        - heading "Telegram" [level=3] [ref=e73]
+        - paragraph [ref=e74]: "@Digital_Pc"
+      - link "Instagram @digital_pc_dnipro" [ref=e75] [cursor=pointer]:
+        - /url: https://www.instagram.com/digital_pc_dnipro
+        - img [ref=e77]
+        - heading "Instagram" [level=3] [ref=e80]
+        - paragraph [ref=e81]: "@digital_pc_dnipro"
+      - link "TikTok @digital_pc_dnipro_" [ref=e82] [cursor=pointer]:
+        - /url: https://www.tiktok.com/@digital_pc_dnipro_
+        - img [ref=e84]
+        - heading "TikTok" [level=3] [ref=e86]
+        - paragraph [ref=e87]: "@digital_pc_dnipro_"
+      - link "Prom.ua Магазин на Prom" [ref=e88] [cursor=pointer]:
+        - /url: https://digitalpcdnipro.prom.ua/
+        - img [ref=e90]
+        - heading "Prom.ua" [level=3] [ref=e93]
+        - paragraph [ref=e94]: Магазин на Prom
+      - link "OLX Наші оголошення" [ref=e95] [cursor=pointer]:
+        - /url: https://www.olx.ua/list/user/10oQVa/
+        - img [ref=e97]
+        - heading "OLX" [level=3] [ref=e101]
+        - paragraph [ref=e102]: Наші оголошення
+  - contentinfo [ref=e103]:
+    - generic [ref=e104]:
+      - generic [ref=e105]:
+        - generic [ref=e106]:
+          - heading "DIGITAL PC" [level=3] [ref=e107]
+          - paragraph [ref=e108]: Професійні готові ПК для геймінгу, рендерингу та офісних задач.
+          - generic [ref=e109]:
+            - link [ref=e110] [cursor=pointer]:
+              - /url: https://t.me/Digital_Pc
+              - img [ref=e111]
+            - link [ref=e114] [cursor=pointer]:
+              - /url: https://www.instagram.com/digital_pc_dnipro
+              - img [ref=e115]
+        - generic [ref=e118]:
+          - heading "Навігація" [level=3] [ref=e119]
+          - list [ref=e120]:
+            - listitem [ref=e121]:
+              - link "Головна" [ref=e122] [cursor=pointer]:
+                - /url: index.html
+            - listitem [ref=e123]:
+              - link "Комп'ютери" [ref=e124] [cursor=pointer]:
+                - /url: computers.html
+            - listitem [ref=e125]:
+              - link "Периферія" [ref=e126] [cursor=pointer]:
+                - /url: periphery.html
+            - listitem [ref=e127]:
+              - link "Відгуки" [ref=e128] [cursor=pointer]:
+                - /url: reviews.html
+            - listitem [ref=e129]:
+              - link "Контакти" [ref=e130] [cursor=pointer]:
+                - /url: contacts.html
+        - generic [ref=e131]:
+          - heading "Контактна інформація" [level=3] [ref=e132]
+          - list [ref=e133]:
+            - listitem [ref=e134]:
+              - img [ref=e135]
+              - generic [ref=e138]: Європейська, 5а, м. Дніпро
+            - listitem [ref=e139]:
+              - img [ref=e140]
+              - link "+380 99 317 33 48" [ref=e142] [cursor=pointer]:
+                - /url: tel:+380993173348
+            - listitem [ref=e143]:
+              - img [ref=e144]
+              - generic [ref=e147]: "Пн-Нд: 10:00-18:00"
+      - paragraph [ref=e149]: © 2025 Digital PC. Усі права захищені.

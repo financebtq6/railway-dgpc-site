@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="uk" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Периферія | Digital PC</title>
+    <meta name="description" content="Периферійне обладнання від Digital PC. Клавіатури, миші, навушники для геймерів та професіоналів.">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/i18next@21.6.10/dist/umd/i18next.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+        :root {
+            --primary: #00a8ff;
+            --secondary: #0097e6;
+            --accent: #00d2d3;
+            --dark: #2f3640;
+            --light: #f5f6fa;
+        }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        .title-font {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 168, 255, 0.3);
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+    
+        /* Dark-blue gradient header animation */
+        .page-header-animated {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%) !important;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header-animated::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(59,130,246,0.15) 0%, transparent 60%);
+            animation: headerGlow 4s ease-in-out infinite;
+        }
+        .page-header-float {
+            animation: headerFloat 3s ease-in-out infinite;
+            display: inline-block;
+        }
+        @keyframes headerGlow {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            50% { transform: translate(20px, 10px) scale(1.1); opacity: 1; }
+        }
+        @keyframes headerFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+    </style>
+    <link rel="stylesheet" href="./css/site.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-sm fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a class='flex items-center' href='index.html'><img src="./images/logo.png?v=13" alt="Digital PC Logo" class="w-8 h-8">
+                        <span class="ml-2 text-xl font-bold title-font text-gray-800">DIGITAL PC</span>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:ml-6 md:flex md:space-x-8">
+                    <a class='nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium' data-i18n='nav_home' href='index.html'>Головна</a>
+                    <a class='nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium' data-i18n='nav_catalog' href='computers.html'>Комп'ютери</a>
+                    <a class='nav-link text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium' data-i18n='nav_periphery' href='periphery.html'>Периферія</a>
+                    <a class='nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium' data-i18n='nav_reviews' href='reviews.html'>Відгуки</a>
+                    <a class='nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium' data-i18n='nav_about' href='about.html'>Про нас</a>
+                    <a class='nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium' data-i18n='nav_contacts' href='contacts.html'>Контакти</a>
+                </div>
+                <!-- Right Side -->
+                <div class="flex items-center">
+                    <div class="-mr-2 flex items-center md:hidden">
+                        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-expanded="false" id="mobile-menu-button">
+                            <span class="sr-only">Open main menu</span>
+                            <i data-feather="menu" class="block h-6 w-6"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1 bg-white border-t">
+                <a class='block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50' data-i18n='nav_home' href='index.html'>Головна</a>
+                <a class='block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50' data-i18n='nav_catalog' href='computers.html'>Комп'ютери</a>
+                <a class='block pl-3 pr-4 py-2 text-base font-medium text-blue-600 bg-blue-50' data-i18n='nav_periphery' href='periphery.html'>Периферія</a>
+                <a class='block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50' data-i18n='nav_reviews' href='reviews.html'>Відгуки</a>
+                <a class='block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50' data-i18n='nav_about' href='about.html'>Про нас</a>
+                <a class='block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50' data-i18n='nav_contacts' href='contacts.html'>Контакти</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Header -->
+    <div id="page-header" class="bg-gray-900 page-header-animated pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h1 class="text-3xl font-bold title-font text-white mb-2 page-header-float" data-i18n="nav_periphery">Периферія</h1>
+                    <p class="text-gray-300">Клавіатури, миші, навушники та інше ігрове обладнання</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Filters Sidebar -->
+            <aside class="lg:col-span-1" id="filters-sidebar">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-lg font-bold title-font mb-4 text-gray-900">Фільтри</h3>
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-3">Тип обладнання</label>
+                        <div id="filter-periphery-type" class="space-y-2"></div>
+                    </div>
+                    <button onclick="window.resetFilters()" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded transition-colors">
+                        Скинути фільтри
+                    </button>
+                </div>
+            </aside>
+            <!-- Catalog -->
+            <div class="lg:col-span-3">
+                <!-- Sort Controls -->
+                <div class="mb-6 flex justify-between items-center bg-white p-4 rounded-lg shadow-md" id="catalog-controls">
+                    <span class="text-gray-700 font-semibold">Оберіть сортування:</span>
+                    <select id="sort-select" onchange="window.applyFilters()" class="px-4 py-2 border border-gray-300 rounded-lg">
+                        <option value="default">За замовчуванням</option>
+                        <option value="price_asc">Ціна: від меньшої до більшої</option>
+                        <option value="price_desc">Ціна: від більшої до меньшої</option>
+                    </select>
+                </div>
+                <!-- Products Grid -->
+                <div id="catalog" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                <!-- Pagination -->
+                <nav id="pagination-nav" class="mt-12 flex justify-center"></nav>
+            </div>
+        </div>
+        <!-- Product Detail Container (hidden by default, shown when clicking a product card) -->
+        <div id="product-detail" style="display:none;"></div>
+    </div>
+    <!-- Наші платформи -->
+    <section class="py-16 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold title-font mb-4" data-i18n="socials_title">Наші платформи</h2>
+                <p class="text-lg text-gray-400" data-i18n="socials_subtitle">Слідкуйте за нами, щоб бути в курсі новинок та акцій</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <a href="https://t.me/Digital_Pc" target="_blank" class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition-all group flex flex-col items-center text-center border border-gray-700">
+                    <div class="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-feather="send" class="w-8 h-8 text-blue-500"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-1">Telegram</h3>
+                    <p class="text-gray-400 text-sm">@Digital_Pc</p>
+                </a>
+                <a href="https://www.instagram.com/digital_pc_dnipro" target="_blank" class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition-all group flex flex-col items-center text-center border border-gray-700">
+                    <div class="w-16 h-16 bg-pink-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-feather="instagram" class="w-8 h-8 text-pink-500"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-1">Instagram</h3>
+                    <p class="text-gray-400 text-sm">@digital_pc_dnipro</p>
+                </a>
+                <a href="https://www.tiktok.com/@digital_pc_dnipro_" target="_blank" class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition-all group flex flex-col items-center text-center border border-gray-700">
+                    <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg viewBox="0 0 24 24" class="w-8 h-8 fill-current text-white" style="display:block"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-xl mb-1">TikTok</h3>
+                    <p class="text-gray-400 text-sm">@digital_pc_dnipro_</p>
+                </a>
+                <a href="https://digitalpcdnipro.prom.ua/" target="_blank" class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition-all group flex flex-col items-center text-center border border-gray-700">
+                    <div class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-feather="shopping-bag" class="w-8 h-8 text-purple-500"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-1">Prom.ua</h3>
+                    <p class="text-gray-400 text-sm" data-i18n="promo_prom">Магазин на Prom</p>
+                </a>
+                <a href="https://www.olx.ua/list/user/10oQVa/" target="_blank" class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition-all group flex flex-col items-center text-center border border-gray-700">
+                    <div class="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg viewBox="0 0 24 24" class="w-8 h-8" fill="#3FBF7F"><circle cx="12" cy="12" r="10" fill="#3FBF7F"/><path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" fill="white"/><circle cx="12" cy="12" r="2.5" fill="white"/></svg>
+                    </div>
+                    <h3 class="font-bold text-xl mb-1">OLX</h3>
+                    <p class="text-gray-400 text-sm">Наші оголошення</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold title-font mb-4">DIGITAL PC</h3>
+                    <p class="text-sm text-gray-400 mb-6">Професійні готові ПК для геймінгу, рендерингу та офісних задач.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://t.me/Digital_Pc" class="text-gray-400 hover:text-white" target="_blank"><i data-feather="send" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/digital_pc_dnipro" class="text-gray-400 hover:text-white" target="_blank"><i data-feather="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Навігація</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Головна</a></li>
+                        <li><a href="computers.html" class="text-gray-400 hover:text-white">Комп'ютери</a></li>
+                        <li><a href="periphery.html" class="text-gray-400 hover:text-white">Периферія</a></li>
+                        <li><a href="reviews.html" class="text-gray-400 hover:text-white">Відгуки</a></li>
+                        <li><a href="contacts.html" class="text-gray-400 hover:text-white">Контакти</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Контактна інформація</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-start"><i data-feather="map-pin" class="w-4 h-4 mr-2 mt-0.5 flex-shrink-0"></i><span>Європейська, 5а, м. Дніпро</span></li>
+                        <li class="flex items-start"><i data-feather="phone" class="w-4 h-4 mr-2 mt-0.5 flex-shrink-0"></i><a href="tel:+380993173348" class="hover:text-white">+380 99 317 33 48</a></li>
+                        <li class="flex items-start"><i data-feather="clock" class="w-4 h-4 mr-2 mt-0.5 flex-shrink-0"></i><span>Пн-Нд: 10:00-18:00</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Digital PC. Усі права захищені.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- App Scripts -->
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            window.currentCategory = 'periphery';
+        });
+    </script>
+    <script src="./app.js"></script>
+
+    <!-- Telegram Visitor Analytics -->
+    <script>
+    (function() {
+        // TODO: Replace with real values before deploying
+        var BOT_TOKEN = 'TELEGRAM_BOT_TOKEN'; // placeholder
+        var CHAT_ID = 'TELEGRAM_CHAT_ID'; // placeholder
+        try {
+            var page = window.location.pathname.split('/').pop() || 'index.html';
+            var ref = document.referrer ? ' | ref: ' + document.referrer.substring(0, 50) : '';
+            var msg = encodeURIComponent('\ud83d\udcca \u0412\u0456\u0434\u0432\u0456\u0434\u0443\u0432\u0430\u0447: ' + page + ref + ' | ' + new Date().toLocaleString('uk-UA'));
+            if (BOT_TOKEN !== 'TELEGRAM_BOT_TOKEN') {
+                fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage?chat_id=' + CHAT_ID + '&text=' + msg)
+                    .catch(function(){});
+            }
+        } catch(e) {}
+    })();
+    </script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/69e629214f2fb71c34a5a45b/1jmlh1amv';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>

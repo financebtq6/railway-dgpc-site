@@ -1,0 +1,219 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "Digital PC Logo DIGITAL PC" [ref=e6] [cursor=pointer]:
+        - /url: index.html
+        - img "Digital PC Logo" [ref=e7]
+        - generic [ref=e8]: DIGITAL PC
+      - generic [ref=e9]:
+        - link "Головна" [ref=e10] [cursor=pointer]:
+          - /url: index.html
+        - link "Комп'ютери" [ref=e11] [cursor=pointer]:
+          - /url: computers.html
+        - link "Периферія" [ref=e12] [cursor=pointer]:
+          - /url: periphery.html
+        - link "Відгуки" [ref=e13] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Про нас" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+        - link "Контакти" [ref=e15] [cursor=pointer]:
+          - /url: contacts.html
+  - generic [ref=e376]:
+    - link "Назад до каталогу" [ref=e378] [cursor=pointer]:
+      - /url: computers.html
+      - img [ref=e379]
+      - text: Назад до каталогу
+    - generic [ref=e382]:
+      - generic [ref=e383]:
+        - img "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [ref=e385] [cursor=pointer]
+        - generic [ref=e386]:
+          - img "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [ref=e387] [cursor=pointer]
+          - img "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [ref=e388] [cursor=pointer]
+          - img "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [ref=e389] [cursor=pointer]
+          - img "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [ref=e390] [cursor=pointer]
+          - img "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [ref=e391] [cursor=pointer]
+          - img "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [ref=e392] [cursor=pointer]
+          - img "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [ref=e393] [cursor=pointer]
+      - generic [ref=e394]:
+        - generic [ref=e395]:
+          - generic [ref=e396]: In Stock
+          - heading "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [level=1] [ref=e397]
+          - generic [ref=e398]: 145 500 ₴
+        - generic [ref=e400]:
+          - generic [ref=e401]:
+            - img [ref=e403]
+            - generic [ref=e406]:
+              - generic [ref=e407]: Процесор
+              - generic [ref=e408]: Ryzen 7 9800x3d
+          - generic [ref=e409]:
+            - img [ref=e411]
+            - generic [ref=e413]:
+              - generic [ref=e414]: Відеокарта
+              - generic [ref=e415]: Nvidia RTX5080 16 gb Palit Gaming Pro
+          - generic [ref=e416]:
+            - img [ref=e418]
+            - generic [ref=e420]:
+              - generic [ref=e421]: Накопичувач
+              - generic [ref=e422]: Ssd m2 1 tb Corsair MP600 pro
+          - generic [ref=e423]:
+            - img [ref=e425]
+            - generic [ref=e427]:
+              - generic [ref=e428]: Блок живлення
+              - generic [ref=e429]: Thermalright KG-850 850W
+          - generic [ref=e430]:
+            - img [ref=e432]
+            - generic [ref=e435]:
+              - generic [ref=e436]: Корпус
+              - generic [ref=e437]: Gamemax infinity plus
+          - generic [ref=e438]:
+            - img [ref=e440]
+            - generic [ref=e442]:
+              - generic [ref=e443]: Охолодження
+              - generic [ref=e444]: Msi Coreliquid A13 360 Argb
+          - generic [ref=e445]:
+            - img [ref=e447]
+            - generic [ref=e452]:
+              - generic [ref=e453]: Материнська плата
+              - generic [ref=e454]: MSI B850 Gaming Plus WIFI6E White
+          - generic [ref=e455]:
+            - img [ref=e457]
+            - generic [ref=e461]:
+              - generic [ref=e462]: Оперативна пам'ять
+              - generic [ref=e463]: 32 GB DDR5 6000 MHz CL30
+        - generic [ref=e465]:
+          - heading "Інформація про товар:" [level=4] [ref=e466]
+          - generic [ref=e467]: Digital PC Apex Series — вершина продуктивності для геймерів та креативних користувачів. Потужні процесори, топові відеокарти та швидкі SSD забезпечують ультра-пресети в сучасних іграх, плавну багатозадачність і роботу з мультимедіа без компромісів.
+          - list [ref=e468]:
+            - listitem [ref=e469]:
+              - img [ref=e470]
+              - text: Готовий до ігор одразу після отримання
+            - listitem [ref=e472]:
+              - img [ref=e473]
+              - text: Реальна гарантія та підтримка після покупки
+            - listitem [ref=e475]:
+              - img [ref=e476]
+              - text: Спілкування напряму з майстром, а не менеджером
+            - listitem [ref=e478]:
+              - img [ref=e479]
+              - text: Ручна збірка під клієнта
+            - listitem [ref=e481]:
+              - img [ref=e482]
+              - text: Стрес-тест + відео перед відправкою
+            - listitem [ref=e484]:
+              - img [ref=e485]
+              - text: Напишіть — підберемо оптимальний варіант під Ваш бюджет
+        - generic [ref=e487]:
+          - button "Замовити" [ref=e488] [cursor=pointer]:
+            - img [ref=e489]
+            - text: Замовити
+          - generic [ref=e491]:
+            - link "Купити на Prom.ua" [ref=e492] [cursor=pointer]:
+              - /url: https://prom.ua/ua/c3808817-digital.html
+            - link "Купити на OLX" [ref=e493] [cursor=pointer]:
+              - /url: https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-monarch-ryzen-7-9800x3d-rtx5080-IDZG423.html?bs=olx_pro_listing
+  - generic [ref=e264]:
+    - generic [ref=e265]:
+      - heading "Наші платформи" [level=2] [ref=e266]
+      - paragraph [ref=e267]: Слідкуйте за нами, щоб бути в курсі новинок та акцій
+    - generic [ref=e268]:
+      - link "Telegram @Digital_Pc" [ref=e269] [cursor=pointer]:
+        - /url: https://t.me/Digital_Pc
+        - img [ref=e271]
+        - heading "Telegram" [level=3] [ref=e274]
+        - paragraph [ref=e275]: "@Digital_Pc"
+      - link "Instagram @digital_pc_dnipro" [ref=e276] [cursor=pointer]:
+        - /url: https://www.instagram.com/digital_pc_dnipro
+        - img [ref=e278]
+        - heading "Instagram" [level=3] [ref=e281]
+        - paragraph [ref=e282]: "@digital_pc_dnipro"
+      - link "TikTok @digital_pc_dnipro_" [ref=e283] [cursor=pointer]:
+        - /url: https://www.tiktok.com/@digital_pc_dnipro_
+        - img [ref=e285]
+        - heading "TikTok" [level=3] [ref=e287]
+        - paragraph [ref=e288]: "@digital_pc_dnipro_"
+      - link "Prom.ua Магазин на Prom" [ref=e289] [cursor=pointer]:
+        - /url: https://digitalpcdnipro.prom.ua/
+        - img [ref=e291]
+        - heading "Prom.ua" [level=3] [ref=e294]
+        - paragraph [ref=e295]: Магазин на Prom
+      - link "OLX Наші оголошення" [ref=e296] [cursor=pointer]:
+        - /url: https://www.olx.ua/list/user/10oQVa/
+        - img [ref=e298]
+        - heading "OLX" [level=3] [ref=e302]
+        - paragraph [ref=e303]: Наші оголошення
+  - contentinfo [ref=e304]:
+    - generic [ref=e305]:
+      - generic [ref=e306]:
+        - generic [ref=e307]:
+          - heading "DIGITAL PC" [level=3] [ref=e308]
+          - paragraph [ref=e309]: Професійні готові ПК для геймінгу, рендерингу та офісних задач. Ми створюємо машини, які надихають на перемоги.
+          - generic [ref=e310]:
+            - link [ref=e311] [cursor=pointer]:
+              - /url: https://t.me/Digital_Pc
+              - img [ref=e312]
+            - link [ref=e315] [cursor=pointer]:
+              - /url: https://www.instagram.com/digital_pc_dnipro
+              - img [ref=e316]
+            - link [ref=e319] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@digital_pc_dnipro_
+              - img [ref=e320]
+            - link "Prom" [ref=e322] [cursor=pointer]:
+              - /url: https://digitalpcdnipro.prom.ua/
+              - img [ref=e323]
+            - link "OLX" [ref=e326] [cursor=pointer]:
+              - /url: https://www.olx.ua/list/user/10oQVa/
+              - img [ref=e327]:
+                - generic [ref=e330]: OLX
+        - generic [ref=e331]:
+          - heading "Клієнтам" [level=3] [ref=e332]
+          - list [ref=e333]:
+            - listitem [ref=e334]:
+              - link "Головна" [ref=e335] [cursor=pointer]:
+                - /url: index.html
+            - listitem [ref=e336]:
+              - link "Каталог ПК" [ref=e337] [cursor=pointer]:
+                - /url: computers.html
+            - listitem [ref=e338]:
+              - link "Відгуки" [ref=e339] [cursor=pointer]:
+                - /url: reviews.html
+            - listitem [ref=e340]:
+              - link "Про нас" [ref=e341] [cursor=pointer]:
+                - /url: about.html
+            - listitem [ref=e342]:
+              - link "Контакти" [ref=e343] [cursor=pointer]:
+                - /url: contacts.html
+        - generic [ref=e344]:
+          - heading "Наше розташування" [level=3] [ref=e345]
+          - list [ref=e346]:
+            - listitem [ref=e347]:
+              - img [ref=e348]
+              - generic [ref=e351]: вул. Європейська 5а, Дніпро
+            - listitem [ref=e352]:
+              - img [ref=e353]
+              - generic [ref=e356]: "Пн-Нд: 10:00-18:00"
+            - listitem [ref=e357]:
+              - img [ref=e358]
+              - link "+380 99 317 33 48" [ref=e361] [cursor=pointer]:
+                - /url: tel:+380993173348
+            - listitem [ref=e362]:
+              - img [ref=e363]
+              - link "digital.pc.dnipro@gmail.com" [ref=e367] [cursor=pointer]:
+                - /url: mailto:digital.pc.dnipro@gmail.com
+      - generic [ref=e368]:
+        - paragraph [ref=e369]: © 2025 Digital PC. Всі права захищені.
+        - generic [ref=e370]:
+          - link "Політика конфіденційності" [ref=e371] [cursor=pointer]:
+            - /url: privacy.html
+          - link "Умови використання" [ref=e372] [cursor=pointer]:
+            - /url: terms.html
+          - link "Гарантія" [ref=e373] [cursor=pointer]:
+            - /url: warranty.html
+  - generic:
+    - iframe [ref=e374]:
+      - button "Виджет чата" [ref=f146e4] [cursor=pointer]:
+        - img "Opens Chat This icon Opens the chat window." [ref=f146e7]
+    - iframe [ref=e375]:
+      - button "Закрыть Уведомление-подсказка чата" [ref=f147e3] [cursor=pointer]:
+        - generic [ref=f147e4]:
+          - button "Закрыть" [ref=f147e5]: 
+          - img "Уведомление-подсказка чата" [ref=f147e6]

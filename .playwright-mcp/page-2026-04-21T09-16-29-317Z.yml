@@ -1,0 +1,202 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "Digital PC Logo DIGITAL PC" [ref=e6] [cursor=pointer]:
+        - /url: index.html
+        - img "Digital PC Logo" [ref=e7]
+        - generic [ref=e8]: DIGITAL PC
+      - generic [ref=e9]:
+        - link "Головна" [ref=e10] [cursor=pointer]:
+          - /url: index.html
+        - link "Комп'ютери" [ref=e11] [cursor=pointer]:
+          - /url: computers.html
+        - link "Периферія" [ref=e12] [cursor=pointer]:
+          - /url: periphery.html
+        - link "Відгуки" [ref=e13] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Про нас" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+        - link "Контакти" [ref=e15] [cursor=pointer]:
+          - /url: contacts.html
+  - generic [ref=e19]:
+    - heading "Периферія" [level=1] [ref=e20]
+    - paragraph [ref=e21]: Клавіатури, миші, навушники та інше ігрове обладнання
+  - generic [ref=e23]:
+    - complementary [ref=e24]:
+      - generic [ref=e25]:
+        - heading "Фільтри" [level=3] [ref=e26]
+        - generic [ref=e27]:
+          - generic [ref=e28]: Тип обладнання
+          - generic [ref=e29]:
+            - generic [ref=e30] [cursor=pointer]:
+              - checkbox "Клавіатури" [ref=e31]
+              - generic [ref=e32]: Клавіатури
+            - generic [ref=e33] [cursor=pointer]:
+              - checkbox "Миші" [ref=e34]
+              - generic [ref=e35]: Миші
+            - generic [ref=e36] [cursor=pointer]:
+              - checkbox "Навушники" [ref=e37]
+              - generic [ref=e38]: Навушники
+            - generic [ref=e39] [cursor=pointer]:
+              - checkbox "Ігрові килимки" [ref=e40]
+              - generic [ref=e41]: Ігрові килимки
+        - button "Скинути фільтри" [ref=e42] [cursor=pointer]
+    - generic [ref=e43]:
+      - generic [ref=e44]:
+        - generic [ref=e45]: "Оберіть сортування:"
+        - combobox [ref=e46]:
+          - option "За замовчуванням" [selected]
+          - 'option "Ціна: від меньшої до більшої"'
+          - 'option "Ціна: від більшої до меньшої"'
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - link "Механічна клавіатура Corsair K70 RGB Pro | Cherry MX Red" [ref=e49] [cursor=pointer]:
+            - /url: periphery.html#product=Digital-PC-Periphery-Keyboard-Pro
+            - img "Механічна клавіатура Corsair K70 RGB Pro | Cherry MX Red" [ref=e50]
+          - generic [ref=e52]:
+            - link "Механічна клавіатура Corsair K70 RGB Pro | Cherry MX Red" [ref=e53] [cursor=pointer]:
+              - /url: periphery.html#product=Digital-PC-Periphery-Keyboard-Pro
+              - heading "Механічна клавіатура Corsair K70 RGB Pro | Cherry MX Red" [level=3] [ref=e54]
+            - generic [ref=e56]: 2 500 ₴
+            - generic [ref=e57]:
+              - button "Замовити" [ref=e58] [cursor=pointer]:
+                - img [ref=e59]
+                - text: Замовити
+              - generic [ref=e61]:
+                - link "Купити на Prom.ua" [ref=e62] [cursor=pointer]:
+                  - /url: https://prom.ua/ua/c3808817-digital.html
+                - link "Купити на OLX" [ref=e63] [cursor=pointer]:
+                  - /url: https://www.olx.ua
+        - generic [ref=e64]:
+          - link "Ігрова миш Corsair Dark Core RGB Pro | 28000 DPI" [ref=e65] [cursor=pointer]:
+            - /url: periphery.html#product=Digital-PC-Periphery-Mouse-Pro
+            - img "Ігрова миш Corsair Dark Core RGB Pro | 28000 DPI" [ref=e66]
+          - generic [ref=e68]:
+            - link "Ігрова миш Corsair Dark Core RGB Pro | 28000 DPI" [ref=e69] [cursor=pointer]:
+              - /url: periphery.html#product=Digital-PC-Periphery-Mouse-Pro
+              - heading "Ігрова миш Corsair Dark Core RGB Pro | 28000 DPI" [level=3] [ref=e70]
+            - generic [ref=e72]: 1 800 ₴
+            - generic [ref=e73]:
+              - button "Замовити" [ref=e74] [cursor=pointer]:
+                - img [ref=e75]
+                - text: Замовити
+              - generic [ref=e77]:
+                - link "Купити на Prom.ua" [ref=e78] [cursor=pointer]:
+                  - /url: https://prom.ua/ua/c3808817-digital.html
+                - link "Купити на OLX" [ref=e79] [cursor=pointer]:
+                  - /url: https://www.olx.ua
+        - generic [ref=e80]:
+          - link "Ігрові навушники SteelSeries Arctis Pro | Hi-Res Audio" [ref=e81] [cursor=pointer]:
+            - /url: periphery.html#product=Digital-PC-Periphery-Headset-Pro
+            - img "Ігрові навушники SteelSeries Arctis Pro | Hi-Res Audio" [ref=e82]
+          - generic [ref=e84]:
+            - link "Ігрові навушники SteelSeries Arctis Pro | Hi-Res Audio" [ref=e85] [cursor=pointer]:
+              - /url: periphery.html#product=Digital-PC-Periphery-Headset-Pro
+              - heading "Ігрові навушники SteelSeries Arctis Pro | Hi-Res Audio" [level=3] [ref=e86]
+            - generic [ref=e88]: 3 200 ₴
+            - generic [ref=e89]:
+              - button "Замовити" [ref=e90] [cursor=pointer]:
+                - img [ref=e91]
+                - text: Замовити
+              - generic [ref=e93]:
+                - link "Купити на Prom.ua" [ref=e94] [cursor=pointer]:
+                  - /url: https://prom.ua/ua/c3808817-digital.html
+                - link "Купити на OLX" [ref=e95] [cursor=pointer]:
+                  - /url: https://www.olx.ua
+        - generic [ref=e96]:
+          - link "Ігровий килимок SteelSeries QcK Heavy XXL | 900×400мм" [ref=e97] [cursor=pointer]:
+            - /url: periphery.html#product=Digital-PC-Periphery-Pad-Pro
+            - img "Ігровий килимок SteelSeries QcK Heavy XXL | 900×400мм" [ref=e98]
+          - generic [ref=e100]:
+            - link "Ігровий килимок SteelSeries QcK Heavy XXL | 900×400мм" [ref=e101] [cursor=pointer]:
+              - /url: periphery.html#product=Digital-PC-Periphery-Pad-Pro
+              - heading "Ігровий килимок SteelSeries QcK Heavy XXL | 900×400мм" [level=3] [ref=e102]
+            - generic [ref=e104]: 1 200 ₴
+            - generic [ref=e105]:
+              - button "Замовити" [ref=e106] [cursor=pointer]:
+                - img [ref=e107]
+                - text: Замовити
+              - generic [ref=e109]:
+                - link "Купити на Prom.ua" [ref=e110] [cursor=pointer]:
+                  - /url: https://prom.ua/ua/c3808817-digital.html
+                - link "Купити на OLX" [ref=e111] [cursor=pointer]:
+                  - /url: https://www.olx.ua
+      - navigation [ref=e112]:
+        - list [ref=e113]:
+          - listitem [ref=e114]:
+            - button "1" [ref=e115] [cursor=pointer]
+  - generic [ref=e117]:
+    - generic [ref=e118]:
+      - heading "Наші платформи" [level=2] [ref=e119]
+      - paragraph [ref=e120]: Слідкуйте за нами, щоб бути в курсі новинок та акцій
+    - generic [ref=e121]:
+      - link "Telegram @Digital_Pc" [ref=e122] [cursor=pointer]:
+        - /url: https://t.me/Digital_Pc
+        - img [ref=e124]
+        - heading "Telegram" [level=3] [ref=e127]
+        - paragraph [ref=e128]: "@Digital_Pc"
+      - link "Instagram @digital_pc_dnipro" [ref=e129] [cursor=pointer]:
+        - /url: https://www.instagram.com/digital_pc_dnipro
+        - img [ref=e131]
+        - heading "Instagram" [level=3] [ref=e134]
+        - paragraph [ref=e135]: "@digital_pc_dnipro"
+      - link "TikTok @digital_pc_dnipro_" [ref=e136] [cursor=pointer]:
+        - /url: https://www.tiktok.com/@digital_pc_dnipro_
+        - img [ref=e138]
+        - heading "TikTok" [level=3] [ref=e140]
+        - paragraph [ref=e141]: "@digital_pc_dnipro_"
+      - link "Prom.ua Магазин на Prom" [ref=e142] [cursor=pointer]:
+        - /url: https://digitalpcdnipro.prom.ua/
+        - img [ref=e144]
+        - heading "Prom.ua" [level=3] [ref=e147]
+        - paragraph [ref=e148]: Магазин на Prom
+      - link "OLX Наші оголошення" [ref=e149] [cursor=pointer]:
+        - /url: https://www.olx.ua/list/user/10oQVa/
+        - img [ref=e151]
+        - heading "OLX" [level=3] [ref=e155]
+        - paragraph [ref=e156]: Наші оголошення
+  - contentinfo [ref=e157]:
+    - generic [ref=e158]:
+      - generic [ref=e159]:
+        - generic [ref=e160]:
+          - heading "DIGITAL PC" [level=3] [ref=e161]
+          - paragraph [ref=e162]: Професійні готові ПК для геймінгу, рендерингу та офісних задач.
+          - generic [ref=e163]:
+            - link [ref=e164] [cursor=pointer]:
+              - /url: https://t.me/Digital_Pc
+              - img [ref=e165]
+            - link [ref=e168] [cursor=pointer]:
+              - /url: https://www.instagram.com/digital_pc_dnipro
+              - img [ref=e169]
+        - generic [ref=e172]:
+          - heading "Навігація" [level=3] [ref=e173]
+          - list [ref=e174]:
+            - listitem [ref=e175]:
+              - link "Головна" [ref=e176] [cursor=pointer]:
+                - /url: index.html
+            - listitem [ref=e177]:
+              - link "Комп'ютери" [ref=e178] [cursor=pointer]:
+                - /url: computers.html
+            - listitem [ref=e179]:
+              - link "Периферія" [ref=e180] [cursor=pointer]:
+                - /url: periphery.html
+            - listitem [ref=e181]:
+              - link "Відгуки" [ref=e182] [cursor=pointer]:
+                - /url: reviews.html
+            - listitem [ref=e183]:
+              - link "Контакти" [ref=e184] [cursor=pointer]:
+                - /url: contacts.html
+        - generic [ref=e185]:
+          - heading "Контактна інформація" [level=3] [ref=e186]
+          - list [ref=e187]:
+            - listitem [ref=e188]:
+              - img [ref=e189]
+              - generic [ref=e192]: Європейська, 5а, м. Дніпро
+            - listitem [ref=e193]:
+              - img [ref=e194]
+              - link "+380 99 317 33 48" [ref=e196] [cursor=pointer]:
+                - /url: tel:+380993173348
+            - listitem [ref=e197]:
+              - img [ref=e198]
+              - generic [ref=e201]: "Пн-Нд: 10:00-18:00"
+      - paragraph [ref=e203]: © 2025 Digital PC. Усі права захищені.

@@ -58,7 +58,7 @@
     <!-- Custom Styles -->
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap&subset=cyrillic');
 
 
 
@@ -80,7 +80,7 @@
 
         body {
 
-            font-family: 'Rajdhani', sans-serif;
+            font-family: 'Exo 2', sans-serif;
 
             background-color: #f8f9fa;
 
@@ -106,6 +106,13 @@
 
             text-shadow: 0 0 10px rgba(0, 168, 255, 0.7);
 
+        }
+
+
+
+        /* Fix for uniform review text weight */
+        .text-gray-700.leading-relaxed {
+            font-weight: 400 !important;
         }
 
 
@@ -257,10 +264,40 @@
             }
 
         }
+    
+        /* Dark-blue gradient header animation */
+        .page-header-animated {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%) !important;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header-animated::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(59,130,246,0.15) 0%, transparent 60%);
+            animation: headerGlow 4s ease-in-out infinite;
+        }
+        .page-header-float {
+            animation: headerFloat 3s ease-in-out infinite;
+            display: inline-block;
+        }
+        @keyframes headerGlow {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            50% { transform: translate(20px, 10px) scale(1.1); opacity: 1; }
+        }
+        @keyframes headerFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
     </style>
 
     <link rel="stylesheet" href="./css/lightbox.css?v=4">
 
+    <link rel="stylesheet" href="./css/site.css">
 </head>
 
 
@@ -298,6 +335,10 @@
                     <a href="computers.html"
                         class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
                         data-i18n="nav_catalog">Комп'ютери</a>
+
+                    <a href="periphery.html"
+                        class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
+                        data-i18n="nav_periphery">Периферія</a>
 
                     <a href="reviews.html"
                         class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
@@ -341,6 +382,9 @@
                     href="computers.html"
                     class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Комп'ютери</a>
 
+                <a href="periphery.html"
+                    class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Периферія</a>
+
                 <a href="reviews.html"
                     class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Відгуки</a>
 
@@ -362,7 +406,7 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-            <h1 class="text-5xl md:text-7xl font-bold title-font text-white glow-text mb-6" data-aos="fade-down">DIGITAL
+            <h1 class="text-5xl md:text-7xl font-bold title-font text-white glow-text mb-6" data-aos="fade-down" page-header-float>DIGITAL
 
                 PC </h1>
 
@@ -509,9 +553,9 @@
 
                             </div>
 
-                            <p class="text-gray-700 leading-relaxed italic">"Обновил свой музей до приемлемых реалий.
-                                Быстро, качественно, индивидуальный подход к клиенту. Я и мой настольный музей, остались
-                                довольны 🤝🤙"</p>
+                            <p class="text-gray-700 leading-relaxed">"Оновив свій музей до прийнятних реалій.
+                                Швидко, якісно, індивідуальний підхід до клієнта. Я і мій настільний музей залишилися
+                                задоволені 🤝🤙"</p>
 
                         </div>
 
@@ -541,7 +585,7 @@
 
                                         <h3 class="font-bold text-gray-900">ani ander</h3>
 
-                                        <p class="text-xs text-gray-500">3 месяца назад</p>
+                                        <p class="text-sm text-gray-500">3 месяца назад</p>
 
                                     </div>
 
@@ -565,9 +609,9 @@
 
                             </div>
 
-                            <p class="text-gray-700 leading-relaxed italic">"Продавец идёт на контакт, на месте решили
-                                вопрос с небольшим апгрейдом ПК. Продавец установил все драйвера и немного погоняли по
-                                тестам. В случае возникновения каких либо проблем, он их устранил. Вобщем рекомендую."
+                            <p class="text-gray-700 leading-relaxed">"Продавець йде на контакт, на місці вирішили
+                                питання з невеликим апгрейдом ПК. Продавець встановив усі драйвери і трохи поганяли по
+                                тестах. У разі виникнення будь-яких проблем, він їх усунув. Загалом рекомендую."
                             </p>
 
                         </div>
@@ -598,7 +642,7 @@
 
                                         <h3 class="font-bold text-gray-900">Rostislav Rytikovich</h3>
 
-                                        <p class="text-xs text-gray-500">2 месяца назад</p>
+                                        <p class="text-sm text-gray-500">2 месяца назад</p>
 
                                     </div>
 
@@ -622,10 +666,10 @@
 
                             </div>
 
-                            <p class="text-gray-700 leading-relaxed italic">"СУПЕР - ПУПЕР !!! ПЛЮСЫ: ЦЕНА-
-                                КАЧЕСТВО-ОБСЛУЖИВАНИЕ. Одни плюсы +++ Если вы искали и таки наткнулись сюда - это то что
-                                вам надо! Дальше можете не искать. Пишите им в телегу и они считывают ваши мысли и
-                                реализовывают их лучше чем вы себе видете."</p>
+                            <p class="text-gray-700 leading-relaxed">"СУПЕР - ПУПЕР !!! ПЛЮСИ: ЦІНА-
+                                ЯКІСТЬ-ОБСЛУГОВУВАННЯ. Одні плюси +++ Якщо ви шукали і таки натрапили сюди - це те, що
+                                вам треба! Далі можете не шукати. Пишіть їм у телеграм і вони зчитують ваші думки та
+                                реалізовують їх краще, ніж ви собі бачите."</p>
 
                         </div>
 
@@ -655,7 +699,7 @@
 
                                         <h3 class="font-bold text-gray-900">Artur Turovets</h3>
 
-                                        <p class="text-xs text-gray-500">3 месяца назад</p>
+                                        <p class="text-sm text-gray-500">3 месяца назад</p>
 
                                     </div>
 
@@ -679,8 +723,9 @@
 
                             </div>
 
-                            <p class="text-gray-700 leading-relaxed italic">"Отличный сервис, отвечают быстро, работают
-                                быстро. При мне показали стрес тесты, настроили, показали, рассказали. В общем
+                            <p class="text-gray-700 leading-relaxed">"Відмінний сервіс, відповідають швидко,
+                                працюють
+                                швидко. При мені показали стрес-тести, налаштували, показали, розповіли. Загалом
                                 рекомендую."</p>
 
                         </div>
@@ -711,7 +756,7 @@
 
                                         <h3 class="font-bold text-gray-900">Маргарита Калашник</h3>
 
-                                        <p class="text-xs text-gray-500">3 месяца назад</p>
+                                        <p class="text-sm text-gray-500">3 месяца назад</p>
 
                                     </div>
 
@@ -735,10 +780,11 @@
 
                             </div>
 
-                            <p class="text-gray-700 leading-relaxed italic">"Покупала мать, проц, кулер. Термопасту в
-                                подарок положили) На все ушло сутки!! Написала, посоветовали, оплатила, прислали,
-                                подключила! С Днепра в Киев! Это фантастика. Все новое, на пломбах, упаковано как
-                                Фаберже! Ребятам огромное спасибо. ❤️❤️❤️"</p>
+                            <p class="text-gray-700 leading-relaxed">"Купувала материнську плату, процесор,
+                                кулер. Термопасту в
+                                подарунок поклали) На все пішла доба!! Написала, порадили, оплатила, надіслали,
+                                підключила! З Дніпра до Києва! Це фантастика. Все нове, на пломбах, упаковано як
+                                Фаберже! Хлопцям величезна подяка. ❤️❤️❤️"</p>
 
                         </div>
 
@@ -768,7 +814,7 @@
 
                                         <h3 class="font-bold text-gray-900">Roman Myroshnychenko</h3>
 
-                                        <p class="text-xs text-gray-500">месяц назад</p>
+                                        <p class="text-sm text-gray-500">месяц назад</p>
 
                                     </div>
 
@@ -792,8 +838,8 @@
 
                             </div>
 
-                            <p class="text-gray-700 leading-relaxed italic">"Сделали все быстро, четко за запросом и за
-                                адекватную сумму, хорошие мастера, помогут собрать сборку либо же обновить ПК."</p>
+                            <p class="text-gray-700 leading-relaxed">"Зробили все швидко, чітко за запитом і за
+                                адекватну суму, хороші майстри, допоможуть зібрати збірку або ж оновити ПК."</p>
 
                         </div>
 
@@ -823,7 +869,7 @@
 
                                         <h3 class="font-bold text-gray-900">Марк Ермалаев</h3>
 
-                                        <p class="text-xs text-gray-500">5 месяцев назад</p>
+                                        <p class="text-sm text-gray-500">5 месяцев назад</p>
 
                                     </div>
 
@@ -847,11 +893,14 @@
 
                             </div>
 
-                            <p class="text-gray-700 leading-relaxed italic">"Всю жизнь юзал ноуты, вот решил сам собрать
-                                комп, хожу в этот магазин уточняю всю информацию которую мне надо для сборки, всегда
-                                отвечают, дают рекомендации, полезные советы по сборке, нравится то что работникам это
-                                дело заходит и когда просишь совета отвечают с заинтересованностью и вежливостью, более
-                                чем уверен в их компетентности."</p>
+                            <p class="text-gray-700 leading-relaxed">"Все життя користувався ноутами, ось вирішив
+                                сам зібрати
+                                комп, ходжу в цей магазин уточнюю всю інформацію, яка мені потрібна для збірки, завжди
+                                відповідають, дають рекомендації, корисні поради щодо збірки, подобається те, що
+                                працівникам ця
+                                справа подобається і коли просиш поради відповідають із зацікавленістю та ввічливістю,
+                                більш
+                                ніж впевнений у їхній компетентності."</p>
 
                         </div>
 
@@ -881,7 +930,7 @@
 
                                         <h3 class="font-bold text-gray-900">Neunter Oberherr (NOV)</h3>
 
-                                        <p class="text-xs text-gray-500">3 месяца назад</p>
+                                        <p class="text-sm text-gray-500">3 месяца назад</p>
 
                                     </div>
 
@@ -905,8 +954,8 @@
 
                             </div>
 
-                            <p class="text-gray-700 leading-relaxed italic">"Купил видеокарту Asus Radeon RX 9070 XT
-                                Prime OC 16GB сервис на высшем уровне с доставкой на дом. Рекомендую."</p>
+                            <p class="text-gray-700 leading-relaxed">"Купив відеокарту Asus Radeon RX 9070 XT
+                                Prime OC 16GB, сервіс на вищому рівні з доставкою додому. Рекомендую."</p>
 
                         </div>
 
@@ -936,7 +985,7 @@
 
                                         <h3 class="font-bold text-gray-900">Евгений Николенко</h3>
 
-                                        <p class="text-xs text-gray-500">месяц назад</p>
+                                        <p class="text-sm text-gray-500">месяц назад</p>
 
                                     </div>
 
@@ -960,8 +1009,8 @@
 
                             </div>
 
-                            <p class="text-gray-700 leading-relaxed italic">"Все супер, собрали отличный комп за 3к$
-                                Всем доволен 🤝"</p>
+                            <p class="text-gray-700 leading-relaxed">"Все супер, зібрали чудовий комп за 3к$
+                                Всім задоволений 🤝"</p>
 
                         </div>
 
@@ -991,7 +1040,7 @@
 
                                         <h3 class="font-bold text-gray-900">Денис Дейнека</h3>
 
-                                        <p class="text-xs text-gray-500">3 месяца назад</p>
+                                        <p class="text-sm text-gray-500">3 месяца назад</p>
 
                                     </div>
 
@@ -1015,8 +1064,8 @@
 
                             </div>
 
-                            <p class="text-gray-700 leading-relaxed italic">"Заказал сборку пк всё сделали быстро
-                                красиво аккуратно, советую."</p>
+                            <p class="text-gray-700 leading-relaxed">"замовив збірку ПК, все зробили швидко,
+                                красиво, акуратно, раджу"</p>
 
                         </div>
 
@@ -1404,6 +1453,80 @@
 
 
 
+    <!-- Contact Information Section -->
+
+    <section class="py-16 bg-gradient-to-r from-blue-50 to-cyan-50 border-t-2 border-blue-200">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <h2 class="text-4xl font-bold title-font text-center mb-12 text-gray-900">Зв'яжіться з нами</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+
+                <!-- Address -->
+
+                <div class="flex flex-col items-center justify-center p-6 bg-white rounded-2xl shadow-md border border-blue-200 hover:shadow-lg transition-shadow">
+
+                    <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mb-4 shadow-lg">
+
+                        <i data-feather="map-pin" class="w-8 h-8"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Наше розташування</h3>
+
+                    <p class="text-gray-700 text-lg font-semibold">Європейська, 5а</p>
+
+                    <p class="text-gray-600">вул. Європейська 5а, Дніпро</p>
+
+                </div>
+
+                
+
+                <!-- Phone -->
+
+                <div class="flex flex-col items-center justify-center p-6 bg-white rounded-2xl shadow-md border border-blue-200 hover:shadow-lg transition-shadow">
+
+                    <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mb-4 shadow-lg">
+
+                        <i data-feather="phone" class="w-8 h-8"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Телефон</h3>
+
+                    <a href="tel:+380993173348" class="text-blue-600 hover:text-blue-800 font-semibold text-lg transition-colors">+380 99 317 33 48</a>
+
+                </div>
+
+                
+
+                <!-- Hours -->
+
+                <div class="flex flex-col items-center justify-center p-6 bg-white rounded-2xl shadow-md border border-blue-200 hover:shadow-lg transition-shadow">
+
+                    <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mb-4 shadow-lg">
+
+                        <i data-feather="clock" class="w-8 h-8"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Режим роботи</h3>
+
+                    <p class="text-gray-700">Пн-Нд: 10:00-18:00</p>
+
+                    <p class="text-gray-600">Сб-Нд: За домовленістю</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
     <!-- Footer -->
 
     <footer class="bg-gray-900 text-white pt-16 pb-8">
@@ -1487,10 +1610,10 @@
                     <ul class="space-y-2">
                         <li class="flex items-start"><i data-feather="map-pin"
                                 class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0"></i><span class="text-gray-400"
-                                data-i18n="contact_addr">м. Дніпро, Україна</span></li>
+                                data-i18n="contact_addr">вул. Європейська 5а, Дніпро</span></li>
                         <li class="flex items-start"><i data-feather="clock"
                                 class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0"></i><span class="text-gray-400"
-                                data-i18n="contact_hours">Пн-Нд: 9:00 - 20:00</span></li>
+                                data-i18n="contact_hours">Пн-Нд: 10:00-18:00</span></li>
                         <li class="flex items-start"><i data-feather="phone"
                                 class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0"></i><span class="text-gray-400"><a
                                     href="tel:+380993173348" class="hover:text-blue-600">+380 99 317 33 48</a></span>
@@ -1638,6 +1761,37 @@
 
     <script src="./app.js?v=8"></script>
 
+
+    <!-- Telegram Visitor Analytics -->
+    <script>
+    (function() {
+        // TODO: Replace with real values before deploying
+        var BOT_TOKEN = 'TELEGRAM_BOT_TOKEN'; // placeholder
+        var CHAT_ID = 'TELEGRAM_CHAT_ID'; // placeholder
+        try {
+            var page = window.location.pathname.split('/').pop() || 'index.html';
+            var ref = document.referrer ? ' | ref: ' + document.referrer.substring(0, 50) : '';
+            var msg = encodeURIComponent('\ud83d\udcca \u0412\u0456\u0434\u0432\u0456\u0434\u0443\u0432\u0430\u0447: ' + page + ref + ' | ' + new Date().toLocaleString('uk-UA'));
+            if (BOT_TOKEN !== 'TELEGRAM_BOT_TOKEN') {
+                fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage?chat_id=' + CHAT_ID + '&text=' + msg)
+                    .catch(function(){});
+            }
+        } catch(e) {}
+    })();
+    </script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/69e629214f2fb71c34a5a45b/1jmlh1amv';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 
 

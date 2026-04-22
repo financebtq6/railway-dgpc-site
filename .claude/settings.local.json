@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); comps=[p for p in d if p.get\\('type'\\)=='computers']; peris=[p for p in d if p.get\\('type'\\)=='periphery']; print\\(f'Total: {len\\(d\\)}, Computers: {len\\(comps\\)}, Periphery: {len\\(peris\\)}'\\)\")",
+      "Bash(python3 /c/Users/user/Desktop/1digital_pc_site_BACKUP_CRITICAL/backup_Final_Periphery_20260413_1529/temp_products.json)",
+      "Bash(python3 *)",
+      "Bash(node *)",
+      "Bash(mkdir -p \"/c/Users/user/Desktop/1digital_pc_site_BACKUP_CRITICAL/backup_Final_Periphery_20260413_1529/backup_CloudCode_Final_20260420_1200\")",
+      "Bash(cp -r '/c/Users/user/Desktop/1digital_pc_site_BACKUP_CRITICAL/backup_Final_Periphery_20260413_1529/*.html' /c/Users/user/Desktop/1digital_pc_site_BACKUP_CRITICAL/backup_Final_Periphery_20260413_1529/app.js /c/Users/user/Desktop/1digital_pc_site_BACKUP_CRITICAL/backup_Final_Periphery_20260413_1529/backup_CloudCode_Final_20260420_1200/)",
+      "Bash(mkdir -p \"/c/Users/user/Desktop/1digital_pc_site_BACKUP_CRITICAL/backup_Final_Periphery_20260413_1529/data\")",
+      "Bash(cp /c/Users/user/Desktop/1digital_pc_site_BACKUP_CRITICAL/railway-dgpc-site-main/data/products.json /c/Users/user/Desktop/1digital_pc_site_BACKUP_CRITICAL/backup_Final_Periphery_20260413_1529/data/products.json)",
+      "Bash(npm install *)",
+      "Bash(curl -s http://localhost:3000/)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "Bash(curl -s http://localhost:3000/data/products.json)",
+      "Bash(curl -s -I http://localhost:3000/css/lightbox.css)",
+      "Bash(grep -E \"^images$|^js$|^assets$\")",
+      "mcp__playwright__browser_evaluate",
+      "Bash(code --install-extension esbenp.prettier-vscode)",
+      "Bash(code --install-extension dbaeumer.vscode-eslint)",
+      "Bash(code --install-extension ritwickdey.LiveServer)",
+      "mcp__playwright__browser_resize",
+      "Bash(cp *)",
+      "Bash(grep -E \"\\\\.\\(html|md|css|js\\)$\")",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_click",
+      "Bash(dir C:\\\\Users\\\\user\\\\Desktop\\\\1digital_pc_site_BACKUP_CRITICAL\\\\backup_Final_Periphery_20260413_1529 *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\user\\\\Desktop\\\\1digital_pc_site_BACKUP_CRITICAL\\\\backup_Final_Periphery_20260413_1529\" | Where-Object { $_.Name -ne 'node_modules' } | Select-Object Name | Sort-Object Name | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\user\\\\Desktop\\\\1digital_pc_site_BACKUP_CRITICAL\\\\backup_Final_Periphery_20260413_1529\" | Where-Object { $_.Name -notin @\\('node_modules','.claude'\\) } | Select-Object Name | Sort-Object Name | Format-Table -AutoSize)"
+    ]
+  }
+}

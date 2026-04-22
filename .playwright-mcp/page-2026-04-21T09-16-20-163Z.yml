@@ -1,0 +1,98 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "Digital PC Logo DIGITAL PC" [ref=e6] [cursor=pointer]:
+        - /url: index.html
+        - img "Digital PC Logo" [ref=e7]
+        - generic [ref=e8]: DIGITAL PC
+      - generic [ref=e9]:
+        - link "Головна" [ref=e10] [cursor=pointer]:
+          - /url: index.html
+        - link "Комп'ютери" [ref=e11] [cursor=pointer]:
+          - /url: computers.html
+        - link "Периферія" [ref=e12] [cursor=pointer]:
+          - /url: periphery.html
+        - link "Відгуки" [ref=e13] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Про нас" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+        - link "Контакти" [ref=e15] [cursor=pointer]:
+          - /url: contacts.html
+  - generic [ref=e16]:
+    - generic [ref=e19]:
+      - generic [ref=e20]: "Оберіть сортування:"
+      - combobox [ref=e21]:
+        - option "За замовчуванням" [selected]
+        - 'option "Ціна: від меньшої до більшої"'
+        - 'option "Ціна: від більшої до меньшої"'
+    - generic [ref=e23]:
+      - text: Product not found.
+      - link "Back to catalog" [ref=e24] [cursor=pointer]:
+        - /url: "#"
+  - generic [ref=e26]:
+    - generic [ref=e27]:
+      - heading "Наші платформи" [level=2] [ref=e28]
+      - paragraph [ref=e29]: Слідкуйте за нами, щоб бути в курсі новинок та акцій
+    - generic [ref=e30]:
+      - link "Telegram @Digital_Pc" [ref=e31] [cursor=pointer]:
+        - /url: https://t.me/Digital_Pc
+        - heading "Telegram" [level=3] [ref=e34]
+        - paragraph [ref=e35]: "@Digital_Pc"
+      - link "Instagram @digital_pc_dnipro" [ref=e36] [cursor=pointer]:
+        - /url: https://www.instagram.com/digital_pc_dnipro
+        - heading "Instagram" [level=3] [ref=e39]
+        - paragraph [ref=e40]: "@digital_pc_dnipro"
+      - link "TikTok @digital_pc_dnipro_" [ref=e41] [cursor=pointer]:
+        - /url: https://www.tiktok.com/@digital_pc_dnipro_
+        - img [ref=e43]
+        - heading "TikTok" [level=3] [ref=e45]
+        - paragraph [ref=e46]: "@digital_pc_dnipro_"
+      - link "Prom.ua Магазин на Prom" [ref=e47] [cursor=pointer]:
+        - /url: https://digitalpcdnipro.prom.ua/
+        - heading "Prom.ua" [level=3] [ref=e50]
+        - paragraph [ref=e51]: Магазин на Prom
+      - link "OLX Наші оголошення" [ref=e52] [cursor=pointer]:
+        - /url: https://www.olx.ua/list/user/10oQVa/
+        - img [ref=e54]
+        - heading "OLX" [level=3] [ref=e58]
+        - paragraph [ref=e59]: Наші оголошення
+  - contentinfo [ref=e60]:
+    - generic [ref=e61]:
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - heading "DIGITAL PC" [level=3] [ref=e64]
+          - paragraph [ref=e65]: Професійні готові ПК для геймінгу, рендерингу та офісних задач.
+          - generic:
+            - link:
+              - /url: https://t.me/Digital_Pc
+            - link:
+              - /url: https://www.instagram.com/digital_pc_dnipro
+        - generic [ref=e66]:
+          - heading "Навігація" [level=3] [ref=e67]
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "Головна" [ref=e70] [cursor=pointer]:
+                - /url: index.html
+            - listitem [ref=e71]:
+              - link "Комп'ютери" [ref=e72] [cursor=pointer]:
+                - /url: computers.html
+            - listitem [ref=e73]:
+              - link "Периферія" [ref=e74] [cursor=pointer]:
+                - /url: periphery.html
+            - listitem [ref=e75]:
+              - link "Відгуки" [ref=e76] [cursor=pointer]:
+                - /url: reviews.html
+            - listitem [ref=e77]:
+              - link "Контакти" [ref=e78] [cursor=pointer]:
+                - /url: contacts.html
+        - generic [ref=e79]:
+          - heading "Контактна інформація" [level=3] [ref=e80]
+          - list [ref=e81]:
+            - listitem [ref=e82]:
+              - generic [ref=e84]: Європейська, 5а, м. Дніпро
+            - listitem [ref=e85]:
+              - link "+380 99 317 33 48" [ref=e87] [cursor=pointer]:
+                - /url: tel:+380993173348
+            - listitem [ref=e88]:
+              - generic [ref=e90]: "Пн-Нд: 10:00-18:00"
+      - paragraph [ref=e92]: © 2025 Digital PC. Усі права захищені.

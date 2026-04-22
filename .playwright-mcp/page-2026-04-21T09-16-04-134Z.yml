@@ -1,0 +1,381 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "Digital PC Logo DIGITAL PC" [ref=e6] [cursor=pointer]:
+        - /url: index.html
+        - img "Digital PC Logo" [ref=e7]
+        - generic [ref=e8]: DIGITAL PC
+      - generic [ref=e9]:
+        - link "Головна" [ref=e10] [cursor=pointer]:
+          - /url: index.html
+        - link "Комп'ютери" [ref=e11] [cursor=pointer]:
+          - /url: computers.html
+        - link "Периферія" [ref=e12] [cursor=pointer]:
+          - /url: periphery.html
+        - link "Відгуки" [ref=e13] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Про нас" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+        - link "Контакти" [ref=e15] [cursor=pointer]:
+          - /url: contacts.html
+  - generic [ref=e19]:
+    - heading "Ігрові та робочі комп'ютери" [level=1] [ref=e20]
+    - paragraph [ref=e21]: Готові збірки для будь-яких завдань
+  - generic [ref=e22]:
+    - generic [ref=e24]:
+      - generic [ref=e25]: "Сортувати:"
+      - combobox "Сортувати:" [ref=e26]:
+        - option "За замовчуванням" [selected]
+        - option "Спочатку дешевші"
+        - option "Спочатку дорожчі"
+    - generic [ref=e27]:
+      - complementary [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - heading "Процесор" [level=3] [ref=e31]
+            - generic [ref=e32]:
+              - generic [ref=e33] [cursor=pointer]:
+                - checkbox "Intel core i5" [ref=e34]
+                - generic [ref=e35]: Intel core i5
+              - generic [ref=e36] [cursor=pointer]:
+                - checkbox "Intel core i7" [ref=e37]
+                - generic [ref=e38]: Intel core i7
+              - generic [ref=e39] [cursor=pointer]:
+                - checkbox "Amd ryzen 5" [ref=e40]
+                - generic [ref=e41]: Amd ryzen 5
+              - generic [ref=e42] [cursor=pointer]:
+                - checkbox "Amd ryzen 7" [ref=e43]
+                - generic [ref=e44]: Amd ryzen 7
+              - generic [ref=e45] [cursor=pointer]:
+                - checkbox "Amd ryzen X3D" [ref=e46]
+                - generic [ref=e47]: Amd ryzen X3D
+          - generic [ref=e48]:
+            - heading "Тип ОЗУ" [level=3] [ref=e49]
+            - generic [ref=e50]:
+              - generic [ref=e51] [cursor=pointer]:
+                - checkbox "DDR4" [ref=e52]
+                - generic [ref=e53]: DDR4
+              - generic [ref=e54] [cursor=pointer]:
+                - checkbox "DDR5" [ref=e55]
+                - generic [ref=e56]: DDR5
+          - generic [ref=e57]:
+            - heading "Об'єм ОЗУ" [level=3] [ref=e58]
+            - generic [ref=e59]:
+              - generic [ref=e60] [cursor=pointer]:
+                - checkbox "16 GB" [ref=e61]
+                - generic [ref=e62]: 16 GB
+              - generic [ref=e63] [cursor=pointer]:
+                - checkbox "32 GB" [ref=e64]
+                - generic [ref=e65]: 32 GB
+              - generic [ref=e66] [cursor=pointer]:
+                - checkbox "64 GB" [ref=e67]
+                - generic [ref=e68]: 64 GB
+          - generic [ref=e69]:
+            - heading "Накопичувач" [level=3] [ref=e70]
+            - generic [ref=e71]:
+              - generic [ref=e72] [cursor=pointer]:
+                - checkbox "SSD M.2" [ref=e73]
+                - generic [ref=e74]: SSD M.2
+              - generic [ref=e75] [cursor=pointer]:
+                - checkbox "SSD SATA" [ref=e76]
+                - generic [ref=e77]: SSD SATA
+              - generic [ref=e78] [cursor=pointer]:
+                - checkbox "HDD" [ref=e79]
+                - generic [ref=e80]: HDD
+          - generic [ref=e81]:
+            - heading "Відеокарта" [level=3] [ref=e82]
+            - generic [ref=e83]:
+              - generic [ref=e84] [cursor=pointer]:
+                - checkbox "10 Серія (10xx)" [ref=e85]
+                - generic [ref=e86]: 10 Серія (10xx)
+              - generic [ref=e87] [cursor=pointer]:
+                - checkbox "20 Серія (20xx)" [ref=e88]
+                - generic [ref=e89]: 20 Серія (20xx)
+              - generic [ref=e90] [cursor=pointer]:
+                - checkbox "30 Серія (30xx)" [ref=e91]
+                - generic [ref=e92]: 30 Серія (30xx)
+              - generic [ref=e93] [cursor=pointer]:
+                - checkbox "40 Серія (40xx)" [ref=e94]
+                - generic [ref=e95]: 40 Серія (40xx)
+              - generic [ref=e96] [cursor=pointer]:
+                - checkbox "50 Серія (50xx)" [ref=e97]
+                - generic [ref=e98]: 50 Серія (50xx)
+              - generic [ref=e99] [cursor=pointer]:
+                - checkbox "AMD Radeon" [ref=e100]
+                - generic [ref=e101]: AMD Radeon
+          - button "Скинути фільтри" [ref=e102] [cursor=pointer]
+      - generic [ref=e103]:
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - link "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [ref=e106] [cursor=pointer]:
+              - /url: computers.html#product=Digital-PC-Apex-Monarch
+              - img "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [ref=e107]
+            - generic [ref=e109]:
+              - link "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [ref=e110] [cursor=pointer]:
+                - /url: computers.html#product=Digital-PC-Apex-Monarch
+                - heading "Digital PC Apex Monarch | Ryzen 7 9800X3D + RTX5080" [level=3] [ref=e111]
+              - generic [ref=e113]: 145 500 ₴
+              - generic [ref=e114]:
+                - button "Замовити" [ref=e115] [cursor=pointer]:
+                  - img [ref=e116]
+                  - text: Замовити
+                - generic [ref=e118]:
+                  - link "Купити на Prom.ua" [ref=e119] [cursor=pointer]:
+                    - /url: https://prom.ua/ua/c3808817-digital.html
+                  - link "Купити на OLX" [ref=e120] [cursor=pointer]:
+                    - /url: https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-monarch-ryzen-7-9800x3d-rtx5080-IDZG423.html?bs=olx_pro_listing
+          - generic [ref=e121]:
+            - link "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [ref=e122] [cursor=pointer]:
+              - /url: computers.html#product=Digital-PC-Esport-Zeus
+              - img "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [ref=e123]
+            - generic [ref=e125]:
+              - link "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [ref=e126] [cursor=pointer]:
+                - /url: computers.html#product=Digital-PC-Esport-Zeus
+                - heading "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [level=3] [ref=e127]
+              - generic [ref=e129]: 76 500 ₴
+              - generic [ref=e130]:
+                - button "Замовити" [ref=e131] [cursor=pointer]:
+                  - img [ref=e132]
+                  - text: Замовити
+                - generic [ref=e134]:
+                  - link "Купити на Prom.ua" [ref=e135] [cursor=pointer]:
+                    - /url: https://prom.ua/ua/c3808817-digital.html
+                  - link "Купити на OLX" [ref=e136] [cursor=pointer]:
+                    - /url: https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-zeus-ryzen-7-7700-rtx5070-IDWHI1o.html?bs=olx_pro_listing&isPreviewActive=0&sliderIndex=0
+          - generic [ref=e137]:
+            - link "Digital PC Apex Nano | Ryzen 7 7800X3D + RTX5070" [ref=e138] [cursor=pointer]:
+              - /url: computers.html#product=Digital-PC-Apex-Nano
+              - img "Digital PC Apex Nano | Ryzen 7 7800X3D + RTX5070" [ref=e139]
+            - generic [ref=e141]:
+              - link "Digital PC Apex Nano | Ryzen 7 7800X3D + RTX5070" [ref=e142] [cursor=pointer]:
+                - /url: computers.html#product=Digital-PC-Apex-Nano
+                - heading "Digital PC Apex Nano | Ryzen 7 7800X3D + RTX5070" [level=3] [ref=e143]
+              - generic [ref=e145]: 89 900 ₴
+              - generic [ref=e146]:
+                - button "Замовити" [ref=e147] [cursor=pointer]:
+                  - img [ref=e148]
+                  - text: Замовити
+                - generic [ref=e150]:
+                  - link "Купити на Prom.ua" [ref=e151] [cursor=pointer]:
+                    - /url: https://prom.ua/ua/c3808817-digital.html
+                  - link "Купити на OLX" [ref=e152] [cursor=pointer]:
+                    - /url: https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-nano-ryzen-7-7800x3d-rtx5070-IDYPEUj.html?bs=olx_pro_listing
+          - generic [ref=e153]:
+            - link "Digital PC Base Atom | Ryzen 5 5500 + RTX3070TI" [ref=e154] [cursor=pointer]:
+              - /url: computers.html#product=Digital-PC-Base-Atom
+              - img "Digital PC Base Atom | Ryzen 5 5500 + RTX3070TI" [ref=e155]
+            - generic [ref=e157]:
+              - link "Digital PC Base Atom | Ryzen 5 5500 + RTX3070TI" [ref=e158] [cursor=pointer]:
+                - /url: computers.html#product=Digital-PC-Base-Atom
+                - heading "Digital PC Base Atom | Ryzen 5 5500 + RTX3070TI" [level=3] [ref=e159]
+              - generic [ref=e161]: 36 500 ₴
+              - generic [ref=e162]:
+                - button "Замовити" [ref=e163] [cursor=pointer]:
+                  - img [ref=e164]
+                  - text: Замовити
+                - generic [ref=e166]:
+                  - link "Купити на Prom.ua" [ref=e167] [cursor=pointer]:
+                    - /url: https://prom.ua/ua/c3808817-digital.html
+                  - link "Купити на OLX" [ref=e168] [cursor=pointer]:
+                    - /url: https://www.olx.ua/d/uk/obyavlenie/digital-pc-base-atom-ryzen-5-5500-rtx3070ti-IDZDEhB.html
+          - generic [ref=e169]:
+            - link "Digital PC Apex Aurora | Ryzen 7 7800X3D + RTX5070" [ref=e170] [cursor=pointer]:
+              - /url: computers.html#product=Digital-PC-Apex-Aurora
+              - img "Digital PC Apex Aurora | Ryzen 7 7800X3D + RTX5070" [ref=e171]
+            - generic [ref=e173]:
+              - link "Digital PC Apex Aurora | Ryzen 7 7800X3D + RTX5070" [ref=e174] [cursor=pointer]:
+                - /url: computers.html#product=Digital-PC-Apex-Aurora
+                - heading "Digital PC Apex Aurora | Ryzen 7 7800X3D + RTX5070" [level=3] [ref=e175]
+              - generic [ref=e177]: 92 500 ₴
+              - generic [ref=e178]:
+                - button "Замовити" [ref=e179] [cursor=pointer]:
+                  - img [ref=e180]
+                  - text: Замовити
+                - generic [ref=e182]:
+                  - link "Купити на Prom.ua" [ref=e183] [cursor=pointer]:
+                    - /url: https://prom.ua/ua/c3808817-digital.html
+                  - link "Купити на OLX" [ref=e184] [cursor=pointer]:
+                    - /url: https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-aurora-ryzen-7-7800x3d-rtx5070-IDTUZ1x.html?bs=olx_pro_listing
+          - generic [ref=e185]:
+            - link "Digital PC Apex Ascend | Ryzen 7 7800X3D + RTX5070TI" [ref=e186] [cursor=pointer]:
+              - /url: computers.html#product=Digital-PC-Apex-Ascend
+              - img "Digital PC Apex Ascend | Ryzen 7 7800X3D + RTX5070TI" [ref=e187]
+            - generic [ref=e189]:
+              - link "Digital PC Apex Ascend | Ryzen 7 7800X3D + RTX5070TI" [ref=e190] [cursor=pointer]:
+                - /url: computers.html#product=Digital-PC-Apex-Ascend
+                - heading "Digital PC Apex Ascend | Ryzen 7 7800X3D + RTX5070TI" [level=3] [ref=e191]
+              - generic [ref=e193]: 99 900 ₴
+              - generic [ref=e194]:
+                - button "Замовити" [ref=e195] [cursor=pointer]:
+                  - img [ref=e196]
+                  - text: Замовити
+                - generic [ref=e198]:
+                  - link "Купити на Prom.ua" [ref=e199] [cursor=pointer]:
+                    - /url: https://prom.ua/ua/c3808817-digital.html
+                  - link "Купити на OLX" [ref=e200] [cursor=pointer]:
+                    - /url: https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-ascend-ryzen-7-7800x3d-rtx5070ti-IDWCYxu.html?bs=olx_pro_listing
+          - generic [ref=e201]:
+            - link "Digital PC Solid Atlas | Ryzen 5 5600 + RTX5060" [ref=e202] [cursor=pointer]:
+              - /url: computers.html#product=Digital-PC-Solid-Atlas
+              - img "Digital PC Solid Atlas | Ryzen 5 5600 + RTX5060" [ref=e203]
+            - generic [ref=e205]:
+              - link "Digital PC Solid Atlas | Ryzen 5 5600 + RTX5060" [ref=e206] [cursor=pointer]:
+                - /url: computers.html#product=Digital-PC-Solid-Atlas
+                - heading "Digital PC Solid Atlas | Ryzen 5 5600 + RTX5060" [level=3] [ref=e207]
+              - generic [ref=e209]: 42 900 ₴
+              - generic [ref=e210]:
+                - button "Замовити" [ref=e211] [cursor=pointer]:
+                  - img [ref=e212]
+                  - text: Замовити
+                - generic [ref=e214]:
+                  - link "Купити на Prom.ua" [ref=e215] [cursor=pointer]:
+                    - /url: https://prom.ua/ua/c3808817-digital.html
+                  - link "Купити на OLX" [ref=e216] [cursor=pointer]:
+                    - /url: https://www.olx.ua/d/uk/obyavlenie/digital-pc-solid-atlas-ryzen-5-5600-rtx5060-IDYX0n7.html?bs=olx_pro_listing
+          - generic [ref=e217]:
+            - link "Digital PC Esport Odin | Ryzen 5 7500F + RTX5070" [ref=e218] [cursor=pointer]:
+              - /url: computers.html#product=Digital-PC-Esport-Odin
+              - img "Digital PC Esport Odin | Ryzen 5 7500F + RTX5070" [ref=e219]
+            - generic [ref=e221]:
+              - link "Digital PC Esport Odin | Ryzen 5 7500F + RTX5070" [ref=e222] [cursor=pointer]:
+                - /url: computers.html#product=Digital-PC-Esport-Odin
+                - heading "Digital PC Esport Odin | Ryzen 5 7500F + RTX5070" [level=3] [ref=e223]
+              - generic [ref=e225]: 71 500 ₴
+              - generic [ref=e226]:
+                - button "Замовити" [ref=e227] [cursor=pointer]:
+                  - img [ref=e228]
+                  - text: Замовити
+                - generic [ref=e230]:
+                  - link "Купити на Prom.ua" [ref=e231] [cursor=pointer]:
+                    - /url: https://prom.ua/ua/c3808817-digital.html
+                  - link "Купити на OLX" [ref=e232] [cursor=pointer]:
+                    - /url: https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-odin-ryzen-5-7500f-rtx5070-IDWZqWc.html
+          - generic [ref=e233]:
+            - link "Digital PC Esport Loki | Core I5-14600KF + RTX5070" [ref=e234] [cursor=pointer]:
+              - /url: computers.html#product=Digital-PC-Esport-Loki
+              - img "Digital PC Esport Loki | Core I5-14600KF + RTX5070" [ref=e235]
+            - generic [ref=e237]:
+              - link "Digital PC Esport Loki | Core I5-14600KF + RTX5070" [ref=e238] [cursor=pointer]:
+                - /url: computers.html#product=Digital-PC-Esport-Loki
+                - heading "Digital PC Esport Loki | Core I5-14600KF + RTX5070" [level=3] [ref=e239]
+              - generic [ref=e241]: 83 500 ₴
+              - generic [ref=e242]:
+                - button "Замовити" [ref=e243] [cursor=pointer]:
+                  - img [ref=e244]
+                  - text: Замовити
+                - generic [ref=e246]:
+                  - link "Купити на Prom.ua" [ref=e247] [cursor=pointer]:
+                    - /url: https://prom.ua/ua/c3808817-digital.html
+                  - link "Купити на OLX" [ref=e248] [cursor=pointer]:
+                    - /url: https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-loki-core-i5-14600kf-rtx5070-IDUxTaU.html?bs=olx_pro_listing
+        - navigation [ref=e249]:
+          - list [ref=e250]:
+            - listitem [ref=e251]:
+              - button "1" [ref=e252] [cursor=pointer]
+            - listitem [ref=e253]:
+              - button "2" [ref=e254] [cursor=pointer]
+            - listitem [ref=e255]:
+              - button "3" [ref=e256] [cursor=pointer]
+            - listitem [ref=e257]:
+              - button "4" [ref=e258] [cursor=pointer]
+            - listitem [ref=e259]:
+              - button "5" [ref=e260] [cursor=pointer]
+            - listitem [ref=e261]:
+              - button "→" [ref=e262] [cursor=pointer]
+  - generic [ref=e264]:
+    - generic [ref=e265]:
+      - heading "Наші платформи" [level=2] [ref=e266]
+      - paragraph [ref=e267]: Слідкуйте за нами, щоб бути в курсі новинок та акцій
+    - generic [ref=e268]:
+      - link "Telegram @Digital_Pc" [ref=e269] [cursor=pointer]:
+        - /url: https://t.me/Digital_Pc
+        - img [ref=e271]
+        - heading "Telegram" [level=3] [ref=e274]
+        - paragraph [ref=e275]: "@Digital_Pc"
+      - link "Instagram @digital_pc_dnipro" [ref=e276] [cursor=pointer]:
+        - /url: https://www.instagram.com/digital_pc_dnipro
+        - img [ref=e278]
+        - heading "Instagram" [level=3] [ref=e281]
+        - paragraph [ref=e282]: "@digital_pc_dnipro"
+      - link "TikTok @digital_pc_dnipro_" [ref=e283] [cursor=pointer]:
+        - /url: https://www.tiktok.com/@digital_pc_dnipro_
+        - img [ref=e285]
+        - heading "TikTok" [level=3] [ref=e287]
+        - paragraph [ref=e288]: "@digital_pc_dnipro_"
+      - link "Prom.ua Магазин на Prom" [ref=e289] [cursor=pointer]:
+        - /url: https://digitalpcdnipro.prom.ua/
+        - img [ref=e291]
+        - heading "Prom.ua" [level=3] [ref=e294]
+        - paragraph [ref=e295]: Магазин на Prom
+      - link "OLX Наші оголошення" [ref=e296] [cursor=pointer]:
+        - /url: https://www.olx.ua/list/user/10oQVa/
+        - img [ref=e298]
+        - heading "OLX" [level=3] [ref=e302]
+        - paragraph [ref=e303]: Наші оголошення
+  - contentinfo [ref=e304]:
+    - generic [ref=e305]:
+      - generic [ref=e306]:
+        - generic [ref=e307]:
+          - heading "DIGITAL PC" [level=3] [ref=e308]
+          - paragraph [ref=e309]: Професійні готові ПК для геймінгу, рендерингу та офісних задач. Ми створюємо машини, які надихають на перемоги.
+          - generic [ref=e310]:
+            - link [ref=e311] [cursor=pointer]:
+              - /url: https://t.me/Digital_Pc
+              - img [ref=e312]
+            - link [ref=e315] [cursor=pointer]:
+              - /url: https://www.instagram.com/digital_pc_dnipro
+              - img [ref=e316]
+            - link [ref=e319] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@digital_pc_dnipro_
+              - img [ref=e320]
+            - link "Prom" [ref=e322] [cursor=pointer]:
+              - /url: https://digitalpcdnipro.prom.ua/
+              - img [ref=e323]
+            - link "OLX" [ref=e326] [cursor=pointer]:
+              - /url: https://www.olx.ua/list/user/10oQVa/
+              - img [ref=e327]:
+                - generic [ref=e330]: OLX
+        - generic [ref=e331]:
+          - heading "Клієнтам" [level=3] [ref=e332]
+          - list [ref=e333]:
+            - listitem [ref=e334]:
+              - link "Головна" [ref=e335] [cursor=pointer]:
+                - /url: index.html
+            - listitem [ref=e336]:
+              - link "Каталог ПК" [ref=e337] [cursor=pointer]:
+                - /url: computers.html
+            - listitem [ref=e338]:
+              - link "Відгуки" [ref=e339] [cursor=pointer]:
+                - /url: reviews.html
+            - listitem [ref=e340]:
+              - link "Про нас" [ref=e341] [cursor=pointer]:
+                - /url: about.html
+            - listitem [ref=e342]:
+              - link "Контакти" [ref=e343] [cursor=pointer]:
+                - /url: contacts.html
+        - generic [ref=e344]:
+          - heading "Наше розташування" [level=3] [ref=e345]
+          - list [ref=e346]:
+            - listitem [ref=e347]:
+              - img [ref=e348]
+              - generic [ref=e351]: вул. Європейська 5а, Дніпро
+            - listitem [ref=e352]:
+              - img [ref=e353]
+              - generic [ref=e356]: "Пн-Нд: 10:00-18:00"
+            - listitem [ref=e357]:
+              - img [ref=e358]
+              - link "+380 99 317 33 48" [ref=e361] [cursor=pointer]:
+                - /url: tel:+380993173348
+            - listitem [ref=e362]:
+              - img [ref=e363]
+              - link "digital.pc.dnipro@gmail.com" [ref=e367] [cursor=pointer]:
+                - /url: mailto:digital.pc.dnipro@gmail.com
+      - generic [ref=e368]:
+        - paragraph [ref=e369]: © 2025 Digital PC. Всі права захищені.
+        - generic [ref=e370]:
+          - link "Політика конфіденційності" [ref=e371] [cursor=pointer]:
+            - /url: privacy.html
+          - link "Умови використання" [ref=e372] [cursor=pointer]:
+            - /url: terms.html
+          - link "Гарантія" [ref=e373] [cursor=pointer]:
+            - /url: warranty.html

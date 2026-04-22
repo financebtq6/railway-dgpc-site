@@ -1,0 +1,128 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "Digital PC Logo DIGITAL PC" [ref=e6] [cursor=pointer]:
+        - /url: index.html
+        - img "Digital PC Logo" [ref=e7]
+        - generic [ref=e8]: DIGITAL PC
+      - generic [ref=e9]:
+        - link "Головна" [ref=e10] [cursor=pointer]:
+          - /url: index.html
+        - link "Комп'ютери" [ref=e11] [cursor=pointer]:
+          - /url: computers.html
+        - link "Периферія" [ref=e12] [cursor=pointer]:
+          - /url: periphery.html
+        - link "Відгуки" [ref=e13] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Про нас" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+        - link "Контакти" [ref=e15] [cursor=pointer]:
+          - /url: contacts.html
+  - generic [ref=e16]:
+    - generic [ref=e18]:
+      - generic [ref=e19]: "Сортувати:"
+      - combobox "Сортувати:" [ref=e20]:
+        - option "За замовчуванням" [selected]
+        - option "Спочатку дешевші"
+        - option "Спочатку дорожчі"
+    - generic [ref=e22]:
+      - text: Product not found.
+      - link "Back to catalog" [ref=e23] [cursor=pointer]:
+        - /url: "#"
+  - generic [ref=e25]:
+    - generic [ref=e26]:
+      - heading "Наші платформи" [level=2] [ref=e27]
+      - paragraph [ref=e28]: Слідкуйте за нами, щоб бути в курсі новинок та акцій
+    - generic [ref=e29]:
+      - link "Telegram @Digital_Pc" [ref=e30] [cursor=pointer]:
+        - /url: https://t.me/Digital_Pc
+        - img [ref=e32]
+        - heading "Telegram" [level=3] [ref=e35]
+        - paragraph [ref=e36]: "@Digital_Pc"
+      - link "Instagram @digital_pc_dnipro" [ref=e37] [cursor=pointer]:
+        - /url: https://www.instagram.com/digital_pc_dnipro
+        - img [ref=e39]
+        - heading "Instagram" [level=3] [ref=e42]
+        - paragraph [ref=e43]: "@digital_pc_dnipro"
+      - link "TikTok @digital_pc_dnipro_" [ref=e44] [cursor=pointer]:
+        - /url: https://www.tiktok.com/@digital_pc_dnipro_
+        - img [ref=e46]
+        - heading "TikTok" [level=3] [ref=e48]
+        - paragraph [ref=e49]: "@digital_pc_dnipro_"
+      - link "Prom.ua Магазин на Prom" [ref=e50] [cursor=pointer]:
+        - /url: https://digitalpcdnipro.prom.ua/
+        - img [ref=e52]
+        - heading "Prom.ua" [level=3] [ref=e55]
+        - paragraph [ref=e56]: Магазин на Prom
+      - link "OLX Наші оголошення" [ref=e57] [cursor=pointer]:
+        - /url: https://www.olx.ua/list/user/10oQVa/
+        - img [ref=e59]
+        - heading "OLX" [level=3] [ref=e63]
+        - paragraph [ref=e64]: Наші оголошення
+  - contentinfo [ref=e65]:
+    - generic [ref=e66]:
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - heading "DIGITAL PC" [level=3] [ref=e69]
+          - paragraph [ref=e70]: Професійні готові ПК для геймінгу, рендерингу та офісних задач. Ми створюємо машини, які надихають на перемоги.
+          - generic [ref=e71]:
+            - link [ref=e72] [cursor=pointer]:
+              - /url: https://t.me/Digital_Pc
+              - img [ref=e73]
+            - link [ref=e76] [cursor=pointer]:
+              - /url: https://www.instagram.com/digital_pc_dnipro
+              - img [ref=e77]
+            - link [ref=e80] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@digital_pc_dnipro_
+              - img [ref=e81]
+            - link "Prom" [ref=e83] [cursor=pointer]:
+              - /url: https://digitalpcdnipro.prom.ua/
+              - img [ref=e84]
+            - link "OLX" [ref=e87] [cursor=pointer]:
+              - /url: https://www.olx.ua/list/user/10oQVa/
+              - img [ref=e88]:
+                - generic [ref=e91]: OLX
+        - generic [ref=e92]:
+          - heading "Клієнтам" [level=3] [ref=e93]
+          - list [ref=e94]:
+            - listitem [ref=e95]:
+              - link "Головна" [ref=e96] [cursor=pointer]:
+                - /url: index.html
+            - listitem [ref=e97]:
+              - link "Каталог ПК" [ref=e98] [cursor=pointer]:
+                - /url: computers.html
+            - listitem [ref=e99]:
+              - link "Відгуки" [ref=e100] [cursor=pointer]:
+                - /url: reviews.html
+            - listitem [ref=e101]:
+              - link "Про нас" [ref=e102] [cursor=pointer]:
+                - /url: about.html
+            - listitem [ref=e103]:
+              - link "Контакти" [ref=e104] [cursor=pointer]:
+                - /url: contacts.html
+        - generic [ref=e105]:
+          - heading "Наше розташування" [level=3] [ref=e106]
+          - list [ref=e107]:
+            - listitem [ref=e108]:
+              - img [ref=e109]
+              - generic [ref=e112]: вул. Європейська 5а, Дніпро
+            - listitem [ref=e113]:
+              - img [ref=e114]
+              - generic [ref=e117]: "Пн-Нд: 10:00-18:00"
+            - listitem [ref=e118]:
+              - img [ref=e119]
+              - link "+380 99 317 33 48" [ref=e122] [cursor=pointer]:
+                - /url: tel:+380993173348
+            - listitem [ref=e123]:
+              - img [ref=e124]
+              - link "digital.pc.dnipro@gmail.com" [ref=e128] [cursor=pointer]:
+                - /url: mailto:digital.pc.dnipro@gmail.com
+      - generic [ref=e129]:
+        - paragraph [ref=e130]: © 2025 Digital PC. Всі права захищені.
+        - generic [ref=e131]:
+          - link "Політика конфіденційності" [ref=e132] [cursor=pointer]:
+            - /url: privacy.html
+          - link "Умови використання" [ref=e133] [cursor=pointer]:
+            - /url: terms.html
+          - link "Гарантія" [ref=e134] [cursor=pointer]:
+            - /url: warranty.html

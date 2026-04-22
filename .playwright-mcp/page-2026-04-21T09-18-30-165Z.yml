@@ -1,0 +1,210 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "Digital PC Logo DIGITAL PC" [ref=e6] [cursor=pointer]:
+        - /url: index.html
+        - img "Digital PC Logo" [ref=e7]
+        - generic [ref=e8]: DIGITAL PC
+      - generic [ref=e9]:
+        - link "Головна" [ref=e10] [cursor=pointer]:
+          - /url: index.html
+        - link "Комп'ютери" [ref=e11] [cursor=pointer]:
+          - /url: computers.html
+        - link "Периферія" [ref=e12] [cursor=pointer]:
+          - /url: periphery.html
+        - link "Відгуки" [ref=e13] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Про нас" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+        - link "Контакти" [ref=e15] [cursor=pointer]:
+          - /url: contacts.html
+  - generic [ref=e17]:
+    - link "Назад до каталогу" [ref=e19] [cursor=pointer]:
+      - /url: computers.html
+      - img [ref=e20]
+      - text: Назад до каталогу
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - img "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [ref=e26] [cursor=pointer]
+        - generic [ref=e27]:
+          - img "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [ref=e28] [cursor=pointer]
+          - img "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [ref=e29] [cursor=pointer]
+          - img "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [ref=e30] [cursor=pointer]
+          - img "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [ref=e31] [cursor=pointer]
+          - img "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [ref=e32] [cursor=pointer]
+          - img "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [ref=e33] [cursor=pointer]
+          - img "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [ref=e34] [cursor=pointer]
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - generic [ref=e37]: In Stock
+          - heading "Digital PC Esport Zeus | Ryzen 7 7700 + RTX5070" [level=1] [ref=e38]
+          - generic [ref=e39]: 76 500 ₴
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - img [ref=e44]
+            - generic [ref=e47]:
+              - generic [ref=e48]: Процесор
+              - generic [ref=e49]: Ryzen 7 7700
+          - generic [ref=e50]:
+            - img [ref=e52]
+            - generic [ref=e54]:
+              - generic [ref=e55]: Відеокарта
+              - generic [ref=e56]: Nvidia RTX5070 Msi Ventus 2x White oc
+          - generic [ref=e57]:
+            - img [ref=e59]
+            - generic [ref=e61]:
+              - generic [ref=e62]: Накопичувач
+              - generic [ref=e63]: SSD m2 nvme 512 GB
+          - generic [ref=e64]:
+            - img [ref=e66]
+            - generic [ref=e68]:
+              - generic [ref=e69]: Блок живлення
+              - generic [ref=e70]: Gigabyte p650ss white 80+ Silver 650W
+          - generic [ref=e71]:
+            - img [ref=e73]
+            - generic [ref=e76]:
+              - generic [ref=e77]: Корпус
+              - generic [ref=e78]: 1stPlayer UV5-WH-2FC7R-W-1FC7-W
+          - generic [ref=e79]:
+            - img [ref=e81]
+            - generic [ref=e83]:
+              - generic [ref=e84]: Охолодження
+              - generic [ref=e85]: Jonsbo cr1000 Evo Argb white
+          - generic [ref=e86]:
+            - img [ref=e88]
+            - generic [ref=e93]:
+              - generic [ref=e94]: Материнська плата
+              - generic [ref=e95]: MSI B840M GAMING PLUS WIFI6E
+          - generic [ref=e96]:
+            - img [ref=e98]
+            - generic [ref=e102]:
+              - generic [ref=e103]: Оперативна пам'ять
+              - generic [ref=e104]: 32 GB DDR5 6000 MHz
+        - generic [ref=e106]:
+          - heading "Інформація про товар:" [level=4] [ref=e107]
+          - generic [ref=e108]: Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн. Потужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.
+          - list [ref=e109]:
+            - listitem [ref=e110]:
+              - img [ref=e111]
+              - text: Готовий до ігор одразу після отримання
+            - listitem [ref=e113]:
+              - img [ref=e114]
+              - text: Реальна гарантія та підтримка після покупки
+            - listitem [ref=e116]:
+              - img [ref=e117]
+              - text: Спілкування напряму з майстром, а не менеджером
+            - listitem [ref=e119]:
+              - img [ref=e120]
+              - text: Ручна збірка під клієнта
+            - listitem [ref=e122]:
+              - img [ref=e123]
+              - text: Стрес-тест + відео перед відправкою
+            - listitem [ref=e125]:
+              - img [ref=e126]
+              - text: Напишіть — підберемо оптимальний варіант під Ваш бюджет
+        - generic [ref=e128]:
+          - button "Замовити" [ref=e129] [cursor=pointer]:
+            - img [ref=e130]
+            - text: Замовити
+          - generic [ref=e132]:
+            - link "Купити на Prom.ua" [ref=e133] [cursor=pointer]:
+              - /url: https://prom.ua/ua/c3808817-digital.html
+            - link "Купити на OLX" [ref=e134] [cursor=pointer]:
+              - /url: https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-zeus-ryzen-7-7700-rtx5070-IDWHI1o.html?bs=olx_pro_listing&isPreviewActive=0&sliderIndex=0
+  - generic [ref=e136]:
+    - generic [ref=e137]:
+      - heading "Наші платформи" [level=2] [ref=e138]
+      - paragraph [ref=e139]: Слідкуйте за нами, щоб бути в курсі новинок та акцій
+    - generic [ref=e140]:
+      - link "Telegram @Digital_Pc" [ref=e141] [cursor=pointer]:
+        - /url: https://t.me/Digital_Pc
+        - img [ref=e143]
+        - heading "Telegram" [level=3] [ref=e146]
+        - paragraph [ref=e147]: "@Digital_Pc"
+      - link "Instagram @digital_pc_dnipro" [ref=e148] [cursor=pointer]:
+        - /url: https://www.instagram.com/digital_pc_dnipro
+        - img [ref=e150]
+        - heading "Instagram" [level=3] [ref=e153]
+        - paragraph [ref=e154]: "@digital_pc_dnipro"
+      - link "TikTok @digital_pc_dnipro_" [ref=e155] [cursor=pointer]:
+        - /url: https://www.tiktok.com/@digital_pc_dnipro_
+        - img [ref=e157]
+        - heading "TikTok" [level=3] [ref=e159]
+        - paragraph [ref=e160]: "@digital_pc_dnipro_"
+      - link "Prom.ua Магазин на Prom" [ref=e161] [cursor=pointer]:
+        - /url: https://digitalpcdnipro.prom.ua/
+        - img [ref=e163]
+        - heading "Prom.ua" [level=3] [ref=e166]
+        - paragraph [ref=e167]: Магазин на Prom
+      - link "OLX Наші оголошення" [ref=e168] [cursor=pointer]:
+        - /url: https://www.olx.ua/list/user/10oQVa/
+        - img [ref=e170]
+        - heading "OLX" [level=3] [ref=e174]
+        - paragraph [ref=e175]: Наші оголошення
+  - contentinfo [ref=e176]:
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - generic [ref=e179]:
+          - heading "DIGITAL PC" [level=3] [ref=e180]
+          - paragraph [ref=e181]: Професійні готові ПК для геймінгу, рендерингу та офісних задач. Ми створюємо машини, які надихають на перемоги.
+          - generic [ref=e182]:
+            - link [ref=e183] [cursor=pointer]:
+              - /url: https://t.me/Digital_Pc
+              - img [ref=e184]
+            - link [ref=e187] [cursor=pointer]:
+              - /url: https://www.instagram.com/digital_pc_dnipro
+              - img [ref=e188]
+            - link [ref=e191] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@digital_pc_dnipro_
+              - img [ref=e192]
+            - link "Prom" [ref=e194] [cursor=pointer]:
+              - /url: https://digitalpcdnipro.prom.ua/
+              - img [ref=e195]
+            - link "OLX" [ref=e198] [cursor=pointer]:
+              - /url: https://www.olx.ua/list/user/10oQVa/
+              - img [ref=e199]:
+                - generic [ref=e202]: OLX
+        - generic [ref=e203]:
+          - heading "Клієнтам" [level=3] [ref=e204]
+          - list [ref=e205]:
+            - listitem [ref=e206]:
+              - link "Головна" [ref=e207] [cursor=pointer]:
+                - /url: index.html
+            - listitem [ref=e208]:
+              - link "Каталог ПК" [ref=e209] [cursor=pointer]:
+                - /url: computers.html
+            - listitem [ref=e210]:
+              - link "Відгуки" [ref=e211] [cursor=pointer]:
+                - /url: reviews.html
+            - listitem [ref=e212]:
+              - link "Про нас" [ref=e213] [cursor=pointer]:
+                - /url: about.html
+            - listitem [ref=e214]:
+              - link "Контакти" [ref=e215] [cursor=pointer]:
+                - /url: contacts.html
+        - generic [ref=e216]:
+          - heading "Наше розташування" [level=3] [ref=e217]
+          - list [ref=e218]:
+            - listitem [ref=e219]:
+              - img [ref=e220]
+              - generic [ref=e223]: вул. Європейська 5а, Дніпро
+            - listitem [ref=e224]:
+              - img [ref=e225]
+              - generic [ref=e228]: "Пн-Нд: 10:00-18:00"
+            - listitem [ref=e229]:
+              - img [ref=e230]
+              - link "+380 99 317 33 48" [ref=e233] [cursor=pointer]:
+                - /url: tel:+380993173348
+            - listitem [ref=e234]:
+              - img [ref=e235]
+              - link "digital.pc.dnipro@gmail.com" [ref=e239] [cursor=pointer]:
+                - /url: mailto:digital.pc.dnipro@gmail.com
+      - generic [ref=e240]:
+        - paragraph [ref=e241]: © 2025 Digital PC. Всі права захищені.
+        - generic [ref=e242]:
+          - link "Політика конфіденційності" [ref=e243] [cursor=pointer]:
+            - /url: privacy.html
+          - link "Умови використання" [ref=e244] [cursor=pointer]:
+            - /url: terms.html
+          - link "Гарантія" [ref=e245] [cursor=pointer]:
+            - /url: warranty.html

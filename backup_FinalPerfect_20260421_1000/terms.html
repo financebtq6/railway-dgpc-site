@@ -12,6 +12,8 @@
 
     <title>Персональні комп'ютери | Digital PC</title>
 
+    <meta name="description" content="Умови використання сайту Digital PC. Правила покупки, оплати та доставки.">
+
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://unpkg.com/feather-icons"></script>
@@ -22,54 +24,86 @@
 
     <script src="https://unpkg.com/i18next@21.6.10/dist/umd/i18next.min.js"></script>
 
+
+
+
+
     <style>
-        body {
+        .prose {
 
-            font-family: 'Rajdhani', sans-serif;
+            max-width: 65ch;
 
-            background-color: #f8f9fa;
+            margin-left: auto;
 
-            color: #2f3640;
-
-        }
-
-
-
-        .title-font {
-
-            font-family: 'Orbitron', sans-serif;
-
-            letter-spacing: 1px;
+            margin-right: auto;
 
         }
 
 
 
-        .nav-link:after {
+        .prose h2 {
 
-            content: '';
+            font-size: 1.75rem;
 
-            position: absolute;
+            font-weight: 700;
 
-            width: 0;
+            margin-top: 2.5rem;
 
-            height: 2px;
+            margin-bottom: 1.25rem;
 
-            bottom: -2px;
+            color: #111827;
 
-            left: 0;
-
-            background-color: #00a8ff;
-
-            transition: width 0.3s ease;
+            line-height: 1.3;
 
         }
 
 
 
-        .nav-link:hover:after {
+        .prose p {
 
-            width: 100%;
+            font-size: 1.125rem;
+
+            line-height: 1.8;
+
+            margin-bottom: 1.25rem;
+
+            color: #374151;
+
+            text-align: left;
+
+        }
+
+
+
+        .prose ul {
+
+            margin-bottom: 1.5rem;
+
+            padding-left: 2rem;
+
+            list-style-type: disc;
+
+        }
+
+
+
+        .prose li {
+
+            margin-bottom: 0.75rem;
+
+            line-height: 1.75;
+
+            color: #374151;
+
+        }
+
+
+
+        .prose strong {
+
+            font-weight: 600;
+
+            color: #111827;
 
         }
     
@@ -131,7 +165,7 @@
                 <div class="hidden md:ml-6 md:flex md:space-x-8">
 
                     <a href="index.html"
-                        class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
+                        class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
                         data-i18n="nav_home">Головна</a>
 
                     <a href="computers.html"
@@ -148,7 +182,7 @@
 
 
                     <a href="reviews.html"
-                        class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
+                        class="nav-linkclass="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
                         data-i18n="nav_reviews">Відгуки</a>
 
                     <a href="about.html"
@@ -185,7 +219,7 @@
         <div class="md:hidden hidden" id="mobile-menu">
 
             <div class="pt-2 pb-3 space-y-1"><a href="index.html"
-                    class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Головна</a><a
+                    class="bg-blue-50 border-blue-500 text-blue-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Головна</a><a
                     href="computers.html"
                     class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Комп'ютери</a>
 
@@ -210,45 +244,116 @@
 
 
 
-    <div class="pt-32 pb-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
+    <!-- Header -->
 
-        <h1 class="text-4xl font-bold mb-8 title-font" data-i18n="delivery_title">Доставка та оплата</h1>
+    <div class="bg-gray-900 pt-32 pb-12 page-header-animated">
 
-        <div class="bg-white p-8 rounded-lg shadow-sm space-y-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-            <div>
+            <h1 class="text-4xl font-bold text-white mb-4 title-font" data-i18n="footer_terms" page-header-float>Умови використання</h1>
 
-                <h2 class="text-2xl font-bold mb-4" data-i18n="delivery_subtitle1">Доставка</h2>
+        </div>
 
-                <ul class="list-disc list-inside text-gray-600 space-y-2" data-i18n="delivery_list1">
+    </div>
 
-                    <li>Самовивіз з нашого магазину в м. Дніпро.</li>
 
-                    <li>Доставка "Новою Поштою" по всій Україні (у відділення або кур'єром).</li>
 
-                    <li>Адресна доставка по Дніпру нашим кур'єром.</li>
+    <!-- Content -->
 
-                </ul>
+    <div class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-            </div>
+        <div class="max-w-4xl mx-auto prose prose-lg">
 
-            <div>
+            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Умови використання</p>
 
-                <h2 class="text-2xl font-bold mb-4" data-i18n="delivery_subtitle2">Оплата</h2>
+            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Останнє оновлення: 18 грудня 2025 року</p>
 
-                <ul class="list-disc list-inside text-gray-600 space-y-2" data-i18n="delivery_list2">
+            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Використовуючи сайт Digital PC (digitalpc.com.ua), ви
 
-                    <li>Готівкою при отриманні (накладений платіж).</li>
+                погоджуєтеся з цими Умовами використання. Якщо ви не згодні — будь ласка, припиніть використання Сайту.
 
-                    <li>Оплата на карту ПриватБанку / Монобанку.</li>
+            </p>
 
-                    <li>Безготівковий розрахунок для юридичних осіб (ФОП).</li>
+            <p class="mb-4 text-gray-700 leading-relaxed text-lg">1. Загальні положення</p>
 
-                    <li>Оплата частинами від ПриватБанку або Монобанку.</li>
+            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Сайт є вітриною товарів та надає інформацію про готові
 
-                </ul>
+                ігрові та робочі ПК. Продаж здійснюється через платформи Prom.ua та OLX або за прямим замовленням.</p>
 
-            </div>
+            <p class="mb-4 text-gray-700 leading-relaxed text-lg">2. Інтелектуальна власність</p>
+
+            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Весь контент Сайту (фотографії, тексти, дизайн,
+
+                логотипи) є власністю Digital PC або його партнерів. Заборонено копіювання, розповсюдження чи
+
+                використання без письмової згоди.</p>
+
+            <p class="mb-4 text-gray-700 leading-relaxed text-lg">3. Обмеження відповідальності</p>
+
+            <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
+
+                <li>Інформація на Сайті надається «як є» без гарантій повноти чи точності.</li>
+
+                <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
+
+                    <li>Ми не несемо відповідальності за збитки, спричинені використанням Сайту або неможливістю його
+
+                        використання.</li>
+
+                    <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
+
+                        <li>Посилання на сторонні сайти (OLX, Prom.ua) надаються для зручності — ми не відповідаємо за
+
+                            їхній контент.</li>
+
+                        <p class="mb-4 text-gray-700 leading-relaxed text-lg">4. Замовлення та оплата</p>
+
+                        <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
+
+                            <li>Замовлення вважається прийнятим після підтвердження менеджером.</li>
+
+                            <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
+
+                                <li>Оплата: передоплата, післяплата (Нова Пошта), переказ на ФОП.</li>
+
+                                <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
+
+                                    <li>Ціни можуть змінюватися без попередження.</li>
+
+                                    <p class="mb-4 text-gray-700 leading-relaxed text-lg">5. Повернення та обмін</p>
+
+                                    <p class="mb-4 text-gray-700 leading-relaxed text-lg">Повернення товару можливе
+
+                                        відповідно до Закону України «Про захист прав споживачів» (14 днів для товару
+
+                                        належної якості, за умови збереження товарного вигляду).</p>
+
+                                    <p class="mb-4 text-gray-700 leading-relaxed text-lg">6. Заборонені дії</p>
+
+                                    <p class="mb-4 text-gray-700 leading-relaxed text-lg">Заборонено:</p>
+
+                                    <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
+
+                                        <li>Використання автоматизованих скриптів для збору даних (скрапінг).</li>
+
+                                        <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
+
+                                            <li>Розміщення неправдивих відгуків чи спам.</li>
+
+                                            <p class="mb-4 text-gray-700 leading-relaxed text-lg">7. Зміни умов</p>
+
+                                            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Ми можемо змінювати ці
+
+                                                Умови. Продовження використання Сайту означає вашу згоду з оновленнями.
+
+                                            </p>
+
+                                            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Контакти</p>
+
+                                            <p class="mb-4 text-gray-700 leading-relaxed text-lg">За питаннями:
+
+                                                info@digitalpc.com.ua або <a href="tel:+380993173348"
+                                                    class="hover:text-blue-600">+380 99 317 33 48</a>.</p>
 
         </div>
 

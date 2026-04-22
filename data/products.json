@@ -1090,5 +1090,32 @@
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-solid-nova-ryzen-5-5600-rtx3080-ID101bWL.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Mouse-Attack-Shark-X11SE",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш Attack Shark X11SE | 22000 DPI",
+    "price": 1800,
+    "image": "./images/products/Mouse-Attack-Shark-X11SE/1.jpg",
+    "images": [
+      "./images/products/Mouse-Attack-Shark-X11SE/1.jpg",
+      "./images/products/Mouse-Attack-Shark-X11SE/2.jpg",
+      "./images/products/Mouse-Attack-Shark-X11SE/3.jpg",
+      "./images/products/Mouse-Attack-Shark-X11SE/4.jpg"
+    ],
+    "specs": {
+      "sensor": "PAW3311",
+      "dpi": "22000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "5 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором PAW3311. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор PAW3311 - 22000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "5 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Батарея 50+ годин",
+    "descPartSix": "Ергономічна форма"
   }
 ]

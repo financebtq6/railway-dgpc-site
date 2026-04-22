@@ -329,7 +329,7 @@
                     ` : ''}
 
                     <!-- Description -->
-                    <div class="mb-8">
+                    <div class="prose prose-blue mb-8">
                         <div class="mt-4 mb-6">
                           <h4 class="font-bold text-gray-900 mb-2">Інформація про товар:</h4>
                           <div class="space-y-1 text-gray-600 text-sm">${product.description}</div>
@@ -436,16 +436,15 @@
     const txtProm = i18n[currentLang].btn_prom;
     const txtOlx = i18n[currentLang].btn_olx;
 
-    // Route detail link to correct page based on product type
-    const detailPage = p.type === 'periphery' ? 'periphery.html' : 'computers.html';
+    // Only standard buttons go to external, detail click goes to hash
     return `
     <div class="bg-white rounded-lg overflow-hidden shadow-lg product-card transition-all duration-300 transform hover:-translate-y-2 h-full flex flex-col group">
-        <a href="${detailPage}#product=${p.id}" class="block relative h-64 bg-gray-100 flex items-center justify-center overflow-hidden cursor-pointer">
+        <a href="computers.html#product=${p.id}" class="block relative h-64 bg-gray-100 flex items-center justify-center overflow-hidden cursor-pointer">
              <img src="${imageUrl}" alt="${title}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
              <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
         </a>
         <div class="p-6 flex flex-col flex-grow">
-            <a href="${detailPage}#product=${p.id}" class="block">
+            <a href="computers.html#product=${p.id}" class="block">
                 <h3 class="text-xl font-bold text-gray-900 mb-2 leading-tight hover:text-blue-600 transition-colors">${title}</h3>
             </a>
             <div class="flex items-center mb-4">
