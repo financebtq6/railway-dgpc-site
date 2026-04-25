@@ -131,8 +131,8 @@
   },
   {
     "id": "Digital-PC-Apex-Aurora",
-    "title": "Digital PC Apex Aurora | Ryzen 7 7800X3D + RTX5070",
-    "price": 92500,
+    "title": "Digital PC Apex Aurora | Ryzen 7 7700 + RTX5070",
+    "price": 79900,
     "image": "./images/products/Digital-PC-Apex-Aurora/1.jpg",
     "images": [
       "./images/products/Digital-PC-Apex-Aurora/1.jpg",
@@ -140,16 +140,18 @@
       "./images/products/Digital-PC-Apex-Aurora/3.jpg",
       "./images/products/Digital-PC-Apex-Aurora/4.jpg",
       "./images/products/Digital-PC-Apex-Aurora/5.jpg",
-      "./images/products/Digital-PC-Apex-Aurora/6.jpg"
+      "./images/products/Digital-PC-Apex-Aurora/6.jpg",
+      "./images/products/Digital-PC-Apex-Aurora/7.jpg",
+      "./images/products/Digital-PC-Apex-Aurora/8.jpg"
     ],
     "specs": {
-      "cpu": "Ryzen 7 7800X3D",
-      "gpu": "Nvidia RTX5070 Gaming Trio White",
-      "storage": "SSD m2 NVMe 1TB ",
+      "cpu": "Ryzen 7 7700",
+      "gpu": "Nvidia RTX5070 Msi ventus 2x White",
+      "storage": "SSD M2 NVME 512 GB",
       "psu": "Gigabyte P650SS ICE 80+Silver 650W",
-      "case": "Montech XR",
-      "cooling": "Id-Cooling Space LCD SL240",
-      "motherboard": "Gigabyte B850M D3HP",
+      "case": "1stPlayer UV5",
+      "cooling": "ID-Cooling FX240 LCD White",
+      "motherboard": "MSI B850M GAMING PLUS WIFI6E",
       "ram": "DDR5 32GB 6000mhz"
     },
      "description": "Digital PC Apex Series — вершина продуктивності для геймерів та креативних користувачів.\nПотужні процесори, топові відеокарти та швидкі SSD забезпечують ультра-пресети в\nсучасних іграх, плавну багатозадачність і роботу з мультимедіа без компромісів.\n",
@@ -297,8 +299,8 @@
   },
   {
     "id": "Digital-PC-Esport-Apollo",
-    "title": "Digital PC Esport Apollo | Ryzen 5 7500F + RTX5070",
-    "price": 69900,
+    "title": "Digital PC Esport Apollo | Ryzen 5 7500F + RX6900XT",
+    "price": 55500,
     "image": "./images/products/Digital-PC-Esport-Apollo/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Apollo/1.jpg",
@@ -306,15 +308,17 @@
       "./images/products/Digital-PC-Esport-Apollo/3.jpg",
       "./images/products/Digital-PC-Esport-Apollo/4.jpg",
       "./images/products/Digital-PC-Esport-Apollo/5.jpg",
-      "./images/products/Digital-PC-Esport-Apollo/6.jpg"
+      "./images/products/Digital-PC-Esport-Apollo/6.jpg",
+      "./images/products/Digital-PC-Esport-Apollo/7.jpg",
+      "./images/products/Digital-PC-Esport-Apollo/8.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 5 7500F",
-      "gpu": "Nvidia RTX5070 Msi Ventus 2x White ",
+      "gpu": "RX 6900 XT 16GB",
       "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "Gigabyte P650SS ICE 80+Silver 650W",
-      "case": "Qube Reef White",
-      "cooling": "Jonsbo cr1000 Evo Argb white",
+      "psu": "750w 80+ Bronze",
+      "case": "Ocypus C52",
+      "cooling": "Id-cooling se224 Argb",
       "motherboard": "Asus Prime B650M-K",
       "ram": "DDR5 32GB 6000mhz"
     },
