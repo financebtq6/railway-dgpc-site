@@ -700,7 +700,7 @@
   {
     "id": "Digital-PC-Esport-Hermes",
     "title": "Digital PC Esport Hermes | Ryzen 5 7500F + RTX5070",
-    "price": 69900,
+    "price": 70900,
     "image": "./images/products/Digital-PC-Esport-Hermes/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Hermes/1.jpg",
@@ -714,12 +714,12 @@
     ],
     "specs": {
       "cpu": "Ryzen 5 7500F",
-      "gpu": "Nvidia RTX5070 Asus Dual OC",
+      "gpu": "Nvidia RTX5070 Palit White OC",
       "storage": "Ssd m2 NVMe 512GB ",
       "psu": "Gigabyte P650SS ICE 80+Silver 650W",
-      "case": "Qube Reef White",
+      "case": "1stPlayer UV5",
       "cooling": "Jonsbo cr1000 Evo Argb white",
-      "motherboard": "Asus Prime B650M-R",
+      "motherboard": "Asus Prime B650M-K",
       "ram": "DDR5 32GB 6000mhz"
     },
      "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
