@@ -350,7 +350,7 @@
       "cpu": "Ryzen 5 7500F",
       "gpu": "Nvidia RTX5060TI Asus Dual White ",
       "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "MSI MAG A650NL White Bronze 80+",
+      "psu": "MSI MAG A650NL White д 80+",
       "case": "Gamdias Aura GC9",
       "cooling": "Jonsbo cr1000 Evo Argb white",
       "motherboard": "MSI A620M-B",
@@ -401,8 +401,8 @@
   },
   {
     "id": "Digital-PC-Apex-Legacy",
-    "title": "Digital PC Apex Legacy | Core I7-14700KF + RTX5070",
-    "price": 89900,
+    "title": "Digital PC Apex Legacy | Ryzen 7 9800X3D + RTX5070",
+    "price": 107900,
     "image": "./images/products/Digital-PC-Apex-Legacy/1.jpg",
     "images": [
       "./images/products/Digital-PC-Apex-Legacy/1.jpg",
@@ -411,17 +411,18 @@
       "./images/products/Digital-PC-Apex-Legacy/4.jpg",
       "./images/products/Digital-PC-Apex-Legacy/5.jpg",
       "./images/products/Digital-PC-Apex-Legacy/6.jpg",
-      "./images/products/Digital-PC-Apex-Legacy/7.jpg"
+      "./images/products/Digital-PC-Apex-Legacy/7.jpg",
+      "./images/products/Digital-PC-Apex-Legacy/8.jpg"
     ],
     "specs": {
-      "cpu": "Core I7-14700KF",
-      "gpu": "Nvidia RTX5070 Asus Dual",
-      "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "Сhieftec Vega M White 750W 80+Gold",
-      "case": "Qube Reef White",
-      "cooling": "ID-Cooling Water",
-      "motherboard": "Asrock B760 Pro RS DDR5",
-      "ram": "DDR5 32GB 6000mhz"
+      "cpu": "Ryzen 7 9800X3D",
+      "gpu": "Nvidia RTX5070 12 gb Gigabyte",
+      "storage": "Ssd m2 1 tb Crucial E100",
+      "psu": "Gigabyte UD850GM 850W",
+      "case": "NZXT H6 FLOW WHITE",
+      "cooling": "Arctic Liquid Freezer III Pro",
+      "motherboard": "Gigabyte b850 Aorus Elite WIFI7 Ice",
+      "ram": "Patriot viper RGB 32 gb 7400 mhz CL36"
     },
      "description": "Digital PC Apex Series — вершина продуктивності для геймерів та креативних користувачів.\nПотужні процесори, топові відеокарти та швидкі SSD забезпечують ультра-пресети в\nсучасних іграх, плавну багатозадачність і роботу з мультимедіа без компромісів.\n",
     "descPartOne": "Готовий до ігор одразу після отримання",
@@ -430,7 +431,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-legacy-core-i7-14700kf-rtx5070-IDYMXSd.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-legacy-ryzen-7-9800x3d-rtx5070-groviy-pk-ID10obAo.html"
   },
   {
     "id": "Digital-PC-Midline-Rift",
@@ -865,8 +866,8 @@
   },
   {
     "id": "Digital-PC-Esport-Titan",
-    "title": "Digital PC Esport Titan | Ryzen 7 7700 + RTX5070",
-    "price": 74900,
+    "title": "Digital PC Esport Titan | Ryzen 7 7800X3D + RTX5070",
+    "price": 82900,
     "image": "./images/products/Digital-PC-Esport-Titan/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Titan/1.jpg",
@@ -874,16 +875,17 @@
       "./images/products/Digital-PC-Esport-Titan/4.jpg",
       "./images/products/Digital-PC-Esport-Titan/5.jpg",
       "./images/products/Digital-PC-Esport-Titan/6.jpg",
-      "./images/products/Digital-PC-Esport-Titan/7.jpg"
+      "./images/products/Digital-PC-Esport-Titan/7.jpg",
+      "./images/products/Digital-PC-Esport-Titan/8.jpg"
     ],
     "specs": {
-      "cpu": "Ryzen 7 7700",
-      "gpu": "Nvidia RTX5070 Asus Dual",
+      "cpu": "Ryzen 7 7800X3D",
+      "gpu": "Nvidia RTX5070 Msi ventus 2x",
       "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "Gigabyte p650ss Gold 80+",
-      "case": "Qube Cristal",
-      "cooling": "ID-Cooling Water",
-      "motherboard": "Asus Prime B650M-R",
+      "psu": "Chieftec 850W Vega",
+      "case": "Qube Aquarium",
+      "cooling": "120м Jonsbo evo",
+      "motherboard": "ASUS PRIME B850M-K",
       "ram": "DDR5 32GB 6000mhz"
     },
      "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
@@ -893,7 +895,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-titan-ryzen-7-7700-rtx4070-IDXj065.html?bs=olx_pro_listing&isPreviewActive=0&sliderIndex=7"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-titan-ryzen-7-7800x3d-rtx5070-groviy-pk-ID10oHIR.html?bs=olx_pro_listing"
   },
   {
     "id": "Digital-PC-Apex-Absolute",
