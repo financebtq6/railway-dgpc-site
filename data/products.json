@@ -834,7 +834,7 @@
   {
     "id": "Digital-PC-Esport-Mars",
     "title": "Digital PC Esport Mars | Ryzen 7 7700 + RTX5070",
-    "price": 75900,
+    "price": 87900,
     "image": "./images/products/Digital-PC-Esport-Mars/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Mars/1.jpg",
@@ -843,16 +843,17 @@
       "./images/products/Digital-PC-Esport-Mars/4.jpg",
       "./images/products/Digital-PC-Esport-Mars/5.jpg",
       "./images/products/Digital-PC-Esport-Mars/6.jpg",
-      "./images/products/Digital-PC-Esport-Mars/7.jpg"
+      "./images/products/Digital-PC-Esport-Mars/7.jpg",
+      "./images/products/Digital-PC-Esport-Mars/8.jpg"
     ],
     "specs": {
-      "cpu": "Ryzen 7 7700",
-      "gpu": "Nvidia RTX5070 Msi Ventus 2x",
+      "cpu": "Ryzen 7 7800x3d",
+      "gpu": "Nvidia RTX5070 12GB",
       "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "Gigabyte P650SS ICE 80+Silver 650W",
-      "case": "Qube Reef White",
-      "cooling": "ID-COOLING Space LCD SL240 White",
-      "motherboard": "Asus Prime B650M-K",
+      "psu": "Gamemax 750W GS-750G White",
+      "case": "Gamemax T20 White",
+      "cooling": "ID-Cooling FX360 LCD PE White",
+      "motherboard": "MSI B850M Gaming Plus WIFI6e",
       "ram": "DDR5 32GB 6000mhz"
     },
      "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
@@ -862,7 +863,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-mars-ryzen-7-7700-rtx5070-IDUmxN2.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-mars-ryzen-7-7800x3d-rtx5070-ID10qKpt.html?bs=olx_pro_listing"
   },
   {
     "id": "Digital-PC-Esport-Titan",
