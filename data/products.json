@@ -1105,13 +1105,14 @@
     "type": "periphery",
     "subtype": "Миші",
     "title": "Ігрова миш Attack Shark X11SE | 22000 DPI",
-    "price": 1800,
+    "price": 1199,
     "image": "./images/products/Mouse-Attack-Shark-X11SE/1.jpg",
     "images": [
       "./images/products/Mouse-Attack-Shark-X11SE/1.jpg",
       "./images/products/Mouse-Attack-Shark-X11SE/2.jpg",
       "./images/products/Mouse-Attack-Shark-X11SE/3.jpg",
-      "./images/products/Mouse-Attack-Shark-X11SE/4.jpg"
+      "./images/products/Mouse-Attack-Shark-X11SE/4.jpg",
+      "./images/products/Mouse-Attack-Shark-X11SE/5.jpg"
     ],
     "specs": {
       "sensor": "PAW3311",
@@ -1158,5 +1159,369 @@
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/groviy-pk-ryzen-5-5500-rx5700xt-16-gb-ram-ssd-hdd-ID10tBlg.html?bs=olx_pro_listing"
+  },
+  {
+    "id": "Mouse-Attack-Shark-X11-W",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш Attack Shark X11 з Док-станцією | 22000 DPI",
+    "price": 1199,
+    "image": "./images/products/Mouse-Attack-Shark-X11-W/1.jpg",
+    "images": [
+      "./images/products/Mouse-Attack-Shark-X11-W/1.jpg",
+      "./images/products/Mouse-Attack-Shark-X11-W/2.jpg",
+      "./images/products/Mouse-Attack-Shark-X11-W/3.jpg",
+      "./images/products/Mouse-Attack-Shark-X11-W/4.jpg",
+      "./images/products/Mouse-Attack-Shark-X11-W/5.jpg"
+    ],
+    "specs": {
+      "sensor": "PAW3311",
+      "dpi": "22000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "5 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором PAW3311. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор PAW3311 - 22000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "5 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Батарея 50+ годин",
+    "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Mouse-Attack-Shark-R1-W",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш Attack Shark R1 | 18000 DPI",
+    "price": 1049,
+    "image": "./images/products/Mouse-Attack-Shark-R1-W/1.jpg",
+    "images": [
+      "./images/products/Mouse-Attack-Shark-R1-W/1.jpg",
+      "./images/products/Mouse-Attack-Shark-R1-W/2.jpg",
+      "./images/products/Mouse-Attack-Shark-R1-W/3.jpg",
+      "./images/products/Mouse-Attack-Shark-R1-W/4.jpg",
+      "./images/products/Mouse-Attack-Shark-R1-W/5.jpg"
+    ],
+    "specs": {
+      "sensor": "Pixart 3311",
+      "dpi": "18000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "5 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором Pixart 3311. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор Pixart 3311 - 18000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "5 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Батарея 50+ годин",
+    "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Mouse-Ajazz-Aj139-v2-W",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш Ajazz AJ139 V2 з Док-станціею | 12000 DPI",
+    "price": 1299,
+    "image": "./images/products/Mouse-Ajazz-Aj139-v2-W/1.jpg",
+    "images": [
+      "./images/products/Mouse-Ajazz-Aj139-v2-W/1.jpg",
+      "./images/products/Mouse-Ajazz-Aj139-v2-W/2.jpg",
+      "./images/products/Mouse-Ajazz-Aj139-v2-W/3.jpg",
+      "./images/products/Mouse-Ajazz-Aj139-v2-W/4.jpg",
+      "./images/products/Mouse-Ajazz-Aj139-v2-W/5.jpg"
+    ],
+    "specs": {
+      "sensor": "PMW3311",
+      "dpi": "12000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "5 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором PMW3311. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор PMW3311 - 12000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "5 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Батарея 50+ годин",
+    "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Mouse-Ajazz-Aj179-v2-W",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш Ajazz AJ179 V2 | 12000 DPI",
+    "price": 1099,
+    "image": "./images/products/Mouse-Ajazz-Aj179-v2-W/1.jpg",
+    "images": [
+      "./images/products/Mouse-Ajazz-Aj179-v2-W/1.jpg",
+      "./images/products/Mouse-Ajazz-Aj179-v2-W/2.jpg",
+      "./images/products/Mouse-Ajazz-Aj179-v2-W/3.jpg",
+      "./images/products/Mouse-Ajazz-Aj179-v2-W/4.jpg",
+      "./images/products/Mouse-Ajazz-Aj179-v2-W/5.jpg"
+    ],
+    "specs": {
+      "sensor": "PMW3311",
+      "dpi": "12000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "5 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором PMW3311. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор PMW3311 - 12000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "5 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Батарея 50+ годин",
+    "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Mouse-Ajazz-Aj199-C",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш Ajazz AJ199 Carbon | 24000 DPI",
+    "price": 1299,
+    "image": "./images/products/Mouse-Ajazz-Aj199-C/1.jpg",
+    "images": [
+      "./images/products/Mouse-Ajazz-Aj199-C/1.jpg",
+      "./images/products/Mouse-Ajazz-Aj199-C/2.jpg",
+      "./images/products/Mouse-Ajazz-Aj199-C/3.jpg",
+      "./images/products/Mouse-Ajazz-Aj199-C/4.jpg",
+      "./images/products/Mouse-Ajazz-Aj199-C/5.jpg"
+    ],
+    "specs": {
+      "sensor": "PAW3311",
+      "dpi": "24000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "4 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором PAW3311. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор PAW3311 - 24000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "4 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Батарея 50+ годин",
+    "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Mouse-Hator-Pulsar3-W",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш Hator Pulsar 3 | 12000 DPI",
+    "price": 1599,
+    "image": "./images/products/Mouse-Hator-Pulsar3-W/1.jpg",
+    "images": [
+      "./images/products/Mouse-Hator-Pulsar3-W/1.jpg",
+      "./images/products/Mouse-Hator-Pulsar3-W/2.jpg",
+      "./images/products/Mouse-Hator-Pulsar3-W/3.jpg",
+      "./images/products/Mouse-Hator-Pulsar3-W/4.jpg",
+      "./images/products/Mouse-Hator-Pulsar3-W/5.jpg"
+    ],
+    "specs": {
+      "sensor": "PMW 3311",
+      "dpi": "12000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "5 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором PMW 3311. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор PMW 3311 - 12000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "5 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Батарея 50+ годин",
+    "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Mouse-Hator-Stellar-B",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш Hator Stellar | 12000 DPI",
+    "price": 1599,
+    "image": "./images/products/Mouse-Hator-Stellar-B/1.jpg",
+    "images": [
+      "./images/products/Mouse-Hator-Stellar-B/1.jpg",
+      "./images/products/Mouse-Hator-Stellar-B/2.jpg",
+      "./images/products/Mouse-Hator-Stellar-B/3.jpg",
+      "./images/products/Mouse-Hator-Stellar-B/4.jpg",
+      "./images/products/Mouse-Hator-Stellar-B/5.jpg"
+    ],
+    "specs": {
+      "sensor": "PMW 3311",
+      "dpi": "12000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "5 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором PMW 3311. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор PMW 3311 - 12000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "5 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Батарея 50+ годин",
+    "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Mouse-VXE-R1SE-B",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш VGN Dragonfly VXE R1 SE+ | 26000 DPI",
+    "price": 1199,
+    "image": "./images/products/Mouse-VXE-R1SE-B/1.jpg",
+    "images": [
+      "./images/products/Mouse-VXE-R1SE-B/1.jpg",
+      "./images/products/Mouse-VXE-R1SE-B/2.jpg",
+      "./images/products/Mouse-VXE-R1SE-B/3.jpg",
+      "./images/products/Mouse-VXE-R1SE-B/4.jpg",
+      "./images/products/Mouse-VXE-R1SE-B/5.jpg"
+    ],
+    "specs": {
+      "sensor": "PAW3395",
+      "dpi": "26000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "5 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором PAW3395. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор PAW3395 - 26000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "5 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Батарея 50+ годин",
+    "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Mouse-VXE-R1SE-W",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш VGN Dragonfly VXE R1 SE+ | 26000 DPI",
+    "price": 1199,
+    "image": "./images/products/Mouse-VXE-R1SE-W/1.jpg",
+    "images": [
+      "./images/products/Mouse-VXE-R1SE-W/1.jpg",
+      "./images/products/Mouse-VXE-R1SE-W/2.jpg",
+      "./images/products/Mouse-VXE-R1SE-W/3.jpg",
+      "./images/products/Mouse-VXE-R1SE-W/4.jpg",
+      "./images/products/Mouse-VXE-R1SE-W/5.jpg"
+    ],
+    "specs": {
+      "sensor": "PAW3395",
+      "dpi": "26000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "5 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором PAW3395. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор PAW3395 - 26000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "5 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Батарея 50+ годин",
+    "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Mouse-G304-W",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш Logitech G304 | 12000 DPI",
+    "price": 499,
+    "image": "./images/products/Mouse-G304-W/1.jpg",
+    "images": [
+      "./images/products/Mouse-G304-W/1.jpg",
+      "./images/products/Mouse-G304-W/2.jpg",
+      "./images/products/Mouse-G304-W/3.jpg",
+      "./images/products/Mouse-G304-W/4.jpg",
+      "./images/products/Mouse-G304-W/5.jpg"
+    ],
+    "specs": {
+      "sensor": "оптичний",
+      "dpi": "12000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "6 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор оптичний - 12000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "6 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Працює від батарейок",
+    "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Mouse-G304-B",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш Logitech G304 | 12000 DPI",
+    "price": 499,
+    "image": "./images/products/Mouse-G304-B/1.jpg",
+    "images": [
+      "./images/products/Mouse-G304-B/1.jpg",
+      "./images/products/Mouse-G304-B/2.jpg",
+      "./images/products/Mouse-G304-B/3.jpg",
+      "./images/products/Mouse-G304-B/4.jpg",
+      "./images/products/Mouse-G304-B/5.jpg"
+    ],
+    "specs": {
+      "sensor": "оптичний",
+      "dpi": "12000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "6 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор оптичний - 12000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "6 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Працює від батарейок",
+    "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Mouse-Mchose-G7-B",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш Mchose G7 | 12000 DPI",
+    "price": 1199,
+    "image": "./images/products/Mouse-Mchose-G7-B/1.jpg",
+    "images": [
+      "./images/products/Mouse-Mchose-G7-B/1.jpg",
+      "./images/products/Mouse-Mchose-G7-B/2.jpg",
+      "./images/products/Mouse-Mchose-G7-B/3.jpg",
+      "./images/products/Mouse-Mchose-G7-B/4.jpg",
+      "./images/products/Mouse-Mchose-G7-B/5.jpg"
+    ],
+    "specs": {
+      "sensor": "PAW3311",
+      "dpi": "12000 DPI",
+      "connection": "Wireless + Wired",
+      "buttons": "6 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором PAW3311. Бездротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор PAW3311 - 12000 DPI",
+    "descPartTwo": "Бездротова та кабельна версія",
+    "descPartThree": "6 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Батарея 25+ годин",
+    "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Mouse-Aorus-M3-B",
+    "type": "periphery",
+    "subtype": "Миші",
+    "title": "Ігрова миш Aorus M3 дротова | 6400 DPI",
+    "price": 749,
+    "image": "./images/products/Mouse-Aorus-M3-B/1.jpg",
+    "images": [
+      "./images/products/Mouse-Aorus-M3-B/1.jpg",
+      "./images/products/Mouse-Aorus-M3-B/2.jpg",
+      "./images/products/Mouse-Aorus-M3-B/3.jpg",
+      "./images/products/Mouse-Aorus-M3-B/4.jpg",
+      "./images/products/Mouse-Aorus-M3-B/5.jpg"
+    ],
+    "specs": {
+      "sensor": "Pixart 3988",
+      "dpi": "6400 DPI",
+      "connection": "USB",
+      "buttons": "7 Programmable"
+    },
+    "description": "Ергономічна ігрова миш з сенсором Pixart 3988. Дротова з можливістю кабельного підключення. Програмовані кнопки та RGB освітлення для максимальної персоналізації.",
+    "descPartOne": "Сенсор Pixart 3988 - 6400 DPI",
+    "descPartTwo": "Kабельна версія",
+    "descPartThree": "7 програмовних кнопок",
+    "descPartFour": "RGB підсвітка",
+    "descPartFive": "Батарея відсутня",
+    "descPartSix": "Ергономічна форма"
   }
 ]
