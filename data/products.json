@@ -1523,5 +1523,221 @@
     "descPartFour": "RGB підсвітка",
     "descPartFive": "Батарея відсутня",
     "descPartSix": "Ергономічна форма"
+  },
+  {
+    "id": "Keyboard-Aula-F75-Wireles",
+    "type": "periphery",
+    "subtype": "Клавіатури",
+    "title": "Механічна клавіатура Aula F75 Gradient Gray | Бездротова",
+    "price": 2699,
+    "image": "./images/products/Keyboard-Aula-F75-Wireles/1.jpg",
+    "images": [
+      "./images/products/Keyboard-Aula-F75-Wireles/1.jpg",
+      "./images/products/Keyboard-Aula-F75-Wireles/2.jpg",
+      "./images/products/Keyboard-Aula-F75-Wireles/3.jpg",
+      "./images/products/Keyboard-Aula-F75-Wireles/4.jpg"
+    ],
+    "specs": {
+      "switches": "Leobog Greywood V3",
+      "backlighting": "Per-Key RGB",
+      "connection": "Бездротова, BT",
+      "layout": "75%"
+    },
+    "description": "Професійна механічна клавіатура з Leobog Greywood V3 перемикачами та RGB підсвіткою. Ідеальна для геймерів та програмістів. Kорпус з прогумованими ніжками для стабільності.",
+    "descPartOne": "Механічні Leobog Greywood V3 перемикачі",
+    "descPartTwo": "Per-Key RGB підсвітка",
+    "descPartThree": "Прямотрав передача наказу до 1ms",
+    "descPartFour": "Алюмінієвий корпус",
+    "descPartFive": "Бездротове з'єднання",
+    "descPartSix": "Завантажити макроси та налаштування"
+  },
+  {
+    "id": "Keyboard-Aula-F75-B",
+    "type": "periphery",
+    "subtype": "Клавіатури",
+    "title": "Механічна клавіатура Aula F75 Black | Дротова",
+    "price": 1799,
+    "image": "./images/products/Keyboard-Aula-F75-B/1.jpg",
+    "images": [
+      "./images/products/Keyboard-Aula-F75-B/1.jpg",
+      "./images/products/Keyboard-Aula-F75-B/2.jpg",
+      "./images/products/Keyboard-Aula-F75-B/3.jpg",
+      "./images/products/Keyboard-Aula-F75-B/4.jpg"
+    ],
+    "specs": {
+      "switches": "Leobog Greywood V3",
+      "backlighting": "Per-Key RGB",
+      "connection": "USB",
+      "layout": "75%"
+    },
+    "description": "Професійна механічна клавіатура з Leobog Greywood V3 перемикачами та RGB підсвіткою. Ідеальна для геймерів та програмістів. Kорпус з прогумованими ніжками для стабільності.",
+    "descPartOne": "Механічні Leobog Greywood V3 перемикачі",
+    "descPartTwo": "Per-Key RGB підсвітка",
+    "descPartThree": "Прямотрав передача наказу до 1ms",
+    "descPartFour": "Алюмінієвий корпус",
+    "descPartFive": "USB-C",
+    "descPartSix": "Завантажити макроси та налаштування"
+  },
+  {
+    "id": "Keyboard-Aula-Win60HE-B",
+    "type": "periphery",
+    "subtype": "Клавіатури",
+    "title": "Магнітна клавіатура Aula Win60 HE | Дротова",
+    "price": 1499,
+    "image": "./images/products/Keyboard-Aula-Win60HE-B/1.jpg",
+    "images": [
+      "./images/products/Keyboard-Aula-Win60HE-B/1.jpg",
+      "./images/products/Keyboard-Aula-Win60HE-B/2.jpg",
+      "./images/products/Keyboard-Aula-Win60HE-B/3.jpg",
+      "./images/products/Keyboard-Aula-Win60HE-B/4.jpg"
+    ],
+    "specs": {
+      "switches": "Gray Wood",
+      "backlighting": "Per-Key RGB",
+      "connection": "USB",
+      "layout": "60%"
+    },
+    "description": "Професійна магнітна клавіатура з Gray Wood перемикачами та RGB підсвіткою. Ідеальна для геймерів та програмістів. Kорпус з прогумованими ніжками для стабільності.",
+    "descPartOne": "Магнітні Gray Wood перемикачі",
+    "descPartTwo": "Per-Key RGB підсвітка",
+    "descPartThree": "Прямотрав передача наказу до 1ms",
+    "descPartFour": "Алюмінієвий корпус",
+    "descPartFive": "USB-C",
+    "descPartSix": "Завантажити макроси та налаштування"
+  },
+  {
+    "id": "Keyboard-Aula-F3032-W",
+    "type": "periphery",
+    "subtype": "Клавіатури",
+    "title": "Механічна клавіатура Aula F3032 | Дротова",
+    "price": 1399,
+    "image": "./images/products/Keyboard-Aula-F3032-W/1.jpg",
+    "images": [
+      "./images/products/Keyboard-Aula-F3032-W/1.jpg",
+      "./images/products/Keyboard-Aula-F3032-W/2.jpg",
+      "./images/products/Keyboard-Aula-F3032-W/3.jpg",
+      "./images/products/Keyboard-Aula-F3032-W/4.jpg"
+    ],
+    "specs": {
+      "switches": "KRGD Brown",
+      "backlighting": "Rainbow LED",
+      "connection": "USB",
+      "layout": "80%"
+    },
+    "description": "Професійна механічна клавіатура з KRGD Brown перемикачами та RGB підсвіткою. Ідеальна для геймерів та програмістів. Kорпус з прогумованими ніжками для стабільності.",
+    "descPartOne": "Механічні KRGD Brown перемикачі",
+    "descPartTwo": "Rainbow LED підсвітка",
+    "descPartThree": "Прямотрав передача наказу до 1ms",
+    "descPartFour": "Пластиковий корпус",
+    "descPartFive": "USB-C",
+    "descPartSix": "Завантажити макроси та налаштування"
+  },
+  {
+    "id": "Keyboard-Aula-F3287-GW",
+    "type": "periphery",
+    "subtype": "Клавіатури",
+    "title": "Механічна клавіатура Aula F3287 | Дротова",
+    "price": 1399,
+    "image": "./images/products/Keyboard-Aula-F3032-W/1.jpg",
+    "images": [
+      "./images/products/Keyboard-Aula-F3032-W/1.jpg",
+      "./images/products/Keyboard-Aula-F3032-W/2.jpg",
+      "./images/products/Keyboard-Aula-F3032-W/3.jpg",
+      "./images/products/Keyboard-Aula-F3032-W/4.jpg"
+    ],
+    "specs": {
+      "switches": "KRGD Blue",
+      "backlighting": "Блакитна",
+      "connection": "USB",
+      "layout": "80%"
+    },
+    "description": "Професійна механічна клавіатура з KRGD Blue перемикачами та RGB підсвіткою. Ідеальна для геймерів та програмістів. Kорпус з прогумованими ніжками для стабільності.",
+    "descPartOne": "Механічні KRGD Blue перемикачі",
+    "descPartTwo": "Блакитна підсвітка",
+    "descPartThree": "Прямотрав передача наказу до 1ms",
+    "descPartFour": "Пластиковий корпус",
+    "descPartFive": "USB-C",
+    "descPartSix": "Завантажити макроси та налаштування"
+  },
+  {
+    "id": "Keyboard-Ajazz-AK820-W",
+    "type": "periphery",
+    "subtype": "Клавіатури",
+    "title": "Механічна клавіатура Ajazz AK820 | Дротова",
+    "price": 1399,
+    "image": "./images/products/Keyboard-Ajazz-AK820-W/1.jpg",
+    "images": [
+      "./images/products/Keyboard-Ajazz-AK820-W/1.jpg",
+      "./images/products/Keyboard-Ajazz-AK820-W/2.jpg",
+      "./images/products/Keyboard-Ajazz-AK820-W/3.jpg",
+      "./images/products/Keyboard-Ajazz-AK820-W/4.jpg"
+    ],
+    "specs": {
+      "switches": "Cyan Switch",
+      "backlighting": "Синя",
+      "connection": "USB",
+      "layout": "75%"
+    },
+    "description": "Професійна механічна клавіатура з Cyan Switch перемикачами та RGB підсвіткою. Ідеальна для геймерів та програмістів. Kорпус з прогумованими ніжками для стабільності.",
+    "descPartOne": "Механічні Cyan Switch перемикачі",
+    "descPartTwo": "Синя підсвітка",
+    "descPartThree": "Прямотрав передача наказу до 1ms",
+    "descPartFour": "Пластиковий корпус",
+    "descPartFive": "USB-C",
+    "descPartSix": "Завантажити макроси та налаштування"
+  },
+  {
+    "id": "Keyboard-Ajazz-NK61-W",
+    "type": "periphery",
+    "subtype": "Клавіатури",
+    "title": "Механічна клавіатура Ajazz NK61 | Дротова",
+    "price": 1199,
+    "image": "./images/products/Keyboard-Ajazz-NK61-W/1.jpg",
+    "images": [
+      "./images/products/Keyboard-Ajazz-NK61-W/1.jpg",
+      "./images/products/Keyboard-Ajazz-NK61-W/2.jpg",
+      "./images/products/Keyboard-Ajazz-NK61-W/3.jpg",
+      "./images/products/Keyboard-Ajazz-NK61-W/4.jpg"
+    ],
+    "specs": {
+      "switches": "Red Switches",
+      "backlighting": "Rainbow LED",
+      "connection": "USB",
+      "layout": "60%"
+    },
+    "description": "Професійна механічна клавіатура з Red Switches перемикачами та RGB підсвіткою. Ідеальна для геймерів та програмістів. Kорпус з прогумованими ніжками для стабільності.",
+    "descPartOne": "Механічні Red Switches перемикачі",
+    "descPartTwo": "Rainbow LED підсвітка",
+    "descPartThree": "Прямотрав передача наказу до 1ms",
+    "descPartFour": "Пластиковий корпус",
+    "descPartFive": "USB-C",
+    "descPartSix": "Завантажити макроси та налаштування"
+  },
+  {
+    "id": "Keyboard-Ajazz-NK68-W",
+    "type": "periphery",
+    "subtype": "Клавіатури",
+    "title": "Механічна клавіатура Ajazz NK68 | Дротова",
+    "price": 1399,
+    "image": "./images/products/Keyboard-Ajazz-NK68-W/1.jpg",
+    "images": [
+      "./images/products/Keyboard-Ajazz-NK68-W/1.jpg",
+      "./images/products/Keyboard-Ajazz-NK68-W/2.jpg",
+      "./images/products/Keyboard-Ajazz-NK68-W/3.jpg",
+      "./images/products/Keyboard-Ajazz-NK68-W/4.jpg"
+    ],
+    "specs": {
+      "switches": "Red Switches",
+      "backlighting": "Rainbow LED",
+      "connection": "USB",
+      "layout": "60%"
+    },
+    "description": "Професійна механічна клавіатура з Red Switches перемикачами та RGB підсвіткою. Ідеальна для геймерів та програмістів. Kорпус з прогумованими ніжками для стабільності.",
+    "descPartOne": "Механічні Red Switches перемикачі",
+    "descPartTwo": "Rainbow LED підсвітка",
+    "descPartThree": "Прямотрав передача наказу до 1ms",
+    "descPartFour": "Пластиковий корпус",
+    "descPartFive": "USB-C",
+    "descPartSix": "Завантажити макроси та налаштування"
   }
 ]
