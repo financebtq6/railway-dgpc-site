@@ -99,8 +99,8 @@
   },
   {
     "id": "Digital-PC-Base-Atom",
-    "title": "Digital PC Base Atom | Ryzen 5 5500 + RTX3070TI",
-    "price": 35500,
+    "title": "Digital PC Base Atom | Ryzen 5 5600 + RTX5060",
+    "price": 39900,
     "image": "./images/products/Digital-PC-Base-Atom/1.jpg",
     "images": [
       "./images/products/Digital-PC-Base-Atom/1.jpg",
@@ -108,16 +108,17 @@
       "./images/products/Digital-PC-Base-Atom/3.jpg",
       "./images/products/Digital-PC-Base-Atom/4.jpg",
       "./images/products/Digital-PC-Base-Atom/5.jpg",
-      "./images/products/Digital-PC-Base-Atom/6.jpg"
+      "./images/products/Digital-PC-Base-Atom/6.jpg",
+      "./images/products/Digital-PC-Base-Atom/7.jpg"
     ],
     "specs": {
-      "cpu": "Ryzen 5 5500",
-      "gpu": "Nvidia RTX3070TI",
+      "cpu": "Ryzen 5 5600",
+      "gpu": "RTX5060 8 gb Gigabyte windforce",
       "storage": "Ssd m2 NVMe 512GB ",
       "psu": "Firstplayer 650W",
-      "case": "Qube Reef White",
-      "cooling": "Pccooler Paladin ex300",
-      "motherboard": "Asus Prime A520M-K",
+      "case": "Ocypus C52",
+      "cooling": "Id-cooling se224",
+      "motherboard": "Gigabyte a520m-k",
       "ram": "DDR4 16GB 3200mhz"
     },
     "description": "Серія Base — це ідеальний старт для тих, хто цінує баланс між ціною /nта продуктивністю, не жертвуючи якістю та надійністю.",
@@ -534,7 +535,7 @@
   {
     "id": "Digital-PC-Solid-Titan",
     "title": "Digital PC Solid Titan | RTX3070TI + RYZEN 5 5600",
-    "price": 38500,
+    "price": 37900,
     "image": "./images/products/Digital-PC-Solid-Titan/1.jpg",
     "images": [
       "./images/products/Digital-PC-Solid-Titan/1.jpg",
@@ -542,18 +543,16 @@
       "./images/products/Digital-PC-Solid-Titan/3.jpg",
       "./images/products/Digital-PC-Solid-Titan/4.jpg",
       "./images/products/Digital-PC-Solid-Titan/5.jpg",
-      "./images/products/Digital-PC-Solid-Titan/6.jpg",
-      "./images/products/Digital-PC-Solid-Titan/7.jpg", 
-      "./images/products/Digital-PC-Solid-Titan/8.jpg"
+      "./images/products/Digital-PC-Solid-Titan/6.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 5 5600",
       "gpu": "RTX3070ti 8 gb Oc palit gaming pro б/в",
       "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "850W",
-      "case": "Vinga",
-      "cooling": "id-cooling se224 Argb",
-      "motherboard": "Asus TUF A520m-plus ІІ",
+      "psu": "650W",
+      "case": "Ocypus C52",
+      "cooling": "Id-cooling se224 Argb",
+      "motherboard": "Gigabyte a520m-k",
       "ram": "DDR4 16GB 3200mhz"
     },
      "description": "Digital PC Solid Series — ваш надійний фундамент для продуктивної роботи та ігор\n, де баланс між ціною, потужністю та якістю стоїть на першому місці.",
