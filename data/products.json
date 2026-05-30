@@ -600,7 +600,7 @@
   {
     "id": "Digital-PC-Esport-Nano",
     "title": "Digital PC Esport Nano | Ryzen 7 7700 + RTX5070",
-    "price": 76900,
+    "price": 80900,
     "image": "./images/products/Digital-PC-Esport-Nano/1.jpg",
     "images": [
       "./images/products/Digital-PC-Esport-Nano/1.jpg",
@@ -608,15 +608,17 @@
       "./images/products/Digital-PC-Esport-Nano/3.jpg",
       "./images/products/Digital-PC-Esport-Nano/4.jpg",
       "./images/products/Digital-PC-Esport-Nano/5.jpg",
-      "./images/products/Digital-PC-Esport-Nano/6.jpg"
+      "./images/products/Digital-PC-Esport-Nano/6.jpg",
+      "./images/products/Digital-PC-Esport-Nano/7.jpg",
+      "./images/products/Digital-PC-Esport-Nano/8.jpg"
     ],
     "specs": {
       "cpu": "Ryzen 7 7700",
-      "gpu": "Nvidia RTX5070 Msi Ventus 2x",
-      "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "Gigabyte P650SS ICE 80+Silver 650W",
+      "gpu": "Nvidia RTX 5070 12 gb OC",
+      "storage": "SSD M2 NVME 512 GB",
+      "psu": "Deepcool 650W (PL650D WH)",
       "case": "Deepcool ch160",
-      "cooling": "Gamemax Sigma",
+      "cooling": "DeepCool AK400 Digital SE WH",
       "motherboard": "Gigabyte B650I AX Wifi",
       "ram": "DDR5 32GB 6000mhz"
     },
@@ -900,7 +902,7 @@
   {
     "id": "Digital-PC-Apex-Absolute",
     "title": "Digital PC Apex Absolute | Ryzen 7 7800X3D + RTX5070TI",
-    "price": 97500,
+    "price": 99900,
     "image": "./images/products/Digital-PC-Apex-Absolute/1.jpg",
     "images": [
       "./images/products/Digital-PC-Apex-Absolute/1.jpg",
@@ -914,7 +916,7 @@
     "specs": {
       "cpu": "Ryzen 7 7800X3D",
       "gpu": "RTX5070TI",
-      "storage": "SSD m2 NVMe 1TB ",
+      "storage": "SSD m2 NVMe 512GB ",
       "psu": "Gigabyte UD850GM PG5 V2",
       "case": "Lian-Li Vector V100 Mini",
       "cooling": "Deepcool AG400 BK ARGB",
@@ -965,40 +967,6 @@
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/groviy-pk-ryzen-5-7500f-rtx-3070ti-8gb-32gb-ddr5-2k-ultra-IDTIWS4.html"
   },
   {
-    "id": "Digital-PC-Apex-Immortal",
-    "title": "Digital PC Apex Immortal | Ryzen 7 9800X3D + RTX5070Ti",
-    "price": 123900,
-    "image": "./images/products/Digital-PC-Apex-Immortal/1.jpg",
-    "images": [
-      "./images/products/Digital-PC-Apex-Immortal/1.jpg",
-      "./images/products/Digital-PC-Apex-Immortal/2.jpg",
-      "./images/products/Digital-PC-Apex-Immortal/3.jpg",
-      "./images/products/Digital-PC-Apex-Immortal/4.jpg",
-      "./images/products/Digital-PC-Apex-Immortal/5.jpg",
-      "./images/products/Digital-PC-Apex-Immortal/6.jpg",
-      "./images/products/Digital-PC-Apex-Immortal/7.jpg",
-      "./images/products/Digital-PC-Apex-Immortal/8.jpg"
-    ],
-    "specs": {
-      "cpu": "AMD Ryzen 7 9800X3D",
-      "gpu": "MSI RTX5070Ti 16G GAMING TRIO OC White",
-      "storage": "SSD m2 NVMe 1TB ",
-      "psu": "MSI MPG A850G 850W 80+ Gold ",
-      "case": "Gamemax Infinity Plus",
-      "cooling": "Lian Li Galahad II LCD SL-INF 360 White",
-      "motherboard": "Asus TUF GAMING B850M-PLUS WIFI7 ",
-      "ram": "DDR Kingston DDR5 6000MHz Fury Beast White"
-    },
-     "description": "Digital PC Apex Series — вершина продуктивності для геймерів та креативних користувачів.\nПотужні процесори, топові відеокарти та швидкі SSD забезпечують ультра-пресети в\nсучасних іграх, плавну багатозадачність і роботу з мультимедіа без компромісів.\n",
-    "descPartOne": "Готовий до ігор одразу після отримання",
-    "descPartTwo": "Реальна гарантія та підтримка після покупки",
-    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
-    "descPartFour": "Ручна збірка під клієнта",
-    "descPartFive": "Стрес-тест + відео перед відправкою",
-    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-immortal-core-i7-14700kf-rtx5070-IDXhzOA.html?bs=olx_pro_listing"
-  },
-  {
     "id": "Digital-PC-Midline-Carbon",
     "title": "Digital PC Midline Carbon | Ryzen 5 7500F + RTX3070TI",
     "price": 51900,
@@ -1030,40 +998,6 @@
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-carbon-ryzen-5-7500f-rtx3070ti-IDTXIuu.html"
-  },
-  {
-    "id": "Digital-PC-Apex-Nimb",
-    "title": "Digital PC Apex Nimb | Core Ultra 7 265KF + RTX5070",
-    "price": 99900,
-    "image": "./images/products/Digital-PC-Apex-Nimb/1.jpg",
-    "images": [
-      "./images/products/Digital-PC-Apex-Nimb/1.jpg",
-      "./images/products/Digital-PC-Apex-Nimb/2.jpg",
-      "./images/products/Digital-PC-Apex-Nimb/3.jpg",
-      "./images/products/Digital-PC-Apex-Nimb/4.jpg",
-      "./images/products/Digital-PC-Apex-Nimb/5.jpg",
-      "./images/products/Digital-PC-Apex-Nimb/6.jpg",
-      "./images/products/Digital-PC-Apex-Nimb/7.jpg",
-      "./images/products/Digital-PC-Apex-Nimb/8.jpg"
-    ],
-    "specs": {
-      "cpu": "Intel Core Ultra 7 265Kf",
-      "gpu": "Nvidia RTX5070 12 gb Gigabyte Aero Oc White",
-      "storage": "Ssd m2 1 tb Corsair MP600 pro",
-      "psu": "Gigabyte UD850GM PG5 V2 850W",
-      "case": "NZXT H6 FLOW WHITE",
-      "cooling": "Arctic Liquid Freezer III Pro 360",
-      "motherboard": "Gigabyte Z890 Aorus Elite X Ice",
-      "ram": "Patriot viper RGB 32 gb 7400 mhz CL36"
-    },
-    "description": "Digital PC Apex Series — вершина продуктивності для геймерів та креативних користувачів.\nПотужні процесори, топові відеокарти та швидкі SSD забезпечують ультра-пресети в\nсучасних іграх, плавну багатозадачність і роботу з мультимедіа без компромісів.\n",
-    "descPartOne": "Готовий до ігор одразу після отримання",
-    "descPartTwo": "Реальна гарантія та підтримка після покупки",
-    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
-    "descPartFour": "Ручна збірка під клієнта",
-    "descPartFive": "Стрес-тест + відео перед відправкою",
-    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-nimb-core-ultra-7-265kf-rtx5070-IDZPl9u.html"
   },
   {
     "id": "Digital-PC-Solid-Nova",
@@ -1126,38 +1060,6 @@
     "descPartFour": "RGB підсвітка",
     "descPartFive": "Батарея 50+ годин",
     "descPartSix": "Ергономічна форма"
-  },
-  {
-    "id": "Digital-PC-Traid-In",
-    "title": "Digital PC Trade In | RX 5700 XT + RYZEN 5 5500",
-    "price": 21500,
-    "image": "./images/products/Digital-PC-Traid-In/1.jpg",
-    "images": [
-      "./images/products/Digital-PC-Traid-In/1.jpg",
-      "./images/products/Digital-PC-Traid-In/2.jpg",
-      "./images/products/Digital-PC-Traid-In/3.jpg",
-      "./images/products/Digital-PC-Traid-In/4.jpg",
-      "./images/products/Digital-PC-Traid-In/5.jpg",
-      "./images/products/Digital-PC-Traid-In/6.jpg"
-    ],
-    "specs": {
-      "cpu": "Ryzen 5 5500",
-      "gpu": "RX 5700 XT б/в",
-      "storage": "Ssd Sata 256GB + HDD 1TB",
-      "psu": "520w Seasonic Bronze",
-      "case": "NZXT H510",
-      "cooling": "ID cooling se 225 xt v2 ",
-      "motherboard": "Msi B450 gaming plus max",
-      "ram": "DDR4 16GB 3200mhz"
-    },
-     "description": "Digital PC Solid Series — ваш надійний фундамент для продуктивної роботи та ігор\n, де баланс між ціною, потужністю та якістю стоїть на першому місці.",
-    "descPartOne": "Готовий до ігор одразу після отримання",
-    "descPartTwo": "Реальна гарантія та підтримка після покупки",
-    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
-    "descPartFour": "Ручна збірка під клієнта",
-    "descPartFive": "Стрес-тест + відео перед відправкою",
-    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/groviy-pk-ryzen-5-5500-rx5700xt-16-gb-ram-ssd-hdd-ID10tBlg.html?bs=olx_pro_listing"
   },
   {
     "id": "Mouse-Attack-Shark-X11-W",
