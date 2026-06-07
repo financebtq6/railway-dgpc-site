@@ -1034,6 +1034,73 @@
     "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-solid-nova-ryzen-5-5600-rtx3080-ID101bWL.html?bs=olx_pro_listing"
   },
   {
+    "id": "Digital-PC-Esport-Vortex",
+    "title": "Digital PC Esport Vortex | Ryzen 7 7700 + RTX5070",
+    "price": 67900,
+    "image": "./images/products/Digital-PC-Esport-Vortex/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Esport-Vortex/1.jpg",
+      "./images/products/Digital-PC-Esport-Vortex/2.jpg",
+      "./images/products/Digital-PC-Esport-Vortex/4.jpg",
+      "./images/products/Digital-PC-Esport-Vortex/5.jpg",
+      "./images/products/Digital-PC-Esport-Vortex/6.jpg",
+      "./images/products/Digital-PC-Esport-Vortex/7.jpg",
+      "./images/products/Digital-PC-Esport-Vortex/8.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 7 7700",
+      "gpu": "RTX 5070 12Gb ASUS DUAL OC",
+      "storage": "SSD M.2 2280 1TB Kingston NV3",
+      "psu": "Chieftec proton BDF-750C 750w",
+      "case": "2E Gaming Virtus Neo White",
+      "cooling": "ID-Cooling SE-206-XT White",
+      "motherboard": "MSI b850m Gaming plus wifi",
+      "ram": "DDR5 32GB (2x16GB) Patriot viper"
+    },
+     "description": "Digital PC Esport Series — максимум FPS в онлайн-іграх і ультра-пресети в офлайн.\nПотужні компоненти, мінімальні затримки і стильний корпус з ARGB підсвіткою.\n",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-esport-vortex-ryzen-7-7700-rtx5070-groviy-pk-ID10sz3w.html?bs=olx_pro_listing&my_ads=1"
+  },
+  {
+    "id": "Digital-PC-Apex-Nimb",
+    "title": "Digital PC Apex Nimb | Ryzen 7 9850X3D + RTX5080",
+    "price": 189900,
+    "image": "./images/products/Digital-PC-Apex-Nimb/1.jpg",
+    "images": [
+      "./images/products/Digital-PC-Apex-Nimb/1.jpg",
+      "./images/products/Digital-PC-Apex-Nimb/2.jpg",
+      "./images/products/Digital-PC-Apex-Nimb/3.jpg",
+      "./images/products/Digital-PC-Apex-Nimb/4.jpg",
+      "./images/products/Digital-PC-Apex-Nimb/5.jpg",
+      "./images/products/Digital-PC-Apex-Nimb/6.jpg",
+      "./images/products/Digital-PC-Apex-Nimb/7.jpg",
+      "./images/products/Digital-PC-Apex-Nimb/8.jpg"
+    ],
+    "specs": {
+      "cpu": "Ryzen 7 9850X3D",
+      "gpu": "RTX5080",
+      "storage": "SSD m2 NVMe 2TB ",
+      "psu": "MSI MAG 850W Modular",
+      "case": "Gamemax Infinity",
+      "cooling": "Asus ROG Ruyo 4 SLC 360 argb",
+      "motherboard": "MSI B850 Gaming Plus Wifi",
+      "ram": "DDR5 32GB 6000mhz"
+    },
+     "description": "Digital PC Apex Series — вершина продуктивності для геймерів та креативних користувачів.\nПотужні процесори, топові відеокарти та швидкі SSD забезпечують ультра-пресети в\nсучасних іграх, плавну багатозадачність і роботу з мультимедіа без компромісів.\n",
+    "descPartOne": "Готовий до ігор одразу після отримання",
+    "descPartTwo": "Реальна гарантія та підтримка після покупки",
+    "descPartThree": "Спілкування напряму з майстром, а не менеджером",
+    "descPartFour": "Ручна збірка під клієнта",
+    "descPartFive": "Стрес-тест + відео перед відправкою",
+    "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-apex-absolute-ryzen-7-7800x3d-rtx5070ti-IDXYcab.html"
+  },
+  {
     "id": "Mouse-Attack-Shark-X11SE",
     "type": "periphery",
     "subtype": "Миші",
