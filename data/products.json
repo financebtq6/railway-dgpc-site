@@ -566,7 +566,7 @@
   },
   {
     "id": "Digital-PC-Midline-Phantom",
-    "title": "Digital PC Midline Phantom | Core I5-14600KF + RTX3080",
+    "title": "Digital PC Midline Phantom | Ryzen 5 7500F + RTX5060Ti",
     "price": 59900,
     "image": "./images/products/Digital-PC-Midline-Phantom/1.jpg",
     "images": [
@@ -576,17 +576,18 @@
       "./images/products/Digital-PC-Midline-Phantom/4.jpg",
       "./images/products/Digital-PC-Midline-Phantom/5.jpg",
       "./images/products/Digital-PC-Midline-Phantom/6.jpg",
-      "./images/products/Digital-PC-Midline-Phantom/7.jpg"
+      "./images/products/Digital-PC-Midline-Phantom/7.jpg",
+      "./images/products/Digital-PC-Midline-Phantom/8.jpg"
     ],
     "specs": {
-      "cpu": "Core I5-14600KF",
-      "gpu": "Nvidia RTX3080  ",
+      "cpu": "Ryzen 5 7500F",
+      "gpu": "RTX5060 TI 8 gb",
       "storage": "Ssd m2 NVMe 512GB ",
-      "psu": "Deepcool pf750 750w",
-      "case": "Qube Reef White",
-      "cooling": "ID-Cooling Water",
-      "motherboard": "Asrock B760 Pro RS DDR5",
-      "ram": "DDR5 32GB 6000mhz"
+      "psu": "MSI 650W MAG A650BN",
+      "case": "MSI MAG Pano M110R Black",
+      "cooling": "MSI MAG Corefrozr AA13",
+      "motherboard": "Asus Prime b650m-k",
+      "ram": "DDR5 32GB 6400mhz"
     },
      "description": "Digital PC Midline Series — твій баланс між потужністю, комфортом \nта бездоганним стилем, готовий до будь-яких викликів.",
     "descPartOne": "Готовий до ігор одразу після отримання",
@@ -595,7 +596,7 @@
     "descPartFour": "Ручна збірка під клієнта",
     "descPartFive": "Стрес-тест + відео перед відправкою",
     "descPartSix": "Напишіть — підберемо оптимальний варіант під Ваш бюджет",
-    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-phantom-core-i5-14600kf-rtx3080-IDWWiOk.html?bs=olx_pro_listing"
+    "olx_url": "https://www.olx.ua/d/uk/obyavlenie/digital-pc-midline-phantom-ryzen-5-7500f-rtx5060ti-ID10FQfA.html"
   },
   {
     "id": "Digital-PC-Esport-Nano",
