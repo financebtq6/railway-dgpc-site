@@ -189,9 +189,9 @@
       // Show Catalog, Hide Detail, SHOW PAGE HEADER
       if (catalogContainer) {
         if (catalogContainer) {
-          // catalogContainer.style.display = 'grid'; // Grid class is already on the element in HTML, and it's inside a flex container now
-          // We don't need to force display grid here if it's already structured, but let's ensure it's visible.
-          // Actually, the new structure has #catalog as the grid.
+          // Restore visibility: detail view sets display:none on this container,
+          // and it must be cleared here or the catalog stays hidden after navigating back.
+          catalogContainer.style.removeProperty('display');
 
           const filteredData = getFilteredAndSortedData();
           renderCatalogWithPagination(filteredData, currentPage);
@@ -257,19 +257,19 @@
         const def = specIcons[key] || { icon: 'check-circle', label: key };
 
         specsHtml += `
-              <div class="flex items-start p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors border border-gray-100">
+              <div class="flex items-start p-4 rounded-xl transition-colors dpc-spec-card">
                   <div class="p-3 bg-white rounded-lg shadow-sm mr-4 text-blue-600 mt-1">
                       <i data-feather="${def.icon}" class="w-5 h-5"></i>
                   </div>
                   <div>
-                      <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">${def.label}</div>
-                      <div class="font-semibold text-gray-800 text-sm leading-snug">${val}</div>
+                      <div class="text-xs font-bold uppercase tracking-wider mb-1 dpc-muted-text">${def.label}</div>
+                      <div class="font-semibold text-sm leading-snug dpc-text-primary">${val}</div>
                   </div>
               </div>`;
       }
 
       if (!hasSpecs) {
-        specsHtml += `<div class="col-span-2 p-4 text-gray-500 italic">Специфікації уточнюйте у менеджера</div>`;
+        specsHtml += `<div class="col-span-2 p-4 italic dpc-muted-text">Специфікації уточнюйте у менеджера</div>`;
       }
 
       specsHtml += '</div>';
@@ -278,9 +278,9 @@
     // Build gallery HTML
     const allImages = product.images && product.images.length > 0 ? product.images : [mainImage];
     const thumbnailsHtml = allImages.length > 1 ? allImages.map((img, idx) => `
-        <img src="${img}" 
-             alt="${product.title}" 
-             class="w-20 h-20 object-cover rounded-lg cursor-pointer border-2 transition-all hover:border-blue-500 ${idx === 0 ? 'border-blue-600' : 'border-gray-200'}"
+        <img src="${img}"
+             alt="${product.title}"
+             class="w-20 h-20 object-cover rounded-lg cursor-pointer border-2 transition-all hover:border-blue-500 dpc-thumb ${idx === 0 ? 'border-blue-600' : 'border-gray-200'}"
              onclick="changeMainImage('${img}', this)"
              loading="lazy">
     `).join('') : '';
@@ -289,22 +289,22 @@
 
     container.innerHTML = `
         <div class="pt-12 md:pt-14 mb-4">
-            <a href="${backLink}" class="inline-flex items-center text-gray-500 hover:text-blue-600 transition-colors font-medium text-lg">
+            <a href="${backLink}" class="inline-flex items-center transition-colors font-medium text-lg dpc-back-link">
                 <i data-feather="arrow-left" class="w-5 h-5 mr-2"></i> ${txtBack}
             </a>
         </div>
-        
-        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+
+        <div class="rounded-3xl overflow-hidden dpc-detail-panel">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 <!-- Image Gallery Section -->
-                <div class="bg-gray-50 p-4 lg:px-8 lg:py-6 flex flex-col items-center justify-start relative">
-                     <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50"></div>
-                     
+                <div class="dpc-gallery-bg p-4 lg:px-8 lg:py-6 flex flex-col items-center justify-start relative">
+                     <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent"></div>
+
                      <!-- Main Image -->
-                     <img id="mainProductImage" src="${mainImage}" alt="${product.title}" 
+                     <img id="mainProductImage" src="${mainImage}" alt="${product.title}"
                           class="relative z-10 max-h-[500px] w-full object-contain drop-shadow-2xl transition-all duration-300 mb-4 cursor-pointer hover:scale-105"
                           data-images='${JSON.stringify(allImages)}'>
-                     
+
                      <!-- Thumbnails -->
                      ${allImages.length > 1 ? `
                      <div class="relative z-10 flex gap-3 overflow-x-auto pb-2 max-w-full" style="scrollbar-width: thin;">
@@ -316,9 +316,9 @@
                 <!-- Info Section -->
                 <div class="p-8 lg:p-12 flex flex-col justify-center">
                     <div class="mb-6">
-                        <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold tracking-wide uppercase rounded-full mb-4">In Stock</span>
-                        <h1 class="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4 leading-tight tracking-tight">${product.title}</h1>
-                        <div class="text-4xl font-black text-blue-600">${price}</div>
+                        <span class="inline-block px-3 py-1 text-xs font-bold tracking-wide uppercase rounded-full mb-4 dpc-badge">In Stock</span>
+                        <h1 class="text-3xl lg:text-4xl font-extrabold mb-4 leading-tight tracking-tight dpc-card-title">${product.title}</h1>
+                        <div class="text-4xl font-black dpc-price">${price}</div>
                     </div>
 
                     <!-- Characteristics (Specs) - ONLY FOR COMPUTERS -->
@@ -331,10 +331,10 @@
                     <!-- Description -->
                     <div class="mb-8">
                         <div class="mt-4 mb-6">
-                          <h4 class="font-bold text-gray-900 mb-2">Інформація про товар:</h4>
-                          <div class="space-y-1 text-gray-600 text-sm">${product.description}</div>
+                          <h4 class="font-bold mb-2 dpc-text-primary">Інформація про товар:</h4>
+                          <div class="space-y-1 text-sm dpc-muted-text">${product.description}</div>
                           ${product.descPartOne ? `
-                          <ul class="space-y-1 text-gray-600 text-sm">
+                          <ul class="space-y-1 text-sm dpc-muted-text">
                             ${product.descPartOne ? `<li class="flex items-center"><i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>${product.descPartOne}</li>` : ''}
                             ${product.descPartTwo ? `<li class="flex items-center"><i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>${product.descPartTwo}</li>` : ''}
                             ${product.descPartThree ? `<li class="flex items-center"><i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>${product.descPartThree}</li>` : ''}
@@ -347,14 +347,14 @@
                     </div>
 
                     <div class="flex flex-col gap-4 mt-auto">
-                         <button onclick="window.openOrderModal('${product.title.replace(/'/g, "\\'")}')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 px-8 rounded-2xl transition-all shadow-lg hover:shadow-blue-500/30 flex items-center justify-center text-xl transform hover:-translate-y-1">
+                         <button onclick="window.openOrderModal('${product.title.replace(/'/g, "\\'")}')" class="w-full font-bold py-5 px-8 rounded-2xl transition-all flex items-center justify-center text-xl transform hover:-translate-y-1 dpc-btn-order">
                             <i data-feather="phone-call" class="w-6 h-6 mr-3"></i> ${txtOrder}
                          </button>
                          <div class="grid grid-cols-2 gap-4">
-                            <a href="${promLink}" target="_blank" class="flex items-center justify-center bg-white border-2 border-purple-100 hover:border-purple-600 hover:bg-purple-50 text-purple-700 font-bold py-4 px-6 rounded-2xl transition-all text-center">
+                            <a href="${promLink}" target="_blank" class="flex items-center justify-center font-bold py-4 px-6 rounded-2xl transition-all text-center dpc-btn-prom">
                                 ${txtProm}
                             </a>
-                            <a href="${olxLink}" target="_blank" class="flex items-center justify-center bg-white border-2 border-green-100 hover:border-green-600 hover:bg-green-50 text-green-700 font-bold py-4 px-6 rounded-2xl transition-all text-center">
+                            <a href="${olxLink}" target="_blank" class="flex items-center justify-center font-bold py-4 px-6 rounded-2xl transition-all text-center dpc-btn-olx">
                                 ${txtOlx}
                             </a>
                          </div>
@@ -439,27 +439,27 @@
     // Route detail link to correct page based on product type
     const detailPage = p.type === 'periphery' ? 'periphery.html' : 'computers.html';
     return `
-    <div class="bg-white rounded-lg overflow-hidden shadow-lg product-card transition-all duration-300 transform hover:-translate-y-2 h-full flex flex-col group">
-        <a href="${detailPage}#product=${p.id}" class="block relative h-64 bg-gray-100 flex items-center justify-center overflow-hidden cursor-pointer">
+    <div class="rounded-lg overflow-hidden product-card transition-all duration-300 transform hover:-translate-y-2 h-full flex flex-col group">
+        <a href="${detailPage}#product=${p.id}" class="block relative h-64 bg-black/20 flex items-center justify-center overflow-hidden cursor-pointer">
              <img src="${imageUrl}" alt="${title}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
              <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
         </a>
         <div class="p-6 flex flex-col flex-grow">
             <a href="${detailPage}#product=${p.id}" class="block">
-                <h3 class="text-xl font-bold text-gray-900 mb-2 leading-tight hover:text-blue-600 transition-colors">${title}</h3>
+                <h3 class="text-xl font-bold mb-2 leading-tight transition-colors dpc-card-title">${title}</h3>
             </a>
             <div class="flex items-center mb-4">
-                 <span class="text-2xl font-bold text-blue-600">${price}</span>
+                 <span class="text-2xl font-bold dpc-price">${price}</span>
             </div>
             <div class="flex flex-col gap-3 mt-auto">
-                 <button onclick="window.openOrderModal('${title.replace(/'/g, "\\'")}')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center shadow-md hover:shadow-lg">
+                 <button onclick="window.openOrderModal('${title.replace(/'/g, "\\'")}')" class="w-full font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center dpc-btn-order">
                     <i data-feather="phone-call" class="w-5 h-5 mr-2"></i> ${txtOrder}
                  </button>
                  <div class="grid grid-cols-2 gap-3">
-                    <a href="${p.url || PROM_FALLBACK_URL}" target="_blank" class="flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold py-2 px-2 rounded-lg transition-colors text-center shadow hover:shadow-md">
+                    <a href="${p.url || PROM_FALLBACK_URL}" target="_blank" class="flex items-center justify-center text-xs font-bold py-2 px-2 rounded-lg transition-colors text-center dpc-btn-prom">
                         ${txtProm}
                     </a>
-                    <a href="${p.olx_url || OLX_FALLBACK_URL}" target="_blank" class="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white text-xs font-bold py-2 px-2 rounded-lg transition-colors text-center shadow hover:shadow-md">
+                    <a href="${p.olx_url || OLX_FALLBACK_URL}" target="_blank" class="flex items-center justify-center text-xs font-bold py-2 px-2 rounded-lg transition-colors text-center dpc-btn-olx">
                         ${txtOlx}
                     </a>
                  </div>
@@ -494,14 +494,14 @@
     // Logic for Previous/Next
     let navHTML = `<ul class="flex space-x-2">`;
     if (page > 1) {
-      navHTML += `<li><button onclick="window.changePage(${page - 1})" class="px-3 py-2 bg-white border border-gray-300 rounded-md hover:bg-gray-50 text-gray-700">←</button></li>`;
+      navHTML += `<li><button onclick="window.changePage(${page - 1})" class="px-3 py-2 rounded-md dpc-page-btn">←</button></li>`;
     }
     for (let i = 1; i <= totalPages; i++) {
-      const activeClass = i === page ? "bg-blue-600 text-white border-blue-600" : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50";
-      navHTML += `<li><button onclick="window.changePage(${i})" class="px-3 py-2 border rounded-md ${activeClass}">${i}</button></li>`;
+      const activeClass = i === page ? "active" : "";
+      navHTML += `<li><button onclick="window.changePage(${i})" class="px-3 py-2 rounded-md dpc-page-btn ${activeClass}">${i}</button></li>`;
     }
     if (page < totalPages) {
-      navHTML += `<li><button onclick="window.changePage(${page + 1})" class="px-3 py-2 bg-white border border-gray-300 rounded-md hover:bg-gray-50 text-gray-700">→</button></li>`;
+      navHTML += `<li><button onclick="window.changePage(${page + 1})" class="px-3 py-2 rounded-md dpc-page-btn">→</button></li>`;
     }
     navHTML += `</ul>`;
     nav.innerHTML = navHTML;
@@ -613,14 +613,14 @@
       }
 
       if (items.length === 0) {
-        container.innerHTML = '<p class="text-sm text-gray-500 italic">Немає варіантів</p>';
+        container.innerHTML = '<p class="text-sm italic dpc-muted-text">Немає варіантів</p>';
         return;
       }
 
       container.innerHTML = items.map(item => `
-        <label class="flex items-center cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors">
-            <input type="checkbox" class="filter-checkbox form-checkbox text-blue-600 rounded border-gray-300" name="${name}" value="${item}"> 
-            <span class="ml-2 text-gray-700 text-sm font-medium">${item}</span>
+        <label class="flex items-center cursor-pointer p-2 rounded transition-colors dpc-filter-label">
+            <input type="checkbox" class="filter-checkbox form-checkbox rounded" name="${name}" value="${item}">
+            <span class="ml-2 text-sm font-medium">${item}</span>
         </label>
         `).join('');
     };
@@ -662,14 +662,14 @@
     let items = Object.keys(subtypes).filter(k => subtypes[k]);
 
     if (items.length === 0) {
-      container.innerHTML = '<p class="text-sm text-gray-500 italic">Немає варіантів</p>';
+      container.innerHTML = '<p class="text-sm italic dpc-muted-text">Немає варіантів</p>';
       return;
     }
 
     container.innerHTML = items.map(item => `
-      <label class="flex items-center cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors">
-          <input type="checkbox" class="filter-checkbox form-checkbox text-blue-600 rounded border-gray-300" name="periphery-type" value="${item}"> 
-          <span class="ml-2 text-gray-700 text-sm font-medium">${item}</span>
+      <label class="flex items-center cursor-pointer p-2 rounded transition-colors dpc-filter-label">
+          <input type="checkbox" class="filter-checkbox form-checkbox rounded" name="periphery-type" value="${item}">
+          <span class="ml-2 text-sm font-medium">${item}</span>
       </label>
       `).join('');
 

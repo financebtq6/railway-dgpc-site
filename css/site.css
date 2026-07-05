@@ -3,12 +3,34 @@
    Applied to every page via <link rel="stylesheet" href="./css/site.css">
    ===================================================== */
 
+/* --- Design tokens: dark / neon brand system (Stage 1) --- */
+:root {
+  --bg-base: #030712;
+  --bg-alt: #050b18;
+  --bg-panel: #07111f;
+
+  --accent-blue: #2563eb;
+  --accent-blue-bright: #0ea5ff;
+  --accent-green: #22c55e;
+  --accent-green-bright: #55ff7a;
+
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --glass-border: rgba(59, 130, 246, 0.35);
+  --glass-surface: rgba(15, 23, 42, 0.55);
+
+  --glow-blue: rgba(14, 165, 255, 0.35);
+  --glow-green: rgba(34, 197, 94, 0.3);
+}
+
 /* --- Typography base --- */
 body {
   font-family: 'Rajdhani', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #2f3640;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
 }
 
 .title-font {
@@ -80,17 +102,20 @@ h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.4; }
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1rem;
-  background-color: #2563eb;
+  background-color: var(--accent-blue);
   color: #fff;
   font-weight: 600;
   font-size: 0.9rem;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn-primary:hover { background-color: #1d4ed8; }
+.btn-primary:hover {
+  background-color: var(--accent-blue-bright);
+  box-shadow: 0 0 16px var(--glow-blue);
+}
 
 /* --- Footer text consistency --- */
 footer .footer-desc {
@@ -173,4 +198,278 @@ footer .footer-link:hover { color: #fff; }
 @keyframes headerFloat {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-6px); }
+}
+
+/* =====================================================
+   Stage 2: Catalog dark / glass system
+   (filter sidebar, sort controls, product cards, pagination)
+   ===================================================== */
+
+/* --- Filter sidebar --- */
+.dpc-filter-panel {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.dpc-filter-heading {
+  color: var(--text-primary);
+}
+
+.dpc-filter-label {
+  color: var(--text-muted);
+}
+
+.dpc-filter-label:hover {
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.filter-checkbox {
+  accent-color: var(--accent-blue-bright);
+}
+
+.dpc-muted-text {
+  color: var(--text-muted);
+}
+
+.dpc-reset-btn {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+}
+
+.dpc-reset-btn:hover {
+  border-color: var(--accent-blue-bright);
+  color: var(--text-primary);
+  background: rgba(14, 165, 255, 0.08);
+  box-shadow: 0 0 12px var(--glow-blue);
+}
+
+/* --- Sort / catalog controls --- */
+.dpc-controls-bar {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 0.75rem;
+}
+
+.dpc-select {
+  background: var(--bg-panel);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+}
+
+.dpc-select:focus {
+  border-color: var(--accent-blue-bright);
+  box-shadow: 0 0 0 3px var(--glow-blue);
+}
+
+.dpc-select option {
+  background: var(--bg-panel);
+  color: var(--text-primary);
+}
+
+/* --- Product cards --- */
+.product-card {
+  background: var(--glass-surface) !important;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.product-card:hover {
+  border-color: var(--accent-blue-bright);
+  box-shadow: 0 10px 30px var(--glow-blue);
+}
+
+.dpc-card-title {
+  color: var(--text-primary) !important;
+}
+
+.dpc-card-title:hover {
+  color: var(--accent-blue-bright) !important;
+}
+
+.dpc-price {
+  color: var(--accent-blue-bright) !important;
+}
+
+.dpc-btn-order {
+  background: var(--accent-blue);
+  color: #fff;
+}
+
+.dpc-btn-order:hover {
+  background: var(--accent-blue-bright);
+  box-shadow: 0 0 16px var(--glow-blue);
+}
+
+.dpc-btn-prom {
+  background: rgba(168, 85, 247, 0.16);
+  border: 1px solid rgba(168, 85, 247, 0.45);
+  color: #d8b4fe;
+}
+
+.dpc-btn-prom:hover {
+  background: rgba(168, 85, 247, 0.28);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
+}
+
+.dpc-btn-olx {
+  background: rgba(34, 197, 94, 0.14);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: var(--accent-green-bright);
+}
+
+.dpc-btn-olx:hover {
+  background: rgba(34, 197, 94, 0.24);
+  box-shadow: 0 0 12px var(--glow-green);
+}
+
+/* --- Pagination --- */
+.dpc-page-btn {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+}
+
+.dpc-page-btn:hover {
+  border-color: var(--accent-blue-bright);
+  color: var(--text-primary);
+}
+
+.dpc-page-btn.active {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue-bright);
+  color: #fff;
+  box-shadow: 0 0 12px var(--glow-blue);
+}
+
+/* --- Mobile filter modal --- */
+.dpc-modal-panel {
+  background: var(--bg-panel);
+  color: var(--text-primary);
+}
+
+/* =====================================================
+   Stage 3: Global navbar, product detail, secondary pages
+   ===================================================== */
+
+/* --- Global navbar (shared markup across all pages) --- */
+nav.bg-white.bg-opacity-90 {
+  background: rgba(5, 11, 24, 0.85) !important;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+nav.bg-white.bg-opacity-90 .nav-link {
+  color: var(--text-muted) !important;
+}
+
+nav.bg-white.bg-opacity-90 .nav-link:hover,
+nav.bg-white.bg-opacity-90 .nav-link.text-gray-900 {
+  color: var(--text-primary) !important;
+}
+
+nav.bg-white.bg-opacity-90 span.text-gray-800 {
+  color: var(--text-primary) !important;
+}
+
+nav.bg-white.bg-opacity-90 #mobile-menu-button {
+  color: var(--text-muted) !important;
+}
+
+nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
+  color: var(--text-primary) !important;
+  background: rgba(59, 130, 246, 0.12) !important;
+}
+
+#mobile-menu {
+  background: var(--bg-panel) !important;
+  border-top: 1px solid var(--glass-border);
+}
+
+#mobile-menu > div {
+  background: transparent !important;
+}
+
+#mobile-menu a {
+  color: var(--text-muted) !important;
+}
+
+#mobile-menu a:hover {
+  color: var(--text-primary) !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+#mobile-menu a.text-blue-700 {
+  background: rgba(14, 165, 255, 0.12) !important;
+  border-color: var(--accent-blue-bright) !important;
+  color: var(--accent-blue-bright) !important;
+}
+
+/* --- Generic reusable glass panel (secondary pages, product detail) --- */
+.dpc-glass-panel {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.dpc-glass-panel:hover {
+  border-color: var(--accent-blue-bright);
+}
+
+.dpc-text-primary {
+  color: var(--text-primary) !important;
+}
+
+/* --- Product detail view --- */
+.dpc-detail-panel {
+  background: var(--glass-surface) !important;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.dpc-gallery-bg {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dpc-thumb.border-gray-200 {
+  border-color: rgba(148, 163, 184, 0.3) !important;
+}
+
+.dpc-thumb.border-blue-600 {
+  border-color: var(--accent-blue-bright) !important;
+  box-shadow: 0 0 10px var(--glow-blue);
+}
+
+.dpc-badge {
+  background: rgba(14, 165, 255, 0.16);
+  color: var(--accent-blue-bright);
+}
+
+.dpc-spec-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+}
+
+.dpc-spec-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dpc-back-link {
+  color: var(--text-muted);
+}
+
+.dpc-back-link:hover {
+  color: var(--accent-blue-bright);
 }
