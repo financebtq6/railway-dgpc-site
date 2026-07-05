@@ -809,7 +809,7 @@
   // --- EVENTS ---
   window.changePage = function (newPage) {
     currentPage = newPage;
-    renderCatalogWithPagination(allProductsData, currentPage);
+    renderCatalogWithPagination(getFilteredAndSortedData(), currentPage);
     const catSection = document.getElementById("catalog");
     if (catSection) {
       const y = catSection.getBoundingClientRect().top + window.scrollY - 100;
