@@ -307,7 +307,7 @@
 
                      <!-- Thumbnails -->
                      ${allImages.length > 1 ? `
-                     <div class="relative z-10 flex gap-3 overflow-x-auto pb-2 max-w-full" style="scrollbar-width: thin;">
+                     <div class="relative z-10 flex gap-3 overflow-x-auto pb-2 max-w-full dpc-thumb-strip">
                          ${thumbnailsHtml}
                      </div>
                      ` : ''}
@@ -376,6 +376,17 @@
         thumbnail.classList.add('border-blue-600');
       }
     };
+
+    // Let vertical mouse wheel/trackpad scroll the thumbnail strip horizontally
+    const thumbStrip = container.querySelector('.dpc-thumb-strip');
+    if (thumbStrip) {
+      thumbStrip.addEventListener('wheel', function (e) {
+        if (thumbStrip.scrollWidth > thumbStrip.clientWidth) {
+          e.preventDefault();
+          thumbStrip.scrollLeft += e.deltaY;
+        }
+      }, { passive: false });
+    }
 
     if (window.feather) feather.replace();
 

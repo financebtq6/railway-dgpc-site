@@ -452,6 +452,35 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
   box-shadow: 0 0 10px var(--glow-blue);
 }
 
+.dpc-thumb {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
+
+.dpc-thumb-strip {
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-blue) transparent;
+}
+
+.dpc-thumb-strip::-webkit-scrollbar {
+  height: 6px;
+}
+
+.dpc-thumb-strip::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dpc-thumb-strip::-webkit-scrollbar-thumb {
+  background: var(--accent-blue);
+  border-radius: 999px;
+}
+
+.dpc-thumb-strip::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue-bright);
+}
+
 .dpc-badge {
   background: rgba(14, 165, 255, 0.16);
   color: var(--accent-blue-bright);
@@ -472,4 +501,133 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
 
 .dpc-back-link:hover {
   color: var(--accent-blue-bright);
+}
+
+/* =====================================================
+   Stage 4: Homepage hero, section rhythm, reviews
+   ===================================================== */
+
+/* --- Cinematic hero background (replaces Vanta network canvas) --- */
+.dpc-hero-bg {
+  background:
+    radial-gradient(ellipse 85% 65% at 25% 15%, rgba(14, 165, 255, 0.20) 0%, transparent 62%),
+    radial-gradient(ellipse 75% 55% at 82% 85%, rgba(34, 197, 94, 0.18) 0%, transparent 62%),
+    linear-gradient(180deg, #030712 0%, #050b18 60%, #030712 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .dpc-hero-bg {
+    background:
+      radial-gradient(ellipse 85% 65% at 25% 15%, rgba(14, 165, 255, 0.14) 0%, transparent 62%),
+      radial-gradient(ellipse 75% 55% at 82% 85%, rgba(34, 197, 94, 0.12) 0%, transparent 62%),
+      linear-gradient(180deg, #030712 0%, #050b18 60%, #030712 100%);
+  }
+}
+
+.dpc-hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 0%, transparent 75%);
+}
+
+.dpc-hero-brand-logo {
+  width: min(92vw, 620px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: drop-shadow(0 0 16px rgba(14, 165, 255, 0.3));
+}
+
+@media (max-width: 767px) {
+  .dpc-hero-brand-logo {
+    width: min(85vw, 360px);
+  }
+}
+
+.dpc-hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .dpc-hero-canvas {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dpc-hero-canvas {
+    opacity: 0.25;
+  }
+}
+
+.dpc-chip {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-muted);
+}
+
+.dpc-btn-outline {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+}
+
+.dpc-btn-outline:hover {
+  border-color: var(--accent-blue-bright);
+  color: var(--accent-blue-bright);
+  box-shadow: 0 0 16px var(--glow-blue);
+}
+
+/* --- Review cards (homepage marquee + reviews.html grid) --- */
+.dpc-review-card {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.dpc-review-card:hover {
+  border-color: var(--accent-blue-bright);
+  box-shadow: 0 10px 30px var(--glow-blue);
+}
+
+/* --- Marquee edge fade, recolored for dark background --- */
+.dpc-marquee-fade::before,
+.dpc-marquee-fade::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.dpc-marquee-fade::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-base) 0%, transparent 100%);
+}
+
+.dpc-marquee-fade::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-base) 0%, transparent 100%);
 }
