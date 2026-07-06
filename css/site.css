@@ -457,6 +457,129 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
   flex-shrink: 0;
 }
 
+/* --- Warranty / service accordion (secondary pages) --- */
+.dpc-warranty-intro {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 68ch;
+}
+
+.dpc-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dpc-accordion-item {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.1rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.dpc-accordion-item:hover {
+  border-color: var(--accent-blue-bright);
+  box-shadow: 0 8px 24px var(--glow-blue);
+}
+
+.dpc-accordion-item[open] {
+  border-color: var(--accent-blue-bright);
+  box-shadow: 0 8px 24px var(--glow-blue);
+}
+
+.dpc-accordion-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 1.05rem;
+}
+
+.dpc-accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.dpc-accordion-item summary::marker {
+  content: '';
+}
+
+.dpc-accordion-icon {
+  flex-shrink: 0;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-blue-bright);
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+
+.dpc-accordion-item[open] .dpc-accordion-icon {
+  transform: rotate(45deg);
+  background: rgba(14, 165, 255, 0.12);
+  border-color: var(--accent-blue-bright);
+}
+
+.dpc-accordion-body {
+  padding: 0 1.4rem 1.35rem;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.dpc-accordion-body ul {
+  margin-top: 0.4rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.dpc-accordion-body li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.dpc-accordion-body li:last-child {
+  margin-bottom: 0;
+}
+
+.dpc-accordion-body li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-blue-bright);
+  box-shadow: 0 0 6px var(--glow-blue);
+}
+
+@media (max-width: 640px) {
+  .dpc-accordion-item summary {
+    padding: 0.9rem 1.1rem;
+    font-size: 0.98rem;
+  }
+
+  .dpc-accordion-body {
+    padding: 0 1.1rem 1.1rem;
+    font-size: 0.95rem;
+  }
+}
+
 .dpc-thumb-strip {
   scroll-snap-type: x proximity;
   scroll-behavior: smooth;
