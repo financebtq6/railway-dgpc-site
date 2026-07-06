@@ -309,6 +309,26 @@ footer .footer-link:hover { color: #fff; }
   box-shadow: 0 0 16px var(--glow-blue);
 }
 
+/* --- Hero primary CTA: premium gradient + neon glow (scoped, does not affect .dpc-btn-order) --- */
+.dpc-primary-cta {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-bright) 100%);
+  border: 1px solid rgba(14, 165, 255, 0.5);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 4px 18px rgba(14, 165, 255, 0.35),
+    0 0 22px rgba(14, 165, 255, 0.22);
+}
+
+.dpc-primary-cta:hover {
+  background: linear-gradient(135deg, var(--accent-blue-bright) 0%, #38f0ff 100%);
+  border-color: rgba(14, 165, 255, 0.85);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 6px 26px rgba(14, 165, 255, 0.5),
+    0 0 30px rgba(14, 165, 255, 0.4);
+}
+
 .dpc-btn-prom {
   background: rgba(168, 85, 247, 0.16);
   border: 1px solid rgba(168, 85, 247, 0.45);
@@ -395,6 +415,28 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
 
 #mobile-menu > div {
   background: transparent !important;
+}
+
+/* --- Navbar brand logo (shared image across all pages) --- */
+.navbar-logo {
+  width: 190px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .navbar-logo {
+    width: 190px;
+    height: 52px;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar-logo {
+    width: 165px;
+    height: 46px;
+  }
 }
 
 #mobile-menu a {
@@ -717,6 +759,43 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
   border-color: var(--accent-blue-bright);
   color: var(--accent-blue-bright);
   box-shadow: 0 0 16px var(--glow-blue);
+}
+
+/* --- Mobile hero: let content breathe instead of clipping at 90vh --- */
+@media (max-width: 767px) {
+  .hero-section {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 5.5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* --- Mobile hero buttons: consistent size for all 3 CTAs --- */
+@media (max-width: 640px) {
+  .dpc-hero-actions {
+    width: 100%;
+  }
+
+  .dpc-hero-actions a,
+  .dpc-hero-actions button {
+    width: 100%;
+    height: 58px;
+    padding: 0 1.25rem;
+    font-size: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .dpc-hero-chips {
+    gap: 0.6rem;
+  }
+
+  .dpc-chip {
+    font-size: 0.875rem;
+    padding: 0.55rem 0.9rem;
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 /* --- Review cards (homepage marquee + reviews.html grid) --- */

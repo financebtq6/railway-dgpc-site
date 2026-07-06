@@ -163,8 +163,7 @@
                 <!-- Logo -->
 
                 <div class="flex-shrink-0 flex items-center"><a href="index.html" class="flex items-center"><img
-                            src="./images/logo.png?v=13" alt="Digital PC Logo" class="w-8 h-8"><span
-                            class="ml-2 text-xl font-bold title-font text-gray-800">DIGITAL PC</span></a></div>
+                            src="./images/digitalpc-logo-hero.png" alt="Digital PC Logo" class="navbar-logo"></a></div>
 
                 <!-- Desktop Menu -->
 
@@ -499,36 +498,6 @@
 
         });
 
-    </script>
-
-
-    <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', function () {
-                    mobileMenu.classList.toggle('hidden');
-                });
-
-                // Close menu when clicking on a link
-                const menuLinks = mobileMenu.querySelectorAll('a');
-                menuLinks.forEach(link => {
-                    link.addEventListener('click', function () {
-                        mobileMenu.classList.add('hidden');
-                    });
-                });
-
-                // Close menu when clicking outside
-                document.addEventListener('click', function (event) {
-                    if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
-            }
-        });
     </script>
 
     <!-- Telegram Visitor Analytics -->
