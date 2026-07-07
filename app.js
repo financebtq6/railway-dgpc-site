@@ -138,6 +138,11 @@
 
   // --- APP RENDERER ---
   function renderApp() {
+    // Any full re-render means we're not inside an active product photo
+    // viewer anymore — always drop the lightbox + scroll lock first so a
+    // stale one can never survive a route/filter/language change.
+    cleanupProductLightbox();
+
     const catalogContainer = document.getElementById("catalog");
     const detailContainer = document.getElementById("product-detail");
     const paginationNav = document.getElementById("pagination-nav");
@@ -303,7 +308,7 @@
                      <!-- Main Image -->
                      <img id="mainProductImage" src="${mainImage}" alt="${product.title}"
                           class="relative z-10 max-h-[500px] w-full object-contain drop-shadow-2xl transition-all duration-300 mb-4 cursor-pointer hover:scale-105"
-                          data-images='${JSON.stringify(allImages)}'>
+                          data-images='${JSON.stringify(allImages)}' data-current-index="0">
 
                      <!-- Thumbnails -->
                      ${allImages.length > 1 ? `
@@ -369,7 +374,8 @@
       const mainImg = document.getElementById('mainProductImage');
       if (mainImg) {
         mainImg.src = newSrc;
-        const thumbnails = thumbnail.parentElement.querySelectorAll('img');
+        const thumbnails = Array.prototype.slice.call(thumbnail.parentElement.querySelectorAll('img'));
+        mainImg.dataset.currentIndex = String(thumbnails.indexOf(thumbnail));
         thumbnails.forEach(t => t.classList.remove('border-blue-600'));
         thumbnails.forEach(t => t.classList.add('border-gray-200'));
         thumbnail.classList.remove('border-gray-200');
@@ -398,8 +404,11 @@
     setTimeout(() => {
       const mainImg = document.getElementById('mainProductImage');
       if (mainImg) {
-        const images = JSON.parse(mainImg.getAttribute('data-images') || '[]');
-        mainImg.addEventListener('click', () => openLightbox(images, 0));
+        mainImg.addEventListener('click', () => {
+          const images = JSON.parse(mainImg.getAttribute('data-images') || '[]');
+          const startIndex = parseInt(mainImg.dataset.currentIndex || '0', 10) || 0;
+          openProductLightbox(images, startIndex);
+        });
       }
     }, 100);
 
@@ -1163,109 +1172,142 @@
     renderApp();
   };
 
-  // --- LIGHTBOX GALLERY ---
+  // --- PRODUCT FULLSCREEN LIGHTBOX ---
+  // Scroll lock uses a CSS class (not inline styles) so it can never conflict
+  // with other inline overflow styles, and repeated calls are always safe/idempotent.
+  function lockPageScroll() {
+    document.documentElement.classList.add('dpc-scroll-locked');
+    document.body.classList.add('dpc-scroll-locked');
+  }
+
+  function restorePageScroll() {
+    document.documentElement.classList.remove('dpc-scroll-locked');
+    document.body.classList.remove('dpc-scroll-locked');
+  }
+
   let lightboxImages = [];
-  let currentLightboxIndex = 0;
+  let lightboxIndex = 0;
+  let lightboxEl = null;
+  let lightboxTouchStartX = 0;
 
-  window.openLightbox = function (images, startIndex = 0) {
-    lightboxImages = images;
-    currentLightboxIndex = startIndex;
+  // Builds the lightbox DOM and wires up its listeners exactly once. Every
+  // subsequent open() call reuses the same singleton node/listeners, so
+  // opening many different products never stacks up duplicate DOM nodes or
+  // duplicate event listeners.
+  function ensureProductLightbox() {
+    if (lightboxEl) return lightboxEl;
 
-    // Create lightbox if doesn't exist
-    let lightbox = document.getElementById('productLightbox');
-    if (!lightbox) {
-      const lightboxHTML = `
-        <div id="productLightbox" class="lightbox">
-          <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
-          <div class="lightbox-arrow left" onclick="changeLightboxImage(-1)">&#10094;</div>
-          <div class="lightbox-arrow right" onclick="changeLightboxImage(1)">&#10095;</div>
-          <div class="lightbox-content">
-            <img id="lightboxImage" class="lightbox-image" src="" alt="">
-            <div class="lightbox-thumbnails" id="lightboxThumbnails"></div>
-          </div>
+    const html = `
+      <div class="product-lightbox" id="productLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Перегляд зображення товару">
+        <div class="product-lightbox__backdrop" data-lightbox-close></div>
+        <div class="product-lightbox__stage">
+          <button type="button" class="product-lightbox__close" data-lightbox-close aria-label="Закрити">&times;</button>
+          <button type="button" class="product-lightbox__arrow product-lightbox__arrow--prev" data-lightbox-prev aria-label="Попереднє зображення">&#10094;</button>
+          <img class="product-lightbox__image" id="productLightboxImage" src="" alt="">
+          <button type="button" class="product-lightbox__arrow product-lightbox__arrow--next" data-lightbox-next aria-label="Наступне зображення">&#10095;</button>
+          <div class="product-lightbox__counter" id="productLightboxCounter"></div>
+          <div class="product-lightbox__thumbs" id="productLightboxThumbs"></div>
         </div>
-      `;
-      document.body.insertAdjacentHTML('beforeend', lightboxHTML);
-      lightbox = document.getElementById('productLightbox');
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', html);
+    lightboxEl = document.getElementById('productLightbox');
 
-      // Add keyboard support
-      document.addEventListener('keydown', function (e) {
-        if (lightbox.classList.contains('active')) {
-          if (e.key === 'Escape') closeLightbox();
-          if (e.key === 'ArrowLeft') changeLightboxImage(-1);
-          if (e.key === 'ArrowRight') changeLightboxImage(1);
-        }
-      });
-
-      // Add swipe support
-      let touchStartX = 0;
-      let touchEndX = 0;
-
-      lightbox.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
-
-      lightbox.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-      }, { passive: true });
-
-      function handleSwipe() {
-        if (Math.abs(touchStartX - touchEndX) > 50) { // Threshold 50px
-          if (touchEndX < touchStartX) changeLightboxImage(1); // Swipe Left -> Next
-          if (touchEndX > touchStartX) changeLightboxImage(-1); // Swipe Right -> Prev
-        }
+    lightboxEl.addEventListener('click', function (e) {
+      if (e.target.closest('[data-lightbox-prev]')) { showLightboxImage(lightboxIndex - 1); return; }
+      if (e.target.closest('[data-lightbox-next]')) { showLightboxImage(lightboxIndex + 1); return; }
+      const thumb = e.target.closest('[data-lightbox-thumb]');
+      if (thumb) { showLightboxImage(Number(thumb.dataset.lightboxThumb)); return; }
+      // Close only on the backdrop, close button, or empty stage padding —
+      // never when the click lands on the image itself.
+      if (e.target.closest('[data-lightbox-close]') || e.target.classList.contains('product-lightbox__stage')) {
+        closeProductLightbox();
       }
+    });
 
-      // Close on background click
-      lightbox.addEventListener('click', function (e) {
-        if (e.target.classList.contains('lightbox') || e.target.classList.contains('lightbox-content')) {
-          closeLightbox();
-        }
-      });
-    }
+    document.addEventListener('keydown', function (e) {
+      if (!lightboxEl.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeProductLightbox();
+      if (e.key === 'ArrowLeft') showLightboxImage(lightboxIndex - 1);
+      if (e.key === 'ArrowRight') showLightboxImage(lightboxIndex + 1);
+    });
 
-    showLightboxImage(currentLightboxIndex);
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  };
+    lightboxEl.addEventListener('touchstart', function (e) {
+      lightboxTouchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
 
-  window.closeLightbox = function () {
-    const lightbox = document.getElementById('productLightbox');
-    if (lightbox) {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  };
+    lightboxEl.addEventListener('touchend', function (e) {
+      const touchEndX = e.changedTouches[0].screenX;
+      if (Math.abs(lightboxTouchStartX - touchEndX) > 50) {
+        if (touchEndX < lightboxTouchStartX) showLightboxImage(lightboxIndex + 1); // swipe left -> next
+        else showLightboxImage(lightboxIndex - 1); // swipe right -> prev
+      }
+    }, { passive: true });
 
-  window.changeLightboxImage = function (direction) {
-    currentLightboxIndex += direction;
-    if (currentLightboxIndex >= lightboxImages.length) currentLightboxIndex = 0;
-    if (currentLightboxIndex < 0) currentLightboxIndex = lightboxImages.length - 1;
-    showLightboxImage(currentLightboxIndex);
-  };
+    return lightboxEl;
+  }
 
   function showLightboxImage(index) {
-    const img = document.getElementById('lightboxImage');
-    const thumbnailsContainer = document.getElementById('lightboxThumbnails');
+    if (!lightboxImages.length) return;
+    const total = lightboxImages.length;
+    lightboxIndex = ((index % total) + total) % total;
 
-    if (img && lightboxImages[index]) {
-      img.src = lightboxImages[index];
+    const imgEl = document.getElementById('productLightboxImage');
+    if (imgEl) imgEl.src = lightboxImages[lightboxIndex];
 
-      // Update thumbnails
-      if (thumbnailsContainer) {
-        thumbnailsContainer.innerHTML = lightboxImages.map((src, idx) => `
-          <img src="${src}" 
-               class="lightbox-thumbnail ${idx === index ? 'active' : ''}" 
-               onclick="showLightboxImage(${idx}); currentLightboxIndex = ${idx};"
-               alt="Thumbnail ${idx + 1}">
-        `).join('');
-      }
+    const counterEl = document.getElementById('productLightboxCounter');
+    if (counterEl) {
+      counterEl.textContent = total > 1 ? `${lightboxIndex + 1} / ${total}` : '';
+      counterEl.hidden = total <= 1;
+    }
+
+    const thumbsEl = document.getElementById('productLightboxThumbs');
+    if (thumbsEl) {
+      thumbsEl.hidden = total <= 1;
+      thumbsEl.innerHTML = total > 1 ? lightboxImages.map((src, idx) => `
+          <img src="${src}" data-lightbox-thumb="${idx}" class="${idx === lightboxIndex ? 'is-active' : ''}" alt="Мініатюра ${idx + 1}" loading="lazy">
+        `).join('') : '';
+    }
+
+    if (lightboxEl) {
+      const prevBtn = lightboxEl.querySelector('[data-lightbox-prev]');
+      const nextBtn = lightboxEl.querySelector('[data-lightbox-next]');
+      if (prevBtn) prevBtn.hidden = total <= 1;
+      if (nextBtn) nextBtn.hidden = total <= 1;
     }
   }
 
+  function openProductLightbox(images, startIndex) {
+    if (!images || !images.length) return;
+    lightboxImages = images;
+    ensureProductLightbox();
+    showLightboxImage(startIndex || 0);
+    lightboxEl.classList.add('is-open');
+    lightboxEl.setAttribute('aria-hidden', 'false');
+    lockPageScroll();
+  }
+
+  function closeProductLightbox() {
+    if (!lightboxEl) return;
+    lightboxEl.classList.remove('is-open');
+    lightboxEl.setAttribute('aria-hidden', 'true');
+    restorePageScroll();
+  }
+
+  // Defensive cleanup: guarantees the lightbox is closed and page scroll is
+  // never left locked, no matter how the user left the product detail view
+  // (Back button, hash change back to catalog, closing/re-rendering, etc.).
+  // Safe to call unconditionally — it is a no-op if nothing is open/locked.
+  function cleanupProductLightbox() {
+    if (lightboxEl) lightboxEl.classList.remove('is-open');
+    restorePageScroll();
+  }
+
   // Listeners
-  window.addEventListener('hashchange', handleHashChange);
+  window.addEventListener('hashchange', function () {
+    cleanupProductLightbox();
+    handleHashChange();
+  });
   document.addEventListener("DOMContentLoaded", init);
 
 })();
