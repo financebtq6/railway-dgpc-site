@@ -19,3 +19,4 @@ data/olx_listing_urls.txt
 # Temp / Backup
 *.tmp
 *.bak
+.env

@@ -1,7 +1,10 @@
 /*
-  Digital PC - Cart & Favorites (Stage 1)
-  Self-contained module: localStorage persistence only, no accounts, no
-  database, no Nova Poshta, no Telegram submission, no payment integration.
+  Digital PC - Cart & Favorites (Stage 1) + Cart Checkout (Stage 2)
+  Cart/favorites: localStorage persistence only, no accounts, no database.
+  Checkout: submits an order request (name/phone/city/NP branch/payment
+  method/comment + cart items) to the server-side /api/telegram-notify
+  endpoint (server.js) — no online payment, no Nova Poshta API yet (plain
+  text city/branch inputs).
   Loaded on every public page. Exposes window.DpcCart / window.DpcFavorites
   and renders the standalone cart.html / favorites.html pages when their
   root containers are present.
@@ -125,10 +128,6 @@
     DpcCart.add(id, 1);
     const btn = event && event.currentTarget;
     if (btn) btn.classList.add('is-active');
-  };
-
-  window.dpcSubmitOrderPlaceholder = function () {
-    alert('Оформлення заявки буде додано на наступному етапі.');
   };
 
   // --- Shared product fetch (favorites.html / cart.html only) ---
@@ -255,6 +254,7 @@
       if (items.length === 0) {
         root.innerHTML = emptyStateHTML('shopping-cart', 'Ваш кошик порожній.');
         if (summaryEl) summaryEl.style.display = 'none';
+        window.dpcCloseCheckoutForm();
         if (window.feather) feather.replace();
         return;
       }
@@ -280,8 +280,145 @@
     renderCartPage();
   };
 
+  // --- Cart checkout form (Stage 2) ---
+  window.dpcOpenCheckoutForm = function () {
+    const wrap = document.getElementById('dpc-checkout-form-wrap');
+    if (!wrap) return;
+    wrap.style.display = '';
+    wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const nameInput = document.getElementById('checkout-name');
+    if (nameInput) nameInput.focus();
+  };
+
+  window.dpcCloseCheckoutForm = function () {
+    const wrap = document.getElementById('dpc-checkout-form-wrap');
+    if (wrap) wrap.style.display = 'none';
+  };
+
+  function validatePhoneUA(phone) {
+    return /^\+380\d{9}$/.test(phone.replace(/\s+/g, ''));
+  }
+
+  function showCheckoutMessage(type, text) {
+    const errorEl = document.getElementById('dpc-checkout-error');
+    const successEl = document.getElementById('dpc-checkout-success');
+    if (errorEl) errorEl.style.display = 'none';
+    if (successEl) successEl.style.display = 'none';
+    const el = type === 'error' ? errorEl : successEl;
+    if (el) {
+      el.textContent = text;
+      el.style.display = '';
+    }
+  }
+
+  function initCheckoutForm() {
+    const form = document.getElementById('dpc-checkout-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById('checkout-name').value.trim(),
+        phone: document.getElementById('checkout-phone').value.trim(),
+        city: document.getElementById('checkout-city').value.trim(),
+        warehouse: document.getElementById('checkout-warehouse').value.trim(),
+        payment: document.getElementById('checkout-payment').value,
+        comment: document.getElementById('checkout-comment').value.trim()
+      };
+
+      if (!data.name || !data.phone || !data.city || !data.warehouse || !data.payment) {
+        showCheckoutMessage('error', 'Будь ласка, заповніть усі обов’язкові поля.');
+        return;
+      }
+      if (!validatePhoneUA(data.phone)) {
+        showCheckoutMessage('error', 'Будь ласка, введіть коректний номер телефону у форматі +380XXXXXXXXX');
+        return;
+      }
+
+      const cart = readCart();
+      const ids = Object.keys(cart);
+      if (ids.length === 0) {
+        showCheckoutMessage('error', 'Ваш кошик порожній.');
+        return;
+      }
+
+      const submitBtn = document.getElementById('dpc-checkout-submit-btn');
+      const originalHTML = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Відправка...';
+      }
+
+      fetchProducts().then(function (products) {
+        const items = ids
+          .map(function (id) { return { product: products.find(function (p) { return p.id === id; }), qty: cart[id] }; })
+          .filter(function (x) { return x.product; });
+
+        if (items.length === 0) {
+          throw new Error('Товари з кошика не знайдено.');
+        }
+
+        const total = items.reduce(function (sum, x) { return sum + (Number(x.product.price) || 0) * x.qty; }, 0);
+
+        const itemLines = items.map(function (x, i) {
+          const lineTotal = (Number(x.product.price) || 0) * x.qty;
+          return (i + 1) + '. ' + x.product.title + ' — ' + x.qty + ' шт. × ' + money(x.product.price) + ' = ' + money(lineTotal);
+        }).join('\n');
+
+        const text =
+          'Нове замовлення з кошика Digital PC!\n' +
+          '==========================\n' +
+          '\u{1F464} Ім\'я: ' + data.name + '\n' +
+          '\u{1F4F1} Телефон: ' + data.phone + '\n' +
+          '\u{1F3D9} Місто: ' + data.city + '\n' +
+          '\u{1F4E6} Відділення Нової Пошти: ' + data.warehouse + '\n' +
+          '\u{1F4B3} Спосіб оплати: ' + data.payment + '\n' +
+          '\u{1F4AC} Коментар: ' + (data.comment || 'Немає') + '\n' +
+          '--------------------------\n' +
+          'Товари:\n' + itemLines + '\n' +
+          '--------------------------\n' +
+          '\u{1F4B0} Сума замовлення: ' + money(total) + '\n' +
+          '\u{1F4CD} Джерело: Cart checkout\n' +
+          '⏰ Час: ' + new Date().toLocaleString('uk-UA');
+
+        return fetch('/api/telegram-notify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: text })
+        }).then(function (res) {
+          return res.json().catch(function () { return { ok: false }; }).then(function (resData) {
+            if (!res.ok || !resData.ok) {
+              throw new Error(resData.error || 'Telegram send failed');
+            }
+          });
+        });
+      }).then(function () {
+        showCheckoutMessage('success', 'Дякуємо! Заявку відправлено, ми зв’яжемося з вами найближчим часом. Кошик очищено.');
+        form.reset();
+        DpcCart.clear();
+        renderCartPage();
+        setTimeout(function () {
+          window.dpcCloseCheckoutForm();
+          const successEl = document.getElementById('dpc-checkout-success');
+          if (successEl) successEl.style.display = 'none';
+        }, 4000);
+      }).catch(function (err) {
+        console.error('Checkout submit failed:', err);
+        showCheckoutMessage('error', 'Помилка відправки заявки. Спробуйте ще раз або зв’яжіться з нами за телефоном.');
+      }).finally(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalHTML;
+          if (window.feather) feather.replace();
+        }
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     updateBadges();
+    initCheckoutForm();
     renderFavoritesPage();
     renderCartPage();
   });

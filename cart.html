@@ -163,10 +163,60 @@
                 <span>Сума замовлення</span>
                 <span id="dpc-cart-total-value">0 ₴</span>
             </div>
-            <button type="button" onclick="window.dpcSubmitOrderPlaceholder()"
+            <button type="button" id="dpc-checkout-toggle-btn" onclick="window.dpcOpenCheckoutForm()"
                 class="w-full font-bold py-4 px-6 rounded-2xl transition-all flex items-center justify-center text-lg dpc-btn-order">
                 <i data-feather="check-circle" class="w-5 h-5 mr-2"></i> Оформити заявку
             </button>
+        </div>
+
+        <div id="dpc-checkout-form-wrap" class="dpc-checkout-form-wrap" style="display:none;">
+            <form id="dpc-checkout-form" class="dpc-checkout-form" novalidate>
+                <h3 class="dpc-checkout-title">Оформлення заявки</h3>
+
+                <div class="dpc-form-field">
+                    <label for="checkout-name">Ім'я *</label>
+                    <input type="text" id="checkout-name" name="name" required placeholder="Ваше ім'я">
+                </div>
+                <div class="dpc-form-field">
+                    <label for="checkout-phone">Телефон *</label>
+                    <input type="tel" id="checkout-phone" name="phone" required placeholder="+380 XX XXX XX XX">
+                </div>
+                <div class="dpc-form-field">
+                    <label for="checkout-city">Місто *</label>
+                    <input type="text" id="checkout-city" name="city" required placeholder="Ваше місто">
+                </div>
+                <div class="dpc-form-field">
+                    <label for="checkout-warehouse">Відділення Нової Пошти *</label>
+                    <input type="text" id="checkout-warehouse" name="warehouse" required placeholder="Наприклад: Відділення №5">
+                </div>
+                <div class="dpc-form-field">
+                    <label for="checkout-payment">Спосіб оплати *</label>
+                    <select id="checkout-payment" name="payment" required>
+                        <option value="" disabled selected>Оберіть спосіб оплати</option>
+                        <option value="Передоплата">Передоплата</option>
+                        <option value="Накладний платіж Нова Пошта">Накладний платіж Нова Пошта</option>
+                        <option value="Оплата частинами">Оплата частинами</option>
+                        <option value="Потрібна консультація">Потрібна консультація</option>
+                    </select>
+                </div>
+                <div class="dpc-form-field">
+                    <label for="checkout-comment">Коментар до замовлення</label>
+                    <textarea id="checkout-comment" name="comment" rows="3" placeholder="Додаткова інформація (необов'язково)"></textarea>
+                </div>
+
+                <div id="dpc-checkout-error" class="dpc-checkout-message dpc-checkout-message--error" style="display:none;"></div>
+                <div id="dpc-checkout-success" class="dpc-checkout-message dpc-checkout-message--success" style="display:none;"></div>
+
+                <div class="dpc-checkout-actions">
+                    <button type="submit" id="dpc-checkout-submit-btn"
+                        class="w-full font-bold py-4 px-6 rounded-2xl transition-all flex items-center justify-center text-lg dpc-btn-order">
+                        <i data-feather="send" class="w-5 h-5 mr-2"></i> Відправити заявку
+                    </button>
+                    <button type="button" onclick="window.dpcCloseCheckoutForm()" class="dpc-checkout-cancel">
+                        Скасувати
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 

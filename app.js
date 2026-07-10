@@ -960,12 +960,10 @@
       return /^\+380\d{9}$/.test(cleaned);
     }
 
-    // Telegram send function
+    // Telegram send function — relays through the server-side
+    // /api/telegram-notify endpoint (server.js) so the bot token stays out
+    // of frontend code. Message format is unchanged from before.
     async function sendToTelegram(formData) {
-      // FINAL PRODUCTION CREDENTIALS
-      const BOT_TOKEN = '8396429322:AAHc8xU9IGechcfnFpFLqH-PDWENKNJ4yG4';
-      const CHAT_ID = '6558889586';
-
       const text = `Нова заявка з сайту Digital PC!\n` +
         `==========================\n` +
         `👤 Ім'я: ${formData.name}\n` +
@@ -974,20 +972,16 @@
         `🖥 Товар: ${formData.product || 'Без товару'}\n` +
         `⏰ Час: ${new Date().toLocaleString('uk-UA')}`;
 
-      // Use GET request with query params to avoid preflight complications, 
-      // and no-cors mode to allow the browser to send it to a different origin.
-      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}`;
-
-      await fetch(url, {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
+      const res = await fetch('/api/telegram-notify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
       });
-
-      // Since mode is no-cors, we get an opaque response. We assume success if no network error occurred.
-      return { ok: true };
+      const data = await res.json().catch(() => ({ ok: false }));
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || 'Telegram send failed');
+      }
+      return data;
     }
 
     // Form submission handler

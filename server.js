@@ -1,10 +1,69 @@
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Locally, TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID come from the .env file
+// (via dotenv, above). On Railway, dotenv.config() is a harmless no-op
+// when there's no .env file — the same variables are provided instead via
+// Railway's own "Variables" tab, which are already present in
+// process.env before this process starts.
+const TELEGRAM_CONFIGURED = !!(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID);
+console.log('Telegram env configured:', TELEGRAM_CONFIGURED);
+
+app.use(express.json());
+
 // This serves your index.html and app.js
 app.use(express.static(path.join(__dirname, '/')));
+
+// Reusable server-side Telegram sender. Never logs or returns the token/
+// chat id — only Telegram's own response (which doesn't contain them).
+async function sendTelegramMessage(text) {
+  const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+  const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+
+  if (!BOT_TOKEN || !CHAT_ID) {
+    console.error('[telegram-notify] Missing TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID in the environment.');
+    const err = new Error('Telegram is not configured on the server.');
+    err.status = 500;
+    throw err;
+  }
+
+  const tgRes = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: CHAT_ID, text })
+  });
+  const tgData = await tgRes.json().catch(() => ({}));
+
+  if (!tgRes.ok || !tgData.ok) {
+    console.error('[telegram-notify] Telegram API rejected the message. HTTP status:', tgRes.status, 'description:', tgData.description || '(none)');
+    const err = new Error('Telegram rejected the message.');
+    err.status = 502;
+    throw err;
+  }
+}
+
+// Relays a pre-formatted lead/order notification to Telegram. Keeps the
+// bot token and chat id server-side (read from environment variables)
+// instead of exposed in frontend JS. Used by both the "Зв'яжіться з нами"
+// contact form and the cart checkout form.
+app.post('/api/telegram-notify', async (req, res) => {
+  const text = typeof req.body?.text === 'string' ? req.body.text.trim() : '';
+  if (!text) {
+    console.error('[telegram-notify] Request rejected: missing text field.');
+    return res.status(400).json({ ok: false, error: 'Missing text' });
+  }
+
+  try {
+    await sendTelegramMessage(text);
+    return res.json({ ok: true });
+  } catch (err) {
+    return res.status(err.status || 502).json({ ok: false, error: err.message });
+  }
+});
 
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server listening on port ${port}`);

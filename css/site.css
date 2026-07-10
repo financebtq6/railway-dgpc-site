@@ -1475,3 +1475,131 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
   .dpc-cart-row-linetotal { grid-area: total; }
   .dpc-cart-row-remove { grid-area: remove; justify-self: end; }
 }
+
+/* =====================================================
+   Stage 7: Cart checkout form (Stage 2 — order request via Telegram,
+   no online payment)
+   ===================================================== */
+
+.dpc-checkout-form-wrap {
+  margin-top: 1.5rem;
+}
+
+.dpc-checkout-form {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.dpc-checkout-title {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.dpc-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.dpc-form-field label {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.dpc-form-field input,
+.dpc-form-field select,
+.dpc-form-field textarea {
+  background: var(--bg-panel);
+  border: 1px solid var(--glass-border);
+  border-radius: 0.6rem;
+  padding: 0.7rem 0.9rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dpc-form-field input::placeholder,
+.dpc-form-field textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.dpc-form-field input:focus,
+.dpc-form-field select:focus,
+.dpc-form-field textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue-bright);
+  box-shadow: 0 0 0 3px var(--glow-blue);
+}
+
+.dpc-form-field textarea {
+  resize: vertical;
+  min-height: 5rem;
+}
+
+.dpc-form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2394a3b8'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.1rem;
+  padding-right: 2.5rem;
+}
+
+.dpc-form-field select option {
+  background: var(--bg-panel);
+  color: var(--text-primary);
+}
+
+.dpc-checkout-message {
+  border-radius: 0.6rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.dpc-checkout-message--error {
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  color: #fca5a5;
+}
+
+.dpc-checkout-message--success {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #86efac;
+}
+
+.dpc-checkout-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dpc-checkout-cancel {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.dpc-checkout-cancel:hover {
+  color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+  .dpc-checkout-form {
+    padding: 1.25rem;
+  }
+}
