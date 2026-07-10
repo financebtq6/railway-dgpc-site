@@ -1603,3 +1603,97 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
     padding: 1.25rem;
   }
 }
+
+/* =====================================================
+   Stage 8: Shared contact/consultation lead modal (dark theme)
+   Used by both "Зв'яжіться з нами" and "Консультація" — same modal,
+   same markup (app.js createLeadFormModal). Reuses .dpc-form-field,
+   .dpc-checkout-message, .dpc-btn-order and .dpc-btn-outline so it
+   matches the checkout form and site buttons exactly.
+   ===================================================== */
+
+.dpc-lead-modal-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 40px var(--glow-blue);
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+.dpc-lead-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.dpc-lead-modal-close:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-blue-bright);
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.dpc-lead-telegram-btn {
+  background: var(--accent-green);
+  color: #fff;
+}
+
+.dpc-lead-telegram-btn:hover {
+  background: var(--accent-green-bright);
+  box-shadow: 0 0 16px var(--glow-green);
+}
+
+.dpc-lead-tooltip {
+  position: absolute;
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-panel);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.dpc-lead-divider {
+  position: relative;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.dpc-lead-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--glass-border);
+}
+
+.dpc-lead-divider span {
+  position: relative;
+  background: var(--bg-panel);
+  padding: 0 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 480px) {
+  .dpc-lead-modal-panel {
+    padding: 1.5rem !important;
+  }
+}

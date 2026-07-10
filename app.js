@@ -869,83 +869,71 @@
     if (document.getElementById("lead-form-modal")) return;
 
     const modalHTML = `
-      <div id="lead-form-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative transform transition-all">
-          <button onclick="window.closeLeadForm()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
-            <i data-feather="x" class="w-6 h-6"></i>
+      <div id="lead-form-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="dpc-lead-modal-panel max-w-md w-full p-8 relative transform transition-all">
+          <button onclick="window.closeLeadForm()" class="dpc-lead-modal-close" aria-label="Закрити">
+            <i data-feather="x" class="w-5 h-5"></i>
           </button>
-          
+
           <div class="mb-6">
-            <h2 class="text-2xl font-bold text-gray-900 mb-2">Зв'яжіться з нами</h2>
-            <p class="text-gray-600">Оберіть зручний спосіб зв'язку</p>
+            <h2 class="text-2xl font-bold dpc-text-primary mb-2">Зв'яжіться з нами</h2>
+            <p class="dpc-muted-text">Оберіть зручний спосіб зв'язку</p>
           </div>
 
           <!-- Quick Contact Buttons -->
           <div class="grid grid-cols-2 gap-3 mb-6">
-            <a href="tel:${PHONE_NUMBER}" 
+            <a href="tel:${PHONE_NUMBER}"
               title="${PHONE_DISPLAY}"
-              class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-all shadow-md hover:shadow-lg group relative">
+              class="dpc-btn-order flex items-center justify-center font-bold py-3 px-4 rounded-lg transition-all group relative">
               <i data-feather="phone" class="w-5 h-5 mr-2"></i>
-              <span class="hidden md:inline">Зателефонувати</span>
-              <span class="md:hidden">Зателефонувати</span>
-              <span class="hidden md:group-hover:block absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap z-10 shadow-lg">
+              Зателефонувати
+              <span class="dpc-lead-tooltip hidden md:group-hover:block">
                 ${PHONE_DISPLAY}
               </span>
             </a>
             <a href="${TELEGRAM_URL}" target="_blank"
-              class="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-all shadow-md hover:shadow-lg">
+              class="dpc-lead-telegram-btn flex items-center justify-center font-bold py-3 px-4 rounded-lg transition-all">
               <i data-feather="send" class="w-5 h-5 mr-2"></i>
               Telegram
             </a>
           </div>
 
-          <div class="relative mb-6">
-            <div class="absolute inset-0 flex items-center">
-              <div class="w-full border-t border-gray-300"></div>
-            </div>
-            <div class="relative flex justify-center text-sm">
-              <span class="px-2 bg-white text-gray-500">або залиште заявку</span>
-            </div>
+          <div class="dpc-lead-divider">
+            <span>або залиште заявку</span>
           </div>
 
           <form id="lead-form" class="space-y-4">
-            <div>
-              <label for="lead-name" class="block text-sm font-medium text-gray-700 mb-1">Ім'я *</label>
-              <input type="text" id="lead-name" name="name" required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                placeholder="Ваше ім'я">
+            <div class="dpc-form-field">
+              <label for="lead-name">Ім'я *</label>
+              <input type="text" id="lead-name" name="name" required placeholder="Ваше ім'я">
             </div>
 
-            <div>
-              <label for="lead-phone" class="block text-sm font-medium text-gray-700 mb-1">Телефон *</label>
-              <input type="tel" id="lead-phone" name="phone" required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                placeholder="+380 XX XXX XX XX">
+            <div class="dpc-form-field">
+              <label for="lead-phone">Телефон *</label>
+              <input type="tel" id="lead-phone" name="phone" required placeholder="+380 XX XXX XX XX">
             </div>
 
-            <div>
-              <label for="lead-message" class="block text-sm font-medium text-gray-700 mb-1">Повідомлення (опціонально)</label>
-              <textarea id="lead-message" name="message" rows="3"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-                placeholder="Додаткова інформація або питання"></textarea>
+            <div class="dpc-form-field">
+              <label for="lead-message">Повідомлення (опціонально)</label>
+              <textarea id="lead-message" name="message" rows="3" placeholder="Додаткова інформація або питання"></textarea>
             </div>
 
             <input type="hidden" id="lead-product" name="product" value="">
 
             <div class="flex gap-3 mt-6">
               <button type="submit"
-                class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5">
+                class="dpc-btn-order flex-1 font-bold py-3 px-6 rounded-lg transition-all transform hover:-translate-y-0.5">
                 Відправити
               </button>
               <button type="button" onclick="window.closeLeadForm()"
-                class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-all">
+                class="dpc-btn-outline px-6 py-3 rounded-lg transition-all">
                 Скасувати
               </button>
             </div>
           </form>
 
-          <div id="form-success" class="hidden mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
-            <p class="text-green-800 font-medium">✓ Дякуємо! Ми зв'яжемося з вами найближчим часом.</p>
+          <div id="form-success" class="dpc-checkout-message dpc-checkout-message--success hidden mt-4">
+            <p>✓ Дякуємо! Ми зв'яжемося з вами найближчим часом.</p>
           </div>
         </div>
       </div>
@@ -988,8 +976,8 @@
     const form = document.getElementById('lead-form');
     const formError = document.createElement('div');
     formError.id = 'form-error';
-    formError.className = 'hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-lg';
-    formError.innerHTML = '<p class="text-red-800 font-medium"></p>';
+    formError.className = 'dpc-checkout-message dpc-checkout-message--error hidden mt-4';
+    formError.innerHTML = '<p></p>';
     form.parentNode.insertBefore(formError, document.getElementById('form-success'));
 
     if (form) {
