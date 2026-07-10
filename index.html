@@ -391,11 +391,18 @@
 
     </nav>
 
+    <!-- Homepage interactive background wrapper: the particle canvas below is
+         positioned fixed and covers this whole wrapper (hero through the
+         Contact Information section), so the background reads as continuous
+         while scrolling. It stops before the footer, which keeps its own
+         solid background. -->
+    <div class="home-interactive-bg">
+
+    <canvas id="dpc-hero-canvas" class="dpc-hero-canvas" aria-hidden="true"></canvas>
+
     <!-- Hero Section -->
 
     <section class="hero-section dpc-hero-bg flex items-center justify-center">
-
-        <canvas id="dpc-hero-canvas" class="dpc-hero-canvas" aria-hidden="true"></canvas>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
@@ -1299,7 +1306,7 @@
 
     <!-- Socials Section -->
 
-    <section class="py-16 bg-gray-900 text-white">
+    <section class="py-16 text-white">
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -1453,7 +1460,7 @@
 
     <!-- Contact Information Section -->
 
-    <section class="py-16" style="border-top: 1px solid var(--glass-border);">
+    <section class="py-16">
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -1523,11 +1530,12 @@
 
     </section>
 
-
+    </div>
+    <!-- /.home-interactive-bg -->
 
     <!-- Footer -->
 
-    <footer class="bg-gray-900 text-white pt-16 pb-8">
+    <footer class="text-white pt-16 pb-8" style="background-color: var(--bg-panel);">
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -1687,10 +1695,13 @@
             let pointerX = null, pointerY = null;
 
             function sizeCanvas() {
-                const rect = canvas.parentElement.getBoundingClientRect();
+                // Canvas is position:fixed and covers the viewport (not the tall
+                // .home-interactive-bg wrapper), so size it to the viewport —
+                // sizing to the wrapper's full scroll height would blow up the
+                // canvas resolution and hurt performance.
                 const dpr = Math.min(window.devicePixelRatio || 1, 2);
-                width = rect.width;
-                height = rect.height;
+                width = window.innerWidth;
+                height = window.innerHeight;
                 canvas.width = Math.round(width * dpr);
                 canvas.height = Math.round(height * dpr);
                 ctx.setTransform(dpr, 0, 0, dpr, 0, 0);

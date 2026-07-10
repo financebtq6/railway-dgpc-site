@@ -1,112 +1,19 @@
-﻿<!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="uk">
 
-
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Персональні комп'ютери | Digital PC</title>
-
+    <title>Умови використання | Digital PC</title>
     <meta name="description" content="Умови використання сайту Digital PC. Правила покупки, оплати та доставки.">
-
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script src="https://unpkg.com/feather-icons"></script>
-
     <link
         href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-
     <script src="https://unpkg.com/i18next@21.6.10/dist/umd/i18next.min.js"></script>
 
-
-
-
-
     <style>
-        .prose {
-
-            max-width: 65ch;
-
-            margin-left: auto;
-
-            margin-right: auto;
-
-        }
-
-
-
-        .prose h2 {
-
-            font-size: 1.75rem;
-
-            font-weight: 700;
-
-            margin-top: 2.5rem;
-
-            margin-bottom: 1.25rem;
-
-            color: #111827;
-
-            line-height: 1.3;
-
-        }
-
-
-
-        .prose p {
-
-            font-size: 1.125rem;
-
-            line-height: 1.8;
-
-            margin-bottom: 1.25rem;
-
-            color: #374151;
-
-            text-align: left;
-
-        }
-
-
-
-        .prose ul {
-
-            margin-bottom: 1.5rem;
-
-            padding-left: 2rem;
-
-            list-style-type: disc;
-
-        }
-
-
-
-        .prose li {
-
-            margin-bottom: 0.75rem;
-
-            line-height: 1.75;
-
-            color: #374151;
-
-        }
-
-
-
-        .prose strong {
-
-            font-weight: 600;
-
-            color: #111827;
-
-        }
-    
         /* Dark-blue gradient header animation */
         .page-header-animated {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%) !important;
@@ -150,300 +57,189 @@
     </script>
 </head>
 
-
-
 <body class="antialiased flex flex-col min-h-screen">
 
     <!-- Navigation -->
-
     <nav class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-sm fixed w-full z-50">
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
             <div class="flex justify-between h-16 items-center">
-
                 <!-- Logo -->
-
                 <div class="flex-shrink-0 flex items-center"><a href="index.html" class="flex items-center"><img
                             src="./images/digitalpc-logo-hero.png" alt="Digital PC Logo" class="navbar-logo"></a></div>
 
                 <!-- Desktop Menu -->
-
-                <!-- Desktop Menu -->
-
                 <div class="hidden md:ml-6 md:flex md:space-x-8">
-
                     <a href="index.html"
                         class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
                         data-i18n="nav_home">Головна</a>
-
                     <a href="computers.html"
                         class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
                         data-i18n="nav_catalog">Комп'ютери</a>
-
-                    
-
                     <a href="periphery.html"
-
                         class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
-
                         data-i18n="nav_periphery">Периферія</a>
                     <a href="warranty.html"
-
                         class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
-
                         data-i18n="nav_warranty">Гарантія</a>
-
-
-
-
                     <a href="reviews.html"
                         class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
                         data-i18n="nav_reviews">Відгуки</a>
-
                     <a href="about.html"
                         class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
                         data-i18n="nav_about">Про нас</a>
-
                     <a href="contacts.html"
                         class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
                         data-i18n="nav_contacts">Контакти</a>
-
                 </div>
 
                 <!-- Right Side -->
-
                 <div class="flex items-center">
-
                     <!-- Mobile menu button -->
-
                     <div class="-mr-2 flex items-center md:hidden"><button type="button"
                             class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
                             aria-expanded="false" id="mobile-menu-button"><span class="sr-only">Open main menu</span><i
                                 data-feather="menu" class="block h-6 w-6"></i></button>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
         <!-- Mobile menu -->
-
         <div class="md:hidden hidden" id="mobile-menu">
-
             <div class="pt-2 pb-3 space-y-1"><a href="index.html"
                     class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Головна</a><a
                     href="computers.html"
                     class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Комп'ютери</a>
-
                 <a href="periphery.html"
-
                     class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Периферія</a>
                 <a href="warranty.html"
-
                     class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Гарантія</a>
-
-
                 <a href="reviews.html"
                     class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Відгуки</a>
-
                 <a href="about.html"
-                    class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Про
-
-                    нас</a><a href="contacts.html"
+                    class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Про нас</a><a href="contacts.html"
                     class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Контакти</a>
-
             </div>
-
         </div>
-
     </nav>
 
-
-
     <!-- Header -->
-
     <div class="bg-gray-900 pt-32 pb-12 page-header-animated">
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
-            <h1 class="text-4xl font-bold text-white mb-4 title-font" data-i18n="footer_terms" page-header-float>Умови використання</h1>
-
+            <h1 class="text-4xl font-bold text-white mb-4 title-font page-header-float" data-i18n="footer_terms">Умови використання</h1>
         </div>
-
     </div>
-
-
 
     <!-- Content -->
+    <div class="flex-grow dpc-legal-wrap px-4 sm:px-6 lg:px-8 py-12">
+        <div class="dpc-legal-content">
 
-    <div class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <p class="dpc-legal-updated">Останнє оновлення: 10 січня 2026 року</p>
 
-        <div class="max-w-4xl mx-auto prose prose-lg">
+            <p>Ці Умови використання регулюють доступ до сайту digitalpc.store та користування його матеріалами, каталогом, формами зв'язку й іншими функціями. Використовуючи сайт Digital PC, ви погоджуєтеся з цими Умовами.</p>
+            <p>Якщо ви не погоджуєтеся з Умовами, будь ласка, припиніть користування сайтом.</p>
 
-            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Умови використання</p>
+            <h2>1. Загальні положення</h2>
+            <p>Digital PC — це сайт, на якому розміщується інформація про готові комп'ютери, комплектуючі, периферію, сервісні послуги, умови замовлення, доставки, оплати та гарантійної підтримки.</p>
+            <p>Інформація на сайті має довідковий та комерційний характер. Наявність товарів, актуальна ціна, комплектація та строки виконання замовлення уточнюються під час консультації або підтвердження замовлення.</p>
 
-            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Останнє оновлення: 18 грудня 2025 року</p>
+            <h2>2. Каталог, ціни та характеристики</h2>
+            <p>Ми прагнемо підтримувати інформацію на сайті актуальною, однак допускаємо можливість технічних помилок, затримки оновлення даних або відмінностей у комплектації.</p>
+            <p>Digital PC має право оновлювати ціни, характеристики, фото, описи товарів, умови доставки або іншу інформацію без попереднього повідомлення.</p>
+            <p>Фото товарів можуть відрізнятися від фактичного вигляду залежно від конкретної комплектації, партії комплектуючих, підсвітки, корпусу або інших деталей збірки.</p>
 
-            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Використовуючи сайт Digital PC (digitalpc.com.ua), ви
+            <h2>3. Замовлення товарів</h2>
+            <p>Оформлення заявки на сайті, у месенджері, телефоном або через сторонню платформу не є автоматичним підтвердженням замовлення.</p>
+            <p>Замовлення вважається прийнятим після узгодження деталей із менеджером Digital PC: конфігурації, вартості, строків, способу оплати та доставки.</p>
+            <p>У разі індивідуальної збірки або кастомної конфігурації умови виконання замовлення узгоджуються окремо.</p>
 
-                погоджуєтеся з цими Умовами використання. Якщо ви не згодні — будь ласка, припиніть використання Сайту.
+            <h2>4. Оплата</h2>
+            <p>Оплата може здійснюватися доступними способами, узгодженими з клієнтом під час оформлення замовлення.</p>
+            <p>Можливі способи оплати можуть включати передоплату, післяплату через службу доставки, оплату на рахунок, оплату частинами або оплату через сторонні сервіси та маркетплейси.</p>
+            <p>Конкретний спосіб оплати, сума передоплати та умови фінального розрахунку узгоджуються індивідуально перед виконанням замовлення.</p>
 
-            </p>
+            <h2>5. Доставка та отримання товару</h2>
+            <p>Доставка здійснюється службами доставки або іншим погодженим способом. Умови, строки та вартість доставки залежать від обраної служби, населеного пункту, габаритів товару та умов замовлення.</p>
+            <p>Під час отримання товару покупець повинен оглянути посилку у відділенні служби доставки або в момент передачі товару. У разі виявлення пошкоджень необхідно зафіксувати їх відповідно до правил служби доставки та повідомити Digital PC.</p>
 
-            <p class="mb-4 text-gray-700 leading-relaxed text-lg">1. Загальні положення</p>
+            <h2>6. Гарантія та сервіс</h2>
+            <p>Гарантійні умови залежать від типу товару, комплектуючих, стану товару та умов конкретного замовлення.</p>
+            <p>На нові комплектуючі може діяти офіційна гарантія виробника або постачальника. На зібрані комп'ютери Digital PC надає супровід, діагностику та допомогу з гарантійними питаннями згідно з умовами, зазначеними на сторінці гарантії.</p>
+            <p>Гарантія не поширюється на механічні пошкодження, пошкодження внаслідок неправильного підключення, перепадів напруги, залиття, самостійного некоректного ремонту, некоректного апгрейду або інших дій, що порушують умови експлуатації.</p>
 
-            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Сайт є вітриною товарів та надає інформацію про готові
+            <h2>7. Повернення та обмін</h2>
+            <p>Повернення або обмін товару здійснюється відповідно до чинного законодавства України та умов конкретного замовлення.</p>
+            <p>Індивідуальні, кастомні або спеціально зібрані під клієнта конфігурації можуть мати окремі умови повернення чи обміну, якщо це не суперечить законодавству України.</p>
+            <p>Для оформлення повернення або обміну необхідно звернутися до Digital PC через контакти, зазначені на сайті.</p>
 
-                ігрові та робочі ПК. Продаж здійснюється через платформи Prom.ua та OLX або за прямим замовленням.</p>
+            <h2>8. Інтелектуальна власність</h2>
+            <p>Усі матеріали сайту, включно з текстами, дизайном, фото, логотипами, графікою, структурою сторінок та іншими елементами, належать Digital PC або використовуються на законних підставах.</p>
+            <p>Забороняється копіювання, розповсюдження, зміна або використання матеріалів сайту без письмового дозволу Digital PC, окрім випадків, прямо передбачених законодавством.</p>
 
-            <p class="mb-4 text-gray-700 leading-relaxed text-lg">2. Інтелектуальна власність</p>
+            <h2>9. Посилання на сторонні ресурси</h2>
+            <p>Сайт може містити посилання на сторонні платформи, зокрема маркетплейси, соціальні мережі, месенджери, платіжні сервіси або карти.</p>
+            <p>Digital PC не несе відповідальності за зміст, правила, політику конфіденційності або роботу сторонніх ресурсів. Користування такими ресурсами регулюється їхніми власними умовами.</p>
 
-            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Весь контент Сайту (фотографії, тексти, дизайн,
+            <h2>10. Обмеження відповідальності</h2>
+            <p>Digital PC не несе відповідальності за тимчасову недоступність сайту, технічні помилки, збої в роботі сторонніх сервісів, дії служб доставки, платіжних систем або інших незалежних платформ.</p>
+            <p>Ми не гарантуємо безперервну та безпомилкову роботу сайту, але прагнемо підтримувати його стабільність, актуальність і безпеку.</p>
 
-                логотипи) є власністю Digital PC або його партнерів. Заборонено копіювання, розповсюдження чи
+            <h2>11. Заборонені дії</h2>
+            <p>Під час користування сайтом заборонено:</p>
+            <ul>
+                <li>втручатися в роботу сайту або намагатися отримати несанкціонований доступ до його систем;</li>
+                <li>використовувати автоматизовані скрипти для збору даних без дозволу;</li>
+                <li>копіювати матеріали сайту з комерційною метою без згоди Digital PC;</li>
+                <li>розміщувати неправдиву, шкідливу або незаконну інформацію;</li>
+                <li>використовувати сайт у спосіб, що може порушувати права Digital PC, інших користувачів або третіх осіб.</li>
+            </ul>
 
-                використання без письмової згоди.</p>
+            <h2>12. Зміни до Умов</h2>
+            <p>Digital PC може періодично оновлювати ці Умови використання. Актуальна версія завжди доступна на цій сторінці. Дата останнього оновлення вказується на початку документа.</p>
+            <p>Продовження користування сайтом після оновлення Умов означає згоду з новою редакцією.</p>
 
-            <p class="mb-4 text-gray-700 leading-relaxed text-lg">3. Обмеження відповідальності</p>
-
-            <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
-
-                <li>Інформація на Сайті надається «як є» без гарантій повноти чи точності.</li>
-
-                <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
-
-                    <li>Ми не несемо відповідальності за збитки, спричинені використанням Сайту або неможливістю його
-
-                        використання.</li>
-
-                    <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
-
-                        <li>Посилання на сторонні сайти (OLX, Prom.ua) надаються для зручності — ми не відповідаємо за
-
-                            їхній контент.</li>
-
-                        <p class="mb-4 text-gray-700 leading-relaxed text-lg">4. Замовлення та оплата</p>
-
-                        <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
-
-                            <li>Замовлення вважається прийнятим після підтвердження менеджером.</li>
-
-                            <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
-
-                                <li>Оплата: передоплата, післяплата (Нова Пошта), переказ на ФОП.</li>
-
-                                <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
-
-                                    <li>Ціни можуть змінюватися без попередження.</li>
-
-                                    <p class="mb-4 text-gray-700 leading-relaxed text-lg">5. Повернення та обмін</p>
-
-                                    <p class="mb-4 text-gray-700 leading-relaxed text-lg">Повернення товару можливе
-
-                                        відповідно до Закону України «Про захист прав споживачів» (14 днів для товару
-
-                                        належної якості, за умови збереження товарного вигляду).</p>
-
-                                    <p class="mb-4 text-gray-700 leading-relaxed text-lg">6. Заборонені дії</p>
-
-                                    <p class="mb-4 text-gray-700 leading-relaxed text-lg">Заборонено:</p>
-
-                                    <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
-
-                                        <li>Використання автоматизованих скриптів для збору даних (скрапінг).</li>
-
-                                        <ul class="list-disc pl-5 mb-4 text-gray-700 leading-relaxed">
-
-                                            <li>Розміщення неправдивих відгуків чи спам.</li>
-
-                                            <p class="mb-4 text-gray-700 leading-relaxed text-lg">7. Зміни умов</p>
-
-                                            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Ми можемо змінювати ці
-
-                                                Умови. Продовження використання Сайту означає вашу згоду з оновленнями.
-
-                                            </p>
-
-                                            <p class="mb-4 text-gray-700 leading-relaxed text-lg">Контакти</p>
-
-                                            <p class="mb-4 text-gray-700 leading-relaxed text-lg">За питаннями:
-
-                                                info@digitalpc.com.ua або <a href="tel:+380993173348"
-                                                    class="hover:text-blue-600">+380 99 317 33 48</a>.</p>
+            <h2>13. Контакти</h2>
+            <p>З питань користування сайтом, замовлень, гарантії або інших звернень ви можете зв'язатися з Digital PC через контакти, зазначені на сайті.</p>
 
         </div>
-
     </div>
 
-
-
     <!-- Footer -->
-
     <footer class="bg-gray-900 text-white pt-16 pb-8">
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
                 <div>
-
                     <h3 class="text-lg font-bold title-font mb-4" data-i18n="hero_title">DIGITAL PC</h3>
-
                     <p class="text-sm text-gray-400 mb-6" data-i18n="footer_desc">Професійні готові ПК для геймінгу,
-
                         рендерингу та офісних задач. Ми створюємо машини, які надихають на перемоги.</p>
 
-
-
                     <div class="flex flex-wrap gap-4">
-
                         <a href="https://t.me/Digital_Pc" class="text-gray-400 hover:text-white" target="_blank"><i
                                 data-feather="send" class="w-5 h-5"></i></a>
-
                         <a href="https://www.instagram.com/digital_pc_dnipro" class="text-gray-400 hover:text-white"
                             target="_blank"><i data-feather="instagram" class="w-5 h-5"></i></a>
-
                         <a href="https://www.tiktok.com/@digital_pc_dnipro_" class="text-gray-400 hover:text-white"
                             target="_blank">
-
                             <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" style="display:block">
-
                                 <path
                                     d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-
                             </svg>
-
                         </a>
-
                         <a href="https://digitalpcdnipro.prom.ua/" class="text-gray-400 hover:text-white"
                             target="_blank" title="Prom"><i data-feather="shopping-bag" class="w-5 h-5"></i></a>
-
                         <a href="https://www.olx.ua/list/user/10oQVa/" class="text-gray-400 hover:text-white"
                             target="_blank" title="OLX">
-
                             <svg viewBox="0 0 48 48" class="w-5 h-5" fill="currentColor">
-
                                 <path
                                     d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 36c-8.82 0-16-7.18-16-16S15.18 8 24 8s16 7.18 16 16-7.18 16-16 16z"
                                     fill="#3FBF7F" />
-
                                 <path d="M18 18.5c0-3.31 2.69-6 6-6s6 2.69 6 6-2.69 6-6 6-6-2.69-6-6z" fill="#3FBF7F" />
-
                                 <text x="24" y="32" font-family="Arial, sans-serif" font-size="10" font-weight="bold"
                                     text-anchor="middle" fill="#3FBF7F">OLX</text>
-
                             </svg>
-
                         </a>
-
                     </div>
-
                 </div>
-
                 <div>
                     <h3 class="text-lg font-bold mb-4" data-i18n="footer_clients">Клієнтам</h3>
                     <ul class="space-y-2">
@@ -478,49 +274,29 @@
                                     class="hover:text-blue-600">digital.pc.dnipro@gmail.com</a></span></li>
                     </ul>
                 </div>
-
             </div>
 
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Digital PC. Всі права
-
-                    захищені. </p>
-
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Digital PC. Всі права захищені. </p>
                 <div class="flex space-x-6">
-
                     <a href="privacy.html" class="text-gray-400 hover:text-white text-sm"
                         data-i18n="footer_privacy">Політика конфіденційності</a>
-
                     <a href="terms.html" class="text-gray-400 hover:text-white text-sm" data-i18n="footer_terms">Умови
-
                         використання</a>
-
                     <a href="warranty.html" class="text-gray-400 hover:text-white text-sm"
                         data-i18n="nav_warranty">Гарантія</a>
-
                 </div>
-
             </div>
-
         </div>
-
         <div id="socials-map"></div>
-
     </footer>
 
     <script src="app.js" defer></script>
-
     <script>
-
         document.addEventListener("DOMContentLoaded", () => {
-
             feather.replace();
-
         });
-
     </script>
-
 
     <script>
         // Mobile menu toggle
@@ -560,7 +336,7 @@
         try {
             var page = window.location.pathname.split('/').pop() || 'index.html';
             var ref = document.referrer ? ' | ref: ' + document.referrer.substring(0, 50) : '';
-            var msg = encodeURIComponent('\ud83d\udcca \u0412\u0456\u0434\u0432\u0456\u0434\u0443\u0432\u0430\u0447: ' + page + ref + ' | ' + new Date().toLocaleString('uk-UA'));
+            var msg = encodeURIComponent('📊 Відвідувач: ' + page + ref + ' | ' + new Date().toLocaleString('uk-UA'));
             if (BOT_TOKEN !== 'TELEGRAM_BOT_TOKEN') {
                 fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage?chat_id=' + CHAT_ID + '&text=' + msg)
                     .catch(function(){});
@@ -582,7 +358,5 @@
     </script>
     <!--End of Tawk.to Script-->
 </body>
-
-
 
 </html>
