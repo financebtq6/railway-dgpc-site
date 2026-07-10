@@ -315,33 +315,6 @@
         });
     </script>
 
-    <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', function () {
-                    mobileMenu.classList.toggle('hidden');
-                });
-
-                const menuLinks = mobileMenu.querySelectorAll('a');
-                menuLinks.forEach(link => {
-                    link.addEventListener('click', function () {
-                        mobileMenu.classList.add('hidden');
-                    });
-                });
-
-                document.addEventListener('click', function (event) {
-                    if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
-            }
-        });
-    </script>
-
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
