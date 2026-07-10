@@ -18,6 +18,11 @@ app.use(express.json());
 // This serves your index.html and app.js
 app.use(express.static(path.join(__dirname, '/')));
 
+// Read-only products API backed by PostgreSQL (see routes/products.js and
+// db/client.js). Not used by the live catalog yet — data/products.json
+// remains the frontend's source of truth.
+app.use('/api', require('./routes/products'));
+
 // Reusable server-side Telegram sender. Never logs or returns the token/
 // chat id — only Telegram's own response (which doesn't contain them).
 async function sendTelegramMessage(text) {
