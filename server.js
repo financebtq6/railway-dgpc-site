@@ -15,6 +15,50 @@ console.log('Telegram env configured:', TELEGRAM_CONFIGURED);
 
 app.use(express.json());
 
+// Railway terminates TLS at its edge proxy; trust the first hop so
+// express-session can detect the request is secure and set secure cookies.
+app.set('trust proxy', 1);
+
+const db = require('./db/client');
+const SESSION_SECRET = process.env.SESSION_SECRET;
+const SESSIONS_CONFIGURED = db.isConfigured && !!SESSION_SECRET;
+
+if (SESSIONS_CONFIGURED) {
+  const session = require('express-session');
+  const pgSession = require('connect-pg-simple')(session);
+  app.use(session({
+    store: new pgSession({ pool: db.pool, tableName: 'session', createTableIfMissing: true }),
+    name: 'dpc.sid',
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      httpOnly: true,
+      sameSite: 'lax',
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 10 * 60 * 60 * 1000 // 10 hours
+    }
+  }));
+} else {
+  console.warn('[admin] DATABASE_URL and/or SESSION_SECRET missing. Admin auth routes will respond 503.');
+}
+
+// Admin auth API and the protected dashboard page. Mounted before the
+// generic static file server below so an unauthenticated request for
+// admin/dashboard.html can never be served directly by express.static.
+const { requireAdminPage } = require('./middleware/require-admin');
+app.use('/api/admin', require('./routes/admin-auth'));
+app.get('/admin/dashboard.html', requireAdminPage, (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  res.set('X-Content-Type-Options', 'nosniff');
+  res.sendFile(path.join(__dirname, 'admin', 'dashboard.html'));
+});
+app.use('/admin', express.static(path.join(__dirname, 'admin'), {
+  setHeaders: (res) => {
+    res.set('X-Content-Type-Options', 'nosniff');
+  }
+}));
+
 // This serves your index.html and app.js
 app.use(express.static(path.join(__dirname, '/')));
 

@@ -6,11 +6,15 @@
   "scripts": {
     "start": "node server.js",
     "db:schema": "node -e \"require('dotenv').config(); const fs=require('fs'); const {Pool}=require('pg'); const url=process.env.DATABASE_URL; if(!url){console.error('DATABASE_URL is not set.'); process.exit(1);} const useSSL=/railway|render|neon|supabase/i.test(url)||process.env.DATABASE_SSL==='true'; const pool=new Pool({connectionString:url, ssl: useSSL ? {rejectUnauthorized:false} : false}); const sql=fs.readFileSync('./db/schema.sql','utf8'); pool.query(sql).then(()=>{console.log('Schema applied.'); return pool.end();}).catch((e)=>{console.error('Schema apply failed:', e.message); process.exit(1);});\"",
-    "db:migrate-products": "node db/migrate-from-json.js"
+    "db:migrate-products": "node db/migrate-from-json.js",
+    "admin:hash-password": "node scripts/hash-admin-password.js"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-pg-simple": "^10.0.0",
     "dotenv": "^17.4.2",
     "express": "^4.18.2",
+    "express-session": "^1.19.0",
     "pg": "^8.22.0"
   }
 }
