@@ -232,6 +232,11 @@
     
     const isPeriphery = product.type === 'periphery';
 
+    // Cart/favorites (Stage 1, localStorage-only): guarded so a missing
+    // cart.js never breaks product detail rendering.
+    const isFav = !!(window.DpcFavorites && window.DpcFavorites.has(product.id));
+    const inCart = !!(window.DpcCart && window.DpcCart.has(product.id));
+
     // Parse Specs to clean structured object
     const specsData = product.specs || {};
 
@@ -352,9 +357,17 @@
                     </div>
 
                     <div class="flex flex-col gap-4 mt-auto">
-                         <button onclick="window.openOrderModal('${product.title.replace(/'/g, "\\'")}')" class="w-full font-bold py-5 px-8 rounded-2xl transition-all flex items-center justify-center text-xl transform hover:-translate-y-1 dpc-btn-order">
-                            <i data-feather="phone-call" class="w-6 h-6 mr-3"></i> ${txtOrder}
-                         </button>
+                         <div class="flex gap-4">
+                             <button onclick="window.openOrderModal('${product.title.replace(/'/g, "\\'")}')" class="flex-grow font-bold py-5 px-8 rounded-2xl transition-all flex items-center justify-center text-xl transform hover:-translate-y-1 dpc-btn-order">
+                                <i data-feather="phone-call" class="w-6 h-6 mr-3"></i> ${txtOrder}
+                             </button>
+                             <button type="button" onclick="window.dpcAddToCart(event, '${product.id}')" class="dpc-card-cart-btn dpc-detail-action-btn ${inCart ? 'is-active' : ''}" data-product-id="${product.id}" aria-label="До кошика" title="До кошика">
+                                <i data-feather="shopping-cart" class="w-6 h-6"></i>
+                             </button>
+                             <button type="button" onclick="window.dpcToggleFavorite(event, '${product.id}')" class="dpc-card-fav-btn dpc-detail-action-btn ${isFav ? 'is-active' : ''}" data-product-id="${product.id}" aria-label="Обране" title="Обране">
+                                <i data-feather="heart" class="w-6 h-6"></i>
+                             </button>
+                         </div>
                          <div class="grid grid-cols-2 gap-4">
                             <a href="${promLink}" target="_blank" class="flex items-center justify-center font-bold py-4 px-6 rounded-2xl transition-all text-center dpc-btn-prom">
                                 ${txtProm}
@@ -458,12 +471,21 @@
 
     // Route detail link to correct page based on product type
     const detailPage = p.type === 'periphery' ? 'periphery.html' : 'computers.html';
+    // Cart/favorites (Stage 1, localStorage-only): guarded so a missing
+    // cart.js never breaks catalog rendering.
+    const isFav = !!(window.DpcFavorites && window.DpcFavorites.has(p.id));
+    const inCart = !!(window.DpcCart && window.DpcCart.has(p.id));
     return `
     <div class="rounded-lg overflow-hidden product-card transition-all duration-300 transform hover:-translate-y-2 h-full flex flex-col group">
-        <a href="${detailPage}#product=${p.id}" class="block relative h-64 bg-black/20 flex items-center justify-center overflow-hidden cursor-pointer">
-             <img src="${imageUrl}" alt="${title}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
-             <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
-        </a>
+        <div class="dpc-card-image-wrap">
+            <a href="${detailPage}#product=${p.id}" class="block relative h-64 bg-black/20 flex items-center justify-center overflow-hidden cursor-pointer">
+                 <img src="${imageUrl}" alt="${title}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
+            </a>
+            <button type="button" onclick="window.dpcToggleFavorite(event, '${p.id}')" class="dpc-card-fav-btn ${isFav ? 'is-active' : ''}" data-product-id="${p.id}" aria-label="Обране" title="Обране">
+                <i data-feather="heart" class="w-4 h-4"></i>
+            </button>
+        </div>
         <div class="p-6 flex flex-col flex-grow">
             <a href="${detailPage}#product=${p.id}" class="block">
                 <h3 class="text-xl font-bold mb-2 leading-tight transition-colors dpc-card-title">${title}</h3>
@@ -472,9 +494,14 @@
                  <span class="text-2xl font-bold dpc-price">${price}</span>
             </div>
             <div class="flex flex-col gap-3 mt-auto">
-                 <button onclick="window.openOrderModal('${title.replace(/'/g, "\\'")}')" class="w-full font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center dpc-btn-order">
-                    <i data-feather="phone-call" class="w-5 h-5 mr-2"></i> ${txtOrder}
-                 </button>
+                 <div class="flex gap-3">
+                     <button onclick="window.openOrderModal('${title.replace(/'/g, "\\'")}')" class="flex-grow font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center dpc-btn-order">
+                        <i data-feather="phone-call" class="w-5 h-5 mr-2"></i> ${txtOrder}
+                     </button>
+                     <button type="button" onclick="window.dpcAddToCart(event, '${p.id}')" class="dpc-card-cart-btn ${inCart ? 'is-active' : ''}" data-product-id="${p.id}" aria-label="До кошика" title="До кошика">
+                        <i data-feather="shopping-cart" class="w-5 h-5"></i>
+                     </button>
+                 </div>
                  <div class="grid grid-cols-2 gap-3">
                     <a href="${p.url || PROM_FALLBACK_URL}" target="_blank" class="flex items-center justify-center text-xs font-bold py-2 px-2 rounded-lg transition-colors text-center dpc-btn-prom">
                         ${txtProm}

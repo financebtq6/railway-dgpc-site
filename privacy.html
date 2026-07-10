@@ -95,6 +95,17 @@
 
                 <!-- Right Side -->
                 <div class="flex items-center">
+                    <!-- Cart & Favorites (desktop) -->
+                    <div class="hidden md:flex items-center gap-2 mr-3">
+                        <a href="favorites.html" class="dpc-nav-icon-btn" aria-label="Обране">
+                            <i data-feather="heart"></i>
+                            <span class="dpc-nav-badge dpc-fav-badge" style="display:none;">0</span>
+                        </a>
+                        <a href="cart.html" class="dpc-nav-icon-btn" aria-label="Кошик">
+                            <i data-feather="shopping-cart"></i>
+                            <span class="dpc-nav-badge dpc-cart-badge" style="display:none;">0</span>
+                        </a>
+                    </div>
                     <!-- Mobile menu button -->
                     <div class="-mr-2 flex items-center md:hidden"><button type="button"
                             class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
@@ -120,6 +131,15 @@
                 <a href="about.html"
                     class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Про нас</a><a href="contacts.html"
                     class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Контакти</a>
+                <div class="dpc-mobile-menu-sep"></div>
+                <a href="favorites.html" class="dpc-mobile-action-link border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    <i data-feather="heart" class="w-4 h-4"></i> Обране
+                    <span class="dpc-nav-badge dpc-fav-badge" style="display:none;">0</span>
+                </a>
+                <a href="cart.html" class="dpc-mobile-action-link border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    <i data-feather="shopping-cart" class="w-4 h-4"></i> Кошик
+                    <span class="dpc-nav-badge dpc-cart-badge" style="display:none;">0</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -298,6 +318,7 @@
         <div id="socials-map"></div>
     </footer>
 
+    <script src="cart.js" defer></script>
     <script src="app.js" defer></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
