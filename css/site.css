@@ -1227,16 +1227,29 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
   box-shadow: 0 0 6px var(--glow-blue);
 }
 
-/* --- Mobile menu: Обране / Кошик rows (icon + text + badge) --- */
+/* --- Mobile menu: Обране / Кошик rows (icon + text on one row) ---
+   display:flex needs !important: these links also carry Tailwind's own
+   `block` utility class, and depending on when the Tailwind CDN script
+   (re)injects its generated stylesheet relative to this one, `.block`
+   can win the cascade tie and stack the icon above the text instead of
+   laying them out side by side. */
 .dpc-mobile-action-link {
-  display: flex;
+  display: flex !important;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.65rem;
+}
+
+.dpc-mobile-action-link svg,
+.dpc-mobile-action-link i[data-feather] {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .dpc-mobile-action-link .dpc-nav-badge {
   position: static;
   margin-left: auto;
+  flex-shrink: 0;
 }
 
 .dpc-mobile-menu-sep {
