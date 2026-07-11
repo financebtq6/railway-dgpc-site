@@ -70,8 +70,9 @@ app.use('/admin', express.static(path.join(__dirname, 'admin'), {
 app.use(express.static(path.join(__dirname, '/')));
 
 // Read-only products API backed by PostgreSQL (see routes/products.js and
-// db/client.js). Not used by the live catalog yet — data/products.json
-// remains the frontend's source of truth.
+// db/client.js). The public catalog (app.js/cart.js, via
+// js/products-loader.js) fetches this first; data/products.json is kept
+// only as an offline fallback if this endpoint is ever unreachable.
 app.use('/api', require('./routes/products'));
 
 // Reusable server-side Telegram sender. Never logs or returns the token/

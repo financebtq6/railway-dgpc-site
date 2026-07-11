@@ -13,7 +13,6 @@
 (function () {
   const CART_KEY = 'dpc_cart_v1';
   const FAV_KEY = 'dpc_favorites_v1';
-  const DATA_URL = './data/products.json';
 
   // --- Storage helpers ---
   function readCart() {
@@ -134,13 +133,9 @@
   let productsPromise = null;
   function fetchProducts() {
     if (!productsPromise) {
-      productsPromise = fetch(DATA_URL)
-        .then(function (res) {
-          if (!res.ok) throw new Error('Failed to load products');
-          return res.json();
-        })
+      productsPromise = window.DPCProducts.load()
         .catch(function (e) {
-          console.error('DpcCart: failed to load products.json', e);
+          console.error('DpcCart: failed to load products', e);
           return [];
         });
     }

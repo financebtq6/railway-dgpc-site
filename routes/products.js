@@ -1,7 +1,7 @@
 // Read-only public products API, backed by PostgreSQL.
-// Returns the same flat product shape the frontend already gets from
-// data/products.json (see app.js / cart.js), so it can be swapped in later
-// without a frontend rewrite. Not currently wired into the live catalog.
+// Returns the same flat product shape the frontend previously got from
+// data/products.json (see app.js / cart.js via js/products-loader.js),
+// which is now used only as an offline fallback if this endpoint fails.
 const express = require('express');
 const db = require('../db/client');
 const { serializeProduct } = require('../db/serialize-product');

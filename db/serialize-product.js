@@ -1,5 +1,6 @@
 // Single source of truth for turning a `products` row (+ ordered image URLs)
-// into the public product shape app.js/cart.js expect from data/products.json.
+// into the public product shape app.js/cart.js expect — the same shape as
+// the data/products.json fallback, so either source is interchangeable.
 // Used by GET /api/products and by the admin API's publicPreview field so
 // both stay byte-for-byte identical.
 function serializeProduct(row, images) {

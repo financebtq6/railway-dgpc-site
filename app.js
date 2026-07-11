@@ -5,8 +5,6 @@
 
 (function () {
   // --- CONFIGURATION ---
-  // GitHub Pages Fix: Use relative path for data
-  const DATA_URL = window.PRODUCTS_JSON_URL || "./data/products.json";
   const PROM_FALLBACK_URL = window.PROM_FALLBACK_URL || "https://prom.ua/ua/c3808817-digital.html";
   const TELEGRAM_URL = window.TELEGRAM_URL || "https://t.me/Digital_Pc";
   const INSTAGRAM_URL = "https://www.instagram.com/digital_pc_dnipro";
@@ -1083,9 +1081,7 @@
     }
 
     try {
-      const res = await fetch(DATA_URL);
-      if (!res.ok) throw new Error("Failed to load products");
-      allProductsData = await res.json();
+      allProductsData = await window.DPCProducts.load();
 
       // Initial Render
       handleHashChange();
