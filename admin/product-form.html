@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Digital PC Admin — Товар</title>
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+  <div class="admin-shell">
+    <header class="admin-topbar">
+      <a class="admin-brand" href="/admin/dashboard.html">Digital PC <span>Admin</span></a>
+      <div class="admin-topbar-right">
+        <span id="admin-email-display">—</span>
+        <button type="button" class="admin-btn admin-btn-ghost" id="admin-logout">Вийти</button>
+      </div>
+    </header>
+
+    <main class="admin-main admin-main-wide">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title" id="product-form-title">Новий товар</h1>
+          <p class="admin-page-subtitle" id="product-form-subtitle">Заповніть дані товару</p>
+        </div>
+        <a class="admin-btn admin-btn-ghost admin-btn-auto" href="/admin/dashboard.html">← До списку товарів</a>
+      </div>
+
+      <div id="product-form-loading" class="admin-state-panel" hidden>Завантаження товару...</div>
+      <div id="product-form-error" class="admin-state-panel admin-state-panel-error" hidden></div>
+      <p id="product-form-message" class="admin-form-message" hidden></p>
+
+      <form id="product-form" class="admin-form" novalidate>
+        <section class="admin-form-section">
+          <h2>Основне</h2>
+          <div class="admin-form-grid">
+            <div class="admin-field">
+              <label for="field-id">ID товару</label>
+              <input type="text" id="field-id" name="id" placeholder="Digital-PC-Example">
+              <p class="admin-field-hint" id="field-id-hint">Тільки латиниця, цифри, "-" та "_". Не можна змінити після створення.</p>
+            </div>
+            <div class="admin-field">
+              <label for="field-title">Назва *</label>
+              <input type="text" id="field-title" name="title" required>
+            </div>
+            <div class="admin-field">
+              <label for="field-type">Тип *</label>
+              <select id="field-type" name="type" required>
+                <option value="computers">Комп'ютери</option>
+                <option value="periphery">Периферія</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="field-subtype">Підтип</label>
+              <input type="text" id="field-subtype" name="subtype" placeholder="напр. Миші">
+            </div>
+            <div class="admin-field">
+              <label for="field-price">Ціна (грн) *</label>
+              <input type="number" id="field-price" name="price" min="0" step="1" required>
+            </div>
+            <div class="admin-field">
+              <label for="field-old-price">Стара ціна (грн)</label>
+              <input type="number" id="field-old-price" name="oldPrice" min="0" step="1">
+            </div>
+            <div class="admin-field">
+              <label for="field-status">Статус</label>
+              <select id="field-status" name="status">
+                <option value="draft">Чернетка</option>
+                <option value="published">Опубліковано</option>
+                <option value="hidden">Приховано</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="field-sort-order">Порядок сортування</label>
+              <input type="number" id="field-sort-order" name="sortOrder" step="1">
+            </div>
+            <div class="admin-field admin-field-checkbox">
+              <label><input type="checkbox" id="field-featured" name="featured"> Топовий товар</label>
+            </div>
+          </div>
+        </section>
+
+        <section class="admin-form-section">
+          <h2>Опис</h2>
+          <div class="admin-field">
+            <label for="field-description">Короткий опис *</label>
+            <textarea id="field-description" name="description" rows="3" required></textarea>
+          </div>
+          <div class="admin-form-grid">
+            <div class="admin-field">
+              <label for="field-desc-1">Опис, частина 1</label>
+              <textarea id="field-desc-1" rows="3"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="field-desc-2">Опис, частина 2</label>
+              <textarea id="field-desc-2" rows="3"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="field-desc-3">Опис, частина 3</label>
+              <textarea id="field-desc-3" rows="3"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="field-desc-4">Опис, частина 4</label>
+              <textarea id="field-desc-4" rows="3"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="field-desc-5">Опис, частина 5</label>
+              <textarea id="field-desc-5" rows="3"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="field-desc-6">Опис, частина 6</label>
+              <textarea id="field-desc-6" rows="3"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <section class="admin-form-section">
+          <h2>Характеристики ПК</h2>
+          <div class="admin-form-grid">
+            <div class="admin-field">
+              <label for="spec-cpu">Процесор (CPU)</label>
+              <input type="text" id="spec-cpu">
+            </div>
+            <div class="admin-field">
+              <label for="spec-gpu">Відеокарта (GPU)</label>
+              <input type="text" id="spec-gpu">
+            </div>
+            <div class="admin-field">
+              <label for="spec-motherboard">Материнська плата</label>
+              <input type="text" id="spec-motherboard">
+            </div>
+            <div class="admin-field">
+              <label for="spec-ram">Оперативна пам'ять (RAM)</label>
+              <input type="text" id="spec-ram">
+            </div>
+            <div class="admin-field">
+              <label for="spec-storage">Накопичувач</label>
+              <input type="text" id="spec-storage">
+            </div>
+            <div class="admin-field">
+              <label for="spec-psu">Блок живлення (PSU)</label>
+              <input type="text" id="spec-psu">
+            </div>
+            <div class="admin-field">
+              <label for="spec-cooling">Охолодження</label>
+              <input type="text" id="spec-cooling">
+            </div>
+            <div class="admin-field">
+              <label for="spec-case">Корпус</label>
+              <input type="text" id="spec-case">
+            </div>
+          </div>
+        </section>
+
+        <section class="admin-form-section">
+          <h2>Додаткові характеристики (для периферії)</h2>
+          <p class="admin-field-hint">Довільні пари ключ/значення. Ключі, не відомі формі, зберігаються тут автоматично.</p>
+          <div id="specs-extra-rows" class="admin-specs-rows"></div>
+          <button type="button" class="admin-btn admin-btn-ghost admin-btn-auto" id="specs-extra-add">+ Додати характеристику</button>
+        </section>
+
+        <section class="admin-form-section">
+          <h2>full_specs (JSON)</h2>
+          <div class="admin-field">
+            <label for="field-full-specs">Розширені характеристики у форматі JSON</label>
+            <textarea id="field-full-specs" rows="6" class="admin-textarea-mono">{}</textarea>
+            <p class="admin-field-hint">Має бути валідний JSON-об'єкт.</p>
+          </div>
+        </section>
+
+        <section class="admin-form-section">
+          <h2>Посилання</h2>
+          <div class="admin-form-grid">
+            <div class="admin-field">
+              <label for="field-olx-url">Посилання OLX</label>
+              <input type="url" id="field-olx-url" placeholder="https://www.olx.ua/...">
+            </div>
+            <div class="admin-field">
+              <label for="field-prom-url">Посилання Prom.ua</label>
+              <input type="url" id="field-prom-url" placeholder="https://digitalpc.prom.ua/...">
+            </div>
+          </div>
+        </section>
+
+        <section class="admin-form-section">
+          <h2>Зображення</h2>
+          <p class="admin-field-hint">Перегляд лише для читання. Завантаження, видалення та зміна порядку зображень у цьому етапі недоступні.</p>
+          <div id="product-images-readonly" class="admin-images-readonly">
+            <p class="admin-field-hint">Немає зображень.</p>
+          </div>
+        </section>
+
+        <div class="admin-form-actions">
+          <button type="submit" class="admin-btn admin-btn-primary admin-btn-auto" id="product-form-save">Зберегти</button>
+          <span id="product-form-saving-indicator" class="admin-field-hint" hidden>Збереження...</span>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script src="./admin.js"></script>
+  <script src="./product-form.js"></script>
+</body>
+</html>

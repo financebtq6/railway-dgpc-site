@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Digital PC Admin — Панель</title>
+  <title>Digital PC Admin — Товари</title>
   <link rel="stylesheet" href="./admin.css">
 </head>
 <body>
@@ -17,29 +17,106 @@
       </div>
     </header>
 
-    <main class="admin-main">
-      <h1 class="admin-page-title">Панель адміністратора</h1>
-      <p class="admin-page-subtitle">Digital PC Admin</p>
+    <main class="admin-main admin-main-wide">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Товари</h1>
+          <p class="admin-page-subtitle">Керування каталогом товарів</p>
+        </div>
+        <a class="admin-btn admin-btn-primary admin-btn-auto" href="/admin/product-form.html">+ Додати товар</a>
+      </div>
 
-      <div class="admin-cards">
-        <div class="admin-card">
-          <h3>Товари</h3>
-          <p>Керування каталогом товарів з'явиться на наступному етапі.</p>
+      <div class="admin-filters">
+        <div class="admin-field admin-field-grow">
+          <label for="products-search">Пошук</label>
+          <input type="text" id="products-search" placeholder="Назва або ID товару">
         </div>
-        <div class="admin-card">
-          <h3>Зображення</h3>
-          <p>Завантаження та керування зображеннями товарів з'явиться пізніше.</p>
+        <div class="admin-field">
+          <label for="products-type-filter">Тип</label>
+          <select id="products-type-filter">
+            <option value="">Усі типи</option>
+            <option value="computers">Комп'ютери</option>
+            <option value="periphery">Периферія</option>
+          </select>
         </div>
-        <div class="admin-card">
-          <h3>Налаштування</h3>
-          <p>Загальні налаштування адмін-панелі з'являться пізніше.</p>
+        <div class="admin-field">
+          <label for="products-subtype-filter">Підтип</label>
+          <select id="products-subtype-filter">
+            <option value="">Усі підтипи</option>
+            <option value="Миші">Миші</option>
+            <option value="Клавіатури">Клавіатури</option>
+          </select>
+        </div>
+        <div class="admin-field">
+          <label for="products-status-filter">Статус</label>
+          <select id="products-status-filter">
+            <option value="">Усі статуси</option>
+            <option value="draft">Чернетка</option>
+            <option value="published">Опубліковано</option>
+            <option value="hidden">Приховано</option>
+          </select>
         </div>
       </div>
 
-      <p class="admin-status-note">Керування товарами буде реалізовано на наступному етапі.</p>
+      <div id="products-loading" class="admin-state-panel" hidden>Завантаження товарів...</div>
+      <div id="products-empty" class="admin-state-panel" hidden>Товарів не знайдено.</div>
+      <div id="products-error" class="admin-state-panel admin-state-panel-error" hidden>
+        Не вдалося завантажити товари.
+        <button type="button" class="admin-btn admin-btn-ghost" id="products-retry">Спробувати ще раз</button>
+      </div>
+
+      <div id="products-table-wrap" class="admin-table-wrap" hidden>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Назва</th>
+              <th>ID</th>
+              <th>Ціна</th>
+              <th>Тип</th>
+              <th>Підтип</th>
+              <th>Статус</th>
+              <th>Топ</th>
+              <th>Порядок</th>
+              <th>Оновлено</th>
+              <th>Дії</th>
+            </tr>
+          </thead>
+          <tbody id="products-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="admin-pagination">
+        <button type="button" class="admin-btn admin-btn-ghost" id="products-prev">← Назад</button>
+        <span id="products-pagination-info" class="admin-pagination-info"></span>
+        <button type="button" class="admin-btn admin-btn-ghost" id="products-next">Далі →</button>
+      </div>
     </main>
   </div>
 
+  <dialog id="duplicate-dialog" class="admin-dialog">
+    <form id="duplicate-form" class="admin-dialog-form">
+      <h2 class="admin-dialog-title">Дублювати товар</h2>
+      <p class="admin-field-hint">
+        Товар «<span id="duplicate-source-title"></span>» буде скопійовано разом із зображеннями під новим ID.
+        Копія отримає статус «Чернетка» і не буде позначена як топова, доки ви не опублікуєте її вручну.
+      </p>
+      <p class="admin-error" id="duplicate-dialog-error" hidden></p>
+      <div class="admin-field">
+        <label for="duplicate-new-id">Новий ID *</label>
+        <input type="text" id="duplicate-new-id" required>
+      </div>
+      <div class="admin-field">
+        <label for="duplicate-new-title">Нова назва *</label>
+        <input type="text" id="duplicate-new-title" required>
+      </div>
+      <div class="admin-dialog-actions">
+        <button type="button" class="admin-btn admin-btn-ghost" id="duplicate-cancel">Скасувати</button>
+        <button type="submit" class="admin-btn admin-btn-primary admin-btn-auto" id="duplicate-submit">Дублювати</button>
+      </div>
+    </form>
+  </dialog>
+
   <script src="./admin.js"></script>
+  <script src="./dashboard.js"></script>
 </body>
 </html>

@@ -48,10 +48,16 @@ if (SESSIONS_CONFIGURED) {
 // admin/dashboard.html can never be served directly by express.static.
 const { requireAdminPage } = require('./middleware/require-admin');
 app.use('/api/admin', require('./routes/admin-auth'));
+app.use('/api/admin', require('./routes/admin-products'));
 app.get('/admin/dashboard.html', requireAdminPage, (req, res) => {
   res.set('Cache-Control', 'no-store');
   res.set('X-Content-Type-Options', 'nosniff');
   res.sendFile(path.join(__dirname, 'admin', 'dashboard.html'));
+});
+app.get('/admin/product-form.html', requireAdminPage, (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  res.set('X-Content-Type-Options', 'nosniff');
+  res.sendFile(path.join(__dirname, 'admin', 'product-form.html'));
 });
 app.use('/admin', express.static(path.join(__dirname, 'admin'), {
   setHeaders: (res) => {

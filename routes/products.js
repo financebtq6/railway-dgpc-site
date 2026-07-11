@@ -4,37 +4,9 @@
 // without a frontend rewrite. Not currently wired into the live catalog.
 const express = require('express');
 const db = require('../db/client');
+const { serializeProduct } = require('../db/serialize-product');
 
 const router = express.Router();
-
-function toApiProduct(row, images) {
-  const orderedImages = images.length ? images : (row.image ? [row.image] : []);
-
-  const product = {
-    id: row.id,
-    type: row.type,
-    title: row.title,
-    price: Number(row.price),
-    image: row.image || orderedImages[0] || null,
-    images: orderedImages,
-    specs: row.specs || {},
-    full_specs: row.full_specs || {},
-    description: row.description,
-    descPartOne: row.desc_part_one,
-    descPartTwo: row.desc_part_two,
-    descPartThree: row.desc_part_three,
-    descPartFour: row.desc_part_four,
-    descPartFive: row.desc_part_five,
-    descPartSix: row.desc_part_six,
-    olx_url: row.olx_url,
-    url: row.prom_url
-  };
-
-  if (row.subtype) product.subtype = row.subtype;
-  if (row.old_price !== null && row.old_price !== undefined) product.oldPrice = Number(row.old_price);
-
-  return product;
-}
 
 router.get('/products', async (req, res) => {
   if (!db.isConfigured) {
@@ -69,7 +41,7 @@ router.get('/products', async (req, res) => {
     }
 
     const products = productsResult.rows.map((row) =>
-      toApiProduct(row, imagesByProduct.get(row.id) || [])
+      serializeProduct(row, imagesByProduct.get(row.id) || [])
     );
 
     res.set('Content-Type', 'application/json; charset=utf-8');
