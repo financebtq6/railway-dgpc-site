@@ -100,20 +100,87 @@
     return specs;
   }
 
+  // Product images are stored in Postgres as paths relative to the site
+  // root (e.g. "./images/products/x/1.jpg") because that's how the public
+  // pages have always resolved them. Rendered as-is inside
+  // /admin/product-form.html, a relative path resolves against the admin
+  // page's own URL instead ("/admin/images/..."), which 404s. This only
+  // fixes how the *admin preview* resolves the path in the browser — the
+  // stored value itself is never touched.
+  function normalizePreviewImageUrl(rawPath) {
+    if (typeof rawPath !== 'string') return null;
+    const trimmed = rawPath.trim();
+    if (!trimmed) return null;
+
+    if (/^https?:\/\//i.test(trimmed)) return trimmed;
+
+    // Reject any other URL scheme (javascript:, data:, vbscript:, ...)
+    // before ever assigning it to an <img src>.
+    if (/^[a-z][a-z0-9+.-]*:/i.test(trimmed)) return null;
+
+    if (trimmed.startsWith('/')) return trimmed;
+    if (trimmed.startsWith('./')) return '/' + trimmed.slice(2);
+    return '/' + trimmed.replace(/^\/+/, '');
+  }
+
+  function buildImagePlaceholder(rawUrl) {
+    const placeholder = document.createElement('div');
+    placeholder.className = 'admin-image-placeholder';
+    placeholder.textContent = rawUrl ? 'Зображення недоступне' : 'Немає зображення';
+    return placeholder;
+  }
+
+  function buildImageThumb(rawUrl, isMain) {
+    const thumb = document.createElement('div');
+    thumb.className = 'admin-image-thumb';
+
+    const normalized = normalizePreviewImageUrl(rawUrl);
+
+    if (normalized) {
+      const img = document.createElement('img');
+      img.alt = '';
+      img.loading = 'lazy';
+      img.title = rawUrl;
+      img.addEventListener('error', function () {
+        img.replaceWith(buildImagePlaceholder(rawUrl));
+      });
+      img.src = normalized;
+      thumb.appendChild(img);
+    } else {
+      thumb.appendChild(buildImagePlaceholder(rawUrl));
+    }
+
+    if (isMain) {
+      const badge = document.createElement('span');
+      badge.className = 'admin-image-main-badge';
+      badge.textContent = 'Головне';
+      thumb.appendChild(badge);
+    }
+
+    const caption = document.createElement('span');
+    caption.className = 'admin-image-url';
+    caption.title = rawUrl || '';
+    caption.textContent = rawUrl || '—';
+    thumb.appendChild(caption);
+
+    return thumb;
+  }
+
   function renderReadonlyImages(images) {
     const container = qs('#product-images-readonly');
+    container.textContent = '';
+
     if (!images || !images.length) {
-      container.innerHTML = '<p class="admin-field-hint">Немає зображень.</p>';
+      const hint = document.createElement('p');
+      hint.className = 'admin-field-hint';
+      hint.textContent = 'Немає зображень.';
+      container.appendChild(hint);
       return;
     }
-    container.innerHTML = images.map(function (url) {
-      return (
-        '<div class="admin-image-thumb">' +
-          '<img src="' + escapeHtml(url) + '" alt="" loading="lazy">' +
-          '<span class="admin-image-url" title="' + escapeHtml(url) + '">' + escapeHtml(url) + '</span>' +
-        '</div>'
-      );
-    }).join('');
+
+    images.forEach(function (url, index) {
+      container.appendChild(buildImageThumb(url, index === 0));
+    });
   }
 
   function populateForm(product) {

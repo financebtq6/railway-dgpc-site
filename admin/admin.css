@@ -21,6 +21,17 @@
   box-sizing: border-box;
 }
 
+/* Several panels below (e.g. .admin-state-panel-error, .admin-dialog) set
+   their own `display` so they render correctly when shown. Without this,
+   that same author-level `display` declaration also beats the browser's
+   default `[hidden] { display: none }` UA rule (author CSS always wins
+   over UA CSS, regardless of specificity), so toggling the `hidden`
+   property from JS silently stops hiding the element — it just sits there
+   empty. This rule guarantees `hidden` always wins, everywhere. */
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -366,14 +377,36 @@ a {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
+  table-layout: fixed;
 }
 
 .admin-table th,
 .admin-table td {
   text-align: left;
-  padding: 12px 14px;
+  padding: 10px 12px;
   border-bottom: 1px solid var(--glass-border);
+}
+
+/* Column widths: keep title/price/type/status/updated/actions comfortably
+   readable and let the secondary columns (id, subtype, featured, sort
+   order) stay narrow, so the table fits a normal desktop viewport instead
+   of forcing a wide horizontal scrollbar. */
+.admin-table th:nth-child(1), .admin-table td:nth-child(1) { width: 20%; }
+.admin-table th:nth-child(2), .admin-table td:nth-child(2) { width: 12%; }
+.admin-table th:nth-child(3), .admin-table td:nth-child(3) { width: 8%; }
+.admin-table th:nth-child(4), .admin-table td:nth-child(4) { width: 8%; }
+.admin-table th:nth-child(5), .admin-table td:nth-child(5) { width: 8%; }
+.admin-table th:nth-child(6), .admin-table td:nth-child(6) { width: 9%; }
+.admin-table th:nth-child(7), .admin-table td:nth-child(7) { width: 6%; }
+.admin-table th:nth-child(8), .admin-table td:nth-child(8) { width: 6%; }
+.admin-table th:nth-child(9), .admin-table td:nth-child(9) { width: 9%; }
+.admin-table th:nth-child(10), .admin-table td:nth-child(10) { width: 14%; }
+
+.admin-cell-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 0; /* forces the ellipsis to respect the fixed column width */
 }
 
 .admin-table th {
@@ -593,6 +626,7 @@ a {
 }
 
 .admin-image-thumb {
+  position: relative;
   width: 140px;
   display: flex;
   flex-direction: column;
@@ -606,6 +640,33 @@ a {
   border-radius: 10px;
   border: 1px solid var(--glass-border);
   background: var(--bg-panel);
+}
+
+.admin-image-placeholder {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px dashed var(--glass-border);
+  background: var(--bg-panel);
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.admin-image-main-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--bg-base);
+  background: var(--accent-green-bright);
 }
 
 .admin-image-url {
@@ -663,7 +724,7 @@ a {
   .admin-table tr,
   .admin-table td {
     display: block;
-    width: 100%;
+    width: 100% !important; /* beats the desktop th:nth-child()/td:nth-child() column widths above */
   }
 
   .admin-table tr {
@@ -685,6 +746,17 @@ a {
     color: var(--text-muted);
     font-size: 12px;
     text-align: left;
+  }
+
+  /* On mobile the table becomes stacked labeled fields with room to
+     breathe vertically, so let title/id wrap in full instead of
+     truncating with an ellipsis. */
+  .admin-cell-truncate {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+    max-width: none;
+    text-align: right;
   }
 
   .admin-row-actions {

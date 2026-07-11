@@ -69,8 +69,8 @@
 
       return (
         '<tr>' +
-        '<td data-label="Назва"><a href="' + editHref + '">' + escapeHtml(p.title) + '</a></td>' +
-        '<td data-label="ID"><code>' + escapeHtml(p.id) + '</code></td>' +
+        '<td data-label="Назва" class="admin-cell-truncate"><a href="' + editHref + '" title="' + escapeHtml(p.title) + '">' + escapeHtml(p.title) + '</a></td>' +
+        '<td data-label="ID" class="admin-cell-truncate"><code title="' + escapeHtml(p.id) + '">' + escapeHtml(p.id) + '</code></td>' +
         '<td data-label="Ціна">' + formatPrice(p.price) + '</td>' +
         '<td data-label="Тип">' + escapeHtml(p.type) + '</td>' +
         '<td data-label="Підтип">' + escapeHtml(p.subtype || '—') + '</td>' +
@@ -95,7 +95,14 @@
     qs('#products-next').disabled = state.page >= state.totalPages;
   }
 
+  // Bumped on every call so a slower, superseded request can never overwrite
+  // the view state set by a request that started later (e.g. rapid filter
+  // changes firing overlapping fetches). Only the most recent request is
+  // allowed to touch the DOM.
+  let productsRequestId = 0;
+
   function loadProducts() {
+    const requestId = ++productsRequestId;
     setViewState('loading');
 
     fetch('/api/admin/products?' + buildQuery(), { credentials: 'same-origin' })
@@ -108,19 +115,31 @@
         return res.json();
       })
       .then(function (data) {
+        if (requestId !== productsRequestId) return; // superseded by a newer request
+
         state.total = data.pagination.total;
         state.totalPages = data.pagination.totalPages;
 
-        if (!data.products.length) {
-          setViewState('empty');
-        } else {
-          renderRows(data.products);
-          setViewState('data');
+        try {
+          if (!data.products.length) {
+            setViewState('empty');
+          } else {
+            renderRows(data.products);
+            setViewState('data');
+          }
+          renderPagination();
+        } catch (renderErr) {
+          // The list request itself succeeded — a rendering bug shouldn't be
+          // reported as "failed to load products". Log for debugging only;
+          // never surface stack traces in the UI.
+          console.error('[admin-dashboard] Failed to render product list:', renderErr);
+          setViewState('error');
         }
-        renderPagination();
       })
       .catch(function (err) {
         if (err.message === 'not authenticated') return;
+        if (requestId !== productsRequestId) return; // superseded by a newer request
+        console.error('[admin-dashboard] Failed to load products:', err.message);
         setViewState('error');
       });
   }
