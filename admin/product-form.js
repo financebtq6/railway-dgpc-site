@@ -106,7 +106,8 @@
   // /admin/product-form.html, a relative path resolves against the admin
   // page's own URL instead ("/admin/images/..."), which 404s. This only
   // fixes how the *admin preview* resolves the path in the browser — the
-  // stored value itself is never touched.
+  // stored value itself is never touched. R2 images already come back as
+  // absolute https:// URLs, so they pass through untouched too.
   function normalizePreviewImageUrl(rawPath) {
     if (typeof rawPath !== 'string') return null;
     const trimmed = rawPath.trim();
@@ -128,59 +129,6 @@
     placeholder.className = 'admin-image-placeholder';
     placeholder.textContent = rawUrl ? 'Зображення недоступне' : 'Немає зображення';
     return placeholder;
-  }
-
-  function buildImageThumb(rawUrl, isMain) {
-    const thumb = document.createElement('div');
-    thumb.className = 'admin-image-thumb';
-
-    const normalized = normalizePreviewImageUrl(rawUrl);
-
-    if (normalized) {
-      const img = document.createElement('img');
-      img.alt = '';
-      img.loading = 'lazy';
-      img.title = rawUrl;
-      img.addEventListener('error', function () {
-        img.replaceWith(buildImagePlaceholder(rawUrl));
-      });
-      img.src = normalized;
-      thumb.appendChild(img);
-    } else {
-      thumb.appendChild(buildImagePlaceholder(rawUrl));
-    }
-
-    if (isMain) {
-      const badge = document.createElement('span');
-      badge.className = 'admin-image-main-badge';
-      badge.textContent = 'Головне';
-      thumb.appendChild(badge);
-    }
-
-    const caption = document.createElement('span');
-    caption.className = 'admin-image-url';
-    caption.title = rawUrl || '';
-    caption.textContent = rawUrl || '—';
-    thumb.appendChild(caption);
-
-    return thumb;
-  }
-
-  function renderReadonlyImages(images) {
-    const container = qs('#product-images-readonly');
-    container.textContent = '';
-
-    if (!images || !images.length) {
-      const hint = document.createElement('p');
-      hint.className = 'admin-field-hint';
-      hint.textContent = 'Немає зображень.';
-      container.appendChild(hint);
-      return;
-    }
-
-    images.forEach(function (url, index) {
-      container.appendChild(buildImageThumb(url, index === 0));
-    });
   }
 
   function populateForm(product) {
@@ -210,8 +158,6 @@
 
     qs('#field-olx-url').value = product.olx_url || '';
     qs('#field-prom-url').value = product.prom_url || '';
-
-    renderReadonlyImages(product.images || []);
   }
 
   function collectPayload() {
@@ -314,6 +260,9 @@
 
         if (mode === 'create') {
           showMessage('Товар створено. Перенаправлення...', 'success');
+          // Full navigation (not history/state manipulation) so the edit-mode
+          // load path below re-runs from scratch and the image manager
+          // initializes against the now-persisted product id.
           window.location.href = '/admin/product-form.html?id=' + encodeURIComponent(result.data.id);
           return;
         }
@@ -350,6 +299,7 @@
         qs('#product-form-loading').hidden = true;
         qs('#product-form').hidden = false;
         isDirty = false;
+        showImageManagerForEdit();
       })
       .catch(function (err) {
         if (err.message === 'not authenticated') return;
@@ -364,6 +314,7 @@
     mode = 'create';
     qs('#field-status').value = 'draft';
     populateSpecsEditor({});
+    showImageManagerForCreate();
   }
 
   function watchDirtyState() {
@@ -376,6 +327,509 @@
       e.preventDefault();
       e.returnValue = '';
     });
+  }
+
+  // ---------- Image manager (Stage 5: Cloudflare R2) ----------
+
+  const ALLOWED_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
+  const MAX_IMAGE_FILE_SIZE = 10 * 1024 * 1024;
+  const MAX_FILES_PER_BATCH = 10;
+
+  let currentImages = [];
+  let pendingFiles = [];
+  let imageActionBusy = false;
+  let pendingDeleteImage = null;
+
+  function imagesApiUrl(suffix) {
+    return '/api/admin/products/' + encodeURIComponent(productId) + '/images' + (suffix || '');
+  }
+
+  function sortImages(images) {
+    return (images || []).slice().sort(function (a, b) { return a.sortOrder - b.sortOrder; });
+  }
+
+  function formatFileSize(bytes) {
+    if (bytes >= 1024 * 1024) return (bytes / (1024 * 1024)).toFixed(1) + ' МБ';
+    if (bytes >= 1024) return Math.round(bytes / 1024) + ' КБ';
+    return bytes + ' Б';
+  }
+
+  function showUploadError(message) {
+    const el = qs('#image-upload-error');
+    el.textContent = message || '';
+    el.hidden = !message;
+  }
+
+  function sourceBadgeClass(source) {
+    if (source === 'local') return 'admin-image-badge-local';
+    if (source === 'r2') return 'admin-image-badge-r2';
+    return 'admin-image-badge-external';
+  }
+
+  function sourceBadgeLabel(source) {
+    if (source === 'local') return 'Local';
+    if (source === 'r2') return 'R2';
+    return 'External';
+  }
+
+  function setGalleryBusy(busy) {
+    imageActionBusy = busy;
+    qs('#product-images-gallery').querySelectorAll('button').forEach(function (btn) {
+      btn.disabled = busy;
+    });
+  }
+
+  function buildGalleryThumb(image) {
+    const thumb = document.createElement('div');
+    thumb.className = 'admin-image-card-thumb';
+
+    const normalized = normalizePreviewImageUrl(image.url);
+    if (normalized) {
+      const img = document.createElement('img');
+      img.alt = '';
+      img.loading = 'lazy';
+      img.addEventListener('error', function () {
+        img.replaceWith(buildImagePlaceholder(image.url));
+      });
+      img.src = normalized;
+      thumb.appendChild(img);
+    } else {
+      thumb.appendChild(buildImagePlaceholder(image.url));
+    }
+
+    const badges = document.createElement('div');
+    badges.className = 'admin-image-badges';
+    if (image.isMain) {
+      const mainBadge = document.createElement('span');
+      mainBadge.className = 'admin-image-badge admin-image-badge-main';
+      mainBadge.textContent = 'Головне';
+      badges.appendChild(mainBadge);
+    }
+    const sourceBadge = document.createElement('span');
+    sourceBadge.className = 'admin-image-badge ' + sourceBadgeClass(image.source);
+    sourceBadge.textContent = sourceBadgeLabel(image.source);
+    badges.appendChild(sourceBadge);
+    thumb.appendChild(badges);
+
+    return thumb;
+  }
+
+  function buildGalleryCard(image, index, total) {
+    const card = document.createElement('div');
+    card.className = 'admin-image-card';
+    card.appendChild(buildGalleryThumb(image));
+
+    const position = document.createElement('span');
+    position.className = 'admin-image-card-position';
+    position.textContent = 'Позиція ' + (index + 1) + ' з ' + total;
+    card.appendChild(position);
+
+    const urlEl = document.createElement('span');
+    urlEl.className = 'admin-image-card-url';
+    urlEl.title = image.url;
+    urlEl.textContent = image.url;
+    card.appendChild(urlEl);
+
+    const orderRow = document.createElement('div');
+    orderRow.className = 'admin-image-card-order';
+
+    const upBtn = document.createElement('button');
+    upBtn.type = 'button';
+    upBtn.className = 'admin-btn admin-btn-ghost';
+    upBtn.textContent = '↑';
+    upBtn.disabled = index === 0;
+    upBtn.setAttribute('aria-label', 'Перемістити вгору');
+    upBtn.addEventListener('click', function () { moveImage(image.id, -1); });
+
+    const downBtn = document.createElement('button');
+    downBtn.type = 'button';
+    downBtn.className = 'admin-btn admin-btn-ghost';
+    downBtn.textContent = '↓';
+    downBtn.disabled = index === total - 1;
+    downBtn.setAttribute('aria-label', 'Перемістити вниз');
+    downBtn.addEventListener('click', function () { moveImage(image.id, 1); });
+
+    orderRow.appendChild(upBtn);
+    orderRow.appendChild(downBtn);
+    card.appendChild(orderRow);
+
+    const actions = document.createElement('div');
+    actions.className = 'admin-image-card-actions';
+
+    if (!image.isMain) {
+      const mainBtn = document.createElement('button');
+      mainBtn.type = 'button';
+      mainBtn.className = 'admin-btn admin-btn-ghost';
+      mainBtn.textContent = 'Зробити головним';
+      mainBtn.addEventListener('click', function () { setMainImage(image.id); });
+      actions.appendChild(mainBtn);
+    }
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.type = 'button';
+    deleteBtn.className = 'admin-btn admin-btn-danger';
+    deleteBtn.textContent = 'Видалити';
+    deleteBtn.addEventListener('click', function () { openDeleteDialog(image); });
+    actions.appendChild(deleteBtn);
+
+    card.appendChild(actions);
+    return card;
+  }
+
+  function renderGallery() {
+    const gallery = qs('#product-images-gallery');
+    const emptyEl = qs('#product-images-empty');
+    gallery.textContent = '';
+
+    if (!currentImages.length) {
+      emptyEl.hidden = false;
+      return;
+    }
+    emptyEl.hidden = true;
+
+    currentImages.forEach(function (image, index) {
+      gallery.appendChild(buildGalleryCard(image, index, currentImages.length));
+    });
+  }
+
+  function fetchImages() {
+    return fetch(imagesApiUrl(''), { credentials: 'same-origin' })
+      .then(function (res) {
+        if (res.status === 401) {
+          window.location.href = '/admin/login.html';
+          return Promise.reject(new Error('not authenticated'));
+        }
+        if (!res.ok) throw new Error('Не вдалося завантажити зображення.');
+        return res.json();
+      })
+      .then(function (data) {
+        currentImages = sortImages(data.images);
+        renderGallery();
+      })
+      .catch(function (err) {
+        if (err.message === 'not authenticated') return;
+        showUploadError(err.message);
+      });
+  }
+
+  function moveImage(imageId, delta) {
+    if (imageActionBusy) return;
+    const index = currentImages.findIndex(function (img) { return img.id === imageId; });
+    const newIndex = index + delta;
+    if (index === -1 || newIndex < 0 || newIndex >= currentImages.length) return;
+
+    const reordered = currentImages.slice();
+    const tmp = reordered[index];
+    reordered[index] = reordered[newIndex];
+    reordered[newIndex] = tmp;
+
+    saveOrder(reordered.map(function (img) { return img.id; }));
+  }
+
+  function saveOrder(imageIds) {
+    setGalleryBusy(true);
+    showUploadError('');
+
+    return fetch(imagesApiUrl('/order'), {
+      method: 'PUT',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ imageIds: imageIds })
+    })
+      .then(function (res) {
+        if (res.status === 401) {
+          window.location.href = '/admin/login.html';
+          return Promise.reject(new Error('not authenticated'));
+        }
+        return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+      })
+      .then(function (result) {
+        if (!result.ok) throw new Error(result.data && result.data.error ? result.data.error : 'Не вдалося змінити порядок.');
+        currentImages = sortImages(result.data.images);
+        renderGallery();
+      })
+      .catch(function (err) {
+        if (err.message !== 'not authenticated') showUploadError(err.message);
+      })
+      .finally(function () {
+        setGalleryBusy(false);
+      });
+  }
+
+  function setMainImage(imageId) {
+    if (imageActionBusy) return;
+    setGalleryBusy(true);
+    showUploadError('');
+
+    fetch(imagesApiUrl('/' + encodeURIComponent(imageId) + '/main'), {
+      method: 'PUT',
+      credentials: 'same-origin'
+    })
+      .then(function (res) {
+        if (res.status === 401) {
+          window.location.href = '/admin/login.html';
+          return Promise.reject(new Error('not authenticated'));
+        }
+        return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+      })
+      .then(function (result) {
+        if (!result.ok) throw new Error(result.data && result.data.error ? result.data.error : 'Не вдалося встановити головне зображення.');
+        currentImages = sortImages(result.data.images);
+        renderGallery();
+      })
+      .catch(function (err) {
+        if (err.message !== 'not authenticated') showUploadError(err.message);
+      })
+      .finally(function () {
+        setGalleryBusy(false);
+      });
+  }
+
+  function openDeleteDialog(image) {
+    pendingDeleteImage = image;
+    const preview = qs('#image-delete-preview');
+    preview.textContent = '';
+
+    const normalized = normalizePreviewImageUrl(image.url);
+    if (normalized) {
+      const img = document.createElement('img');
+      img.alt = '';
+      img.src = normalized;
+      preview.appendChild(img);
+    }
+    const urlSpan = document.createElement('span');
+    urlSpan.className = 'admin-image-card-url';
+    urlSpan.textContent = image.url;
+    preview.appendChild(urlSpan);
+
+    const warningEl = qs('#image-delete-warning');
+    if (image.source === 'local') {
+      warningEl.textContent = 'Це локальне зображення з git. Файл на диску видалено НЕ буде — видаляється лише запис у базі даних.';
+    } else if (image.source === 'r2') {
+      warningEl.textContent = 'Це зображення у сховищі R2. Після видалення запису файл також буде видалено зі сховища.';
+    } else {
+      warningEl.textContent = 'Буде видалено лише запис про це зображення.';
+    }
+
+    qs('#image-delete-error').hidden = true;
+
+    const dialog = qs('#image-delete-dialog');
+    if (typeof dialog.showModal === 'function') {
+      dialog.showModal();
+    } else {
+      dialog.setAttribute('open', '');
+    }
+  }
+
+  function closeDeleteDialog() {
+    pendingDeleteImage = null;
+    const dialog = qs('#image-delete-dialog');
+    if (typeof dialog.close === 'function') {
+      dialog.close();
+    } else {
+      dialog.removeAttribute('open');
+    }
+  }
+
+  function confirmDelete() {
+    if (!pendingDeleteImage) return;
+    const imageId = pendingDeleteImage.id;
+    const confirmBtn = qs('#image-delete-confirm');
+    confirmBtn.disabled = true;
+
+    fetch(imagesApiUrl('/' + encodeURIComponent(imageId)), {
+      method: 'DELETE',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ confirm: true })
+    })
+      .then(function (res) {
+        if (res.status === 401) {
+          window.location.href = '/admin/login.html';
+          return Promise.reject(new Error('not authenticated'));
+        }
+        return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+      })
+      .then(function (result) {
+        if (!result.ok) throw new Error(result.data && result.data.error ? result.data.error : 'Не вдалося видалити зображення.');
+        currentImages = sortImages(result.data.images);
+        renderGallery();
+        closeDeleteDialog();
+        if (result.data.warning) showUploadError(result.data.warning);
+      })
+      .catch(function (err) {
+        if (err.message === 'not authenticated') return;
+        const errEl = qs('#image-delete-error');
+        errEl.textContent = err.message;
+        errEl.hidden = false;
+      })
+      .finally(function () {
+        confirmBtn.disabled = false;
+      });
+  }
+
+  function renderSelectedFiles() {
+    const list = qs('#image-selected-list');
+    list.textContent = '';
+    pendingFiles.forEach(function (file) {
+      const li = document.createElement('li');
+      const nameSpan = document.createElement('span');
+      nameSpan.textContent = file.name;
+      const sizeSpan = document.createElement('span');
+      sizeSpan.textContent = formatFileSize(file.size);
+      li.appendChild(nameSpan);
+      li.appendChild(sizeSpan);
+      list.appendChild(li);
+    });
+    qs('#image-upload-actions').hidden = pendingFiles.length === 0;
+  }
+
+  function validateSelectedFiles(files) {
+    const errors = [];
+    if (files.length > MAX_FILES_PER_BATCH) {
+      errors.push('Максимум ' + MAX_FILES_PER_BATCH + ' файлів за раз.');
+    }
+    files.forEach(function (file) {
+      if (ALLOWED_IMAGE_TYPES.indexOf(file.type) === -1) {
+        errors.push(file.name + ': непідтримуваний формат.');
+      } else if (file.size > MAX_IMAGE_FILE_SIZE) {
+        errors.push(file.name + ': перевищує 10 МБ.');
+      }
+    });
+    return errors;
+  }
+
+  function handleFilesSelected(fileList) {
+    const files = Array.prototype.slice.call(fileList || []);
+    if (!files.length) return;
+
+    showUploadError('');
+    const errors = validateSelectedFiles(files);
+    if (errors.length) showUploadError(errors.join(' '));
+
+    // Client-side checks are a UX convenience only — the server re-validates
+    // type/size/count authoritatively and is what actually enforces limits.
+    pendingFiles = files.slice(0, MAX_FILES_PER_BATCH);
+    renderSelectedFiles();
+  }
+
+  function clearSelectedFiles() {
+    pendingFiles = [];
+    qs('#image-file-input').value = '';
+    renderSelectedFiles();
+    showUploadError('');
+  }
+
+  function uploadSelectedFiles() {
+    if (!pendingFiles.length || imageActionBusy) return;
+
+    showUploadError('');
+    imageActionBusy = true;
+    qs('#image-upload-submit').disabled = true;
+    qs('#image-upload-cancel').disabled = true;
+    const progressEl = qs('#image-upload-progress');
+    progressEl.hidden = false;
+    progressEl.textContent = 'Завантаження...';
+
+    const formData = new FormData();
+    pendingFiles.forEach(function (file) { formData.append('images', file); });
+
+    // XMLHttpRequest (not fetch) so upload progress is observable — fetch
+    // has no upload-progress event as of this writing.
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', imagesApiUrl(''), true);
+    xhr.withCredentials = true;
+
+    xhr.upload.addEventListener('progress', function (e) {
+      if (e.lengthComputable) {
+        const pct = Math.round((e.loaded / e.total) * 100);
+        progressEl.textContent = 'Завантаження... ' + pct + '%';
+      }
+    });
+
+    xhr.addEventListener('load', function () {
+      imageActionBusy = false;
+      qs('#image-upload-submit').disabled = false;
+      qs('#image-upload-cancel').disabled = false;
+      progressEl.hidden = true;
+
+      if (xhr.status === 401) {
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
+      let data = {};
+      try { data = JSON.parse(xhr.responseText); } catch (e) { /* non-JSON response */ }
+
+      if (xhr.status < 200 || xhr.status >= 300) {
+        const details = data && data.details ? data.details.join(' ') : '';
+        const message = (data && data.error ? data.error : 'Не вдалося завантажити зображення') + (details ? ': ' + details : '');
+        showUploadError(message);
+        return;
+      }
+
+      currentImages = sortImages(data.images);
+      renderGallery();
+      pendingFiles = [];
+      qs('#image-file-input').value = '';
+      renderSelectedFiles();
+    });
+
+    xhr.addEventListener('error', function () {
+      imageActionBusy = false;
+      qs('#image-upload-submit').disabled = false;
+      qs('#image-upload-cancel').disabled = false;
+      progressEl.hidden = true;
+      showUploadError('Помилка з’єднання під час завантаження.');
+    });
+
+    xhr.send(formData);
+  }
+
+  function initImageDropZone() {
+    const zone = qs('#image-upload-zone');
+    const input = qs('#image-file-input');
+
+    qs('#image-file-pick').addEventListener('click', function () { input.click(); });
+    input.addEventListener('change', function () { handleFilesSelected(input.files); });
+
+    ['dragenter', 'dragover'].forEach(function (evtName) {
+      zone.addEventListener(evtName, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        zone.classList.add('is-dragover');
+      });
+    });
+    ['dragleave', 'drop'].forEach(function (evtName) {
+      zone.addEventListener(evtName, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        zone.classList.remove('is-dragover');
+      });
+    });
+    zone.addEventListener('drop', function (e) {
+      if (e.dataTransfer && e.dataTransfer.files) handleFilesSelected(e.dataTransfer.files);
+    });
+
+    qs('#image-upload-submit').addEventListener('click', uploadSelectedFiles);
+    qs('#image-upload-cancel').addEventListener('click', clearSelectedFiles);
+
+    qs('#image-delete-cancel').addEventListener('click', closeDeleteDialog);
+    qs('#image-delete-confirm').addEventListener('click', confirmDelete);
+    qs('#image-delete-dialog').addEventListener('cancel', function () {
+      pendingDeleteImage = null;
+    });
+  }
+
+  function showImageManagerForEdit() {
+    qs('#product-images-create-hint').hidden = true;
+    qs('#product-images-manager').hidden = false;
+    fetchImages();
+  }
+
+  function showImageManagerForCreate() {
+    qs('#product-images-create-hint').hidden = false;
+    qs('#product-images-manager').hidden = true;
   }
 
   function init() {
@@ -392,6 +846,7 @@
 
     form.addEventListener('submit', handleSubmit);
     watchDirtyState();
+    initImageDropZone();
 
     if (productId) {
       mode = 'edit';

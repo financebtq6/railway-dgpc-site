@@ -49,6 +49,7 @@ if (SESSIONS_CONFIGURED) {
 const { requireAdminPage } = require('./middleware/require-admin');
 app.use('/api/admin', require('./routes/admin-auth'));
 app.use('/api/admin', require('./routes/admin-products'));
+app.use('/api/admin/products/:id/images', require('./routes/admin-images'));
 app.get('/admin/dashboard.html', requireAdminPage, (req, res) => {
   res.set('Cache-Control', 'no-store');
   res.set('X-Content-Type-Options', 'nosniff');
