@@ -1710,3 +1710,48 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
     padding: 1.5rem !important;
   }
 }
+
+/* =====================================================
+   Floating Telegram button
+   ===================================================== */
+
+.dpc-telegram-fab {
+  position: fixed;
+  right: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #229ED9;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dpc-telegram-fab svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+.dpc-telegram-fab:hover,
+.dpc-telegram-fab:focus-visible {
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 767px) {
+  .dpc-telegram-fab {
+    width: 52px;
+    height: 52px;
+  }
+
+  .dpc-telegram-fab svg {
+    width: 24px;
+    height: 24px;
+  }
+}
