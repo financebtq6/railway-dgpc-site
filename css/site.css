@@ -1755,3 +1755,113 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
     height: 24px;
   }
 }
+
+/* =====================================================
+   Computer catalog filters (structured, collapsible groups)
+   ===================================================== */
+
+.dpc-filter-group summary {
+  list-style: none;
+}
+
+.dpc-filter-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.dpc-filter-group summary::after {
+  content: '+';
+  float: right;
+  color: var(--text-muted);
+}
+
+.dpc-filter-group[open] summary::after {
+  content: '\2212';
+}
+
+.dpc-filter-group + .dpc-filter-group {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.dpc-filter-option-zero {
+  opacity: 0.4;
+}
+
+.dpc-filter-option-zero input {
+  cursor: not-allowed;
+}
+
+/* --- Price range: two overlapping native sliders; only the thumb is
+   clickable on each, so they behave like one dual-handle control. --- */
+.dpc-price-slider-track {
+  position: relative;
+  height: 28px;
+}
+
+.dpc-price-range {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  background: transparent;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.dpc-price-range::-webkit-slider-runnable-track {
+  height: 4px;
+  background: var(--glass-border);
+  border-radius: 2px;
+}
+
+.dpc-price-range::-moz-range-track {
+  height: 4px;
+  background: var(--glass-border);
+  border-radius: 2px;
+}
+
+.dpc-price-range::-webkit-slider-thumb {
+  pointer-events: auto;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-blue-bright);
+  box-shadow: 0 0 6px var(--glow-blue);
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+.dpc-price-range::-moz-range-thumb {
+  pointer-events: auto;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-blue-bright);
+  border: none;
+  cursor: pointer;
+}
+
+/* --- Active-filter chips above the catalog grid --- */
+.dpc-active-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.dpc-active-filter-chip:hover {
+  border-color: var(--accent-blue-bright);
+  color: var(--accent-blue-bright);
+}

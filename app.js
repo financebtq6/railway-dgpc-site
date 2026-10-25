@@ -23,16 +23,23 @@
 
   // --- FILTER STATE ---
   let activeFilters = {
-    // Computers filters
-    cpu: [],
+    // Computers filters (structured catalog filters — see getComputerFilterFields)
+    series: [],      // Base | Solid | Midline | Esport | Apex
+    condition: [],   // new | used
+    cpuFamily: [],   // e.g. 'amd:ryzen-7', 'intel:core-i5'
+    cpuX3D: false,
+    gpuModel: [],    // e.g. 'rtx-5070-ti', 'rx-9070-xt'
+    vram: [],        // '8' | '12' | '16+'
     ramType: [],
     ramSize: [],
     storage: [],
-    gpu: [],
+    priceMin: null,
+    priceMax: null,
     // Periphery filters
     peripheryType: [] // Клавіатури, Миші, Навушники, Ігрові килимки
   };
   let currentSort = 'default';
+  let computerPriceBounds = { min: 0, max: 0 };
 
   // --- TRANSLATIONS ---
   const i18n = {
@@ -518,6 +525,22 @@
     const catalog = document.getElementById("catalog");
     if (!catalog) return;
 
+    if (data.length === 0 && currentCategory === 'computers') {
+      catalog.innerHTML = `
+        <div class="col-span-full text-center py-16 px-6 dpc-filter-panel">
+          <p class="text-lg font-bold mb-2 dpc-text-primary">Нічого не знайдено за цими фільтрами</p>
+          <p class="dpc-muted-text mb-6">Спробуйте змінити умови або скинути фільтри</p>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <button onclick="window.resetFilters()" class="py-2 px-4 rounded-lg dpc-reset-btn">Скинути фільтри</button>
+            <a href="${TELEGRAM_URL}" target="_blank" rel="noopener noreferrer" class="py-2 px-4 rounded-lg dpc-btn-order font-bold">Підберемо під ваш бюджет</a>
+          </div>
+        </div>`;
+      if (window.feather) feather.replace();
+      const emptyNav = document.getElementById('pagination-nav');
+      if (emptyNav) emptyNav.innerHTML = '';
+      return;
+    }
+
     const start = (page - 1) * ITEMS_PER_PAGE;
     const end = start + ITEMS_PER_PAGE;
     const pageData = data.slice(start, end);
@@ -566,121 +589,584 @@
 
   // --- FILTER & SORT LOGIC ---
   function generateFilters(data) {
-    if (!document.getElementById('filter-cpu') && !document.getElementById('filter-periphery-type')) return;
+    if (!document.getElementById('filters-sidebar-inner') && !document.getElementById('filter-periphery-type')) return;
 
     if (currentCategory === 'computers') {
-      generateComputerFilters(data);
+      renderComputerFilters(data);
     } else if (currentCategory === 'periphery') {
       generatePeripheryFilters(data);
     }
   }
 
-  function generateComputerFilters(data) {
-    // Define Rigid Categories (buckets)
-    const buckets = {
-      cpu: {
-        'Intel core i5': false,
-        'Intel core i7': false,
-        'Amd ryzen 5': false,
-        'Amd ryzen 7': false,
-        'Amd ryzen X3D': false
-      },
-      ramType: {
-        'DDR4': false,
-        'DDR5': false
-      },
-      ramSize: {
-        '16 GB': false,
-        '32 GB': false,
-        '64 GB': false
-      },
-      storage: {
-        'SSD M.2': false,
-        'SSD SATA': false,
-        'HDD': false
-      },
-      gpu: {
-        '10 Серія (10xx)': false,
-        '20 Серія (20xx)': false,
-        '30 Серія (30xx)': false,
-        '40 Серія (40xx)': false,
-        '50 Серія (50xx)': false,
-        'AMD Radeon': false
-      }
+  // =====================================================
+  // COMPUTER CATALOG FILTERS
+  //
+  // Products only carry free-text `specs` (cpu/gpu/ram/storage strings)
+  // filled in by hand via the admin panel — there are no structured
+  // cpuBrand/gpuModel/etc. columns. getComputerFilterFields() parses each
+  // product's specs once (cached on the product as `_f`) into structured
+  // fields, so every filter/count check below reads those fields instead
+  // of re-running regex over free text on every render.
+  // =====================================================
+
+  const CPU_TAXONOMY = [
+    { brand: 'AMD', families: [
+      { key: 'amd:ryzen-5', label: 'Ryzen 5' },
+      { key: 'amd:ryzen-7', label: 'Ryzen 7' },
+      { key: 'amd:ryzen-9', label: 'Ryzen 9' }
+    ] },
+    { brand: 'Intel', families: [
+      { key: 'intel:core-i3', label: 'Core i3' },
+      { key: 'intel:core-i5', label: 'Core i5' },
+      { key: 'intel:core-i7', label: 'Core i7' },
+      { key: 'intel:core-i9', label: 'Core i9' },
+      { key: 'intel:core-ultra', label: 'Core Ultra' }
+    ] }
+  ];
+
+  const SERIES_TAXONOMY = ['Base', 'Solid', 'Midline', 'Esport', 'Apex'];
+
+  const VRAM_BUCKETS = [
+    { key: '8', label: '8 ГБ', test: (v) => v === 8 },
+    { key: '12', label: '12 ГБ', test: (v) => v === 12 },
+    { key: '16+', label: '16 ГБ+', test: (v) => v >= 16 }
+  ];
+
+  const RAM_TYPE_TAXONOMY = ['DDR4', 'DDR5'];
+  const RAM_SIZE_TAXONOMY = [16, 32, 64];
+
+  const STORAGE_BUCKETS = [
+    { key: '512', label: '512 ГБ', test: (v) => v <= 512 },
+    { key: '1024', label: '1 ТБ', test: (v) => v > 512 && v <= 1024 },
+    { key: '2048', label: '2 ТБ+', test: (v) => v > 1024 }
+  ];
+
+  // A few GPU models in the catalog don't state VRAM in the free-text specs
+  // (the model name alone implies it). Used only when the text has no
+  // explicit "XX GB" — an explicit value in the text always wins.
+  const GPU_VRAM_FALLBACK = {
+    'rtx-5060': 8,
+    'rtx-5060-ti': 8,
+    'rtx-5070': 12,
+    'rtx-5070-ti': 16,
+    'rtx-5080': 16,
+    'rtx-3070-ti': 8,
+    'rtx-3080': 10,
+    'rx-6900-xt': 16,
+    'rx-9070-xt': 16
+  };
+
+  // One-time migration patch for free-text quirks the general parser can't
+  // resolve (e.g. a RAM string with no DDR generation in it). Keyed by
+  // product id — not a parsing rule applied to every product.
+  const SPEC_OVERRIDES = {
+    'Digital-PC-Apex-Legacy': { ramType: 'DDR5' }
+  };
+
+  function slugify(str) {
+    return String(str || '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function parseCpu(cpuText) {
+    const text = (cpuText || '').toLowerCase();
+    const x3d = /x3d/.test(text);
+    const ryzenMatch = text.match(/ryzen\s*(\d)/);
+    const ultraMatch = /core\s*ultra/.test(text);
+    const intelMatch = text.match(/core\s*i(\d)/);
+
+    if (ryzenMatch) {
+      return { brand: 'AMD', familyKey: 'amd:ryzen-' + ryzenMatch[1], familyLabel: 'Ryzen ' + ryzenMatch[1], x3d };
+    }
+    if (ultraMatch) {
+      return { brand: 'Intel', familyKey: 'intel:core-ultra', familyLabel: 'Core Ultra', x3d };
+    }
+    if (intelMatch) {
+      return { brand: 'Intel', familyKey: 'intel:core-i' + intelMatch[1], familyLabel: 'Core i' + intelMatch[1], x3d };
+    }
+    return { brand: null, familyKey: null, familyLabel: null, x3d };
+  }
+
+  function parseGpu(gpuText) {
+    const raw = gpuText || '';
+    const used = /б\s*\/?\s*в/i.test(raw);
+    // Fixes the one known typo in the catalog: "RT3070Ti" is missing the X.
+    const fixed = raw.replace(/\brt(\d)/gi, 'rtx$1');
+    const m = fixed.match(/r(tx|x)\s*-?\s*(\d{3,4})\s*(ti|xt)?/i);
+    if (!m) return { brand: null, modelKey: null, modelLabel: null, vram: null, used };
+
+    const isNvidia = m[1].toLowerCase() === 'tx';
+    const brand = isNvidia ? 'NVIDIA' : 'AMD';
+    const prefix = isNvidia ? 'RTX' : 'RX';
+    const num = m[2];
+    const suffixRaw = m[3] ? m[3].toUpperCase() : '';
+    const suffixLabel = suffixRaw === 'TI' ? 'Ti' : suffixRaw;
+    const modelLabel = prefix + ' ' + num + (suffixLabel ? ' ' + suffixLabel : '');
+    const modelKey = slugify(modelLabel);
+
+    const vramMatch = fixed.match(/(\d{1,2})\s*gb/i);
+    const vram = vramMatch ? Number(vramMatch[1]) : (GPU_VRAM_FALLBACK[modelKey] || null);
+
+    return { brand, modelKey, modelLabel, vram, used };
+  }
+
+  function parseRam(ramText) {
+    const text = ramText || '';
+    const typeMatch = text.match(/ddr(\d)/i);
+    const sizeMatch = text.match(/(\d{2,3})\s*gb/i);
+    return {
+      type: typeMatch ? 'DDR' + typeMatch[1] : null,
+      size: sizeMatch ? Number(sizeMatch[1]) : null
     };
+  }
 
-    // Filter data to only computers
-    const computers = data.filter(p => p.type === 'computers');
+  function parseStorageSize(storageText) {
+    const m = (storageText || '').match(/(\d+(?:\.\d+)?)\s*(gb|tb)/i);
+    if (!m) return null;
+    const value = parseFloat(m[1]);
+    return Math.round(m[2].toLowerCase() === 'tb' ? value * 1024 : value);
+  }
 
+  function parseSeries(title) {
+    const m = (title || '').match(/Digital PC (Base|Solid|Midline|Esport|Apex)\b/i);
+    if (!m) return null;
+    const s = m[1].toLowerCase();
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+
+  // Computes (and caches on the product) the structured filter fields,
+  // derived once from the free-text `specs` the admin already fills in.
+  function getComputerFilterFields(p) {
+    if (p._f) return p._f;
+    const specs = p.specs || {};
+    const cpu = parseCpu(specs.cpu);
+    const gpu = parseGpu(specs.gpu);
+    const ram = parseRam(specs.ram);
+    const override = SPEC_OVERRIDES[p.id] || {};
+    const isTradeIn = p.id === 'Digital-PC-Traid-In' || /trade\s*in/i.test(p.title || '');
+
+    const f = {
+      series: isTradeIn ? null : parseSeries(p.title),
+      condition: isTradeIn ? 'used' : 'new',
+      cpuBrand: cpu.brand,
+      cpuFamilyKey: cpu.familyKey,
+      cpuFamilyLabel: cpu.familyLabel,
+      cpuX3D: cpu.x3d,
+      gpuBrand: gpu.brand,
+      gpuModelKey: gpu.modelKey,
+      gpuModelLabel: gpu.modelLabel,
+      gpuUsed: gpu.used,
+      vram: gpu.vram,
+      ramType: override.ramType || ram.type,
+      ramSize: ram.size,
+      storageSize: parseStorageSize(specs.storage),
+      price: Number(p.price) || 0
+    };
+    p._f = f;
+    return f;
+  }
+
+  // One matcher per filter group — AND across groups, OR within a group.
+  // Excluding a group (for its own facet counts) just skips its matcher.
+  const COMPUTER_FILTER_GROUPS = {
+    series: (p, f) => !f.series.length || f.series.includes(getComputerFilterFields(p).series),
+    condition: (p, f) => !f.condition.length || f.condition.includes(getComputerFilterFields(p).condition),
+    cpuFamily: (p, f) => !f.cpuFamily.length || f.cpuFamily.includes(getComputerFilterFields(p).cpuFamilyKey),
+    cpuX3D: (p, f) => !f.cpuX3D || getComputerFilterFields(p).cpuX3D === true,
+    gpuModel: (p, f) => !f.gpuModel.length || f.gpuModel.includes(getComputerFilterFields(p).gpuModelKey),
+    vram: (p, f) => {
+      if (!f.vram.length) return true;
+      const v = getComputerFilterFields(p).vram;
+      if (v === null) return false;
+      return f.vram.some(key => (VRAM_BUCKETS.find(b => b.key === key) || {}).test(v));
+    },
+    ramType: (p, f) => !f.ramType.length || f.ramType.includes(getComputerFilterFields(p).ramType),
+    ramSize: (p, f) => !f.ramSize.length || f.ramSize.includes(String(getComputerFilterFields(p).ramSize)),
+    storage: (p, f) => {
+      if (!f.storage.length) return true;
+      const v = getComputerFilterFields(p).storageSize;
+      if (v === null) return false;
+      return f.storage.some(key => (STORAGE_BUCKETS.find(b => b.key === key) || {}).test(v));
+    },
+    price: (p, f) => {
+      const price = Number(p.price) || 0;
+      if (f.priceMin != null && price < f.priceMin) return false;
+      if (f.priceMax != null && price > f.priceMax) return false;
+      return true;
+    }
+  };
+
+  function applyComputerFilterGroups(products, filters, excludeGroup) {
+    return products.filter(p => {
+      for (const key in COMPUTER_FILTER_GROUPS) {
+        if (key === excludeGroup) continue;
+        if (!COMPUTER_FILTER_GROUPS[key](p, filters)) return false;
+      }
+      return true;
+    });
+  }
+
+  function computerPriceBoundsFrom(products) {
+    const prices = products.map(p => Number(p.price) || 0);
+    if (!prices.length) return { min: 0, max: 0 };
+    return { min: Math.min(...prices), max: Math.max(...prices) };
+  }
+
+  function checkboxRow(name, value, label) {
+    return `
+      <label class="flex items-center justify-between gap-2 cursor-pointer p-2 rounded transition-colors dpc-filter-label" data-filter-option data-group="${name}" data-value="${value}">
+        <span class="flex items-center">
+          <input type="checkbox" class="filter-checkbox form-checkbox rounded" name="${name}" value="${value}">
+          <span class="ml-2 text-sm font-medium">${label}</span>
+        </span>
+        <span class="text-xs dpc-muted-text" data-count>(0)</span>
+      </label>`;
+  }
+
+  function filterGroupWrap(heading, innerHTML, open) {
+    return `
+      <details class="dpc-filter-group" ${open ? 'open' : ''}>
+        <summary class="font-bold dpc-filter-heading cursor-pointer">${heading}</summary>
+        <div class="space-y-1 mt-2">${innerHTML}</div>
+      </details>`;
+  }
+
+  function renderComputerFilters(data) {
+    const container = document.getElementById('filters-sidebar-inner');
+    if (!container) return;
+
+    const computers = data.filter(p => !p.type || p.type === 'computers');
+    computers.forEach(getComputerFilterFields); // populate the _f cache
+
+    computerPriceBounds = computerPriceBoundsFrom(computers);
+
+    const gpuByBrand = {};
     computers.forEach(p => {
-      const fullSpecs = p.full_specs || {};
-      const specs = p.specs || {};
-      const title = p.title || "";
-      const rawText = (title + " " + JSON.stringify(fullSpecs) + " " + JSON.stringify(specs)).toLowerCase();
-
-      // CPU Mapping
-      if (rawText.match(/core\s*i5|i5-\d/)) buckets.cpu['Intel core i5'] = true;
-      if (rawText.match(/core\s*i7|i7-\d/)) buckets.cpu['Intel core i7'] = true;
-      if (rawText.match(/ryzen\s*5/)) buckets.cpu['Amd ryzen 5'] = true;
-      if (rawText.match(/ryzen\s*7/)) buckets.cpu['Amd ryzen 7'] = true;
-      if (rawText.match(/ryzen.*x3d|x3d/)) buckets.cpu['Amd ryzen X3D'] = true;
-
-      // RAM Type
-      if (rawText.includes('ddr4')) buckets.ramType['DDR4'] = true;
-      if (rawText.includes('ddr5')) buckets.ramType['DDR5'] = true;
-
-      // RAM Size
-      if (rawText.match(/16\s*gb/)) buckets.ramSize['16 GB'] = true;
-      if (rawText.match(/32\s*gb/)) buckets.ramSize['32 GB'] = true;
-      if (rawText.match(/64\s*gb/)) buckets.ramSize['64 GB'] = true;
-
-      // Storage
-      if (rawText.match(/ssd.*m\.?2|m\.?2.*ssd|nvme/)) buckets.storage['SSD M.2'] = true;
-      if (rawText.match(/ssd.*sata|sata.*ssd/) && !rawText.match(/m\.?2/)) buckets.storage['SSD SATA'] = true;
-      if (rawText.match(/\bhdd\b|hard\s*disk/)) buckets.storage['HDD'] = true;
-
-      // GPU Mapping - Grouping
-      if (rawText.match(/gtx\s*10\d\d|10\d\d/)) buckets.gpu['10 Серія (10xx)'] = true;
-      if (rawText.match(/rtx\s*20\d\d|20\d\d/)) buckets.gpu['20 Серія (20xx)'] = true;
-      if (rawText.match(/rtx\s*30\d\d|30\d\d/)) buckets.gpu['30 Серія (30xx)'] = true;
-      if (rawText.match(/rtx\s*40\d\d|40\d\d/)) buckets.gpu['40 Серія (40xx)'] = true;
-      if (rawText.match(/rtx\s*50\d\d|50\d\d/)) buckets.gpu['50 Серія (50xx)'] = true;
-      if (rawText.match(/amd.*radeon|radeon.*rx|rx\s*\d{3,4}/)) buckets.gpu['AMD Radeon'] = true;
+      const f = p._f;
+      if (!f.gpuModelKey) return;
+      if (!gpuByBrand[f.gpuBrand]) gpuByBrand[f.gpuBrand] = {};
+      gpuByBrand[f.gpuBrand][f.gpuModelKey] = f.gpuModelLabel;
     });
 
-    const renderCheckboxes = (activeMap, containerId, name, showAll = false) => {
-      const container = document.getElementById(containerId);
-      if (!container) return;
+    const priceHTML = `
+      <details class="dpc-filter-group" open>
+        <summary class="font-bold dpc-filter-heading cursor-pointer">Ціна, ₴</summary>
+        <div class="mt-3 space-y-3">
+          <div class="dpc-price-slider-track">
+            <input type="range" class="dpc-price-range dpc-price-range-min" min="${computerPriceBounds.min}" max="${computerPriceBounds.max}" value="${computerPriceBounds.min}" step="500" aria-label="Ціна від">
+            <input type="range" class="dpc-price-range dpc-price-range-max" min="${computerPriceBounds.min}" max="${computerPriceBounds.max}" value="${computerPriceBounds.max}" step="500" aria-label="Ціна до">
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="number" class="dpc-select dpc-price-input dpc-price-input-min w-full rounded-md py-1.5 px-2 text-sm" min="${computerPriceBounds.min}" max="${computerPriceBounds.max}" value="${computerPriceBounds.min}" aria-label="Ціна від, грн">
+            <span class="dpc-muted-text">—</span>
+            <input type="number" class="dpc-select dpc-price-input dpc-price-input-max w-full rounded-md py-1.5 px-2 text-sm" min="${computerPriceBounds.min}" max="${computerPriceBounds.max}" value="${computerPriceBounds.max}" aria-label="Ціна до, грн">
+          </div>
+        </div>
+      </details>`;
 
-      let items = Object.keys(activeMap);
-      if (!showAll) {
-        items = items.filter(k => activeMap[k]);
-      }
+    const seriesHTML = filterGroupWrap('Лінійка',
+      SERIES_TAXONOMY.map(s => checkboxRow('series', s, s)).join(''), true);
 
-      if (items.length === 0) {
-        container.innerHTML = '<p class="text-sm italic dpc-muted-text">Немає варіантів</p>';
-        return;
-      }
+    const conditionHTML = filterGroupWrap('Стан', [
+      checkboxRow('condition', 'new', 'Нові'),
+      checkboxRow('condition', 'used', 'Б/в (Trade IN)')
+    ].join(''), false);
 
-      container.innerHTML = items.map(item => `
-        <label class="flex items-center cursor-pointer p-2 rounded transition-colors dpc-filter-label">
-            <input type="checkbox" class="filter-checkbox form-checkbox rounded" name="${name}" value="${item}">
-            <span class="ml-2 text-sm font-medium">${item}</span>
-        </label>
-        `).join('');
+    const cpuHTML = filterGroupWrap('Процесор',
+      CPU_TAXONOMY.map(group => `
+        <div class="mb-2">
+          <div class="text-xs font-bold uppercase tracking-wide dpc-muted-text mb-1">${group.brand}</div>
+          ${group.families.map(fam => checkboxRow('cpuFamily', fam.key, fam.label)).join('')}
+        </div>
+      `).join('') + `
+        <div class="mt-2 pt-2" style="border-top:1px solid var(--glass-border)">
+          ${checkboxRow('cpuX3D', '1', "з 3D V-Cache (X3D)")}
+        </div>
+      `, false);
+
+    const gpuGroupsHTML = Object.keys(gpuByBrand).sort().map(brand => `
+        <div class="mb-2">
+          <div class="text-xs font-bold uppercase tracking-wide dpc-muted-text mb-1">${brand}</div>
+          ${Object.keys(gpuByBrand[brand]).sort().map(key => checkboxRow('gpuModel', key, gpuByBrand[brand][key])).join('')}
+        </div>
+      `).join('');
+    const gpuHTML = filterGroupWrap('Відеокарта',
+      gpuGroupsHTML || '<p class="text-sm italic dpc-muted-text">Немає варіантів</p>', false);
+
+    const vramHTML = filterGroupWrap("Відеопам'ять",
+      VRAM_BUCKETS.map(b => checkboxRow('vram', b.key, b.label)).join(''), false);
+
+    const ramHTML = filterGroupWrap('ОЗУ', `
+        <div class="text-xs font-bold uppercase tracking-wide dpc-muted-text mb-1">Тип</div>
+        ${RAM_TYPE_TAXONOMY.map(t => checkboxRow('ramType', t, t)).join('')}
+        <div class="text-xs font-bold uppercase tracking-wide dpc-muted-text mb-1 mt-2">Об'єм</div>
+        ${RAM_SIZE_TAXONOMY.map(s => checkboxRow('ramSize', String(s), s + ' ГБ')).join('')}
+      `, false);
+
+    const storageHTML = filterGroupWrap('Накопичувач',
+      STORAGE_BUCKETS.map(b => checkboxRow('storage', b.key, b.label)).join(''), false);
+
+    container.innerHTML = [priceHTML, seriesHTML, conditionHTML, cpuHTML, gpuHTML, vramHTML, ramHTML, storageHTML].join('') + `
+      <button onclick="window.resetFilters()" class="w-full py-2 px-4 rounded-lg transition-colors dpc-reset-btn">
+        Скинути фільтри
+      </button>`;
+
+    bindComputerFilterEvents(container);
+    updateComputerFilterCounts();
+    if (window.feather) feather.replace();
+  }
+
+  // Reusable across the desktop sidebar and the mobile sheet (which clones
+  // the sidebar's markup) — see openMobileFilters() in computers.html.
+  function bindComputerFilterEvents(scope) {
+    const isMobileScope = scope.id === 'mobile-filters-content';
+    scope.querySelectorAll('.filter-checkbox').forEach(cb => {
+      cb.addEventListener('change', function () {
+        if (isMobileScope) mirrorCheckboxToSidebar(cb.name, cb.value, cb.checked);
+        window.applyFilters();
+      });
+    });
+    scope.querySelectorAll('.dpc-price-input').forEach(inp => {
+      inp.addEventListener('change', onPriceInputChange);
+    });
+    scope.querySelectorAll('.dpc-price-range').forEach(range => {
+      range.addEventListener('input', onPriceRangeInput);
+      range.addEventListener('change', window.applyFilters);
+    });
+  }
+  window.bindComputerFilterEvents = bindComputerFilterEvents;
+
+  function mirrorCheckboxToSidebar(name, value, checked) {
+    const safeValue = value.replace(/"/g, '\\"');
+    const target = document.querySelector('#filters-sidebar-inner input[name="' + name + '"][value="' + safeValue + '"]');
+    if (target) target.checked = checked;
+  }
+
+  function getFilterRoot(el) {
+    return el.closest('#filters-sidebar-inner, #mobile-filters-content') || document;
+  }
+
+  function syncPriceControlsEverywhere(minV, maxV) {
+    document.querySelectorAll('.dpc-price-input-min, .dpc-price-range-min').forEach(el => { el.value = minV; });
+    document.querySelectorAll('.dpc-price-input-max, .dpc-price-range-max').forEach(el => { el.value = maxV; });
+  }
+
+  function onPriceRangeInput(e) {
+    const root = getFilterRoot(e.target);
+    let minV = Number(root.querySelector('.dpc-price-range-min').value);
+    let maxV = Number(root.querySelector('.dpc-price-range-max').value);
+    if (minV > maxV) {
+      if (e.target.classList.contains('dpc-price-range-min')) minV = maxV; else maxV = minV;
+    }
+    syncPriceControlsEverywhere(minV, maxV);
+  }
+
+  function onPriceInputChange(e) {
+    const root = getFilterRoot(e.target);
+    let minV = Number(root.querySelector('.dpc-price-input-min').value);
+    let maxV = Number(root.querySelector('.dpc-price-input-max').value);
+    if (Number.isNaN(minV)) minV = computerPriceBounds.min;
+    if (Number.isNaN(maxV)) maxV = computerPriceBounds.max;
+    minV = Math.max(computerPriceBounds.min, Math.min(minV, computerPriceBounds.max));
+    maxV = Math.max(computerPriceBounds.min, Math.min(maxV, computerPriceBounds.max));
+    if (minV > maxV) { const t = minV; minV = maxV; maxV = t; }
+    syncPriceControlsEverywhere(minV, maxV);
+    window.applyFilters();
+  }
+
+  // Updates the (count) next to each option and greys out zero-result
+  // options, without rebuilding the DOM (keeps checked state, <details>
+  // open/closed state, and scroll position intact across every filter tick).
+  function updateComputerFilterCounts() {
+    const computers = allProductsData.filter(p => !p.type || p.type === 'computers');
+
+    document.querySelectorAll('#filters-sidebar-inner, #mobile-filters-content').forEach(root => {
+      root.querySelectorAll('[data-filter-option]').forEach(optionEl => {
+        const group = optionEl.getAttribute('data-group');
+        const value = optionEl.getAttribute('data-value');
+        const scoped = applyComputerFilterGroups(computers, activeFilters, group);
+
+        const count = scoped.filter(p => {
+          const fields = getComputerFilterFields(p);
+          switch (group) {
+            case 'series': return fields.series === value;
+            case 'condition': return fields.condition === value;
+            case 'cpuFamily': return fields.cpuFamilyKey === value;
+            case 'cpuX3D': return fields.cpuX3D === true;
+            case 'gpuModel': return fields.gpuModelKey === value;
+            case 'vram': {
+              const bucket = VRAM_BUCKETS.find(b => b.key === value);
+              return !!bucket && fields.vram !== null && bucket.test(fields.vram);
+            }
+            case 'ramType': return fields.ramType === value;
+            case 'ramSize': return String(fields.ramSize) === value;
+            case 'storage': {
+              const bucket = STORAGE_BUCKETS.find(b => b.key === value);
+              return !!bucket && fields.storageSize !== null && bucket.test(fields.storageSize);
+            }
+            default: return false;
+          }
+        }).length;
+
+        const countEl = optionEl.querySelector('[data-count]');
+        if (countEl) countEl.textContent = '(' + count + ')';
+        const input = optionEl.querySelector('input');
+        if (input) {
+          const isChecked = input.checked;
+          optionEl.classList.toggle('dpc-filter-option-zero', count === 0 && !isChecked);
+          input.disabled = count === 0 && !isChecked;
+        }
+      });
+    });
+  }
+
+  const FILTER_GROUP_LABELS = {
+    series: 'Лінійка', condition: 'Стан', cpuFamily: 'Процесор',
+    gpuModel: 'Відеокарта', vram: "Відеопам'ять", ramType: 'ОЗУ', ramSize: 'ОЗУ', storage: 'Накопичувач'
+  };
+
+  function findOptionLabel(group, value) {
+    const safeValue = String(value).replace(/"/g, '\\"');
+    const el = document.querySelector('#filters-sidebar-inner [data-group="' + group + '"][data-value="' + safeValue + '"] .font-medium');
+    return el ? el.textContent : value;
+  }
+
+  // Active-filter chips above the grid + "Знайдено: N" count. Each chip
+  // removes just that one filter; "Скинути все" clears everything.
+  function renderActiveFilterChips() {
+    const container = document.getElementById('filter-chips');
+    if (!container || currentCategory !== 'computers') return;
+
+    const chips = [];
+    ['series', 'condition', 'cpuFamily', 'gpuModel', 'vram', 'ramType', 'ramSize', 'storage'].forEach(group => {
+      (activeFilters[group] || []).forEach(value => {
+        chips.push({ group, value, label: FILTER_GROUP_LABELS[group] + ': ' + findOptionLabel(group, value) });
+      });
+    });
+    if (activeFilters.cpuX3D) chips.push({ group: 'cpuX3D', value: '1', label: 'Процесор: з 3D V-Cache' });
+    if (activeFilters.priceMin != null || activeFilters.priceMax != null) {
+      const min = activeFilters.priceMin != null ? activeFilters.priceMin : computerPriceBounds.min;
+      const max = activeFilters.priceMax != null ? activeFilters.priceMax : computerPriceBounds.max;
+      chips.push({ group: 'price', value: 'price', label: 'Ціна: ' + money(min) + ' – ' + money(max) });
+    }
+
+    const resultCount = getFilteredAndSortedData().length;
+
+    if (!chips.length) {
+      container.innerHTML = `<div class="text-sm dpc-muted-text">Знайдено: ${resultCount}</div>`;
+      return;
+    }
+
+    container.innerHTML = `
+      <div class="flex flex-wrap items-center gap-2 mb-2">
+        ${chips.map(c => `
+          <button type="button" class="dpc-active-filter-chip" data-remove-group="${c.group}" data-remove-value="${c.value}">
+            ${c.label}
+            <i data-feather="x" class="w-3 h-3"></i>
+          </button>
+        `).join('')}
+        <button type="button" onclick="window.resetFilters()" class="dpc-reset-btn px-3 py-1.5 rounded-full text-xs">Скинути все</button>
+      </div>
+      <div class="text-sm dpc-muted-text">Знайдено: ${resultCount}</div>`;
+
+    container.querySelectorAll('[data-remove-group]').forEach(btn => {
+      btn.addEventListener('click', function () {
+        removeActiveFilter(btn.getAttribute('data-remove-group'), btn.getAttribute('data-remove-value'));
+      });
+    });
+    if (window.feather) feather.replace();
+  }
+
+  function removeActiveFilter(group, value) {
+    if (group === 'cpuX3D') {
+      document.querySelectorAll('#filters-sidebar-inner input[name="cpuX3D"]').forEach(cb => { cb.checked = false; });
+    } else if (group === 'price') {
+      syncPriceControlsEverywhere(computerPriceBounds.min, computerPriceBounds.max);
+    } else {
+      const safeValue = String(value).replace(/"/g, '\\"');
+      document.querySelectorAll('#filters-sidebar-inner input[name="' + group + '"][value="' + safeValue + '"]').forEach(cb => { cb.checked = false; });
+    }
+    window.applyFilters();
+  }
+
+  // --- URL STATE (shareable filter links, e.g. ?series=esport&gpu=rtx-5070-ti&price_max=80000) ---
+  const VRAM_URL_MAP = { '8': '8', '12': '12', '16+': '16plus' };
+  const VRAM_URL_MAP_REV = { '8': '8', '12': '12', '16plus': '16+' };
+
+  function cpuKeyToParam(key) { return key.replace(':', '-'); }
+  function paramToCpuKey(token) {
+    const i = token.indexOf('-');
+    return i === -1 ? token : token.slice(0, i) + ':' + token.slice(i + 1);
+  }
+
+  function syncURLFromState() {
+    if (currentCategory !== 'computers' || !window.history) return;
+    const params = new URLSearchParams();
+
+    if (activeFilters.series.length) params.set('series', activeFilters.series.map(s => s.toLowerCase()).join(','));
+    if (activeFilters.condition.length) params.set('condition', activeFilters.condition.join(','));
+    if (activeFilters.cpuFamily.length) params.set('cpu', activeFilters.cpuFamily.map(cpuKeyToParam).join(','));
+    if (activeFilters.cpuX3D) params.set('x3d', '1');
+    if (activeFilters.gpuModel.length) params.set('gpu', activeFilters.gpuModel.join(','));
+    if (activeFilters.vram.length) params.set('vram', activeFilters.vram.map(v => VRAM_URL_MAP[v] || v).join(','));
+    if (activeFilters.ramType.length) params.set('ram_type', activeFilters.ramType.map(t => t.toLowerCase()).join(','));
+    if (activeFilters.ramSize.length) params.set('ram_size', activeFilters.ramSize.join(','));
+    if (activeFilters.storage.length) params.set('storage', activeFilters.storage.join(','));
+    if (activeFilters.priceMin != null) params.set('price_min', activeFilters.priceMin);
+    if (activeFilters.priceMax != null) params.set('price_max', activeFilters.priceMax);
+    if (currentSort && currentSort !== 'default') params.set('sort', currentSort);
+
+    const qs = params.toString();
+    const newUrl = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
+    window.history.replaceState(null, '', newUrl);
+  }
+
+  function loadStateFromURL() {
+    if (currentCategory !== 'computers' || !window.location.search) return;
+    const params = new URLSearchParams(window.location.search);
+    const root = document.getElementById('filters-sidebar-inner');
+    if (!root) return;
+
+    const checkValues = (name, values, transform) => {
+      values.forEach(v => {
+        const val = transform ? transform(v) : v;
+        const safeVal = String(val).replace(/"/g, '\\"');
+        const cb = root.querySelector('input[name="' + name + '"][value="' + safeVal + '"]');
+        if (cb) cb.checked = true;
+      });
     };
 
-    // Render rigid groups
-    renderCheckboxes(buckets.cpu, 'filter-cpu', 'cpu', true);
-    renderCheckboxes(buckets.gpu, 'filter-gpu', 'gpu', true);
-    renderCheckboxes(buckets.ramType, 'filter-ram-type', 'ram-type', true);
-    renderCheckboxes(buckets.ramSize, 'filter-ram-size', 'ram-size', true);
-    renderCheckboxes(buckets.storage, 'filter-storage', 'storage', true);
+    if (params.get('series')) checkValues('series', params.get('series').split(','), s => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase());
+    if (params.get('condition')) checkValues('condition', params.get('condition').split(','));
+    if (params.get('cpu')) checkValues('cpuFamily', params.get('cpu').split(','), paramToCpuKey);
+    if (params.get('x3d') === '1') {
+      const cb = root.querySelector('input[name="cpuX3D"]');
+      if (cb) cb.checked = true;
+    }
+    if (params.get('gpu')) checkValues('gpuModel', params.get('gpu').split(','));
+    if (params.get('vram')) checkValues('vram', params.get('vram').split(','), v => VRAM_URL_MAP_REV[v] || v);
+    if (params.get('ram_type')) checkValues('ramType', params.get('ram_type').split(','), t => t.toUpperCase());
+    if (params.get('ram_size')) checkValues('ramSize', params.get('ram_size').split(','));
+    if (params.get('storage')) checkValues('storage', params.get('storage').split(','));
 
-    // Re-attach listeners
-    document.querySelectorAll('.filter-checkbox').forEach(cb => {
-      cb.addEventListener('change', window.applyFilters);
-    });
+    const priceMin = params.get('price_min');
+    const priceMax = params.get('price_max');
+    if (priceMin || priceMax) {
+      syncPriceControlsEverywhere(
+        priceMin ? Number(priceMin) : computerPriceBounds.min,
+        priceMax ? Number(priceMax) : computerPriceBounds.max
+      );
+    }
+
+    const sortParam = params.get('sort');
+    if (sortParam) {
+      const sortEl = document.getElementById('sort-select');
+      if (sortEl) sortEl.value = sortParam;
+    }
+
+    window.applyFilters();
   }
 
   function generatePeripheryFilters(data) {
@@ -726,89 +1212,15 @@
 
   function getFilteredAndSortedData() {
     let result = [...allProductsData];
-    
+
     // Filter by category (handle backward compatibility for products without type field)
     if (currentCategory === 'computers') {
       result = result.filter(p => !p.type || p.type === 'computers');
+      result = applyComputerFilterGroups(result, activeFilters, null);
     } else if (currentCategory === 'periphery') {
       result = result.filter(p => p.type === 'periphery');
-    }
-
-    // Helper: Normalize product text for searching
-    const getProductText = (p) => (p.title + " " + JSON.stringify(p.full_specs || {}) + " " + JSON.stringify(p.specs || {})).toLowerCase();
-    const norm = (str) => (str || "").toLowerCase().replace(/\s+/g, '');
-
-    // --- COMPUTER-SPECIFIC FILTERS ---
-    if (currentCategory === 'computers') {
-      // CPU Filter
-      if (activeFilters.cpu.length > 0) {
-        result = result.filter(p => {
-          const text = getProductText(p);
-          return activeFilters.cpu.some(cat => {
-            if (cat === 'Intel core i5') return text.match(/core\s*i5|i5-\d/);
-            if (cat === 'Intel core i7') return text.match(/core\s*i7|i7-\d/);
-            if (cat === 'Amd ryzen 5') return text.match(/ryzen\s*5/);
-            if (cat === 'Amd ryzen 7') return text.match(/ryzen\s*7/);
-            if (cat === 'Amd ryzen X3D') return text.match(/ryzen.*x3d|x3d/);
-            return false;
-          });
-        });
-      }
-
-      // GPU Filter
-      if (activeFilters.gpu.length > 0) {
-        result = result.filter(p => {
-          const text = getProductText(p);
-          return activeFilters.gpu.some(group => {
-            if (group === '10 Серія (10xx)') return text.match(/gtx\s*10\d\d|10\d\d/);
-            if (group === '20 Серія (20xx)') return text.match(/rtx\s*20\d\d|20\d\d/);
-            if (group === '30 Серія (30xx)') return text.match(/rtx\s*30\d\d|30\d\d/);
-            if (group === '40 Серія (40xx)') return text.match(/rtx\s*40\d\d|40\d\d/);
-            if (group === '50 Серія (50xx)') return text.match(/rtx\s*50\d\d|50\d\d/);
-            if (group === 'AMD Radeon') return text.match(/amd.*radeon|radeon.*rx|rx\s*\d{3,4}/);
-            return false;
-          });
-        });
-      }
-
-      // RAM Type
-      if (activeFilters.ramType.length > 0) {
-        result = result.filter(p => {
-          const text = getProductText(p);
-          return activeFilters.ramType.some(f => text.includes(f.toLowerCase()));
-        });
-      }
-
-      // RAM Size
-      if (activeFilters.ramSize.length > 0) {
-        result = result.filter(p => {
-          const text = getProductText(p);
-          return activeFilters.ramSize.some(f => {
-            return text.includes(f.toLowerCase());
-          });
-        });
-      }
-
-      // Storage
-      if (activeFilters.storage.length > 0) {
-        result = result.filter(p => {
-          const text = getProductText(p);
-          return activeFilters.storage.some(f => {
-            if (f === 'SSD M.2') return text.match(/ssd.*m\.?2|m\.?2.*ssd|nvme/);
-            if (f === 'SSD SATA') return text.match(/ssd.*sata|sata.*ssd/) && !text.match(/m\.?2/);
-            if (f === 'HDD') return text.match(/\bhdd\b|hard\s*disk/);
-            return false;
-          });
-        });
-      }
-    }
-
-    // --- PERIPHERY-SPECIFIC FILTERS ---
-    if (currentCategory === 'periphery') {
       if (activeFilters.peripheryType.length > 0) {
-        result = result.filter(p => {
-          return activeFilters.peripheryType.includes(p.subtype);
-        });
+        result = result.filter(p => activeFilters.peripheryType.includes(p.subtype));
       }
     }
 
@@ -823,19 +1235,39 @@
   }
 
   window.applyFilters = function () {
-    // Update state from DOM
-    activeFilters.cpu = Array.from(document.querySelectorAll('input[name="cpu"]:checked')).map(cb => cb.value);
-    activeFilters.ramType = Array.from(document.querySelectorAll('input[name="ram-type"]:checked')).map(cb => cb.value);
-    activeFilters.ramSize = Array.from(document.querySelectorAll('input[name="ram-size"]:checked')).map(cb => cb.value);
-    activeFilters.storage = Array.from(document.querySelectorAll('input[name="storage"]:checked')).map(cb => cb.value);
-    activeFilters.gpu = Array.from(document.querySelectorAll('input[name="gpu"]:checked')).map(cb => cb.value);
-    activeFilters.peripheryType = Array.from(document.querySelectorAll('input[name="periphery-type"]:checked')).map(cb => cb.value);
+    if (currentCategory === 'computers') {
+      const root = document.getElementById('filters-sidebar-inner') || document;
+      activeFilters.series = Array.from(root.querySelectorAll('input[name="series"]:checked')).map(cb => cb.value);
+      activeFilters.condition = Array.from(root.querySelectorAll('input[name="condition"]:checked')).map(cb => cb.value);
+      activeFilters.cpuFamily = Array.from(root.querySelectorAll('input[name="cpuFamily"]:checked')).map(cb => cb.value);
+      activeFilters.cpuX3D = !!root.querySelector('input[name="cpuX3D"]:checked');
+      activeFilters.gpuModel = Array.from(root.querySelectorAll('input[name="gpuModel"]:checked')).map(cb => cb.value);
+      activeFilters.vram = Array.from(root.querySelectorAll('input[name="vram"]:checked')).map(cb => cb.value);
+      activeFilters.ramType = Array.from(root.querySelectorAll('input[name="ramType"]:checked')).map(cb => cb.value);
+      activeFilters.ramSize = Array.from(root.querySelectorAll('input[name="ramSize"]:checked')).map(cb => cb.value);
+      activeFilters.storage = Array.from(root.querySelectorAll('input[name="storage"]:checked')).map(cb => cb.value);
+
+      const minInput = root.querySelector('.dpc-price-input-min');
+      const maxInput = root.querySelector('.dpc-price-input-max');
+      const minV = minInput ? Number(minInput.value) : computerPriceBounds.min;
+      const maxV = maxInput ? Number(maxInput.value) : computerPriceBounds.max;
+      activeFilters.priceMin = minV > computerPriceBounds.min ? minV : null;
+      activeFilters.priceMax = maxV < computerPriceBounds.max ? maxV : null;
+    } else {
+      activeFilters.peripheryType = Array.from(document.querySelectorAll('input[name="periphery-type"]:checked')).map(cb => cb.value);
+    }
 
     const sortEl = document.getElementById('sort-select');
     if (sortEl) currentSort = sortEl.value;
 
     currentPage = 1;
     renderApp();
+
+    if (currentCategory === 'computers') {
+      updateComputerFilterCounts();
+      renderActiveFilterChips();
+      syncURLFromState();
+    }
 
     // Scroll to top of catalog (optional)
     const cat = document.getElementById('catalog');
@@ -844,9 +1276,15 @@
 
   window.resetFilters = function () {
     document.querySelectorAll('.filter-checkbox').forEach(cb => cb.checked = false);
+    document.querySelectorAll('.dpc-price-input-min, .dpc-price-range-min').forEach(el => { el.value = computerPriceBounds.min; });
+    document.querySelectorAll('.dpc-price-input-max, .dpc-price-range-max').forEach(el => { el.value = computerPriceBounds.max; });
     const sortEl = document.getElementById('sort-select');
     if (sortEl) sortEl.value = 'default';
-    activeFilters = { cpu: [], ramType: [], ramSize: [], storage: [], gpu: [], peripheryType: [] };
+    activeFilters = {
+      series: [], condition: [], cpuFamily: [], cpuX3D: false, gpuModel: [], vram: [],
+      ramType: [], ramSize: [], storage: [], priceMin: null, priceMax: null,
+      peripheryType: []
+    };
     currentSort = 'default';
     window.applyFilters();
   };
@@ -1087,13 +1525,15 @@
       // Initial Render
       handleHashChange();
 
-      // Generate Filters
+      // Generate Filters (self-attaches its own change listeners)
       generateFilters(allProductsData);
 
-      // Initialize Filter Listeners
-      document.querySelectorAll('.filter-checkbox').forEach(cb => {
-        cb.addEventListener('change', window.applyFilters);
-      });
+      // A shared filter link (?series=esport&gpu=rtx-5070-ti&price_max=80000)
+      // applies on load and re-renders the catalog accordingly.
+      if (currentCategory === 'computers') {
+        loadStateFromURL();
+        renderActiveFilterChips();
+      }
 
     } catch (e) {
       console.error(e);

@@ -463,85 +463,14 @@
 
         <div class="flex flex-col md:flex-row gap-8">
 
-            <!-- Sidebar Filters (Desktop Only) -->
+            <!-- Sidebar Filters (Desktop Only); content is rendered by
+                 renderComputerFilters() in app.js — a single source so the
+                 mobile sheet (which clones this markup) always matches it. -->
 
             <aside id="filters-sidebar"
                 class="max-md:!hidden md:block w-full md:w-64 flex-shrink-0 dpc-filter-panel p-6 h-fit">
 
-                <div class="space-y-6">
-
-                    <!-- CPU Filter -->
-
-                    <div>
-
-                        <h3 class="font-bold mb-3 dpc-filter-heading">Процесор</h3>
-
-                        <div class="space-y-2" id="filter-cpu"></div>
-
-                    </div>
-
-
-
-                    <!-- RAM Type -->
-
-                    <div>
-
-                        <h3 class="font-bold mb-3 dpc-filter-heading">Тип ОЗУ</h3>
-
-                        <div class="space-y-2" id="filter-ram-type"></div>
-
-                    </div>
-
-
-
-                    <!-- RAM Size -->
-
-                    <div>
-
-                        <h3 class="font-bold mb-3 dpc-filter-heading">Об'єм ОЗУ</h3>
-
-                        <div class="space-y-2" id="filter-ram-size"></div>
-
-                    </div>
-
-
-
-                    <!-- Storage -->
-
-                    <div>
-
-                        <h3 class="font-bold mb-3 dpc-filter-heading">Накопичувач</h3>
-
-                        <div class="space-y-2" id="filter-storage"></div>
-
-                    </div>
-
-
-
-                    <!-- GPU -->
-
-                    <div>
-
-                        <h3 class="font-bold mb-3 dpc-filter-heading">Відеокарта</h3>
-
-                        <div class="space-y-2" id="filter-gpu"></div>
-
-                    </div>
-
-
-
-                    <!-- Reset Button -->
-
-                    <button onclick="window.resetFilters()"
-                        class="w-full py-2 px-4 rounded-lg transition-colors dpc-reset-btn">
-
-                        Скинути фільтри
-
-                    </button>
-
-
-
-                </div>
+                <div class="space-y-4" id="filters-sidebar-inner"></div>
 
             </aside>
 
@@ -550,6 +479,8 @@
             <!-- Product Grid -->
 
             <div class="flex-grow">
+
+                <div id="filter-chips" class="mb-4"></div>
 
                 <div id="catalog" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6"></div>
 
@@ -866,21 +797,38 @@
         function openMobileFilters() {
             const modal = document.getElementById('mobile-filter-modal');
             const mobileContent = document.getElementById('mobile-filters-content');
-            const desktopFilters = document.getElementById('filters-sidebar');
+            const desktopFilters = document.getElementById('filters-sidebar-inner');
 
             // Clone desktop filters to mobile modal
             if (desktopFilters && mobileContent) {
-                mobileContent.innerHTML = desktopFilters.querySelector('.space-y-6').innerHTML;
-                // Remove the desktop-only reset button from cloned content
-                const resetBtn = mobileContent.querySelector('button[onclick*="resetFilters"]');
-                if (resetBtn && !resetBtn.classList.contains('md:hidden')) {
-                    resetBtn.remove();
-                }
+                mobileContent.innerHTML = desktopFilters.innerHTML;
 
-                // Re-attach event listeners to cloned checkboxes
+                // innerHTML only copies markup, not live DOM state — copy the
+                // current checked/value state from the sidebar (the source of
+                // truth) so the sheet reflects whatever's already applied
+                // (e.g. from a shared filter link) instead of resetting.
                 mobileContent.querySelectorAll('.filter-checkbox').forEach(cb => {
-                    cb.addEventListener('change', window.applyFilters);
+                    const src = desktopFilters.querySelector('input[name="' + cb.name + '"][value="' + cb.value.replace(/"/g, '\\"') + '"]');
+                    if (src) cb.checked = src.checked;
                 });
+                ['dpc-price-input-min', 'dpc-price-input-max', 'dpc-price-range-min', 'dpc-price-range-max'].forEach(cls => {
+                    const src = desktopFilters.querySelector('.' + cls);
+                    const dst = mobileContent.querySelector('.' + cls);
+                    if (src && dst) dst.value = src.value;
+                });
+
+                // Remove the desktop-only reset button from cloned content
+                // (the mobile sheet has its own "Скинути" button in the footer)
+                const resetBtn = mobileContent.querySelector('button[onclick*="resetFilters"]');
+                if (resetBtn) resetBtn.remove();
+
+                if (window.bindComputerFilterEvents) {
+                    window.bindComputerFilterEvents(mobileContent);
+                } else {
+                    mobileContent.querySelectorAll('.filter-checkbox').forEach(cb => {
+                        cb.addEventListener('change', window.applyFilters);
+                    });
+                }
             }
 
             modal.classList.remove('hidden');
