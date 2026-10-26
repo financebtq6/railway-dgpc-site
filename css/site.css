@@ -267,20 +267,73 @@ footer .footer-link:hover { color: #fff; }
   border-radius: 0.75rem;
 }
 
+/* Shared by the sort <select> and the price "від/до" <input type="number">
+   fields. The Tailwind CDN's forms-plugin preflight (loaded via <script>
+   before this stylesheet) resets native form controls to a white
+   background at the same selector specificity as a single class, so the
+   background/border/color/font declarations here are !important —
+   otherwise which one wins is a coin-flip depending on Tailwind's own
+   injection order, which is exactly the bug this fixes. */
 .dpc-select {
-  background: var(--bg-panel);
-  border: 1px solid var(--glass-border);
-  color: var(--text-primary);
+  background: var(--bg-panel) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--text-primary) !important;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color-scheme: dark;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dpc-select:hover {
+  border-color: var(--accent-blue-bright) !important;
 }
 
 .dpc-select:focus {
-  border-color: var(--accent-blue-bright);
+  outline: none;
+  border-color: var(--accent-blue-bright) !important;
   box-shadow: 0 0 0 3px var(--glow-blue);
+}
+
+.dpc-select::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+.dpc-select::selection {
+  background: var(--accent-blue);
+  color: var(--text-primary);
 }
 
 .dpc-select option {
   background: var(--bg-panel);
   color: var(--text-primary);
+}
+
+/* Custom dropdown arrow replacing the native one appearance:none removed.
+   Baked-in hex matches --accent-blue-bright (#0ea5ff) — CSS custom
+   properties can't be read from inside a url()-embedded SVG. */
+select.dpc-select {
+  padding-right: 2.25rem !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%230ea5ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 7.5l5 5 5-5'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 0.65rem center !important;
+  background-size: 16px 16px !important;
+}
+
+/* Price number inputs: no native spinner arrows, readable text selection. */
+.dpc-price-input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.dpc-price-input[type='number']::-webkit-outer-spin-button,
+.dpc-price-input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* --- Product cards ---
@@ -1793,10 +1846,38 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
 }
 
 /* --- Price range: two overlapping native sliders; only the thumb is
-   clickable on each, so they behave like one dual-handle control. --- */
+   clickable on each, so together they behave like one dual-handle control.
+   Each slider's own ::-webkit-slider-runnable-track/::-moz-range-track MUST
+   stay transparent — giving either one an opaque background paints a
+   full-width bar over the OTHER slider's thumb (whichever slider is later
+   in the DOM paints on top), which is what made only one handle visible.
+   The visible groove and highlighted range are drawn separately by the
+   two plain divs below, sitting behind both inputs. --- */
 .dpc-price-slider-track {
   position: relative;
   height: 28px;
+}
+
+.dpc-price-slider-bg,
+.dpc-price-slider-fill {
+  position: absolute;
+  top: 50%;
+  height: 4px;
+  border-radius: 2px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.dpc-price-slider-bg {
+  left: 0;
+  width: 100%;
+  background: var(--glass-border);
+}
+
+.dpc-price-slider-fill {
+  background: var(--accent-blue-bright);
+  box-shadow: 0 0 6px var(--glow-blue);
+  /* left/width are set inline by syncPriceControlsEverywhere() in app.js */
 }
 
 .dpc-price-range {
@@ -1813,14 +1894,12 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
 
 .dpc-price-range::-webkit-slider-runnable-track {
   height: 4px;
-  background: var(--glass-border);
-  border-radius: 2px;
+  background: transparent;
 }
 
 .dpc-price-range::-moz-range-track {
   height: 4px;
-  background: var(--glass-border);
-  border-radius: 2px;
+  background: transparent;
 }
 
 .dpc-price-range::-webkit-slider-thumb {

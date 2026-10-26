@@ -561,6 +561,12 @@
       catalog.parentNode.insertBefore(nav, catalog.nextSibling);
     }
 
+    // A single page needs no pagination controls at all.
+    if (totalPages <= 1) {
+      nav.innerHTML = '';
+      return;
+    }
+
     // Logic for Previous/Next
     let navHTML = `<ul class="flex space-x-2">`;
     if (page > 1) {
@@ -857,6 +863,8 @@
         <summary class="font-bold dpc-filter-heading cursor-pointer">Ціна, ₴</summary>
         <div class="mt-3 space-y-3">
           <div class="dpc-price-slider-track">
+            <div class="dpc-price-slider-bg"></div>
+            <div class="dpc-price-slider-fill"></div>
             <input type="range" class="dpc-price-range dpc-price-range-min" min="${computerPriceBounds.min}" max="${computerPriceBounds.max}" value="${computerPriceBounds.min}" step="500" aria-label="Ціна від">
             <input type="range" class="dpc-price-range dpc-price-range-max" min="${computerPriceBounds.min}" max="${computerPriceBounds.max}" value="${computerPriceBounds.max}" step="500" aria-label="Ціна до">
           </div>
@@ -917,6 +925,7 @@
 
     bindComputerFilterEvents(container);
     updateComputerFilterCounts();
+    syncPriceControlsEverywhere(computerPriceBounds.min, computerPriceBounds.max);
     if (window.feather) feather.replace();
   }
 
@@ -953,6 +962,17 @@
   function syncPriceControlsEverywhere(minV, maxV) {
     document.querySelectorAll('.dpc-price-input-min, .dpc-price-range-min').forEach(el => { el.value = minV; });
     document.querySelectorAll('.dpc-price-input-max, .dpc-price-range-max').forEach(el => { el.value = maxV; });
+
+    // Drives the visual highlighted band between the two handles — purely
+    // decorative (the fill div has pointer-events:none), but without it
+    // the two overlapping range inputs just look like one thin line.
+    const span = computerPriceBounds.max - computerPriceBounds.min;
+    const leftPct = span > 0 ? ((minV - computerPriceBounds.min) / span) * 100 : 0;
+    const rightPct = span > 0 ? ((maxV - computerPriceBounds.min) / span) * 100 : 100;
+    document.querySelectorAll('.dpc-price-slider-fill').forEach(el => {
+      el.style.left = leftPct + '%';
+      el.style.width = Math.max(0, rightPct - leftPct) + '%';
+    });
   }
 
   function onPriceRangeInput(e) {
