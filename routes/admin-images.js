@@ -335,11 +335,29 @@ router.put('/:imageId/main', async (req, res) => {
   }
 });
 
+// Best-effort audit row for an R2 deletion decision. Never throws — a
+// missing image_deletion_log table (e.g. schema.sql not re-run yet after
+// this change) must not block the actual delete/skip it's recording.
+async function logImageDeletion(productId, imageUrl, r2Key, action, detail) {
+  try {
+    await db.query(
+      'INSERT INTO image_deletion_log (product_id, image_url, r2_key, action, detail) VALUES ($1, $2, $3, $4, $5)',
+      [productId, imageUrl, r2Key || null, action, detail || null]
+    );
+  } catch (logErr) {
+    console.warn('[admin-images] Failed to write image_deletion_log row (non-fatal):', logErr.message);
+  }
+}
+
 // DELETE /api/admin/products/:id/images/:imageId — requires
-// { confirm: true }. Always removes the product_images row; only deletes
-// the underlying object from R2 when the stored URL strictly maps to a
-// key under our R2_PUBLIC_BASE_URL + products/ prefix. Local git image
-// paths (./images/..., /images/..., images/...) are never touched on disk.
+// { confirm: true }. Always removes the product_images row. Only deletes
+// the underlying R2 object when (a) the stored URL strictly maps to a key
+// under our R2_PUBLIC_BASE_URL + products/ prefix, AND (b) no other
+// product_images row anywhere still points at that same url — e.g. a row
+// created by /duplicate before duplication started physically copying
+// files. Local git image paths (./images/..., /images/..., images/...)
+// are never touched on disk. Every R2 delete, skip, or failure is recorded
+// in image_deletion_log.
 router.delete('/:imageId', async (req, res) => {
   const productId = req.params.id;
   const imageId = Number(req.params.imageId);
@@ -353,6 +371,7 @@ router.delete('/:imageId', async (req, res) => {
     if (!(await productExists(productId))) return res.status(404).json({ error: 'Product not found' });
 
     let deletedUrl = null;
+    let stillReferencedElsewhere = false;
     const client = await db.pool.connect();
     try {
       await client.query('BEGIN');
@@ -368,6 +387,15 @@ router.delete('/:imageId', async (req, res) => {
       deletedUrl = targetResult.rows[0].url;
 
       await client.query('DELETE FROM product_images WHERE id = $1', [imageId]);
+
+      // Checked inside the same transaction, after the row is gone, so this
+      // reflects every OTHER row still pointing at the same file — the
+      // exact condition that must block the physical R2 delete below.
+      const refCheck = await client.query(
+        'SELECT 1 FROM product_images WHERE url = $1 LIMIT 1',
+        [deletedUrl]
+      );
+      stillReferencedElsewhere = refCheck.rows.length > 0;
 
       const remainingResult = await client.query(
         'SELECT id FROM product_images WHERE product_id = $1 ORDER BY sort_order ASC, id ASC FOR UPDATE',
@@ -393,11 +421,17 @@ router.delete('/:imageId', async (req, res) => {
     let warning = null;
     const r2Key = r2.deriveKeyFromPublicUrl(deletedUrl);
     if (r2Key) {
-      try {
-        await r2.deleteProductImage(r2Key);
-      } catch (r2Err) {
-        console.warn('[admin-images] DB row removed but R2 object delete failed; orphan left at key:', r2Key);
-        warning = 'Image record removed, but the stored file could not be deleted from R2 storage.';
+      if (stillReferencedElsewhere) {
+        await logImageDeletion(productId, deletedUrl, r2Key, 'skipped_shared', 'Another product still references this url; R2 object kept.');
+      } else {
+        try {
+          await r2.deleteProductImage(r2Key);
+          await logImageDeletion(productId, deletedUrl, r2Key, 'deleted_from_r2', null);
+        } catch (r2Err) {
+          console.warn('[admin-images] DB row removed but R2 object delete failed; orphan left at key:', r2Key);
+          await logImageDeletion(productId, deletedUrl, r2Key, 'delete_failed', r2Err.message);
+          warning = 'Image record removed, but the stored file could not be deleted from R2 storage.';
+        }
       }
     }
 

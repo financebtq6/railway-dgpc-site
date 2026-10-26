@@ -43,3 +43,19 @@ CREATE INDEX IF NOT EXISTS idx_products_subtype ON products (subtype);
 CREATE INDEX IF NOT EXISTS idx_products_sort_order ON products (sort_order);
 CREATE INDEX IF NOT EXISTS idx_product_images_product_id ON product_images (product_id);
 CREATE INDEX IF NOT EXISTS idx_product_images_sort_order ON product_images (sort_order);
+
+-- Audit trail for R2 object deletions (and skipped deletions where another
+-- product still references the same url). No FK to products(id) — this
+-- log must survive even if the product it refers to is later removed.
+CREATE TABLE IF NOT EXISTS image_deletion_log (
+  id BIGSERIAL PRIMARY KEY,
+  product_id TEXT NOT NULL,
+  image_url TEXT NOT NULL,
+  r2_key TEXT NULL,
+  action TEXT NOT NULL, -- 'deleted_from_r2' | 'skipped_shared' | 'delete_failed'
+  detail TEXT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_image_deletion_log_product_id ON image_deletion_log (product_id);
+CREATE INDEX IF NOT EXISTS idx_image_deletion_log_created_at ON image_deletion_log (created_at);

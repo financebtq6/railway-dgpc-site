@@ -296,6 +296,7 @@
         <img src="${img}"
              alt="${product.title}"
              class="w-20 h-20 object-cover rounded-lg cursor-pointer border-2 transition-all hover:border-blue-500 dpc-thumb ${idx === 0 ? 'border-blue-600' : 'border-gray-200'}"
+             onerror="window.dpcHandleImgError(this)"
              onclick="changeMainImage('${img}', this)"
              loading="lazy">
     `).join('') : '';
@@ -318,6 +319,7 @@
                      <!-- Main Image -->
                      <img id="mainProductImage" src="${mainImage}" alt="${product.title}"
                           class="relative z-10 max-h-[500px] w-full object-contain drop-shadow-2xl transition-all duration-300 mb-4 cursor-pointer hover:scale-105"
+                          onerror="window.dpcHandleImgError(this)"
                           data-images='${JSON.stringify(allImages)}' data-current-index="0">
 
                      <!-- Thumbnails -->
@@ -484,7 +486,7 @@
     <div class="rounded-lg overflow-hidden product-card transition-all duration-300 transform hover:-translate-y-2 h-full flex flex-col group">
         <div class="dpc-card-image-wrap">
             <a href="${detailPage}#product=${p.id}" class="block relative h-64 bg-black/20 flex items-center justify-center overflow-hidden cursor-pointer">
-                 <img src="${imageUrl}" alt="${title}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                 <img src="${imageUrl}" alt="${title}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="window.dpcHandleImgError(this)">
                  <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
             </a>
             <button type="button" onclick="window.dpcToggleFavorite(event, '${p.id}')" class="dpc-card-fav-btn ${isFav ? 'is-active' : ''}" data-product-id="${p.id}" aria-label="Обране" title="Обране">
@@ -1671,7 +1673,7 @@
         <div class="product-lightbox__stage">
           <button type="button" class="product-lightbox__close" data-lightbox-close aria-label="Закрити">&times;</button>
           <button type="button" class="product-lightbox__arrow product-lightbox__arrow--prev" data-lightbox-prev aria-label="Попереднє зображення">&#10094;</button>
-          <img class="product-lightbox__image" id="productLightboxImage" src="" alt="">
+          <img class="product-lightbox__image" id="productLightboxImage" src="" alt="" onerror="window.dpcHandleImgError(this)">
           <button type="button" class="product-lightbox__arrow product-lightbox__arrow--next" data-lightbox-next aria-label="Наступне зображення">&#10095;</button>
           <div class="product-lightbox__counter" id="productLightboxCounter"></div>
           <div class="product-lightbox__thumbs" id="productLightboxThumbs"></div>
@@ -1733,7 +1735,7 @@
     if (thumbsEl) {
       thumbsEl.hidden = total <= 1;
       thumbsEl.innerHTML = total > 1 ? lightboxImages.map((src, idx) => `
-          <img src="${src}" data-lightbox-thumb="${idx}" class="${idx === lightboxIndex ? 'is-active' : ''}" alt="Мініатюра ${idx + 1}" loading="lazy">
+          <img src="${src}" data-lightbox-thumb="${idx}" class="${idx === lightboxIndex ? 'is-active' : ''}" alt="Мініатюра ${idx + 1}" loading="lazy" onerror="window.dpcHandleImgError(this)">
         `).join('') : '';
     }
 

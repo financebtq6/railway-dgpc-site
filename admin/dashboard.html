@@ -97,14 +97,11 @@
     <form id="duplicate-form" class="admin-dialog-form">
       <h2 class="admin-dialog-title">Дублювати товар</h2>
       <p class="admin-field-hint">
-        Товар «<span id="duplicate-source-title"></span>» буде скопійовано разом із зображеннями під новим ID.
-        Копія отримає статус «Чернетка» і не буде позначена як топова, доки ви не опублікуєте її вручну.
+        Товар «<span id="duplicate-source-title"></span>» буде скопійовано разом із зображеннями (фото копіюються
+        фізично, оригінал не постраждає). Копія отримає новий унікальний ID автоматично, статус «Чернетка»,
+        і не буде позначена як топова, доки ви не опублікуєте її вручну.
       </p>
       <p class="admin-error" id="duplicate-dialog-error" hidden></p>
-      <div class="admin-field">
-        <label for="duplicate-new-id">Новий ID *</label>
-        <input type="text" id="duplicate-new-id" required>
-      </div>
       <div class="admin-field">
         <label for="duplicate-new-title">Нова назва *</label>
         <input type="text" id="duplicate-new-title" required>

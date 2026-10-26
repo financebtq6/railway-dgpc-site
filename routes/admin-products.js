@@ -2,8 +2,10 @@
 // admin/product-form.html. All routes require an authenticated admin
 // session (see middleware/require-admin.js) and never touch product_images
 // except in the list-images / duplicate-images paths documented below.
+const crypto = require('crypto');
 const express = require('express');
 const db = require('../db/client');
+const r2 = require('../storage/r2-client');
 const { serializeProduct } = require('../db/serialize-product');
 const { requireAdminApi } = require('../middleware/require-admin');
 
@@ -19,8 +21,25 @@ router.use(requireAdminApi);
 
 const ALLOWED_TYPES = ['computers', 'periphery'];
 const ALLOWED_STATUSES = ['draft', 'published', 'hidden'];
-const ID_PATTERN = /^[A-Za-z0-9_-]{1,100}$/;
 const DESC_PART_KEYS = ['descPartOne', 'descPartTwo', 'descPartThree', 'descPartFour', 'descPartFive', 'descPartSix'];
+
+// Product ids are generated here, never derived from the title and never
+// editable afterwards (PUT /products/:id rejects any attempt to change id).
+// Short random hex — independent of title, so renaming a product never
+// has any reason to touch its id, its R2 folder, or anything that
+// references it by id.
+function generateProductId() {
+  return crypto.randomBytes(5).toString('hex');
+}
+
+async function findFreeProductId(executor) {
+  for (let attempt = 0; attempt < 5; attempt++) {
+    const candidate = generateProductId();
+    const existing = await executor.query('SELECT 1 FROM products WHERE id = $1', [candidate]);
+    if (!existing.rows.length) return candidate;
+  }
+  throw new Error('Could not generate a free product id after 5 attempts');
+}
 
 const PRODUCT_COLUMNS = `id, type, subtype, title, price, old_price, image, description,
        desc_part_one, desc_part_two, desc_part_three, desc_part_four,
@@ -29,14 +48,6 @@ const PRODUCT_COLUMNS = `id, type, subtype, title, price, old_price, image, desc
 
 function isPlainObject(value) {
   return !!value && typeof value === 'object' && !Array.isArray(value);
-}
-
-// Shared by the create-payload id check and the duplicate newId check so
-// both enforce exactly the same rule.
-function validateIdValue(id) {
-  if (!id) return 'is required';
-  if (!ID_PATTERN.test(id)) return 'may only contain letters, numbers, "-" and "_" (max 100 characters)';
-  return null;
 }
 
 // Maps a `products` row (+ ordered image URLs) into the shape the admin UI
@@ -76,17 +87,12 @@ function rowToAdminProduct(row, images) {
 // Validates and normalizes an incoming create/update payload. Returns
 // { errors, data } — errors is a list of user-readable strings (never raw
 // SQL or driver output), data is ready to bind into parameterized queries.
-function validateProductPayload(body, { requireId }) {
+// id is never read from the payload here — see generateProductId/
+// findFreeProductId, which is the only thing that ever assigns a new id.
+function validateProductPayload(body) {
   const errors = [];
   const data = {};
   const src = body && typeof body === 'object' ? body : {};
-
-  if (requireId) {
-    const id = typeof src.id === 'string' ? src.id.trim() : '';
-    const idError = validateIdValue(id);
-    if (idError) errors.push(`id ${idError}`);
-    data.id = id;
-  }
 
   const title = typeof src.title === 'string' ? src.title.trim() : '';
   if (!title) errors.push('title is required');
@@ -156,22 +162,18 @@ function validateProductPayload(body, { requireId }) {
   return { errors, data };
 }
 
-// Validates the { newId, newTitle } body required by POST /duplicate.
-// newId follows the exact same rule as a create id — no fallback or
-// auto-generated id is ever produced.
+// Validates the { newTitle } body required by POST /duplicate. The new
+// product's id is always server-generated (see findFreeProductId) — any
+// id/newId the client sends is ignored.
 function validateDuplicatePayload(body) {
   const errors = [];
   const src = body && typeof body === 'object' ? body : {};
-
-  const newId = typeof src.newId === 'string' ? src.newId.trim() : '';
-  const idError = validateIdValue(newId);
-  if (idError) errors.push(`newId ${idError}`);
 
   const newTitle = typeof src.newTitle === 'string' ? src.newTitle.trim() : '';
   if (!newTitle) errors.push('newTitle is required');
   else if (newTitle.length > 300) errors.push('newTitle must be 300 characters or fewer');
 
-  return { errors, newId, newTitle };
+  return { errors, newTitle };
 }
 
 async function fetchImagesForIds(productIds) {
@@ -275,16 +277,17 @@ router.get('/products/:id', async (req, res) => {
   }
 });
 
-// POST /api/admin/products — create. id is chosen once here and is
-// immutable afterwards (PUT below never changes it). New products start
-// with no product_images rows; image upload is out of scope for Stage 4.
+// POST /api/admin/products — create. id is always generated here (see
+// generateProductId/findFreeProductId) — never taken from the request body
+// and never derived from the title — and is immutable afterwards (PUT below
+// never changes it). New products start with no product_images rows; image
+// upload is out of scope for Stage 4.
 router.post('/products', async (req, res) => {
   try {
-    const { errors, data } = validateProductPayload(req.body, { requireId: true });
+    const { errors, data } = validateProductPayload(req.body);
     if (errors.length) return res.status(400).json({ error: 'Validation failed', details: errors });
 
-    const existing = await db.query('SELECT 1 FROM products WHERE id = $1', [data.id]);
-    if (existing.rows.length) return res.status(409).json({ error: 'A product with this id already exists' });
+    const id = await findFreeProductId(db);
 
     const insertResult = await db.query(
       `INSERT INTO products (
@@ -299,7 +302,7 @@ router.post('/products', async (req, res) => {
          $18,$19,$20, NOW()
        ) RETURNING ${PRODUCT_COLUMNS}`,
       [
-        data.id, data.type, data.subtype, data.title, data.price, data.oldPrice, data.description,
+        id, data.type, data.subtype, data.title, data.price, data.oldPrice, data.description,
         data.descPartOne, data.descPartTwo, data.descPartThree, data.descPartFour,
         data.descPartFive, data.descPartSix, JSON.stringify(data.specs), JSON.stringify(data.full_specs),
         data.olx_url, data.prom_url,
@@ -327,7 +330,7 @@ router.put('/products/:id', async (req, res) => {
       return res.status(400).json({ error: 'Product id is immutable and cannot be changed via this request' });
     }
 
-    const { errors, data } = validateProductPayload(req.body, { requireId: false });
+    const { errors, data } = validateProductPayload(req.body);
     if (errors.length) return res.status(400).json({ error: 'Validation failed', details: errors });
 
     const updateResult = await db.query(
@@ -357,20 +360,41 @@ router.put('/products/:id', async (req, res) => {
   }
 });
 
-// POST /api/admin/products/:id/duplicate — copies the product row under an
-// admin-supplied newId/newTitle (never auto-generated or altered) and
-// copies product_images in their existing sort order. The copy always
-// starts as status='draft' and featured=false so it can't go live, or show
-// up in a featured slot, before an admin reviews it. Row insert and image
-// copies share one transaction (see try/catch below): if any image insert
-// fails, the whole transaction — including the new products row — rolls
-// back, so no partial duplicate is ever left behind.
+// POST /api/admin/products/:id/duplicate — copies the product row under a
+// server-generated id (see findFreeProductId; any id/newId in the body is
+// ignored) and a client-supplied newTitle. Every R2-backed image is
+// physically copied to a brand-new key under the new product's own id —
+// never reusing the source's url — so the copy never shares a physical
+// file with the source. (Reusing urls is what originally let deleting a
+// photo on one product silently delete it for every other product that
+// happened to share that same url — see routes/admin-images.js's DELETE
+// route.) Local git paths and external urls have nothing to physically
+// copy and are carried over as-is, same as before. The copy always starts
+// as status='draft' and featured=false so it can't go live, or show up in
+// a featured slot, before an admin reviews it.
+//
+// R2 copies happen inside the same DB transaction as the row inserts: if
+// anything fails partway, the transaction rolls back AND any R2 copies
+// already made this request are deleted again, so a failed duplicate never
+// leaves orphan files or a partial product behind.
 router.post('/products/:id/duplicate', async (req, res) => {
   const sourceId = req.params.id;
-  const { errors, newId, newTitle } = validateDuplicatePayload(req.body);
+  const { errors, newTitle } = validateDuplicatePayload(req.body);
   if (errors.length) return res.status(400).json({ error: 'Validation failed', details: errors });
 
   const client = await db.pool.connect();
+  const copiedR2Keys = [];
+
+  async function compensateR2Copies() {
+    for (const key of copiedR2Keys) {
+      try {
+        await r2.deleteProductImage(key);
+      } catch (compErr) {
+        console.warn('[admin-products] Compensating R2 delete failed; orphan object left at key:', key);
+      }
+    }
+  }
+
   try {
     await client.query('BEGIN');
 
@@ -381,11 +405,39 @@ router.post('/products/:id/duplicate', async (req, res) => {
     }
     const source = sourceResult.rows[0];
 
-    const existingResult = await client.query('SELECT 1 FROM products WHERE id = $1', [newId]);
-    if (existingResult.rows.length) {
-      await client.query('ROLLBACK');
-      return res.status(409).json({ error: 'A product with this id already exists' });
+    const newId = await findFreeProductId(client);
+
+    const sourceImages = await client.query(
+      'SELECT url, sort_order, is_main FROM product_images WHERE product_id = $1 ORDER BY sort_order ASC, id ASC',
+      [sourceId]
+    );
+
+    const newImages = [];
+    for (const img of sourceImages.rows) {
+      const sourceKey = r2.deriveKeyFromPublicUrl(img.url);
+      if (!sourceKey) {
+        newImages.push({ url: img.url, sort_order: img.sort_order, is_main: img.is_main });
+        continue;
+      }
+
+      let copied;
+      try {
+        copied = await r2.copyProductImage(sourceKey, newId);
+      } catch (copyErr) {
+        await client.query('ROLLBACK');
+        await compensateR2Copies();
+        console.error('[admin-products] Failed to copy image during duplicate:', copyErr.message);
+        return res.status(502).json({ error: 'Failed to copy one of the product images to storage' });
+      }
+      copiedR2Keys.push(copied.key);
+      newImages.push({ url: copied.url, sort_order: img.sort_order, is_main: img.is_main });
     }
+
+    // Mirrors whichever copied url replaced the source's `image` value;
+    // falls back to the source's value unchanged if it wasn't one of the
+    // images above (e.g. a local path, or simply null).
+    const sourceImageIndex = sourceImages.rows.findIndex((row) => row.url === source.image);
+    const newImageValue = sourceImageIndex !== -1 ? newImages[sourceImageIndex].url : source.image;
 
     const insertResult = await client.query(
       `INSERT INTO products (
@@ -400,7 +452,7 @@ router.post('/products/:id/duplicate', async (req, res) => {
          $19,$20,$21, NOW()
        ) RETURNING ${PRODUCT_COLUMNS}`,
       [
-        newId, source.type, source.subtype, newTitle, source.price, source.old_price, source.image, source.description,
+        newId, source.type, source.subtype, newTitle, source.price, source.old_price, newImageValue, source.description,
         source.desc_part_one, source.desc_part_two, source.desc_part_three, source.desc_part_four,
         source.desc_part_five, source.desc_part_six, JSON.stringify(source.specs), JSON.stringify(source.full_specs),
         source.olx_url, source.prom_url,
@@ -408,12 +460,7 @@ router.post('/products/:id/duplicate', async (req, res) => {
       ]
     );
 
-    const sourceImages = await client.query(
-      'SELECT url, sort_order, is_main FROM product_images WHERE product_id = $1 ORDER BY sort_order ASC, id ASC',
-      [sourceId]
-    );
-
-    for (const img of sourceImages.rows) {
+    for (const img of newImages) {
       await client.query(
         'INSERT INTO product_images (product_id, url, sort_order, is_main) VALUES ($1,$2,$3,$4)',
         [newId, img.url, img.sort_order, img.is_main]
@@ -422,9 +469,10 @@ router.post('/products/:id/duplicate', async (req, res) => {
 
     await client.query('COMMIT');
 
-    return res.status(201).json(rowToAdminProduct(insertResult.rows[0], sourceImages.rows.map((row) => row.url)));
+    return res.status(201).json(rowToAdminProduct(insertResult.rows[0], newImages.map((img) => img.url)));
   } catch (err) {
     await client.query('ROLLBACK').catch(() => {});
+    await compensateR2Copies();
     return sendServerError(res, 'duplicate product', err);
   } finally {
     client.release();

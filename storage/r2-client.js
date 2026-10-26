@@ -4,7 +4,7 @@
 // isR2Configured() returns false and callers (routes/admin-images.js) must
 // respond with a controlled 503 instead of throwing.
 const crypto = require('crypto');
-const { S3Client, PutObjectCommand, DeleteObjectCommand } = require('@aws-sdk/client-s3');
+const { S3Client, PutObjectCommand, DeleteObjectCommand, CopyObjectCommand } = require('@aws-sdk/client-s3');
 
 const R2_ACCOUNT_ID = process.env.R2_ACCOUNT_ID || '';
 const R2_ACCESS_KEY_ID = process.env.R2_ACCESS_KEY_ID || '';
@@ -58,15 +58,19 @@ function sanitizeProductIdForKey(productId) {
 // products/<product-id>/<timestamp>-<random>.<ext> — timestamp+random makes
 // collisions negligible, which is how "never overwrite an existing object"
 // is satisfied without a pre-check round trip to R2.
+function buildKeyWithExtension(productId, ext) {
+  const safeId = sanitizeProductIdForKey(productId);
+  const timestamp = Date.now();
+  const random = crypto.randomBytes(6).toString('hex');
+  return `products/${safeId}/${timestamp}-${random}.${ext}`;
+}
+
 function buildObjectKey(productId, mimeType) {
   const ext = MIME_EXTENSIONS[mimeType];
   if (!ext) {
     throw new Error(`Unsupported mime type for object key: ${mimeType}`);
   }
-  const safeId = sanitizeProductIdForKey(productId);
-  const timestamp = Date.now();
-  const random = crypto.randomBytes(6).toString('hex');
-  return `products/${safeId}/${timestamp}-${random}.${ext}`;
+  return buildKeyWithExtension(productId, ext);
 }
 
 function buildPublicUrl(key) {
@@ -108,6 +112,36 @@ async function uploadProductImage(productId, buffer, mimeType) {
   return { key, url: buildPublicUrl(key) };
 }
 
+// Physically duplicates an existing object under a brand-new key scoped to
+// destProductId, so the copy is a fully independent file — deleting either
+// the source or the copy afterwards never affects the other. Used by
+// routes/admin-products.js's duplicate endpoint instead of reusing the
+// source product's url, which is what originally let one product's image
+// delete silently wipe another product's photo (both pointed at the same
+// R2 object).
+async function copyProductImage(sourceKey, destProductId) {
+  if (!CONFIGURED || !client) {
+    const err = new Error('R2 is not configured');
+    err.code = 'R2_NOT_CONFIGURED';
+    throw err;
+  }
+  if (!sourceKey || !sourceKey.startsWith('products/')) {
+    throw new Error('Refusing to copy an object outside the products/ prefix');
+  }
+
+  const extMatch = sourceKey.match(/\.([a-z0-9]+)$/i);
+  const ext = extMatch ? extMatch[1].toLowerCase() : 'jpg';
+  const destKey = buildKeyWithExtension(destProductId, ext);
+
+  await client.send(new CopyObjectCommand({
+    Bucket: R2_BUCKET_NAME,
+    CopySource: `${encodeURIComponent(R2_BUCKET_NAME)}/${sourceKey.split('/').map(encodeURIComponent).join('/')}`,
+    Key: destKey
+  }));
+
+  return { key: destKey, url: buildPublicUrl(destKey) };
+}
+
 // Safe to call with any key derived via deriveKeyFromPublicUrl; never
 // called with an arbitrary external URL by routes/admin-images.js.
 async function deleteProductImage(key) {
@@ -129,6 +163,7 @@ async function deleteProductImage(key) {
 module.exports = {
   isR2Configured,
   uploadProductImage,
+  copyProductImage,
   deleteProductImage,
   buildObjectKey,
   deriveKeyFromPublicUrl,

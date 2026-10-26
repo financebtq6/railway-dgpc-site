@@ -1897,3 +1897,16 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
 .dpc-star-empty {
   color: rgba(148, 163, 184, 0.35);
 }
+
+/* =====================================================
+   Broken-image fallback (see js/img-fallback.js)
+   ===================================================== */
+
+.dpc-img-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+}

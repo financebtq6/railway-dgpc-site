@@ -192,16 +192,11 @@
       payload[DESC_PART_KEYS[idx]] = qs('#' + elId).value.trim();
     });
 
-    if (mode === 'create') {
-      payload.id = qs('#field-id').value.trim();
-    }
-
     return { payload: payload };
   }
 
   function validateClientSide(payload) {
     const errors = [];
-    if (mode === 'create' && !payload.id) errors.push('Вкажіть ID товару.');
     if (!payload.title) errors.push('Вкажіть назву товару.');
     if (payload.price === null || Number.isNaN(payload.price) || payload.price < 0) errors.push('Вкажіть коректну ціну.');
     if (!payload.description) errors.push('Вкажіть короткий опис.');
@@ -312,6 +307,7 @@
 
   function initCreateMode() {
     mode = 'create';
+    qs('#field-id').placeholder = 'буде згенеровано після збереження';
     qs('#field-status').value = 'draft';
     populateSpecsEditor({});
     showImageManagerForCreate();

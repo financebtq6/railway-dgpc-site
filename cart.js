@@ -168,7 +168,7 @@
     return (
       '<div class="rounded-lg overflow-hidden product-card h-full flex flex-col" data-product-id="' + p.id + '">' +
       '<a href="' + page + '#product=' + p.id + '" class="block relative h-56 bg-black/20 overflow-hidden">' +
-      '<img src="' + imageUrl + '" alt="' + p.title + '" class="h-full w-full object-cover">' +
+      '<img src="' + imageUrl + '" alt="' + p.title + '" class="h-full w-full object-cover" onerror="window.dpcHandleImgError(this)">' +
       '</a>' +
       '<div class="p-5 flex flex-col flex-grow">' +
       '<a href="' + page + '#product=' + p.id + '" class="block">' +
@@ -215,7 +215,7 @@
     return (
       '<div class="dpc-cart-row" data-product-id="' + p.id + '">' +
       '<a href="' + page + '#product=' + p.id + '" class="dpc-cart-row-image">' +
-      '<img src="' + imageUrl + '" alt="' + p.title + '">' +
+      '<img src="' + imageUrl + '" alt="' + p.title + '" onerror="window.dpcHandleImgError(this)">' +
       '</a>' +
       '<div class="dpc-cart-row-info">' +
       '<a href="' + page + '#product=' + p.id + '" class="dpc-card-title font-bold">' + p.title + '</a>' +

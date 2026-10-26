@@ -205,7 +205,6 @@
     duplicateSourceId = sourceId;
     hideDuplicateError();
     qs('#duplicate-source-title').textContent = sourceTitle || sourceId;
-    qs('#duplicate-new-id').value = '';
     qs('#duplicate-new-title').value = sourceTitle ? sourceTitle + ' (копія)' : '';
     const dialog = qs('#duplicate-dialog');
     if (typeof dialog.showModal === 'function') {
@@ -213,7 +212,7 @@
     } else {
       dialog.setAttribute('open', '');
     }
-    qs('#duplicate-new-id').focus();
+    qs('#duplicate-new-title').focus();
   }
 
   function closeDuplicateDialog() {
@@ -230,12 +229,9 @@
     e.preventDefault();
     hideDuplicateError();
 
-    const newId = qs('#duplicate-new-id').value.trim();
     const newTitle = qs('#duplicate-new-title').value.trim();
 
     const clientErrors = [];
-    if (!newId) clientErrors.push('Вкажіть новий ID.');
-    else if (!/^[A-Za-z0-9_-]{1,100}$/.test(newId)) clientErrors.push('ID може містити лише латинські літери, цифри, "-" та "_".');
     if (!newTitle) clientErrors.push('Вкажіть нову назву.');
 
     if (clientErrors.length) {
@@ -250,7 +246,7 @@
       method: 'POST',
       credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ newId: newId, newTitle: newTitle })
+      body: JSON.stringify({ newTitle: newTitle })
     })
       .then(function (res) {
         if (res.status === 401) { window.location.href = '/admin/login.html'; return Promise.reject(new Error('not authenticated')); }
