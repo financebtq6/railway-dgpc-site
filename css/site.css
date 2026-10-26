@@ -1989,3 +1989,328 @@ nav.bg-white.bg-opacity-90 #mobile-menu-button:hover {
   border: 1px solid var(--glass-border);
   color: var(--text-muted);
 }
+
+/* =====================================================
+   Shared "Наші платформи" block + footer (js/site-footer.js)
+   Rendered into #site-platforms-root / #site-footer-root on every page.
+   ===================================================== */
+
+.dpc-platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .dpc-platforms-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .dpc-platforms-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+.dpc-platform-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.75rem 1rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dpc-platform-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-blue-bright);
+  box-shadow: 0 10px 30px var(--glow-blue);
+}
+
+.dpc-platform-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  background: color-mix(in srgb, var(--platform-color) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--platform-color) 45%, transparent);
+  color: var(--platform-color);
+}
+
+.dpc-platform-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.dpc-platform-name {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.dpc-platform-sub {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* --- Footer --- */
+.dpc-footer {
+  background: var(--bg-panel);
+  border-top: 1px solid var(--glass-border);
+  padding-bottom: 2rem;
+}
+
+.dpc-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 48px;
+}
+
+@media (max-width: 1024px) {
+  .dpc-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .dpc-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand brand"
+      "clients buyers"
+      "contacts contacts";
+    text-align: center;
+    gap: 2rem 1rem;
+  }
+
+  .dpc-footer-col-brand { grid-area: brand; }
+  .dpc-footer-col:nth-of-type(2) { grid-area: clients; }
+  .dpc-footer-col:nth-of-type(3) { grid-area: buyers; }
+
+  .dpc-footer-col-contacts {
+    grid-area: contacts;
+    background: var(--glass-surface);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+
+  .dpc-social-row,
+  .dpc-footer-rating {
+    justify-content: center;
+  }
+
+  .dpc-footer-contact-list li {
+    justify-content: center;
+  }
+
+  .dpc-footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.dpc-footer-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.dpc-footer-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1.25rem;
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.dpc-footer-rating:hover {
+  border-color: var(--accent-blue-bright);
+}
+
+.dpc-footer-rating-icon {
+  color: var(--accent-green-bright);
+  flex-shrink: 0;
+}
+
+.dpc-footer-rating-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dpc-footer-rating-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.dpc-footer-rating-value {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.dpc-footer-rating-stars {
+  color: #facc15;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.dpc-footer-rating-count {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.dpc-social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.dpc-social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  color: var(--platform-color);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.dpc-social-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dpc-social-btn:hover {
+  border-color: var(--accent-blue-bright);
+  transform: translateY(-2px);
+}
+
+.dpc-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dpc-footer-links a {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.dpc-footer-links a:hover {
+  color: var(--text-primary);
+}
+
+.dpc-footer-phone {
+  display: inline-block;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.dpc-footer-phone:hover {
+  color: var(--accent-blue-bright);
+}
+
+.dpc-footer-phone-sub {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0.15rem 0 1.25rem;
+}
+
+.dpc-footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dpc-footer-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.dpc-footer-contact-list a,
+.dpc-footer-contact-list span {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.dpc-footer-contact-list a:hover {
+  color: var(--text-primary);
+}
+
+.dpc-footer-contact-icon {
+  flex-shrink: 0;
+  color: var(--accent-blue-bright);
+  margin-top: 0.1rem;
+}
+
+.dpc-footer-contact-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.dpc-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.dpc-footer-copy {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.dpc-footer-bottom-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.dpc-footer-bottom-links a {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.dpc-footer-bottom-links a:hover {
+  color: var(--text-primary);
+}
